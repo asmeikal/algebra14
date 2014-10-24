@@ -992,8 +992,545 @@ L'insieme delle parti di un insieme $\Gamma$ \`e in corrispondenza biunivoca con
 
 \vspace{5cm}
 
+\section{Numeri Naturali}
 
+$\mathbb{N}$ \`e l'insieme dei numeri naturali. Seguiamo la definizione di Peano.
+\begin{defn}[Numeri naturali]
+L'insieme dei numeri naturali \`e un insieme non vuoto tale che:
+\begin{description}
+  \item[N1\label{itm:N1}] Esiste una funzione $\sigma : \mathbb{N} \to \mathbb{N}$ (una endofunzione) iniettiva detta ``successore'';
+  \item[N2\label{itm:N2}] Esiste un elemento di $\mathbb{N}$ chiamato ``zero'' ed indicato con 0 tale che $0 \notin Im_{\sigma}$, ossia che non \`e il successore di nessun numero naturale;
+  \item[N3\label{itm:N3}] Principio di induzione: se $U \subseteq \mathbb{N}$ tale che:
+  \begin{itemize}
+    \item $0 \in U$;
+    \item $n \in U \Rightarrow \sigma(n) \in U$;
+  \end{itemize}
+  allora $U = \mathbb{N}$.
+\end{description}
+\end{defn}
+Dire che un insieme \`e finito vuol dire che ogni iniezione sull'insieme \`e pure una suriezione. Quindi da \ref{itm:N1} e \ref{itm:N2} segue che $\mathbb{N}$ \`e infinito, poich\'e esiste una funzione iniettiva che non \`e suriettiva.
+\begin{prop}
+L'immagine di $\sigma$ \`e tutto $\mathbb{N}$ escluso lo 0. $Im_{\sigma} = \mathbb{N} \setminus \{ 0 \}$
+\end{prop}
+\begin{proof}
+Sia $U = Im_{\sigma} \cup 0$. $U$ coincide con $\mathbb{N}$ per \ref{itm:N3}. Infatti:
+\begin{itemize}
+  \item $0 \in U$ per definizione di $U$;
+  \item $\forall \ n \in U, \ \sigma(n) \in U$.
+\end{itemize}
+\end{proof}
+L'elemento $\sigma(0)$ si indica con 1.
 
+\subsection{Iterazioni}
 
+Dato un insieme $A \neq \emptyset$ ed una funzione $f : A \to A$, con $\circ : A^A \times A^A \to A^A$ a indicare la composizione, $(A^A, \circ)$ \`e un monoide. Infatti $f \circ id_A = f = id_A \circ f$ \`e l'identit\`a.
 
+\begin{defn}[Iterazioni]
+Le iterazioni di $f : A \to A$ sono definite da:
+\begin{itemize}
+  \item $f^0 = id_A$;
+  \item $\forall \ n \in \mathbb{N}$ definisco $f^{\sigma(n)} = f \circ f^n$.
+\end{itemize}
+\end{defn}
+\begin{prop}
+$f^n$ \`e ben definita per ogni $n \in \mathbb{N}$.
+\end{prop}
+\begin{proof}
+Sia $U = \{ n \in \mathbb{N} : f^n $ \`e ben definita $\}$. $0 \in U$ per definizione. Se $n \in U f^n$ \`e definita, quindi \`e definita anche $f^{\sigma(n)} = f \circ f^n$, essendo $f$ data. Quindi $U = \mathbb{N}$.
+\end{proof}
+\subsubsection{Iterazioni di $\sigma$}
+\begin{defn}
+Definiamo le iterazioni di $\sigma$ come segue:
+\begin{itemize}
+  \item $\sigma^0 = id_{\mathbb{N}}$;
+  \item $\sigma^{\sigma(n)} = \sigma \circ \sigma^n \ \forall \ n \in \mathbb{N}$.
+\end{itemize}
+\end{defn}
 
+\begin{prop}\label{iterazione_nesima}
+$\sigma^n(0) = n$
+\end{prop}
+\begin{proof}
+Si dimostra per induzione. $U = \{ n \in \mathbb{N} : \sigma^n(0) = n \}$. 
+
+Lo 0 \`e gi\`a $\in U$, poich\'e $\sigma^0 (0) = id_{\mathbb{N}}(0) = 0$.
+
+$\sigma(n) \in U \Rightarrow \sigma^{\sigma(n)} (0) = \sigma(n)$. Per definizione delle iterazioni su $\sigma$, $\sigma^{\sigma(n)}(0) = \sigma \circ \sigma^{n} (0) = \sigma(n)$ poich\'e $\sigma(n) \in U$ per ipotesi.
+\end{proof}
+
+\begin{defn}[Potenze]
+Ho un monoide $(M, \cdot)$. $\cdot : M \times M \to M $ associativa e con unit\`a $1_M$. $a \in M$ $a \cdot 1_M = a = 1_M \cdot a$
+\begin{itemize}
+  \item $a^0 = 1_M$
+  \item $a^{\sigma(n)} = a \cdot a^n$
+\end{itemize}
+\textit{Sinceramente non ho capito che c'entra col resto e perch\'e sta qui.}
+\end{defn}
+
+\begin{prop}
+$\forall \ n \in \mathbb{N} \setminus \{ 0 \}$, $0 \notin Im_{\sigma^n}$, ossia lo 0 non \`e nell'immagine di nessuna iterazione di $\sigma$, ossia comunque itero $\sigma$ non ottengo mai lo 0.
+\end{prop}
+\begin{proof}
+Lo dimostriamo per assurdo. Supponiamo che $\exists \ n \in \mathbb{N}$ t.c. $0 \in Im_{\sigma^n} \Rightarrow \exists \ x \in \mathbb{N}$ t.c. $\sigma^n (x) = 0$. Poich\'e $n \neq 0 \Rightarrow n \in Im_{\sigma} = \mathbb{N} \setminus \{ 0 \} \Rightarrow n = \sigma(t)$. Quindi $0 = \sigma^n(x) = \sigma^{\sigma(t)}(x) = (\sigma \circ \sigma^t)(x) = \sigma(\sigma^t(x)) \Rightarrow 0 \in Im_{\sigma}$. Ho ottenuto l'assurdo con \ref{itm:N2}.
+\end{proof}
+Attraverso le tre propriet\`a che definiscono $\mathbb{N}$ si possono ritrovare tutte le altre propriet\`a di $\mathbb{N}$. 
+
+\subsection{Operazioni su $\mathbb{N}$}
+
+Possiamo definire il monoide $(\mathbb{N}, +)$. L'operazione di somma $+ : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ \`e definita cos\`i:
+\[
+m + n = \sigma^{n}(m)
+\]
+\textbf{Esercizio:} dimostare che \`e commutativa, e che quindi $\sigma^n(m) = \sigma^m(n)$. \vspace{5cm}
+
+L'elemento neutro \`e lo 0, infatti: $ m + 0 = \sigma^0 (m) = id_{\mathbb{N}} (m) = m $ e $ 0 + m = \sigma^m (0) = m $ per la proposizione \ref{iterazione_nesima}.
+
+\begin{oss}
+$n + 1 = n + \sigma(0) = \sigma(n)$
+\end{oss}
+
+L'operazione + \`e associativa, oltre che commutativa. 
+
+La somma in $\mathbb{N}$ ha la ``regola di cancellazione''. $\forall \ m, n, k \in \mathbb{N}$, se $m + k = n + k \Rightarrow m = n$. In realt\`a in $\mathbb{N}$ non esiste l'inverso, quindi questa regola ha poco a che vedere con la ``cancellazione''.
+
+Tutte le propriet\`a sono pi\`u facili da dimostare con il seguente lemma.
+\begin{lem}\label{successore_somma}
+\[
+m + \sigma (n) = \sigma(m + n)
+\]
+\end{lem}
+\begin{proof}
+\[
+m + \sigma(n) = \sigma^{\sigma(n)} (m) = (\sigma \circ \sigma^n) (m) = \sigma ( \sigma^n (m) ) = \sigma(m + n)
+\]
+\end{proof}
+\begin{defn}[Prodotto su $\mathbb{N}$]
+$(\mathbb{N}, \cdot)$ \`e un'operazione $\cdot : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ tale che $\forall \ (m, n) \in \mathbb{N} \times \mathbb{N}$, $m \cdot n = (\sigma^m)^n(0)$.
+\end{defn}
+Il prodotto \`e un'operazione associativa e distributiva.
+
+\begin{prop}
+$\sigma(0) = 1$ \`e l'elemento neutro.
+\end{prop}
+\begin{proof}
+$m \cdot \sigma(0) = (\sigma^m)^{\sigma(0)} (0) = \sigma^m (0) = m$
+
+$\sigma(0) \cdot m = (\sigma^{\sigma(0)})^m (0) = \sigma^m (0) = m$
+\end{proof}
+
+\begin{defn}[Legge di annullamento del prodotto]
+$m \cdot n = 0 \Leftrightarrow m = 0 $ oppure $ n = 0 $.
+\end{defn}
+
+Sul prodotto e sulla somma valgono le leggi distributive: $k \cdot (m+n) = k \cdot m + k \cdot n$ e, per commutativit\`a, $(m + n) \cdot k = m \cdot k + n \cdot k$.
+\begin{lem}\label{prodotto_successore}
+$m \cdot \sigma(n) = m \cdot n + m$
+\end{lem}
+\begin{proof}
+$m \cdot \sigma(n)$ per definizione del prodotto \`e $ (\sigma^m)^{\sigma(n)} (0) $ che per definizione di iterazione \`e $ (\sigma^m \circ (\sigma^m)^n) (0) = \sigma^m ( (\sigma^m)^n (0)) = \sigma^m (m \cdot n) = m \cdot n + m$
+\end{proof}
+Usando i due lemmi (lemma \ref{successore_somma} e lemma \ref{prodotto_successore}) si ottengono tutte le propriet\`a delle operazioni su $\mathbb{N}$.
+
+\subsection{Ordine naturale su $\mathbb{N}$}
+
+Possiamo definire una relazione d'ordine totale (e naturale) su $\mathbb{N}$ usando le due operazioni.
+\begin{defn}[Ordine naturale]
+$m \le n \Leftrightarrow \exists \ k \in \mathbb{N} : m + k = n$
+\end{defn}
+\`E una relazione d'ordine totale (ossia l'insieme $\mathbb{N}$ \`e linearmente ordinato), ossia $\forall \ m, n \in \mathbb{N}$ si ha che $ m \le n$ oppure $n \le m$.
+
+L'ordine naturale su $\mathbb{N}$ \`e un ``ordine buono'', ossia $(\mathbb{N}, \le)$ si dice ``bene ordinato''. Il ``buon ordinamento'' \`e equivalente all'assioma della scelta. Vuol dire che ogni suo sottoinsieme non vuoto ha un primo elemento. $\mathbb{R}$, ad esempio, non \`e bene ordinato.
+\begin{proof}[Dimostrazione del buon ordinamento]
+Dimostriamolo per assurdo. Suppongo esista un sottoinsieme $V \neq \emptyset$ che non ha un primo elemento. Ossia, $\forall \ v \in V \ \exists \ w \in V$ t.c. $w \le v$.
+
+Consideriamo la proposizione $P_n$: ``$\forall \ n \in \mathbb{N} \land \ \forall \ v \in V, \ n \le v$'' e dimostriamo che \`e vera $\forall \ n \in \mathbb{N}$.
+
+\`E vero con 0: $\forall \ v \in V 0 \le v$.
+
+Supponiamo sia vero per un $n \in \mathbb{N}$, e dimostriamo che \`e vero per $\sigma(n) $ che $ \forall \ v \in V \sigma(n) \le v$.
+
+Per ipotesi di induzione so che $\forall \ v \in V, \ n \le v \Rightarrow \exists \ x \in \mathbb{N}$ t.c. $n + x = v$, per la definizione di $\le$. $x$ non pu\`o essere 0, altrimenti $n$ sarebbe il primo elemento di $V$. Quindi $x \neq 0 \Rightarrow x = \sigma(y) = y + 1$, e quindi $n + y + 1 = v $ ma per la propriet\`a commutativa $n + 1 + y = v \Rightarrow \sigma(n) + y = v \Rightarrow \sigma(n) \le v$.
+
+Siamo giunti all'assurdo. Se prendo $n = v + 1$ avrei che $v + 1 \le v$.
+\end{proof}
+
+\subsection{Altre forme del principio di induzione}
+
+Se $n_0 \in U$ (base dell'induzione) e $n_0 \le n \in U \Rightarrow n+1 = \sigma(n) \in U$, quindi $U = \{ n \in \mathbb{N}, n_0  \le n\}$.
+
+$\mathbb{Z} \simeq \mathbb{N} \times \mathbb{N} / \rho$ con $(m, n) \rho (p, q) \Leftrightarrow m + q = n + p$. Le classi di equivalenza sono $[(0,0)], [(m,0)]$ e $[(0,m)]$. Posso chiamarle anche 0, $m$ e $-m$
+
+\section{Principi del calcolo combinatorio}
+
+Enumerare corrisponde a mettere in fila una serie di elementi. Contare significa saper stabilire una corrispondenza biunivoca fra due insiemi, ossia saper dire che gli elementi di $A$ sono quanti gli elementi di $B$, e saper poi dire che l'insieme $A$ ha $n$ elementi, ossia ha tanti elementi quanti sono i primi $n$ numeri naturali, ossia tanti quanti gli elementi di $[n] = \{1, 2, \dots n \}$.
+
+Dati due insiemi $A$ e $B$, se dico $A \rho B \Leftrightarrow $ esiste una corrispondenza biunivoca da $A$ a $B$, verifico che $\rho$ \`e:
+\begin{itemize}
+   \item riflessiva;
+   \item simmetrica;
+   \item transitiva.
+ \end{itemize} 
+ Quindi $\rho$ \`e una relazione di equivalenza nell'insieme degli insiemi finiti. $A \rho B \Leftrightarrow |A| = |B| \Leftrightarrow A \leftrightarrow B \Leftrightarrow$ la cardinalit\`a di $A$ \`e uguale alla cardinalit\`a di $B$.
+
+\subsection{Principio della somma}
+
+\begin{prop}[Principio della somma]
+ Dati $A$, $B$ tali che $A \cap B = \emptyset$, segue che $|A \cup B| = |A| + |B|$.
+\end{prop}
+\begin{proof}
+$|A| = m$, $|B| = n$. Devo quindi poter realizzare una corrispondenza biunivoca $F$ fra $|A \cup B|$ e $[m + n]$. Ossia, dati $A = \{ a_1, a_2, \dots a_m\}$ e $B = \{ b_1, b_2 \dots b_n\}$, ho che $F(a_i) = i$ e $F(b_i) = m + i$.
+\end{proof}
+
+\`E possibile generalizzare la regola della somma.
+\begin{prop}[Principio della somma 2]
+Dati $t$ insiemi $A_1, \dots A_t$ tali che $A_i \cap A_j = \emptyset$ se $i \neq j$, ho che:
+\[
+\left| \bigcup_{i = 1}^{t} A_i\right| = \sum_{i = 1}^{t} |A_i|
+\]
+\end{prop}
+
+$+ \mapsto A \dotcup B$ con $ A \cap B = \emptyset$.
+
+\subsection{Principio del prodotto}
+
+\begin{prop}[Principio del prodotto]
+Dati $A$, $B$, ho che $|A \times B| = |A| \cdot |B|$.
+\end{prop}
+\begin{proof}
+C'\`e una corrispondenza biunivoca $F : (A \times B) \to [m \cdot n]$. Quanto vale $F (a_i, b_j)$? In generale, contando con il metodo della diagonale (figura \ref{fig:metodo_diagonale}), ho che sulla diagonale $k$-esima trovo tutte le coppie tali per cui $i + j = k + 1$.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    % graph options
+]
+\addplot[dashed,-] coordinates {(0,0) (0,5)};
+\addplot[dashed,-] coordinates {(1,0) (1,5)};
+\addplot[dashed,-] coordinates {(2,0) (2,5)};
+\addplot[dashed,-] coordinates {(3,0) (3,5)};
+\addplot[dashed,-] coordinates {(4,0) (4,5)};
+\addplot[dashed,-] coordinates {(5,0) (5,5)};
+\addplot[dashed,-] coordinates {(0,0) (5,0)};
+\addplot[dashed,-] coordinates {(0,1) (5,1)};
+\addplot[dashed,-] coordinates {(0,2) (5,2)};
+\addplot[dashed,-] coordinates {(0,3) (5,3)};
+\addplot[dashed,-] coordinates {(0,4) (5,4)};
+\addplot[dashed,-] coordinates {(0,5) (5,5)};
+\addplot[very thick, -] coordinates {(1,1) (2,1)};
+\addplot[very thick, -] coordinates {(2,1) (1,2)};
+\addplot[very thick, -] coordinates {(1,2) (1,3)};
+\addplot[very thick, -] coordinates {(1,3) (3,1)};
+\addplot[very thick, -] coordinates {(3,1) (4,1)};
+\addplot[very thick, -] coordinates {(4,1) (1,4)};
+\addplot[very thick, -] coordinates {(1,4) (1,5)};
+\addplot[very thick, -] coordinates {(1,5) (5,1)};
+\addplot[very thick, -] coordinates {(5,1) (5,2)};
+\addplot[very thick, -] coordinates {(5,2) (2,5)};
+\addplot[very thick, -] coordinates {(2,5) (3,5)};
+\addplot[very thick, -] coordinates {(3,5) (5,3)};
+\addplot[very thick, -] coordinates {(5,3) (5,4)};
+\addplot[very thick, -] coordinates {(5,4) (4,5)};
+\addplot[very thick, -] coordinates {(4,5) (5,5)};
+\end{axis}
+\end{tikzpicture}
+\caption{\label{fig:metodo_diagonale}Metodo della diagonale}
+\end{figure}
+\end{proof}
+
+\`E possibile generalizzare la regola del prodotto.
+\begin{prop}[Principio del prodotto 2]
+Se prendo un insieme finito di insiemi $A_1, \dots a_t$, ho che:
+\[
+\left| A_1 \times \dots \times A_t \right| = |A_1| \cdot \ldots \cdot |A_t|
+\]
+\end{prop}
+\begin{proof}
+Si dimostra per induzione su $t$.
+\end{proof}
+
+\begin{defn}[Principio del prodotto 3]
+Dato un sottoinsieme $S$ del prodotto cartesiano $X^n$, $S \subseteq X^n$, ossia un insieme di $n$-uple, se verifico che:
+\begin{itemize}
+  \item al primo posto di una $n$-upla in $S$ ci sono $i_1$ elementi;
+  \item $\forall \ j = 2 \dots n-1$ ci sono $i_j$ $n$-uple che hanno le prime $j-1$ coordinate uguali;
+\end{itemize}
+allora $|S| = i_1 \cdot i_2 \cdot \dots i_n$.
+\end{defn}
+
+\subsection{Dimostrazioni biettive}
+
+Se voglio dimostrare che $a = b$, posso trovare due insiemi $A$ e $B$ tali che $|A| = a$ e $|B| = b$, e dimostrare che sono in biezione.
+
+Due insiemi con intersezione disgiunta possono essere i due blocchi di una partizione con due soli blocchi.
+
+\begin{prop}
+Dato l'insieme delle funzioni da $A$ in $R$ $R^A = \{ f : A \to R\}$, se $|A| = n$ e $|R| = r$, allora $|R^A| = r^n = |R^n|$. Quindi esiste una biezione fra $R^A$ e $R^n$. $R^n$ \`e il prodotto di $R$ con s\'e stesso $n$ volte. Quindi le funzioni da $A$ in $R$ sono quante le $R$-uple di $n$ elementi.
+\end{prop}
+\begin{proof}
+Data una funzione $f : A \to R$, definisco $F : R^A \to R^n$ tale che $(f, A = \{ a_1, \dots a_n\}) \mapsto (f(a_1), \dots f(a_n))$, che dal punto di vista dell'occupazione \`e:
+
+\begin{tabular}{cccc}
+$a_1$ & $a_2$ & $\dots$ & $a_n$ \\
+$f(a_1)$ & $f(a_2)$ & $\dots$ & $f(a_n)$ 
+\end{tabular}
+
+Ossia, ad ogni funzione $f : A \to R$ associo la $n$-upla dei valori di $f$ ordinata seguendo un ordine lineare degli elementi di $A$.
+\end{proof}
+\begin{prop}
+Dati $A, B$ disgiunti, $R^A \times R^B$ ha cardinalit\`a $|R^A \times R^B| = |R^{A \cup B}|$, dato che $|R^A| = r^n$ e $|R^B| = r^m$ e che quindi $r^n \cdot r^m = r^{n + m}$.
+
+Quindi $|R^A \times R^B| $ e $ |R^{A \cup B}|$ sono in corrispondenza biunivoca.
+\end{prop}
+\begin{proof}
+Esiste una biezione $F : R^A \times R^B \to R^{A \cup B}$. Questa funzione prende una coppia di funzioni e ne restituisce una terza $(f : A \to R, g: B \to R) \mapsto h : (A \cup B) \to R$ definita come, $\forall \ x \in A \cup B$:
+\[
+h(x) = 
+\begin{cases}
+f(x) \text{ se } x \in A\\
+g(x) \text{ se } x \in B
+\end{cases}
+\]
+\end{proof}
+Dati due insiemi $R$, $S$ ed un insieme $A$:
+\[
+|R^A \times S^A| = |(R \times S)^A|
+\]
+\[
+|(R^A)^B| = |R^{A \cdot B}|
+\]
+\textbf{Esercizio:} definire la biezione che dimostra le due propriet\`a precedenti.
+\vspace{5cm}
+
+La maggior parte dei numeri positivi che compaiono in combinatoria hanno un'interpretazione in teoria degli insiemi.
+
+\subsection{Fattoriale decrescente}
+
+\begin{defn}
+Il fattoriale decrescente \`e una successione:
+\[
+\{[r]_n\}_{n \in \mathbb{N}} \text{ : }
+\begin{cases}
+[r]_0 = 1 \\
+[r]_{n+1} = [r]_n \cdot (r - n)
+\end{cases}
+\]
+\end{defn}
+\`E evidente che:
+\[
+[r]_n = \frac{r!}{(r-n)!}
+\]
+
+\begin{oss}
+$[r]_n = 0$ se $r < n$. Inoltre, $[r]_n = n!$ se $r = n$.
+\end{oss}
+
+\begin{prop}
+Dato $In(A,R)$, l'insieme delle funzioni iniettive da $A$ in $R$, se $|A| = n$ e $|R| = r$, allora $|In (A,R)| = [r]_n$.
+
+In altre parole, il fattoriale decrescente $[r]_n$ corrisponde all'insieme delle funzioni iniettive da $A$ in $R$ $In(A,R)$.
+
+\[
+\left| In(A,R) \right| = \left| In (A- \{x\},R) \right| \cdot \left| R - Im_f \right|
+\]
+
+\end{prop}
+\begin{proof}
+Ricordiamo la definizione di iniettivit\`a: $\forall \ x, y \in A$ se $f(x) = f(y) \Rightarrow x = y$, $f$ \`e iniettiva.
+
+Dimostriamo ora la proposizione per induzione. Se $A = \emptyset$, $|In(\emptyset, R)| = 1$.
+
+Supponendo di aver calcolato il numero di funzioni inettive da un insieme con $n$ elementi ad un insieme con $r$ elementi (ossia $[r]_n$), dobbiamo determinare $[r]_{n+1}$.
+
+Se $|A| = (n+1)$, sapendo che tutti gli elementi di $A$ sono distinti, prendo $x \in A$.
+
+Data una funzione $f : A \to R$, questa individua una coppia $(f(x), f^{-} : A \setminus \{ x \} \to R)$ dove $f^{-}$ \`e definita come $f$ ossia $f^{-} (a) = f(a)$.
+
+In quanti modi si pu\`o scegliere $f(x)$? In $|R \setminus Im_{f^-}|$ modi (ossia, $r - n$). Le funzioni iniettive da $A \setminus \{ x \}$ in $R$ sono $[r]_n$ per definizione, quindi per il principio del prodotto il numero di coppie che posso creare sono $[r]_{n+1} = [r]_n \cdot (r - n)$.
+\end{proof}
+
+\begin{prop}
+Sappiamo che $|\mathbb{P}(A)| = |2^A| = 2^n$ con $|A| = n$. Quanti sono i sottoinsiemi pari di $A$, ossia $S \subseteq A $ t.c. $|S| = 2k$?
+
+Gli insiemi di cardinalit\`a pari sono tanti quanti quelli di cardinalit\`a dispari, quindi sono $2^{n-1}$.
+\end{prop}
+\begin{proof}
+So che $2^{n-1} = |\mathbb{P}(A \setminus \{x\})|$, quindi l'insieme dei sottoinsiemi pari di $A$ \`e in biezione con l'insieme delle parti di $A$ a cui ho tolto un elemento. Indicando con $P$ l'insieme dei sottoinsiemi pari di $A$, ho una biezione $F : \mathbb{P}(A \setminus \{x\}) \to P$:
+\[
+F(S) = 
+\begin{cases}
+S \text{ se } S \text{ \`e pari} \\
+S \cup \{ x \} \text{ se } S \text{ \`e dispari} \\
+\end{cases}
+\]
+\end{proof}
+
+\subsection{Coefficienti  binomiali}
+Indichiamo con $\binom{n}{k}$ il numero di sottoinsiemi con $k$ elementi di un insieme con $n$ elementi. Vediamo subito che $\binom{n}{k}$ per $k > n$ \`e 0. $\binom{n}{0} = 1$, $\binom{n}{1} = n$. Inoltre $\binom{n}{k} = \binom{n}{n-k}$, ossia il numero di sottoinsiemi con $k$ elementi \`e uguale al numero dei loro insiemi complementari.
+\begin{prop}[Definizione ricorsiva di Pascal dei coefficienti binomiali]
+\[
+\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}
+\]
+$\binom{n}{k}$ \`e il numero di sottoinsiemi con $k$ elementi, indicato con $\mathbb{P}_{k}(A)$. Lo divido in due sottoinsiemi disgiunti, con cardinalit\`a rispettivamente $\binom{n-1}{k}$ e $\binom{n-1}{k-1}$.
+
+Fissato un $x \in A$, $\binom{n-1}{k}$ \`e l'insieme di tutti i sottoinsiemi con $k$ elementi di $A \setminus \{ x \}$, $\binom{n-1}{k-1}$ \`e l'insieme di tutti i sottoinsiemi con $k - 1$ elementi di $A \setminus \{x \}$.
+\end{prop}
+\begin{proof}
+$\forall \ S \subseteq A$ con $|S| = k$ e $x \in A$ ho due casi: $x \in S$ o $x \notin S$. Definisco la biezione $F : \mathbb{P}_k (A) \to \mathbb{P}_k (A \setminus \{ x \}) \cup \mathbb{P}_{k - 1} (A \setminus \{ x \})$ come:
+\[
+F (S) =
+\begin{cases}
+S \text{ se } x \notin S \\
+S \setminus \{ x \} \text{ se } x \in S
+\end{cases}
+\]
+Ho quindi che $\mathbb{P}_k (A) = X \cup Y$ con $X = \{ S \subseteq A : |S| = k \land x \in S \}$ e $Y = \{ S \subseteq A : |S| = k \land x \notin S\}$. Se tolgo $x$ da $A$, le cardinalit\`a dei due insiemi diventano $|X| = \binom{n - 1}{k - 1}$ e $|Y| = \binom{n - 1}{k}$.
+\end{proof}
+
+% TODO che vuol dire questo
+% $\{ r^n \}_{n \in \mathbb{N}} \leftrightarrow \{ f : A_n \to R\} = \{ |R^{A_n}| \}$ con $|A_n| = n$ e $|R| = r$.
+
+\begin{prop}
+Quanto valgono i coefficienti binomiali? Diciamo questo:
+\[
+[r]_n = n! \cdot \binom{r}{n}
+\]
+da cui segue che:
+\[
+\binom{r}{n} = \frac{[r]_n}{n!} = \frac{r!}{n! \cdot {r-n}!}
+\]
+Stiamo dicendo quindi che $[r]_n$ (il numero di funzioni iniettive da $A$ in $R$ con $|A| = n$ e $|R| = r$) \`e uguale alla cardinalit\`a di un insieme di coppie $|E|$. $n!$ \`e il numero di elementi al secondo posto della coppia, $\binom{r}{n}$ \`e il numero di elementi al primo posto.
+\end{prop}
+\begin{proof}
+$\binom{r}{n}$ \`e il numero di sottoinsiemi con $n$ elementi di un insieme con $r$ elementi.
+\[
+E = \{ (S, ?) \text{ con } |S| = n \land S \subseteq R \}
+\]
+Abbiamo visto che ogni funzione $f : A \to R$ individua un'insieme immagine $Im_f \subseteq R$ e una partizione $\ker f \in \Pi(A)$, e che questi due insiemi sono in corrispondenza biunivoca $|Im_f| = |\ker f |$.
+
+Se prendo una funzione iniettiva, il nucleo della funzione \`e la partizione pi\`u piccola, avendo per elementi le classi rappresentate dai singoli elementi del dominio. Quante sono le iniezioni $In(A, S)$ con $S = Im_f$? $[n]_n = n!$
+
+Quindi, $ E = \{ (S, \bar f : A \to S) $, con $ |S| = n \land S \subseteq R $ e $\bar f : A \to S$ insieme delle biezioni da $A$ in $S$ $\}$
+\end{proof}
+
+\subsection{Teorema binomiale}
+\begin{prop}[Teorema binomiale\label{teorema_binomiale}]
+\[
+\forall \ n \in \mathbb{N} \text{ con } n > 0 \ 
+(x + y)^n = 
+\sum_{k = 0}^n \binom{n}{k} \ x^k y^{n - k}
+\]
+\end{prop}
+Si possono dimostrare anche identit\`a polinomiali con le biezioni. Quando sono uguali due polinomi? Quando nel loro sviluppo hanno tutti i coefficienti uguali.
+\begin{theorem}[Identit\`a polinomiale]
+Dati due polinomi in $n$ variabili $p(x_1, \ \dots \ x_n)$ e $q(x_1, \ \dots \ x_n)$, sono uguali se coincidono su insiemi infiniti, ossia se $\forall \ (a_1, \ \dots \ a_n) \in I^n$ con $I \subseteq \mathbb{R} $ e $ |I| = \infty$, $p(a_1, \ \dots \ a_n) = q(a_1, \ \dots \ a_n)$, ossia i due polinomi coincidono ($p = q$).
+\end{theorem}
+Al posto di $x$ e di $y$ posso quindi mettere due interi $r, s \in \mathbb{N}$, e dimostrare che $(r + s)^n = \sum_{k = 0}^n \binom{n}{k} r^k s^{n - k}$.
+\begin{proof}
+Il membro sinistro della proposizione equivalente alla definizione \ref{teorema_binomiale}, $(r + s)^n$, \`e la cardinalit\`a dell'insieme di funzioni da un insieme con $n$ elementi ad uno con cardinalit\`a $r + s$, ossia all'unione disgiunta di due insiemi con cardinalit\`a rispettivamente $r$ e $s$. Dicendo quindi che gli insiemi $A$, $R$ e $S$ hanno cardinalit\`a $|A| = n$, $|R| = r $ e $|S| = s$, e che $T = R \cup S$, ho che $(r + s)^n = \left| T^A \right|$.
+
+Il membro destro della proposizione \`e una somma, quindi corrisponde all'unione disgiunta di $n$ insiemi.
+\[
+\left| \bigsqcup_{k = 0}^{n} E_k \right| = \sum_{k = 0}^{n} \left| E_k \right|
+\text{ con }
+|E_k| = \binom{n}{k} \ r^k s^{n - k}
+\]
+Devo definire l'insieme $E_k$. Per il principio del prodotto, \`e una terna:
+\[
+\left( X, \ f_k : X \to R, \ g_{(n - k)} : (A \setminus X) \to S \right)
+\]
+con $X \subseteq A$ tale che $|X| = k$, $f_k$ l'insieme delle funzioni da $X$ in $R$, e $g_{(n-k)}$ l'insieme delle funzioni da $A \setminus X$ (ossia il complementare di $X$) in $S$.
+
+Dobbiamo mostrare ora che $T^A \leftrightarrow \bigsqcup E_k$, ossia che c'\`e una biezione. La funzione biettiva $F$ associa ad una funzione $f : A \to T$ una terna:
+\[
+\left( f^{-1} (R), \ f_k : X \to R, \ g_{(n - k)} : (A \setminus X) \to S \right) \in E_k
+\]
+con $f^{-1}(R) = X$ a indicare la controimmagine di $R$ e $|f^{-1}(R)| = k$.
+\end{proof}
+
+\subsection{Coefficienti multinomiali}
+
+Il coefficiente multinomiale, indicato con:
+\[
+\binom{n}{k_1 \dots k_t}
+\]
+\`e il numero delle $t$-scomposizioni di un insieme $A$ con $n$ elementi nella forma $(E_1, \dots, E_t)$ tali che $|E_1| = k_1, \dots |E_t| = k_t$.
+
+\begin{defn}[$t$-scomposizioni]
+Sia $A$ un insieme con $n$ elementi, una $t$-scomposizione di $A$ \`e una $t$-upla $(E_1, \dots E_t)$ tale che:
+\begin{description}
+  \item[1S] $\bigsqcup_{i = 1}^{t} E_i = A$
+  \item[2S] $E_1 \cap E_j = \emptyset$ se $i \neq j$ 
+\end{description}
+$E_i$ \`e detto blocco.
+\end{defn}
+Ci sono due differenze fra una $t$-scomposizione e una partizione.
+\begin{itemize}
+  \item Un blocco di una scomposizione pu\`o anche essere vuoto, un blocco di una partizione \`e necessariamente $\neq \emptyset$.
+  \item Considero un insieme $A = \{ a, b, c, d, e, f, g\}$. Posso avere una partizione:
+  \[
+  \pi = \{ \{a\}, \{b, g, f\}, \{c, d\}, \{e\} \}
+  \]
+  e due 4-scomposizioni distinte:
+  \[
+  (\{a\}, \{b, g, f\}, \{c, d\}, \{e\}) \neq 
+  (\{a\}, \{c, d\}, \{b, g, f\}, \{e\})
+  \]
+  poich\'e le $t$-scomposizioni sono ordinate.
+\end{itemize} 
+
+Il coefficiente multinomiale \`e una generalizzazione del coefficiente binomiale.
+\[
+\binom{n}{k} = \binom{n}{k, n-k}
+\]
+Partendo da questa uguaglianza, so che:
+\[
+\binom{n}{k} = \binom{n}{k, n-k} = \frac{n!}{k! \ (n - k)!}
+\Rightarrow
+\binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots \ k_t!}
+\]
+
+\begin{prop}
+Il numero delle $t$-scomposizioni di $A$ $(E_1, \dots E_t)$ di $A$ (indicato anche con $E_1 + \dots + E_t = A$) tali che $|E_1| = k_1, \dots |E_t| = k_t$ \`e:
+\[
+\binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots \ k_t!}
+\]
+\end{prop}
+\begin{proof}
+Per $t = 2$ \`e vero. Supponiamo sia vero per $t > 2$. Prendiamo una $(t+1)$-scomposizione $(E_1, \dots, E_t, E_{t+1})$ di $A$. Ogni scomposizione individua una coppia:
+\[
+\left( E_{t+1}, (E_1, \dots E_t) \right)
+\]
+in cui $E_{t+1} \subseteq A$ e $(E_1, \dots E_t)$ \`e una $t$-scomposizione di $A \setminus E_{t+1}$, poich\'e $E_1 + \dots + E_t + E_{t+1} = A$.
+
+In quanti modi posso scegliere un sottoinsieme $|E_{t+1}| = k_{t+1}$? In $\binom{n}{k_{t+1}}$ modi. Quindi quante coppie $(E_{t+1}, (E_1, \dots E_t))$ ho? \`E un prodotto, e per il principio del prodotto:
+\[
+\binom{n}{k_{t+1}} \cdot \frac{(n - k_{t+1})!}{k_1! \dots k_{t}!}
+\]
+Semplificando, si ottiene la tesi.
+\end{proof}
+
+\subsection{Teorema multinomiale}
+\begin{prop}
+\[
+(x_1 + \dots + x_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
+\binom{n}{k_1, \dots, k_t} \ x_1^{k_1} \dots x_t^{k_t}
+\]
+Dove la sommatoria indica la somma di tutte le $t$-uple $(k_1, \dots k_t)$ tali che $k_1 + \dots + k_t = n$.
+\end{prop}
+\begin{proof}
+Si dimostra di nuovo per biezione. Prendo $x_i = r_i \in \mathbb{N}$. Quindi:
+\[
+(r_1 + \dots + r_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
+\binom{n}{k_1, \dots, k_t} \ r_1^{k_1} \dots r_t^{k_t}
+\]
+Il membro sinistro \`e uguale alla cardinalit\`a dell'insieme delle funzioni da $A$ in $T$ tali che $T = R_1 \cup \dots \cup R_t$, in cui $R_i $ con $i \in [1, t]$ insiemi a due a due disgiunti tali che $| R_i | = r_i$.
+
+Ogni funzione individua una scomposizione di $A$ in $t$-blocchi, in cui ogni blocco \`e dato dalla controimmagine $f^{-1} (R_i)$ ed ha cardinalit\`a $k_i$. 
+
+Il membro destro \`e dato quindi dall'unione disgiunta di una serie di insiemi di $(t+1)$-tuple. Ciascuna $(t+1)$-upla ha al primo posto una $t$-scomposizione di $A$, e all'$i+1$-esimo posto una funzione dal blocco $K_i$ nell'insieme $R_i$. Per il principio del prodotto, il numero di queste $(t+1)$-uple, per ogni possibile $t$-scomposizione, \`e proprio:
+\[
+\binom{n}{k_1, \dots, k_t} \ r_1^{k_1} \dots r_t^{k_t}
+\]
+Come nel caso del teorema binomiale, per dimostrare la biezione basta definire la funzione biettiva $F : T^A \to$ l'insieme di queste $(t+1)$-uple, che a ciascuna funzione $f : A \to T$ associa la $t$-scomposizione di $A$ in cui ogni blocco \`e definito dalla controimmagine $f^{-1} (R_i)$ e tutte $t$ funzioni che da un blocco $K_i$ vanno in $R_i$.
+\end{proof}
