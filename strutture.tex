@@ -1,0 +1,102 @@
+\begin{center}
+\indent
+\textit{Gruppi, anelli, campi. In particolare, anello degli interi modulo $m$ intero, anello dei polinomi.}
+\end{center}
+
+\section{Strutture algebriche con un'operazione}
+
+Una struttura algebrica \`e una coppia $(A, \cdot)$ dove A \`e un'insieme e $\cdot$ \`e un'operazione $A \times A \to A$. Ad es. $(\mathbb{N}, +)$.
+
+Le operazioni sono funzioni definite su prodotti cartesiani a valori in un insieme. Un'operazione binaria \`e definita sul prodotto cartesiano di due insiemi.
+
+Riprendendo la composizione, dati tre insiemi $A, B, C$, $B^A$ \`e l'insieme delle funzioni da $A$ in $B$, $C^B$ \`e l'insieme delle funzioni da $B$ in $C$. La composizione $\circ$ \`e un'operazione definita sul prodotto cartesiano degli insiemi $B^A \times C^B \to C^A$.
+
+Posso rappresentare un'operazione come funzione $\circ \left( f, g \right)$ o inserendo l'operatore fra i due operandi $ g \circ f $.
+
+\begin{gather*}
+f: \mathbb{R} \times \mathbb{R} \to \mathbb{R} ; \
+f(x,y) = \sqrt{2}x + y \\
+g: \mathbb{R} \to \mathbb{R} \times \mathbb{R} ; \
+g(z) = (0,z) \\
+g \circ f : \mathbb{R} \times \mathbb{R} \to \mathbb{R} \times \mathbb{R} \\
+(x,y) \xrightarrow{f} \sqrt{2}x + y = z \xrightarrow{g} \left( 0, \sqrt{2}x + y \right) \\
+f \circ g : \mathbb{R} \to \mathbb{R} \\
+z \xrightarrow{g} (0,z) \xrightarrow{f} \sqrt{2} 0 + z = z
+\end{gather*}
+
+Una struttura algebrica \`e un'insieme su cui \`e definita un'operazione che prende due elementi di quell'insieme e gliene associa un terzo.
+
+Una struttura algebrica \`e una coppia $\left(A, \cdot \right)$ in cui $A$ \`e un insieme e $\cdot$ \`e un'operazione $A \times A \to A$.
+
+Le strutture vengono classificate in base alle propriet\`a.
+
+\begin{enumerate}
+    \item Propriet\`a associativa. $\forall \ a, b, c \in A : a \cdot (b \cdot c) = (a \cdot b) \cdot c$
+    \item Esistenza di un'elemento neutro, o elemento identit\`a. $1 \in A : \forall \ a \in A , a \cdot 1 = a = 1 \cdot a$
+    \item Propriet\`a commutativa. $ \forall a, b \in A , a \cdot b = b \cdot a $. In una struttura algebrica commutativa in genere l'identit\`a si indica con 0.
+    \item Esistenza dell'inverso. $ \forall a \in A \ \exists \ b \in A $ t.c. $a \cdot b = 1 = b \cdot a $.
+\end{enumerate}
+
+\section{Classificazione delle strutture algebriche con una operazione}
+
+Per essere studiabile, una struttura algebrica deve essere quantomeno associativa.
+
+\begin{itemize}
+    \item Semigruppo: struttura algebrica associativa.
+    \item Monoide: struttura algebrica associativa con elemento ``identit\`a''.
+    \item Gruppo: struttura algebrica associativa con elemento identit\`a e con inverso.
+    \item Gruppo abeliano: struttura algebrica che presenta tutte e quattro le propriet\`a, associativa, elemento neutro, commutativa, inverso.
+\end{itemize}
+
+La struttura algebrica $\left( \mathbb{N}, + \right)$ \`e un monoide commutativo. Anche $\left( \mathbb{N}, \cdot \right)$. $\left( \mathbb{Z}, + \right)$ \`e un gruppo perch\`e esiste l'inverso. $\left( \mathbb{Z}, \cdot \right)$ \`e un monoide, non ha l'inverso. Devo prendere i numeri razionali.
+
+Il prototipo di tutti i gruppi \`e il gruppo simmetrico su $n$ elementi, il cui insieme \`e indicato con $S_n$. Prendiamo un insieme $E = \left\{ e_1, \dots, e_n \right\}$.
+
+\[
+S_n = \left\{ f : E \to E \text{ t.c. $f$ \`e biunivoca} \right\}
+\]
+
+Il gruppo simmetrico \`e definito sull'insieme $S_n$ e l'operazione \`e la composizione: $\left( S_n, \circ \right)$.
+
+\begin{enumerate}
+    \item $f \circ \left( g \circ h \right) = \left( f \circ g \right) \circ h$ 
+    \item L'unit\`a \`e la funzione identica (o identit\`a) $i_E : E \to E$ che associa $i_E(e) = e$. $f \circ i_E = f = i_E \circ f$ 
+    \item Una funzione biunivoca $f$ ha una funzione inversa $g$. $g : E \to E $ t.c. $ g(f(e)) = e$.
+\end{enumerate}
+
+Una funzione $f : E \to E $ su un insieme finito e iniettiva \`e necessariamente suriettiva e quindi biunivoca.
+
+Un insieme \`e finito se non pu\`o essere messo in corrispondenza biunivoca con un suo sottoinsieme proprio.
+
+\subsection{Punto di vista dell'occupazione}
+
+$f : \left \{ 1, \dots, 6 \right \} \to \left \{ 1, \dots, 6 \right \}$. Penso il dominio come degli oggetti. Il codominio come dei ``cassetti''. La funzione \`e un modo di mettere gli oggetti del dominio nei ``cassetti''.
+
+\begin{tabular}{cccccc}
+1 & 2 & 3 & 4 & 5 & 6 \\
+2 & 3 & 5  &1 & 6 & 4
+\end{tabular}
+\`E un'occupazione.
+
+\begin{tabular}{cccccc}
+1 & 2 & 3 & 4 & 5 & 6 \\
+6 & 6 & 3 & 5 & 5 & 5
+\end{tabular}
+Non \`e un'occupazione.
+
+\section{Strutture algebriche con due operazioni}
+
+\begin{enumerate}
+    \item Anelli: un anello \`e una struttura algebrica $(A, +, \cdot)$ t.c. 
+    \begin{enumerate}
+        \item La prima operazione $\left( A, + \right )$ \`e un gruppo abeliano.
+        \item La seconda operazione considerata sull'insieme escluso l'elemento neutro, $(A \setminus \left \{ 0 \right \}, \cdot )$ \`e un semigruppo.
+        \item $ \forall a, b, c \in A , \ a \cdot (b + c) = a \cdot b + a \cdot c $
+        \item $ \forall a, b, c \in A , \ (a + b) \cdot c = a \cdot c + b \cdot c $
+    \end{enumerate}
+    \item Campi: \`e un anello in cui $( A \setminus \left \{ 0 \right \}, \cdot )$ \`e un gruppo abeliano.
+\end{enumerate}
+
+Gli interi sono un anello: $\left ( \mathbb{Z}, +, \cdot \right )$.
+
+I razionali sono un campo: $\left ( \mathbb{Q}, +, \cdot \right )$. Anche $\mathbb{R}$ e $\mathbb{C}$ sono un campo.

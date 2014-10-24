@@ -1,0 +1,107 @@
+
+\documentclass[11pt,a4paper,draft,twoside]{report}
+% caratteri grandi che non ci vedo!
+
+\usepackage[italian]{babel}
+% per date e ToC in italiano
+\usepackage{nameref}
+\usepackage{hyperref}
+
+\usepackage{amsmath}        % matematica
+\usepackage{amsthm}         % teoremi
+\usepackage{amsfonts}       % font matematicosi
+\usepackage{centernot}      % per semplificare
+\usepackage{pgfplots}       % per i grafici
+\pgfplotsset{compat=1.5}    % consigliata compatibilita'
+                            % con la versione 1.5
+
+\usepackage{fullpage}       % troppo margine normalmente
+\usepackage{parskip}        % preferisco spazio fra i paragrafi
+                            % all'indentazione sulla prima riga
+\usepackage{fancyhdr}
+
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lem}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposizione}
+\newtheorem*{cor}{Corollario}
+\newtheorem*{KL}{Lemma di Klein}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definizione}[section]
+\newtheorem{conj}{Congettura}[section]
+\newtheorem{exmp}{Esempio}[section]
+
+\theoremstyle{remark}
+\newtheorem*{comm}{Commento}
+\newtheorem*{oss}{Osservazione}
+\newtheorem*{note}{Nota}
+\newtheorem{caso}{Caso}
+
+\pagestyle{fancyplain}
+\fancyhead{} % clear all header fields
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\today}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\usetikzlibrary{shapes,arrows,calc,fit,backgrounds}
+
+\DeclareMathOperator{\lcm}{lcm} % minimo comune multiplo
+\DeclareMathOperator{\covers}{<\!\cdot}
+\newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
+
+% per le liste non numeriche preferisco un bel dash
+\renewcommand{\labelitemi}{$-$}
+
+\makeatletter
+\let\orgdescriptionlabel\descriptionlabel\renewcommand*{\descriptionlabel}[1]{%
+\let\orglabel\label
+\let\label\@gobble
+\phantomsection
+\edef\@currentlabel{#1}%
+%\edef\@currentlabelname{#1}%
+\let\label\orglabel
+\orgdescriptionlabel{#1}%
+}
+\makeatother
+
+\begin{document}
+
+\title{Appunti di Algebra}
+\author{Michele Laurenti}
+\date{\today}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\part{Algebra}
+
+\chapter{Nozioni e concetti fondamentali}
+
+\input{concetti_base.tex}
+
+\chapter{Strutture algebriche}
+
+\input{strutture.tex}
+
+\part{Algebra lineare}
+
+\chapter{Spazi vettoriali}
+
+\input{spazi_vettoriali.tex}
+
+\chapter{Risoluzione di sistemi lineari}
+
+\input{risoluzione.tex}
+
+\chapter{Applicazioni lineari}
+
+\input{applicazioni.tex}
+
+\end{document}
