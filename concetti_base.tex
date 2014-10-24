@@ -1511,6 +1511,86 @@ Semplificando, si ottiene la tesi.
 \end{proof}
 
 \subsection{Teorema multinomiale}
+<<<<<<< HEAD
+=======
+\begin{prop}
+\[
+(x_1 + \dots + x_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
+\binom{n}{k_1, \dots, k_t} \ x_1^{k_1} \dots x_t^{k_t}
+\]
+Dove la sommatoria indica la somma di tutte le $t$-uple $(k_1, \dots k_t)$ tali che $k_1 + \dots + k_t = n$.
+\end{prop}
+\begin{proof}
+Si dimostra di nuovo per biezione. Prendo $x_i = r_i \in \mathbb{N}$. Quindi:
+\[
+(r_1 + \dots + r_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
+\binom{n}{k_1, \dots, k_t} \ r_1^{k_1} \dots r_t^{k_t}
+\]
+Il membro sinistro \`e uguale alla cardinalit\`a dell'insieme delle funzioni da $A$ in $T$ tali che $T = R_1 \cup \dots \cup R_t$, in cui $R_i $ con $i \in [1, t]$ insiemi a due a due disgiunti tali che $| R_i | = r_i$.
+
+Ogni funzione individua una scomposizione di $A$ in $t$-blocchi, in cui ogni blocco \`e dato dalla controimmagine $f^{-1} (R_i)$ ed ha cardinalit\`a $k_i$. 
+
+Il membro destro \`e dato quindi dall'unione disgiunta di una serie di insiemi di $(t+1)$-tuple. Ciascuna $(t+1)$-upla ha al primo posto una $t$-scomposizione di $A$, e all'$i+1$-esimo posto una funzione dal blocco $K_i$ nell'insieme $R_i$. Per il principio del prodotto, il numero di queste $(t+1)$-uple, per ogni possibile $t$-scomposizione, \`e proprio:
+\[
+\binom{n}{k_1, \dots, k_t} \ r_1^{k_1} \dots r_t^{k_t}
+\]
+Come nel caso del teorema binomiale, per dimostrare la biezione basta definire la funzione biettiva $F : T^A \to$ l'insieme di queste $(t+1)$-uple, che a ciascuna funzione $f : A \to T$ associa la $t$-scomposizione di $A$ in cui ogni blocco \`e definito dalla controimmagine $f^{-1} (R_i)$ e tutte $t$ funzioni che da un blocco $K_i$ vanno in $R_i$.
+\end{proof}
+
+% limite del controllo
+
+\begin{cor}[Corollario del teorema multinomiale]
+\[
+\sum_{k = 0}^{n} (-1)^k \binom{n}{k} = 0
+\]
+\end{cor}
+\begin{proof}
+\[
+(x - 1)^n = \sum_{k = 0}^{n} \binom{n}{k} (-1)^k x^{n-k}
+\]
+Ponendo $x = 1$, per il teorema binomiale, ho la tesi.
+\end{proof}
+
+\subsection{Principio dei cassetti}
+
+$R^A$ \`e l'insieme delle funzioni da $A$ in $R$. $|R^A| = r^n$. Una funzione $f : A \to R$ la posso interpretare in due modi:
+\begin{description}
+  \item[Punto di vista dell'occupazione] $A$ viene interpretato come un insieme di oggetti. Il codominio $R$ viene interpretato come un insieme di cassetti. Quindi una funzione da $A$ in $R$ \`e un modo di disporre gli oggetti di $A$ nei cassetti di $R$.
+  \item[Punto di vista della distribuzione] Rappresento l'insieme $A$ come un insieme di posti, e l'insieme $R$ come un insieme di lettere (ossia come un alfabeto). Una funzione $f : A \to R$ mi d\`a una parola, ossia un modo di disporre le lettere di $R$ nei posti di $A$.
+\end{description}
+\begin{prop}[Principio dei cassetti]
+Se $|A| > |R|$ non esistono funzioni iniettive da $A$ in $R$.
+
+Dal punto di vista dell'occupazione, se si mettono $n$ oggetti in $r$ cassetti con $n > r$, allora almeno un cassetto conterr\`a pi\`u di un oggetto. Dal punto di vista della distribuzione, ogni parola di lunghezza $n$ con lettere in un alfabeto di cardinalit\`a $r$, con $n > r$, contiene almeno una lettera ripetuta.
+\end{prop}
+I due punti di vista hanno una formalizzazione matematica distinta.
+
+Dato un triangolo equilatero di lato 1, e dati 5 punti interni, almeno 2 di essi hanno distanza minore di $\frac{1}{2}$.
+\begin{proof}
+Si pu\`o partizionare il triangolo in 4 blocchi, in modo che dati due punti qualsiasi in uno stesso blocco questi siano a meno di $\frac{1}{2}$ di distanza.
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\draw (0,0) -- (2,0) -- (1,1.73)-- (0,0);
+\draw[dashed] (1,0) -- (0.5,0.866) -- (1.5,0.866) -- (1,0);
+\end{tikzpicture}
+\caption{Le quattro partizioni possibili}
+\end{figure}
+\end{proof}
+
+Se si colorano i punti del piano con due colori (R,B) esisterà un rettangolo con tutti i vertici dello stesso colore.
+
+Se prendo tre punti allineati, so che almeno due hanno lo stesso colore. Se prendo nove terne allineate in modo da formare rettangoli, so che almeno due hanno la stessa combinazione di colori.
+
+Prendo l'insieme $I = \{ 0, 1, 2 \}$ e definisco $X = I \times I \times I$. Definisco la relazione di equivalenza $\rho$ come:
+\[
+(x, y, z) \rho (x', y', z') \Leftrightarrow \{ x, y, z \} = \{ x', y', z'\}
+\]
+$\rho$ divide $X$ in classi di equivalenza. Quali sono gli elementi della classe $[(0,1,0)]$? Posso indicarla con $[\{0,1\}]$, ed \`e evidente che gli elementi della classe sono 6.
+
+\subsection{Principio di inclusione/esclusione}
+
+>>>>>>> raw
 \begin{prop}
 \[
 (x_1 + \dots + x_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}

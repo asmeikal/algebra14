@@ -84,6 +84,165 @@ $f : \left \{ 1, \dots, 6 \right \} \to \left \{ 1, \dots, 6 \right \}$. Penso i
 \end{tabular}
 Non \`e un'occupazione.
 
+\subsection{Monoidi}
+
+Un monoide $(M, \cdot)$ \`e una struttura algebrica con un'operazione $\cdot : M \times M \to M$ tale che:
+\begin{description}
+    \item[1M] L'operazione $\cdot$ \`e associativa;
+    \item[2M] $\exists 1_M \forall a \in M $ t.c. $1_M \cdot a = a = a \cdot 1_M$, ossia esiste l'elemento unit\`a. 
+\end{description}
+
+Un sottomonoide $(S, \cdot)$ con $S \subseteq M$ \`e un onoide in cui $\cdot S \times S \to S$, ossia $S$ \`e chiuso, cio\`e $s \cdot s' \in S$ e $1_M \in S$.
+
+Ad esempio, considerando $(\mathbb{N}, +)$, $(P, +)$ con $P = \{ m \in \mathbb{N} : \exists k $ t.c. $m = 2k \}$ \`e un sottomonoide di $(\mathbb{N},+)$ perch\`e la somma di due pari \`e pari e lo 0 appartiene ai pari.
+
+$k \mathbb{N} = \{ m \in \mathbb{N} : \exists t \in \mathbb{N} $ t.c. $ m = k t\}$ \`e la ``versione generale'' dell'insieme dei numeri pari.
+
+Considerando $(\mathbb{N}, \cdot)$ e l'elemento neutro 1, i pari non sono un sottomonoide, ma i dispari s\`i.
+
+\subsection{Morfismi di monoidi}
+
+\begin{defn}
+Dati $(M, \cdot)$ e $(A, \ast)$ un morfismo di monoidi \`e un'applicazione $f : M \to A$ che conserva le strutture, ossia tale che $\forall \ x,y \in M $ ho che $f(x \cdot y) = f(x) \ast f(y)$. Inoltre, $f(1_M) = 1_A$.
+\end{defn}
+
+\subsection{Teorema di omomorfismo per i monoidi}
+
+\begin{prop}
+Sia $f : (M, \cdot) \to (A, \ast)$ un morfismo di monoidi, $f$ definisce una relazione di equivalenza $\varepsilon_f$ tale che $\ker f = M / \varepsilon_f \cong Im_f$, ossia il quoziente \`e isomorfo all'immagine. Inoltre il quoziente ha una struttura di monoide:
+\[
+(M / \varepsilon_f , \cdot) \cong (Im_f, \ast)
+\]
+Con $(Im_f, \ast)$ sottomonoide di $(A, \ast)$.
+\end{prop}
+\begin{proof}
+Ogni morfismo di monoidi individua un sottomonoide di $(A, \ast)$, che \`e $(Im_f, \ast)$. $\forall f(x), f(y) \in Im_f$, $f(x) \ast f(y) = f(x \cdot y) \in Im_f$, quindi $Im_f $ \`e chiuso rispetto a $\ast$. Inoltre $1_A \in Im_f \Rightarrow f(1_M) = 1_A$ perch\'e \`e un morfismo di monoidi.
+
+$[x] = \{ y \in M : x \varepsilon_f y \Leftrightarrow f(x) = f(y) \}$ $(\ker f, \cdot)$ \`e un monoide.
+
+$[x] \cdot [z] = [x \cdot z]$ qualsiasi rappresentante scelgo della classe. Devo quindi verificare che la definizione sia indipendente dai rappresentanti. Inoltre ho l'unit\`a $[1_M]$ in $\ker f$.
+
+L'isomorfismo fra $(Im_f, \ast)$ e $(\ker f, \cdot)$ segue naturalmente dal fatto che $\ker f $ e $Im_f$ sono in biezione, ed inoltre, essendo monoidi, la funzione $f$ \`e un morfismo di monoidi.
+\end{proof}
+
+\subsection{Potenze (iterazioni sui monoidi)}
+
+A partire dal monoide $(M, \cdot)$ possiamo definire le iterazioni dell'operazione $\cdot$, ossia le potenze.
+
+Sia $ a \in M$, si definisce:
+\begin{itemize}
+    \item $a^0 = 1_M$
+    \item $a^{n+1} = a \cdot a^{n}$
+\end{itemize}
+Che propriet\`a hanno le iterazioni? $\forall n \in \mathbb{N}$, $a \cdot a^n = a^n \cdot a$, ossia \`e commutativa. Lo vediamo subito con $n = 0$, $a \cdot a^0 = a = a^0 \cdot a$.
+
+Per definizione $a \cdot a^{n+1} = a \cdot a \cdot a^{n} = a \cdot a^n \cdot a = a^{n+1} \cdot a$ per ipotesi induttiva.
+
+Abbiamo anche le classiche propriet\`a delle potenze:
+
+$a^{m + n} = a^m \cdot a^n$
+
+Si dimostra anche questo per induzione su $n$. Con $n = 0$, $a^{m+0} = a^m = a^m \cdot 1_M = a^m \cdot a^0$.
+
+Passo induttivo. $a^{m + n + 1} = a \cdot a^{m + n}$ per definizione di potenze. Applicando l'ipotesi induttiva, $a \cdot a^{m + n} = a \cdot a^m \cdot a^n$. Per commutativit\`a $a \cdot a^m \cdot a^n = a^m \cdot a \cdot a^n = a^m \cdot a^{n+1}$.
+
+\begin{theorem}
+Dato $(M, \cdot)$ monoide ed un elemento $a \in M$, esiste un solo morfismo di monoidi $f : (\mathbb{N}, +) \to (M, \cdot)$ tale che $f(1) = a$.
+\end{theorem}
+\begin{proof}
+$f(n) = a^n$. $f$ \`e un morfismo di monoidi. Infatti verifica $f(m+n) = f(m) \cdot f(n)$ e $f(0) = 1_M$. Per le propriet\`a dimostrare precedentemente, $f(m+ n) = a^{m+n} = a^m \cdot a^n = f(m) \cdot f(n)$, e $f(0) = a^0 = 1_M$ per definizione di potenze. Infine, $f(1) = a^1 = a \cdot a^0 = a \cdot 1_M = a$.
+
+Dimostriamone ora l'unicit\`a. Sia $g : (\mathbb{N}, +) \to (M, \cdot )$ tale che $g(1) = a$, dimostriamo che $\forall n \in \mathbb{N} g(n) = f(n) = a^n$.
+
+Dimostriamolo per induzione su $n$. Per definizione di morfismo di monoidi, $g(0) = 1_M = f(0) = a^0$.
+
+Supponiamo che $g(n) = f(n)$, per definizione di morfismo di monoidi $g(n+1) = g(1) \cdot g(n) = a \cdot g(n) = a \cdot f(n) = a \cdot a^n = a^{n+1}$.
+\end{proof}
+
+Sia $\Gamma$ un insieme, prendo $(\mathbb{P}(\Gamma), \cup)$. \`E una struttura algebrica, ed in particolare un monoide. L'unione \`e associativa ($(A \cup B) \cup C = A \cup (B \cup C)$), ed esiste l'elemento neutro $\emptyset$.
+
+Anche $(\mathbb{P}(\Gamma), \cap)$ \`e un monoide, con elemento neutro pari a $\Gamma$, poich\'e $\forall A$ $\Gamma \cap A = A$. Abbiamo quindi due esempi di monoidi commutativi.
+
+Fissiamo $\emptyset \neq S \subseteq \Gamma$, possiamo considerare $\mathbb{P}(S)$ e definire l'applicazione $f : \mathbb{P}(\Gamma) \to \mathbb{P}(S)$ tale che $f(A) = A \cap S$. 
+
+Vediamo se questa applicazione \`e un morfismo di monoidi considerando $(\mathbb{P}(\Gamma), \cup)$ e $(\mathbb{P}(S), \cup)$. Dobbiamo dimostrare che $f( A \cup B) = f(A) \cup f(B)$. Infatti $f(A \cup B) = (A \cup B) \cap S = (A \cap S) \cup (B \cap S)$ per la propriet\`a distributiva, che \`e proprio $f(A) \cup f(B)$.
+
+Inoltre conserva l'elemento neutro, poich\'e $f(\emptyset) = \emptyset \cap S = \emptyset$.
+
+Vediamo se \`e un morfismo di monoidi anche considerando $(\mathbb{P}(\Gamma), \cap)$ e $(\mathbb{P}(S), \cap)$. $f(A \cap B) = f(A) \cap f(B)$, infatti $(A \cap B) \cap S - (A \cap S) \cap (B \cap S)$. Conserva anche l'elemento neutro, poich\'e $f(\Gamma) = \Gamma \cap S = S$.
+
+Sia $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ tale che $f(A) = \bar A = \{ x \in Gamma : x \notin A\}$. Poich\'e $\bar{A \cup B} = \bar A \cap \bar B$, $f : (\mathbb{P}(\Gamma), \cup) \to (\mathbb{P}(\Gamma), \cap)$ \`e un morfismo di monoidi visto che $f(A \cup B) = f(A) \cap f(B)$, e $f(\emptyset) = \bar \emptyset = \Gamma$. 
+
+Possiamo considerare la stessa applicazione come un morfismo di monoidi da $f : (\mathbb{P}(\Gamma), \cap) \to (\mathbb{P}(\Gamma), \cup)$. Infatti $f(A \cap B) = \bar{A \cap B} = \bar A \cup \bar B = f(A) \cup f(B)$ e $f(\Gamma) = \bar \Gamma = \emptyset$.
+
+\subsection{Congruenze}
+
+Le congruenze sono relazioni d'equivalenza definite sulle strutture algebriche. Sia $\varepsilon$ una relazione d'equivalenza su $A$, con $(A, \cdot)$ monoide, si dice congruenza rispetto a $\cdot$ se, dati $a \varepsilon b$ e $c \varepsilon d$, ho che $a \cdot c \varepsilon b \cdot d$.
+
+Vuol dire che, dati $a \in [a]$ e $c \in [c]$, se $a \cdot c \in [a \cdot c]$ e ho una congruenza, allora $b \in [a]$ e $d \in [c]$ sono tali che $b \cdot d \in [a \cdot c]$. La congruenza fa s\`i che io possa definire le operazioni sulle classi.
+
+Considerando quindi un morfismo di monoidi $f : (M, \cdot) \to (A, \ast)$, se definisco la relazione di equivalenza $\varepsilon_f$ tale che $x, y \in M$ sono $x \varepsilon_f y \Leftrightarrow f(x) = f(y)$, questa relazione di equivalenza \`e una congruenza.
+\begin{proof}
+$x \varepsilon_f y$, $z \varepsilon_f w \Rightarrow (x \cdot z) \varepsilon_f (y \cdot w)$.
+
+Infatti $f(x \cdot z) = f(x) \ast f(y)$ e $f(y \cdot w) = f(y) \ast f(w)$. 
+\end{proof}
+
+Avevamo definito $\rho$ su $\mathbb{N} \times \mathbb{N}$, come $(m, n) \rho (a, b) \Leftrightarrow m+b = n+a$. Quindi a partire da $(M, \cdot) $ possiamo creare altri monoidi $(M^n, \cdot)$, ad esempio su $M^2 = M \times M$ in cui $(x, y) \cdot (z, t) = (x \cdot z, y \cdot t)$.
+
+Ad esempio $(\mathbb{N}, +) \to (\mathbb{N} \times \mathbb{N}, +)$ in cui $(m, n) + (a, b) = (m+a, n+b)$ con l'elemento neutro $(0,0)$.
+
+$\rho$ \`e una congruenza rispetto a + in $\mathbb{N} \times \mathbb{N}$. Inoltre, avendo visto che $\mathbb{N} \times \mathbb{N} / \rho = \mathbb{Z}$, abbiamo che $(\mathbb{Z}, +)$ \`e un monoide.
+
+\subsection{Gruppi}
+
+$(G, \cdot)$ \`e un gruppo se:
+\begin{description}
+    \item[1G] $(G, \cdot)$ \`e un monoide
+    \item[2G] $\forall a \in G \exists b \in G $ tale che $a \cdot b = 1_G$, comunemente indicato con $b = a^{-1}$ e detto inverso di $a$.
+\end{description}
+
+Possiamo definire un morfismo di gruppi. Un morfismo conserva strutture e propriet\`a. Deve quindi essere un morfismo di monoidi che manda l'inverso nell'inverso.
+
+Quindi $f : (G, \cdot) \to (G', \ast)$ \`e un morfismo di gruppi se:
+\begin{enumerate}
+    \item \`e un morfismo di monoidi
+    \item $\forall a \in G f(a^{-1}) = (f(a))^{-1}$
+\end{enumerate}
+Ma queste due cose sono conseguenza di una sola propriet\`a, ossia che il morfismo conserva le operazioni. Infatti se $f(a \cdot b) = f(a) \ast f(b)$ allora sono vere tutte le propriet\`a.
+
+Infatti manda le unit\`a nelle unit\`a: $f(1_G) = f(1_G \cdot 1_G) = f(1_G) \cdot f(1_G)$. Ma essendo monoidi hanno l'inverso, quindi $(f(1_G))^{-1} \cdot f(1_G) = (f(1_G))^{-1} \cdot f(1_G) \cdot f(1_G) \Rightarrow f(1_G) = 1_{G'}$.
+
+Manda gli inversi negli inversi: $f(a^{-1}) = f(a)^{-1}$. Infatti $f(a) \ast f(a^{-1}) = f(a \cdot a^{-1}) = f(1_G) = 1_{G'}$.
+
+Sottogruppi
+
+Partendo da $(G, \cdot)$ e scegliendo $\emptyset \neq S \subseteq G$, un sottogruppo $(S, \cdot)$ deve essere:
+\begin{itemize}
+    \item Chiuso: $\forall s, s' \in S$, $s \cdot s' \in S$
+    \item Deve contenere l'unit\`a: $1_G \in S$. E quindi $S$ \`e un sottomonoide di $G$
+    \item Per essere anche un sottogruppo, $S$ deve essere chiuso rispetto agli inversi: $s \in S \Rightarrow s^{-1} \in S$.
+\end{itemize}
+Condizione necessaria e sufficiente affinch\'e $(S, \cdot)$ con $S \neq \emptyset$ sia un sottogruppo del gruppo $(G, \cdot)$ :
+\[
+\forall a, b \in S \Rightarrow a^{-1} \cdot  b \in S
+\]
+Dimostrare che \`e condizione necessaria \`e banale. 
+
+Per definizione di sottogruppo $a^{-1}$ \`e in $S$, ed essendo chiuso $a^{-1} \cdot b \in S$.
+
+Dobbiamo dimostrare che \`e sufficiente. $S \neq \emptyset$, quindi ha almeno un elemento $a \in S$. Prendiamo $b = a^{-1} $, per la propriet\`a sopra $a \cdot a^{-1} \in S \Rightarrow 1_G \in S$.
+
+$\forall x \in S \Rightarrow x^{-1} \in S$ sempre per la propriet\`a sopra. Infatti prendendo $a = x$ e $b = 1_G$, $a^{-1} \cdot b \in S$ quindi $x^{-1} \cdot 1_G \in S \Rightarrow x^{-1} \in S$.
+
+Chiusura: $\forall s, s' \in S \Rightarrow s \cdot s' \in S$. Abbiamo gi\`a che $s \in S \Rightarrow s^{-1} \in S$, quindi per la solita propriet\`a ho che $(s^{-1})^{-1} \cdot s' \in S \Rightarrow s \cdot s' \in S$.
+
+$(\mathbb{Z}, +) \to (\mathbb{N} \times \mathbb{N}, +) / \rho$.
+
+Quali sono i sottogruppi di $(\mathbb{Z}, +)$? In generale sono sottogruppi di $\mathbb{Z}$ tutti i gruppi $(k \mathbb{Z}, +)$, anzi sono gli unici.
+
+$(\mathbb{Z}, \cdot)$ non \`e un gruppo perch\'e non ha l'inverso per ogni elemento.
+
 \section{Strutture algebriche con due operazioni}
 
 \begin{enumerate}

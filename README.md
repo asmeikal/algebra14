@@ -1,6 +1,7 @@
 Appunti Algebra 2014
 ====================
 
+<<<<<<< HEAD
 Appunti del corso di Algebra (primo canale, prof.ssa Venezia, II anno laurea in Informatica, Sapienza)
 
 <<<<<<< HEAD
@@ -12,6 +13,19 @@ Struttura degli appunti:
     - spazi_vettoriali.tex
     - risoluzione.tex
     - applicazioni.tex
+=======
+Appunti del corso di Algebra (primo canale, prof.ssa Venezia, II anno laurea in Informatica 2014/2015, Sapienza)
+
+Struttura degli appunti:
+- `algebra.tex` (file principale, include gli altri)
+    - `concetti_base.tex`: teoria degli insiemi, relazioni, funzioni, numeri naturali e principio di induzione, calcolo combinatorio
+    - `strutture.tex`: gruppi, anelli, campi
+    - `spazi_vettoriali.tex`
+    - `risoluzione.tex`
+    - `applicazioni.tex`
+
+### Package
+>>>>>>> raw
 
 I package necessari dovrebbero essere:
 - nameref
@@ -21,6 +35,21 @@ I package necessari dovrebbero essere:
 - amsfonts
 - centernot
 - pgfplots
+
+<<<<<<< HEAD
+
+>>>>>>> raw
+=======
+### Operatori
+
+Simbolo di "copre":
+
+    \DeclareMathOperator{\covers}{<\!\cdot}
+
+Unione disgiunta:
+
+    \newcommand{\dotcup}{\ensuremath{\mathaccent\cdot\cup}}
+
 
 
 >>>>>>> raw
