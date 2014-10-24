@@ -1322,11 +1322,18 @@ Il fattoriale decrescente \`e una successione:
 \]
 
 \begin{oss}
-$[r]_n = 0$ se $r > n$. Inoltre, $[r]_n = n!$ se $r = n$.
+$[r]_n = 0$ se $r < n$. Inoltre, $[r]_n = n!$ se $r = n$.
 \end{oss}
 
 \begin{prop}
 Dato $In(A,R)$, l'insieme delle funzioni iniettive da $A$ in $R$, se $|A| = n$ e $|R| = r$, allora $|In (A,R)| = [r]_n$.
+
+In altre parole, il fattoriale decrescente $[r]_n$ corrisponde all'insieme delle funzioni iniettive da $A$ in $R$ $In(A,R)$.
+
+\[
+\left| In(A,R) \right| = \left| In (A- \{x\},R) \right| \cdot \left| R - Im_f \right|
+\]
+
 \end{prop}
 \begin{proof}
 Ricordiamo la definizione di iniettivit\`a: $\forall \ x, y \in A$ se $f(x) = f(y) \Rightarrow x = y$, $f$ \`e iniettiva.
@@ -1359,16 +1366,17 @@ S \cup \{ x \} \text{ se } S \text{ \`e dispari} \\
 \end{proof}
 
 \subsection{Coefficienti  binomiali}
-Indichiamo con $\binom{n}{k}$ il numero di sottoinsiemi con $k$ elementi di un insieme con $n$ elementi. Vediamo subito che $\binom{n}{k}$ per $k > n$ \`e 0. $\binom{n}{0} = 1$, $\binom{n}{1} = 1$. Inoltre $\binom{n}{k} = \binom{n}{n-k}$, ossia il numero di sottoinsiemi con $k$ elementi \`e uguale al numero dei loro insiemi complementari.
+Indichiamo con $\binom{n}{k}$ il numero di sottoinsiemi con $k$ elementi di un insieme con $n$ elementi. Vediamo subito che $\binom{n}{k}$ per $k > n$ \`e 0. $\binom{n}{0} = 1$, $\binom{n}{1} = n$. Inoltre $\binom{n}{k} = \binom{n}{n-k}$, ossia il numero di sottoinsiemi con $k$ elementi \`e uguale al numero dei loro insiemi complementari.
 \begin{prop}[Definizione ricorsiva di Pascal dei coefficienti binomiali]
 \[
 \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}
 \]
 $\binom{n}{k}$ \`e il numero di sottoinsiemi con $k$ elementi, indicato con $\mathbb{P}_{k}(A)$. Lo divido in due sottoinsiemi disgiunti, con cardinalit\`a rispettivamente $\binom{n-1}{k}$ e $\binom{n-1}{k-1}$.
-$\binom{n-1}{k}$ \`e l'insieme di tutti i sottoinsiemi con $k$ elementi di $A \setminus \{ x \}$, $\binom{n-1}{k-1}$ \`e l'insieme di tutti i sottoinsiemi con $k - 1$ elementi di $A \setminus \{x \}$.
+
+Fissato un $x \in A$, $\binom{n-1}{k}$ \`e l'insieme di tutti i sottoinsiemi con $k$ elementi di $A \setminus \{ x \}$, $\binom{n-1}{k-1}$ \`e l'insieme di tutti i sottoinsiemi con $k - 1$ elementi di $A \setminus \{x \}$.
 \end{prop}
 \begin{proof}
-$\forall \ S \subseteq A$ con $|S| = k$ ho due casi: $x \in S$ o $x \notin S$. Definisco la biezione $F : \mathbb{P}_k (A) \to \mathbb{P}_k (A \setminus \{ x \}) \cup \mathbb{P}_{k - 1} (A \setminus \{ x \})$ come:
+$\forall \ S \subseteq A$ con $|S| = k$ e $x \in A$ ho due casi: $x \in S$ o $x \notin S$. Definisco la biezione $F : \mathbb{P}_k (A) \to \mathbb{P}_k (A \setminus \{ x \}) \cup \mathbb{P}_{k - 1} (A \setminus \{ x \})$ come:
 \[
 F (S) =
 \begin{cases}
@@ -1381,8 +1389,6 @@ Ho quindi che $\mathbb{P}_k (A) = X \cup Y$ con $X = \{ S \subseteq A : |S| = k 
 
 % TODO che vuol dire questo
 % $\{ r^n \}_{n \in \mathbb{N}} \leftrightarrow \{ f : A_n \to R\} = \{ |R^{A_n}| \}$ con $|A_n| = n$ e $|R| = r$.
-
-Il fattoriale decrescente $[r]_n$ corrisponde all'insieme delle funzioni iniettive da $A$ in $R$ $In(A,R)$. $|In(A,R)| = |In(A- \{x\},R)| \cdot |R - Im_f|$.
 
 \begin{prop}
 Quanto valgono i coefficienti binomiali? Diciamo questo:
@@ -1421,7 +1427,7 @@ Dati due polinomi in $n$ variabili $p(x_1, \ \dots \ x_n)$ e $q(x_1, \ \dots \ x
 \end{theorem}
 Al posto di $x$ e di $y$ posso quindi mettere due interi $r, s \in \mathbb{N}$, e dimostrare che $(r + s)^n = \sum_{k = 0}^n \binom{n}{k} r^k s^{n - k}$.
 \begin{proof}
-Il membro sinistro della proposizione equivalente a \ref{teorema_binomiale}, $(r + s)^n$, \`e la cardinalit\`a dell'insieme di funzioni da un insieme con $n$ elementi ad uno con cardinalit\`a $r + s$, ossia all'unione disgiunta di due insiemi con cardinalit\`a rispettivamente $r$ e $s$. Dicendo quindi che gli insiemi $A$, $R$ e $S$ hanno cardinalit\`a $|A| = n$, $|R| = r $ e $|S| = s$, e che $T = R \cup S$, ho che $(r + s)^n = \left| T^A \right|$.
+Il membro sinistro della proposizione equivalente alla definizione \ref{teorema_binomiale}, $(r + s)^n$, \`e la cardinalit\`a dell'insieme di funzioni da un insieme con $n$ elementi ad uno con cardinalit\`a $r + s$, ossia all'unione disgiunta di due insiemi con cardinalit\`a rispettivamente $r$ e $s$. Dicendo quindi che gli insiemi $A$, $R$ e $S$ hanno cardinalit\`a $|A| = n$, $|R| = r $ e $|S| = s$, e che $T = R \cup S$, ho che $(r + s)^n = \left| T^A \right|$.
 
 Il membro destro della proposizione \`e una somma, quindi corrisponde all'unione disgiunta di $n$ insiemi.
 \[
@@ -1429,17 +1435,26 @@ Il membro destro della proposizione \`e una somma, quindi corrisponde all'unione
 \text{ con }
 |E_k| = \binom{n}{k} \ r^k s^{n - k}
 \]
-Devo definire l'insieme $E_k$. Per il principio del prodotto, \`e una terna $(X, f_k : X \to R, g_{(n - k)} : (A \setminus X) \to S )$ con $X \subseteq A$ tale che $|X| = k$, $f_k$ l'insieme delle funzioni da $X$ in $R$, e $g_{(n-k)}$ l'insieme delle funzioni da $A \setminus X$ (ossia il complementare di $X$) in $S$.
+Devo definire l'insieme $E_k$. Per il principio del prodotto, \`e una terna:
+\[
+\left( X, \ f_k : X \to R, \ g_{(n - k)} : (A \setminus X) \to S \right)
+\]
+con $X \subseteq A$ tale che $|X| = k$, $f_k$ l'insieme delle funzioni da $X$ in $R$, e $g_{(n-k)}$ l'insieme delle funzioni da $A \setminus X$ (ossia il complementare di $X$) in $S$.
 
 Dobbiamo mostrare ora che $T^A \leftrightarrow \bigsqcup E_k$, ossia che c'\`e una biezione. La funzione biettiva $F$ associa ad una funzione $f : A \to T$ una terna:
 \[
-\left( f^{-1} (R), f_k : X \to R, g_{(n - k)} : (A \setminus X) \to S \right) \in E_k
+\left( f^{-1} (R), \ f_k : X \to R, \ g_{(n - k)} : (A \setminus X) \to S \right) \in E_k
 \]
-con $f^{-1}(R)$ a indicare la controimmagine di $R$ e $|f^{-1}(R)| = k$.
+con $f^{-1}(R) = X$ a indicare la controimmagine di $R$ e $|f^{-1}(R)| = k$.
 \end{proof}
 
-\subsection{Teorema multinomiale}
-$\binom{n}{k_1 \dots k_t}$ \`e il numero delle $t$-scomposizioni di un insieme $A$ con $n$ elementi $(E_1, \dots, E_t)$ tali che $|E_1| = k_1, \dots |E_t| = k_t$.
+\subsection{Coefficienti multinomiali}
+
+Il coefficiente multinomiale, indicato con:
+\[
+\binom{n}{k_1 \dots k_t}
+\]
+\`e il numero delle $t$-scomposizioni di un insieme $A$ con $n$ elementi nella forma $(E_1, \dots, E_t)$ tali che $|E_1| = k_1, \dots |E_t| = k_t$.
 
 \begin{defn}[$t$-scomposizioni]
 Sia $A$ un insieme con $n$ elementi, una $t$-scomposizione di $A$ \`e una $t$-upla $(E_1, \dots E_t)$ tale che:
@@ -1449,66 +1464,78 @@ Sia $A$ un insieme con $n$ elementi, una $t$-scomposizione di $A$ \`e una $t$-up
 \end{description}
 $E_i$ \`e detto blocco.
 \end{defn}
-Che differenza c'\`e fra una scomposizione ed una partizione? Un blocco di una scomposizione pu\`o anche essere vuoto, un blocco di una partizione \`e necessariamente $\neq \emptyset$.
-
-C'\`e un'altra differenza. Considero un insieme $A = \{ a, b, c, d, e, f, g\}$. Posso avere una partizione:
-\[
-\pi = \{ \{a\}, \{b, g, f\}, \{c, d\}, \{e\} \}
-\]
-E due 4-scomposizioni distinte:
-\[
-(\{a\}, \{b, g, f\}, \{c, d\}, \{e\}) \neq 
-(\{a\}, \{c, d\}, \{b, g, f\}, \{e\})
-\]
-Poich\'e le $t$-scomposizioni sono ordinate.
+Ci sono due differenze fra una $t$-scomposizione e una partizione.
+\begin{itemize}
+  \item Un blocco di una scomposizione pu\`o anche essere vuoto, un blocco di una partizione \`e necessariamente $\neq \emptyset$.
+  \item Considero un insieme $A = \{ a, b, c, d, e, f, g\}$. Posso avere una partizione:
+  \[
+  \pi = \{ \{a\}, \{b, g, f\}, \{c, d\}, \{e\} \}
+  \]
+  e due 4-scomposizioni distinte:
+  \[
+  (\{a\}, \{b, g, f\}, \{c, d\}, \{e\}) \neq 
+  (\{a\}, \{c, d\}, \{b, g, f\}, \{e\})
+  \]
+  poich\'e le $t$-scomposizioni sono ordinate.
+\end{itemize} 
 
 Il coefficiente multinomiale \`e una generalizzazione del coefficiente binomiale.
 \[
 \binom{n}{k} = \binom{n}{k, n-k}
 \]
-Sapendo che $\binom{n}{k} = \binom{n}{k, n-k} = \frac{n!}{k! \ (n - k)!}$, so che:
+Partendo da questa uguaglianza, so che:
 \[
-\binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots k_t!}
+\binom{n}{k} = \binom{n}{k, n-k} = \frac{n!}{k! \ (n - k)!}
+\Rightarrow
+\binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots \ k_t!}
 \]
-Lo dimostriamo per induzione.
 
 \begin{prop}
-Il numero delle $t$-scomposizioni di $A$ $(E_1, \dots E_t)$ di $A$ (indicato anche con $E_1 + \dots E_t = A$) tali che $|E_1| = k_1, \dots |E_t| = k_t$ \`e:
+Il numero delle $t$-scomposizioni di $A$ $(E_1, \dots E_t)$ di $A$ (indicato anche con $E_1 + \dots + E_t = A$) tali che $|E_1| = k_1, \dots |E_t| = k_t$ \`e:
 \[
-\binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots k_t!}
+\binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots \ k_t!}
 \]
 \end{prop}
 \begin{proof}
-Per $t = 2$ \`e vero. Supponiamo sia vero per $t \ge 2$. Prendiamo una $(t+1)$-scomposizione $(E_1, \dots, E_t, E_{t+1})$ di $A$. Ogni scomposizione individua una coppia:
+Per $t = 2$ \`e vero. Supponiamo sia vero per $t > 2$. Prendiamo una $(t+1)$-scomposizione $(E_1, \dots, E_t, E_{t+1})$ di $A$. Ogni scomposizione individua una coppia:
 \[
-(E_{t+1}, (E_1, \dots E_t))
+\left( E_{t+1}, (E_1, \dots E_t) \right)
 \]
-in cui $E_{t+1} \subseteq A$ e $(E_1, \dots E_t)$ \`e una $t$-scomposizione di $A \setminus E_{t+1}$, poich\'e $E_1 + \dots E_t + E_{t+1} = A$.
+in cui $E_{t+1} \subseteq A$ e $(E_1, \dots E_t)$ \`e una $t$-scomposizione di $A \setminus E_{t+1}$, poich\'e $E_1 + \dots + E_t + E_{t+1} = A$.
 
-In quanti modi posso scegliere un sottoinsieme $|E_{t+1}| = k_{t+1}$? $\binom{n}{k_{t+1}}$. Quindi quante coppie $(E_{t+1}, (E_1, \dots E_t))$ ho? \`E un prodotto:
+In quanti modi posso scegliere un sottoinsieme $|E_{t+1}| = k_{t+1}$? In $\binom{n}{k_{t+1}}$ modi. Quindi quante coppie $(E_{t+1}, (E_1, \dots E_t))$ ho? \`E un prodotto, e per il principio del prodotto:
 \[
 \binom{n}{k_{t+1}} \cdot \frac{(n - k_{t+1})!}{k_1! \dots k_{t}!}
 \]
-Semplificando ottengo la tesi.
+Semplificando, si ottiene la tesi.
 \end{proof}
 
 \subsection{Teorema multinomiale}
+\begin{prop}
 \[
-(x_1 + \dots x_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
-\binom{n}{k_1, \dots, k_t} x_1^{k_1} \dots x_t^{k_t}
+(x_1 + \dots + x_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
+\binom{n}{k_1, \dots, k_t} \ x_1^{k_1} \dots x_t^{k_t}
 \]
-Dove la somma \`e la somma di tutte le $t$-uple $(k_1, \dots k_t)$ tali che $k_1 + \dots k_t = n$.
-
+Dove la sommatoria indica la somma di tutte le $t$-uple $(k_1, \dots k_t)$ tali che $k_1 + \dots + k_t = n$.
+\end{prop}
+\begin{proof}
 Si dimostra di nuovo per biezione. Prendo $x_i = r_i \in \mathbb{N}$. Quindi:
 \[
-(r_1 + \dots r_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
-\binom{n}{k_1, \dots, k_t} r_1^{k_1} \dots r_t^{k_t}
+(r_1 + \dots + r_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
+\binom{n}{k_1, \dots, k_t} \ r_1^{k_1} \dots r_t^{k_t}
 \]
-Il membro sinistro \`e uguale alla cardinalit\`a dell'insieme delle funzioni da $A$ in $T$ tali che:
+Il membro sinistro \`e uguale alla cardinalit\`a dell'insieme delle funzioni da $A$ in $T$ tali che $T = R_1 \cup \dots \cup R_t$, in cui $R_i $ con $i \in [1, t]$ insiemi a due a due disgiunti tali che $| R_i | = r_i$.
+
+Ogni funzione individua una scomposizione di $A$ in $t$-blocchi, in cui ogni blocco \`e dato dalla controimmagine $f^{-1} (R_i)$ ed ha cardinalit\`a $k_i$. 
+
+Il membro destro \`e dato quindi dall'unione disgiunta di una serie di insiemi di $(t+1)$-tuple. Ciascuna $(t+1)$-upla ha al primo posto una $t$-scomposizione di $A$, e all'$i+1$-esimo posto una funzione dal blocco $K_i$ nell'insieme $R_i$. Per il principio del prodotto, il numero di queste $(t+1)$-uple, per ogni possibile $t$-scomposizione, \`e proprio:
 \[
-A \to^{f} T = R_1 \cup \dots R_t
+\binom{n}{k_1, \dots, k_t} \ r_1^{k_1} \dots r_t^{k_t}
 \]
-Ogni funzione individua una scomposizione di $A$ in $t$-blocchi, in cui ogni blocco \`e dato dalla controimmagine $f^{-1} (R_i)$.
+Come nel caso del teorema binomiale, per dimostrare la biezione basta definire la funzione biettiva $F : T^A \to$ l'insieme di queste $(t+1)$-uple, che a ciascuna funzione $f : A \to T$ associa la $t$-scomposizione di $A$ in cui ogni blocco \`e definito dalla controimmagine $f^{-1} (R_i)$ e tutte $t$ funzioni che da un blocco $K_i$ vanno in $R_i$.
+\end{proof}
+
+% limite del controllo
 
 \begin{cor}[Corollario del teorema multinomiale]
 \[
@@ -1519,7 +1546,7 @@ Ogni funzione individua una scomposizione di $A$ in $t$-blocchi, in cui ogni blo
 \[
 (x - 1)^n = \sum_{k = 0}^{n} \binom{n}{k} (-1)^k x^{n-k}
 \]
-Per $x = 1$, per il teorema binomiale, ho la tesi.
+Ponendo $x = 1$, per il teorema binomiale, ho la tesi.
 \end{proof}
 
 \subsection{Principio dei cassetti}
