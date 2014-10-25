@@ -128,7 +128,7 @@ L'operazione di composizione \`e una funzione $f : B^A \times C^B \to C^A$.
 
 \begin{description}
   \item[Inversa destra] Data $f : X \to Y$, $g : Y \to X$ \`e un'inversa destra se $f \circ g = id_Y$ (funzione identit\`a)
-  \item[Inversa sinistra] Data $f : X \to Y$, $g : Y \to X$ \`e un'inversa destra se $g \circ f = id_Y$
+  \item[Inversa sinistra] Data $f : X \to Y$, $g : Y \to X$ \`e un'inversa destra se $g \circ f = id_X$
 \end{description}
 
 \section{Relazioni su un insieme}
@@ -138,9 +138,9 @@ Una relazione su un insieme $A$ \`e un sottoinsieme $R \subseteq A \times A$. I 
 \begin{description}
     \item[Relazioni d'ordine] Si indica con $\le$, $a \leq b$ indica che $a$ \`e in relazione con $b$. Propriet\`a:
     \begin{description}
-        \item [Riflessiva] $\forall x \in A : x \leq x$
-        \item [Antisimmetrica] $\forall x, y \in A \text{ se } x \leq y \text{ e }  y \leq x \Rightarrow x = y$
-        \item [Transitiva] $\forall x, y, z \in A \text{ se } x \leq y \text{ e } y \leq z \Rightarrow x \leq z$
+        \item [Riflessiva] $\forall \ x \in A : x \leq x$
+        \item [Antisimmetrica] $\forall \ x, y \in A \text{ se } x \leq y \text{ e }  y \leq x \Rightarrow x = y$
+        \item [Transitiva] $\forall \ x, y, z \in A \text{ se } x \leq y \text{ e } y \leq z \Rightarrow x \leq z$
     \end{description}
     \item[Relazioni di equivalenza] Si indica con $\varepsilon$, $a \varepsilon b$ indica che $a$ \`e in relazione con $b$. Propriet\`a:
     \begin{description}
@@ -184,7 +184,7 @@ Altri esempi di relazioni con solo alcune delle propriet\`a delle relazioni d'or
   \item Parallelismo tra rette dello spazio \vspace{3cm}
   \item $\mathbb{N} \times \mathbb{N}, (m, n) \rho (p, q) \Leftrightarrow (m + q) = (p + n)$, ossia $m - n = p - q$. \vspace{3cm}
   \item $a, b \in \mathbb{Z}, a \equiv_n b \Leftrightarrow n | (a - b) \Leftrightarrow (a-b) = k n$ (congruenza modulo $n \in \mathbb{N}, n \ge 2$) \vspace{3cm}
-  \item Data una funzione $f: A \to B $, $ \varepsilon_f = $ \`e relazione di equivalenza individuata da $f$, detta ``nucleo di $f$''. \`E una relazione $A$ t.c. $a, a' \in A, a \varepsilon_f a' \Leftrightarrow f(a) = f(a')$. \vspace{3cm}
+  \item Data una funzione $f: A \to B $, $ \varepsilon_f = $ \`e relazione di equivalenza individuata da $f$, detta ``nucleo di $f$''. \`E una relazione su $A$ t.c. $a, a' \in A, a \varepsilon_f a' \Leftrightarrow f(a) = f(a')$. \vspace{3cm}
 \end{itemize}
 
 Data una relazione $R \subseteq A \times B$, possiamo definire $R^{\ast} = $ relazione duale di $R$. Due elementi $(a,b) \in A \times B$ sono $a \ R^{\ast} \ b \Leftrightarrow b \ R \ a$. Ad esempio, se $A = $ insieme di persone e $R = a $ figlio di $b$, la relazione duale \`e $R^{\ast} = b $ \`e genitore di $a$.
@@ -274,7 +274,7 @@ Dato un insieme e una relazione di ordine parziale su di esso $(A, \leq)$, rappr
             (3) edge node {} (1)
             ;
 \end{tikzpicture}
-\caption{Diagramma di Hasse della relazione $(A,|)$ sull'insieme $A = \{n \in \mathbb{N} : n | 24\} = \{ 1, 2, 3, 4, 5, 6, 12, 24 \} $}
+\caption{Diagramma di Hasse della relazione $(A,|)$ sull'insieme $A = \{n \in \mathbb{N} : n | 24\} = \{ 1, 2, 3, 4, 6, 8, 12, 24 \} $}
 \end{figure}
 
 \begin{theorem}
@@ -577,9 +577,9 @@ Come \`e fatta la classe $[(a,b)] = \left \{ (c,d) \in \mathbb{N} \times \mathbb
 
 Se $a = b \Rightarrow [(a,a)] = \left \{ (c,c) \in \mathbb{N} \times \mathbb{N} : c \in \mathbb{N} \right\} = [(0,0)]$ (la coppia $(0,0)$ la scelgo come ``rappresentante standard'' o ``rappresentante canonico'').
 
-Se $a < b \Rightarrow b = a + m \Rightarrow [(a,a+m)] = \left \{ (c + m, c) \in \mathbb{N} \times \mathbb{N} : c \in \mathbb{N}\right\} = [(0,m)]$.
+Se $a < b \Rightarrow b = a + m \Rightarrow [(a,a+m)] = \left \{ (c, c + m) \in \mathbb{N} \times \mathbb{N} : c \in \mathbb{N}\right\} = [(0,m)]$.
 
-Se $a > b \Rightarrow a = b + m \Rightarrow [(b + m, b)] = \left \{ (c , c+ m) \in \mathbb{N} \times \mathbb{N} : c \in \mathbb{N}\right\} = [(m,0)]$.
+Se $a > b \Rightarrow a = b + m \Rightarrow [(b + m, b)] = \left \{ (c + m, c) \in \mathbb{N} \times \mathbb{N} : c \in \mathbb{N}\right\} = [(m,0)]$.
 
 Ciascuno dei tre tipi di classi di equivalenza ha un rappresentante canonico.
 
@@ -1308,13 +1308,13 @@ La maggior parte dei numeri positivi che compaiono in combinatoria hanno un'inte
 
 \begin{defn}
 Il fattoriale decrescente \`e una successione:
-\[
+\begin{equation}
 \{[r]_n\}_{n \in \mathbb{N}} \text{ : }
 \begin{cases}
 [r]_0 = 1 \\
 [r]_{n+1} = [r]_n \cdot (r - n)
 \end{cases}
-\]
+\end{equation}
 \end{defn}
 \`E evidente che:
 \[
@@ -1368,9 +1368,9 @@ S \cup \{ x \} \text{ se } S \text{ \`e dispari} \\
 \subsection{Coefficienti  binomiali}
 Indichiamo con $\binom{n}{k}$ il numero di sottoinsiemi con $k$ elementi di un insieme con $n$ elementi. Vediamo subito che $\binom{n}{k}$ per $k > n$ \`e 0. $\binom{n}{0} = 1$, $\binom{n}{1} = n$. Inoltre $\binom{n}{k} = \binom{n}{n-k}$, ossia il numero di sottoinsiemi con $k$ elementi \`e uguale al numero dei loro insiemi complementari.
 \begin{prop}[Definizione ricorsiva di Pascal dei coefficienti binomiali]
-\[
+\begin{equation}
 \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}
-\]
+\end{equation}
 $\binom{n}{k}$ \`e il numero di sottoinsiemi con $k$ elementi, indicato con $\mathbb{P}_{k}(A)$. Lo divido in due sottoinsiemi disgiunti, con cardinalit\`a rispettivamente $\binom{n-1}{k}$ e $\binom{n-1}{k-1}$.
 
 Fissato un $x \in A$, $\binom{n-1}{k}$ \`e l'insieme di tutti i sottoinsiemi con $k$ elementi di $A \setminus \{ x \}$, $\binom{n-1}{k-1}$ \`e l'insieme di tutti i sottoinsiemi con $k - 1$ elementi di $A \setminus \{x \}$.
@@ -1492,9 +1492,9 @@ Partendo da questa uguaglianza, so che:
 
 \begin{prop}
 Il numero delle $t$-scomposizioni di $A$ $(E_1, \dots E_t)$ di $A$ (indicato anche con $E_1 + \dots + E_t = A$) tali che $|E_1| = k_1, \dots |E_t| = k_t$ \`e:
-\[
+\begin{equation}
 \binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots \ k_t!}
-\]
+\end{equation}
 \end{prop}
 \begin{proof}
 Per $t = 2$ \`e vero. Supponiamo sia vero per $t > 2$. Prendiamo una $(t+1)$-scomposizione $(E_1, \dots, E_t, E_{t+1})$ di $A$. Ogni scomposizione individua una coppia:
@@ -1512,10 +1512,10 @@ Semplificando, si ottiene la tesi.
 
 \subsection{Teorema multinomiale}
 \begin{prop}
-\[
+\begin{equation}
 (x_1 + \dots + x_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
 \binom{n}{k_1, \dots, k_t} \ x_1^{k_1} \dots x_t^{k_t}
-\]
+\end{equation}
 Dove la sommatoria indica la somma di tutte le $t$-uple $(k_1, \dots k_t)$ tali che $k_1 + \dots + k_t = n$.
 \end{prop}
 \begin{proof}
@@ -1535,9 +1535,7 @@ Il membro destro \`e dato quindi dall'unione disgiunta di una serie di insiemi d
 Come nel caso del teorema binomiale, per dimostrare la biezione basta definire la funzione biettiva $F : T^A \to$ l'insieme di queste $(t+1)$-uple, che a ciascuna funzione $f : A \to T$ associa la $t$-scomposizione di $A$ in cui ogni blocco \`e definito dalla controimmagine $f^{-1} (R_i)$ e tutte $t$ funzioni che da un blocco $K_i$ vanno in $R_i$.
 \end{proof}
 
-% limite del controllo
-
-\begin{cor}[Corollario del teorema multinomiale]
+\begin{cor}[Corollario del teorema multinomiale\label{corollario_multinomiale}]
 \[
 \sum_{k = 0}^{n} (-1)^k \binom{n}{k} = 0
 \]
@@ -1551,38 +1549,44 @@ Ponendo $x = 1$, per il teorema binomiale, ho la tesi.
 
 \subsection{Principio dei cassetti}
 
-$R^A$ \`e l'insieme delle funzioni da $A$ in $R$. $|R^A| = r^n$. Una funzione $f : A \to R$ la posso interpretare in due modi:
+$R^A$ \`e l'insieme delle funzioni da $A$ in $R$. $|R^A| = r^n$. Una funzione $f : A \to R \in R^A$ la posso interpretare in due modi:
 \begin{description}
   \item[Punto di vista dell'occupazione] $A$ viene interpretato come un insieme di oggetti. Il codominio $R$ viene interpretato come un insieme di cassetti. Quindi una funzione da $A$ in $R$ \`e un modo di disporre gli oggetti di $A$ nei cassetti di $R$.
   \item[Punto di vista della distribuzione] Rappresento l'insieme $A$ come un insieme di posti, e l'insieme $R$ come un insieme di lettere (ossia come un alfabeto). Una funzione $f : A \to R$ mi d\`a una parola, ossia un modo di disporre le lettere di $R$ nei posti di $A$.
 \end{description}
 \begin{prop}[Principio dei cassetti]
 Se $|A| > |R|$ non esistono funzioni iniettive da $A$ in $R$.
-
-Dal punto di vista dell'occupazione, se si mettono $n$ oggetti in $r$ cassetti con $n > r$, allora almeno un cassetto conterr\`a pi\`u di un oggetto. Dal punto di vista della distribuzione, ogni parola di lunghezza $n$ con lettere in un alfabeto di cardinalit\`a $r$, con $n > r$, contiene almeno una lettera ripetuta.
 \end{prop}
+Dal punto di vista dell'occupazione, se si mettono $n$ oggetti in $r$ cassetti con $n > r$, allora almeno un cassetto conterr\`a pi\`u di un oggetto. 
+
+Dal punto di vista della distribuzione, ogni parola di lunghezza $n$ con lettere in un alfabeto di cardinalit\`a $r$, con $n > r$, contiene almeno una lettera ripetuta.
+
 I due punti di vista hanno una formalizzazione matematica distinta.
 
+\begin{prop}
 Dato un triangolo equilatero di lato 1, e dati 5 punti interni, almeno 2 di essi hanno distanza minore di $\frac{1}{2}$.
+\end{prop}
 \begin{proof}
-Si pu\`o partizionare il triangolo in 4 blocchi, in modo che dati due punti qualsiasi in uno stesso blocco questi siano a meno di $\frac{1}{2}$ di distanza.
+Si pu\`o partizionare il triangolo in 4 blocchi come in figura \ref{triforza}, in modo che dati due punti qualsiasi in uno stesso blocco questi siano a meno di $\frac{1}{2}$ di distanza.
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}
 \draw (0,0) -- (2,0) -- (1,1.73)-- (0,0);
 \draw[dashed] (1,0) -- (0.5,0.866) -- (1.5,0.866) -- (1,0);
 \end{tikzpicture}
-\caption{Le quattro partizioni possibili}
+\caption{\label{triforza}Le quattro partizioni possibili}
 \end{figure}
 \end{proof}
 
+\begin{prop}
 Se si colorano i punti del piano con due colori (R,B) esisterà un rettangolo con tutti i vertici dello stesso colore.
-
-Se prendo tre punti allineati, so che almeno due hanno lo stesso colore. Se prendo nove terne allineate in modo da formare rettangoli, so che almeno due hanno la stessa combinazione di colori.
-
+\end{prop}
+\begin{proof}
+Se prendo tre punti allineati, so che almeno due hanno lo stesso colore. Se prendo nove terne di punti allineati, a loro volta allineate in modo da poter formare un rettangolo con ciascuna coppia di terne, so che almeno due terne hanno la stessa combinazione di colori.
+\end{proof}
 Prendo l'insieme $I = \{ 0, 1, 2 \}$ e definisco $X = I \times I \times I$. Definisco la relazione di equivalenza $\rho$ come:
 \[
-(x, y, z) \rho (x', y', z') \Leftrightarrow \{ x, y, z \} = \{ x', y', z'\}
+(x, y, z) \ \rho \ (x', y', z') \Leftrightarrow \{ x, y, z \} = \{ x', y', z'\}
 \]
 $\rho$ divide $X$ in classi di equivalenza. Quali sono gli elementi della classe $[(0,1,0)]$? Posso indicarla con $[\{0,1\}]$, ed \`e evidente che gli elementi della classe sono 6.
 
@@ -1590,50 +1594,49 @@ $\rho$ divide $X$ in classi di equivalenza. Quali sono gli elementi della classe
 
 \begin{prop}
 Sia $\Gamma$ un insieme e siano $A_1, \dots, A_t$ sottoinsiemi finiti di $\Gamma$.
-\[
+\begin{equation}
 | A_1 \cup A_2 \cup \ldots \cup A_t |  = 
 \sum_{\emptyset \neq I \subseteq \{ 1, \ldots, t \}} (-1)^{|I| - 1} \left| \bigcap_{i \in I} A_i \right|
-\]
+\end{equation}
 \end{prop}
-
+\begin{proof}
 Si pu\`o dimostrare per induzione, o si pu\`o fare una dimostrazione combinatoria. La dimostrazione combinatoria calcola il contributo alla somma di ogni elemento dell'unione.
 
-Prendiamo $x \in A_1 \cup \dots \cup A_t$ e siano $A_{j_1} \dots A_{j_n}$ i sottoinsiemi che contengono $x$, ossia se $i \neq j_1 , \dots j_n$ allora $x \notin A_i$. Il contributo che $x$ porta alla somma \`e 1, perch\'e la cardinalit\`a dell'unione aumenta di uno.
+Prendiamo $x \in A_1 \cup \dots \cup A_t$ e siano $A_{j_1} \dots A_{j_n}$ i sottoinsiemi che contengono $x$, ossia se $i \neq j_1 , \dots j_n$ allora $x \notin A_i$. Il contributo che $x$ porta alla somma \`e evidentemente 1, perch\'e la cardinalit\`a dell'unione aumenta di uno.
 
-Per $|I| = 1$ aggiunger\`o 1 per ogni sottoinsieme $A_{j_1} \dots A_{j_n}$
-
-Quindi:
+Per $|I| = 1$ aggiunger\`o 1 per ogni sottoinsieme $A_{j_1} \dots A_{j_n}$, ossia per ogni sottoinsieme contenente $x$ poich\'e ogni altro $A_i$ non aggiunger\`a niente alla somma. Per $k > 1$ il contributo alla somma sar\`a 1 solo per le intersezioni fra i sottoinsiemi $A_{j_1} \dots A_{j_n}$, e 0 per ogni intersezione contenente un altro $A_i$. Quindi il contributo di $x$ alla somma sar\`a:
 \[
 \sum_{k = 1}^{n} (-1)^{k - 1} \ \binom{n}{k}
 \]
-So che:
+So che, per il corollario \ref{corollario_multinomiale}:
 \[
-0 = \sum_{k = 0}^{n} (-1)^k \ \binom{n}{k}
+\sum_{k = 0}^{n} (-1)^k \ \binom{n}{k} = 0
 \]
-Quindi
+Quindi:
 \[
 1 + \sum_{k = 1}^{n} (-1)^{k} \ \binom{n}{k} = 
 1 - \sum_{k = 1}^{n} (-1)^{k - 1} \ \binom{n}{k} \Rightarrow
 \sum_{k = 1}^{n} (-1)^{k - 1} \ \binom{n}{k} = 1
 \]
+\end{proof}
 
-Teorema di omomorfismo per gli insiemi.
+\subsection{Numeri di Stirling di prima e seconda specie}
 
-Qualunque funzione $f : A \to R$ individua una relazione di equivalenza, e quindi una partizione $\ker f$ chiamata ``nucleo di $f$''. Dati $x, y \in A$, ho che $x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)$.
+% Teorema di omomorfismo per gli insiemi.
 
-Sappiamo che nucleo e immagine di $f$ sono in corrispondenza biunivoca. $|\ker f| = |Im_f|$.
+% Qualunque funzione $f : A \to R$ individua una relazione di equivalenza, e quindi una partizione $\ker f$ chiamata ``nucleo di $f$''. Dati $x, y \in A$, ho che $x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)$.
 
-Se indico con $S(n, k)$ (numero di Stirling di II specie) il numero delle partizioni in $k$-blocchi di un insieme con $n$ elementi, indicando con $Sur(A, R)$ l'insieme delle funzioni suriettive da $A$ in $R$, posso esprimere il numero delle funzioni suriettive $|Sur(A,R)| = S(n,r) \cdot r!$ con $|A| = n$ e $|R| = r$.
+% Sappiamo che nucleo e immagine di $f$ sono in corrispondenza biunivoca. $|\ker f| = |Im_f|$.
 
-Ogni funzione suriettiva $f : A \to R $ individua biunivocamente una coppia $(\pi, F)$ dove $\pi$ \`e una partizione di $A$ in $|R|$-blocchi, ed $F$ \`e una biezione da $\pi \to R$.
+Se indico con $S(n, k)$ (numero di Stirling di II specie) il numero delle partizioni in $k$-blocchi \textit{non vuoti} di un insieme con $n$ elementi, indicando con $Sur(A, R)$ l'insieme delle funzioni suriettive da $A$ in $R$, posso esprimere il numero delle funzioni suriettive $|Sur(A,R)| $ come $S(n,r) \cdot r!$, con $|A| = n$ e $|R| = r$.
 
-Se voglio costruire una funzione suriettiva da $A$ in $R$, partiziono $A$ in $r$ blocchi e creo una biezione dai blocchi individuati in $A$ ad $R$.
+Ogni funzione suriettiva $f : A \to R $ individua biunivocamente una coppia $(\pi, F)$ dove $\pi$ \`e una partizione di $A$ in $|R|$-blocchi, in cui ogni blocco (necessariamente non vuoto) \`e individuato da $f^{-1}(r) \forall \ r \in R$, ed $F$ \`e una biezione da $\pi \to R$. Quindi se voglio costruire una funzione suriettiva da $A$ in $R$, partiziono $A$ in $r$ blocchi \textit{non vuoti} e creo una biezione dai blocchi individuati in $A$ ad $R$.
 
-Ora vogliamo trovare $|Sur(A,R)|$ usando il principio di inclusione/esclusione.
+Ora troviamo $|Sur(A,R)|$ usando il principio di inclusione/esclusione.
 
 Possiamo trovare il numero delle funzioni suriettive dall'insieme di tutte le funzioni $R^A$ togliendo le funzioni non suriettive.
 
-Supponiamo per semplicit\`a che $R = \{ 1, \ldots , r\} = [r]$. $f$ non \`e suriettiva $\Leftrightarrow \exists i = 1, \ldots, r$ tale che $i \in Im_f$. Se indico con $A_i = \{ f : A \to R : i \notin Im_f \}$, l'unione $A_1 \cup \ldots \cup A_r$ \`e l'insieme delle funzioni non suriettive.
+Supponiamo per semplicit\`a che $R = \{ 1, \ldots , r\} = [r]$. $f$ non \`e suriettiva $\Leftrightarrow \exists \ i = 1, \ldots, r$ tale che $i \notin Im_f$. Se indico con $A_i = \{ f : A \to R : i \notin Im_f \}$, l'unione $A_1 \cup \ldots \cup A_r$ \`e l'insieme delle funzioni non suriettive.
 \[
 Sur(A,R) = |R^A| - |A_1 \cup \dots \cup A_r|
 \]
@@ -1642,30 +1645,29 @@ Calcoliamo $|A_1 \cup \ldots \cup A_r|$ con il principio di inclusione/esclusion
 | A_1 \cup \ldots \cup A_r |  = 
 \sum_{\emptyset \neq I \subseteq \{ 1, \ldots, r \}} (-1)^{|I| - 1} \left| \bigcap_{i \in I} A_i \right|
 \]
-Se prendo $I$ costituito da un solo elemento, $|A_1| = |(R \setminus \{ 1 \})^A| = (r - 1)^n$, quindi la cardinalit\`a del generico $A_i = (r-1)^n$.
+Se prendo $I$ costituito da un solo elemento, $|A_1| = \left| (R \setminus \{ 1 \})^A \right| = (r - 1)^n$, quindi la cardinalit\`a del generico $A_i = (r-1)^n$.
 
-La cardinalit\`a dell'intersezione $|A_1 \cap A_2| = (r - 2)^n$. In generale $|A_{i_1} \cap \dots \cap A_{i_r}| = (r - k)^n$.
+Con $|I| = 2$, la cardinalit\`a dell'intersezione $|A_1 \cap A_2| = (r - 2)^n$. In generale $|A_{i_1} \cap \dots \cap A_{i_r}| = (r - k)^n$.
 
-Quindi:
+Quindi generalizzando:
 \[
 (-1)^0 \cdot \binom{r}{1} \cdot (r-1)^n + 
-(-1)^1 \cdot \binom{r}{2} \cdot (r-2)^n \dots
-\]
-In generale \`e:
-\[
+(-1)^1 \cdot \binom{r}{2} \cdot (r-2)^n \dots =
 \sum_{k = 1}^{n} (-1)^{k - 1} \binom{r}{k} (r - k)^n
 \]
-Quindi:
-\[
+Sapendo che $r^n$ \`e $(-1)^0 \binom{r}{0} \ (r - 0)^n$:
+\begin{align*}
 |Sur(A,R)| = 
-r^n - \sum_{k = 1}^{n} (-1)^{k - 1} \binom{r}{k} (r - k)^n = 
-r^n + \sum_{k = 1}^{n} (-1)^{k} \binom{r}{k} (r - k)^n = 
+r^n - \sum_{k = 1}^{n} (-1)^{k - 1} \binom{r}{k} (r - k)^n =  \\
+r^n + \sum_{k = 1}^{n} (-1)^{k} \binom{r}{k} (r - k)^n =  \\
 \sum_{k = 0}^{n} (-1)^{k} \binom{r}{k} (r - k)^n
-\]
+\end{align*}
 Quindi il numero di Stirling di II specie \`e:
-\[
-S(n,r) = \frac{|Sur(A,R)|}{r!} = \frac{\sum_{k = 0}^{n} (-1)^{k} \binom{r}{k} (r - k)^n}{r!}
-\]
+\begin{equation}
+S(n,r) = \frac{|Sur(A,R)|}{r!} = \frac{1}{r!} \sum_{k = 0}^{n} (-1)^{k} \binom{r}{k} (r - k)^n
+\end{equation}
+
+% SONO ARRIVATO QUI
 
 Per il teorema di omomorfismo, data una funzione $f : A \to R$, $|\ker f| = |Im_f|$. Data la funzione $F : \ker f \to Im_f$ che ad ogni blocco associa l'immagine degli elementi del dominio nel bocco ($F[x] = f(x)$).
 
