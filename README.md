@@ -4,7 +4,7 @@ Appunti Algebra 2014
 Appunti del corso di Algebra (primo canale, prof.ssa Venezia, II anno laurea in Informatica 2014/2015, Sapienza)
 
 Struttura degli appunti:
-- `algebra.tex` (file principale, include gli altri)
+- file principale, include gli altri:
     - `concetti_base.tex`: teoria degli insiemi, relazioni, funzioni, numeri naturali e principio di induzione, calcolo combinatorio
     - `strutture.tex`: gruppi, anelli, campi
     - `spazi_vettoriali.tex`
@@ -22,8 +22,6 @@ _Dovrebbe_ essere possibile compilare i singoli file, con i dovuti accorgimenti.
 - amsfonts
 - centernot
 - pgfplots
-
-Consiglio di controllare `algebra.tex` per ricostruire la struttura che io ho dato al documento.
 
 ### Operatori
 
