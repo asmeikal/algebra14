@@ -13,7 +13,8 @@ Struttura degli appunti:
 
 ### Package
 
-I package necessari dovrebbero essere:
+_Dovrebbe_ essere possibile compilare i singoli file, con i dovuti accorgimenti. I package necessari _dovrebbero_ essere:
+
 - nameref
 - hyperref
 - amsmath
