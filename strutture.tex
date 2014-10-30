@@ -1,3 +1,5 @@
+% WEB
+
 \begin{center}
 \indent
 \textit{Gruppi, anelli, campi. In particolare, anello degli interi modulo $m$ intero, anello dei polinomi.}
@@ -5,50 +7,46 @@
 
 \section{Strutture algebriche con un'operazione}
 
-Una struttura algebrica \`e una coppia $(A, \cdot)$ dove A \`e un'insieme e $\cdot$ \`e un'operazione $A \times A \to A$. Ad es. $(\mathbb{N}, +)$.
+Una struttura algebrica \`e una coppia $(A, \cdot)$ dove A \`e un'insieme e $\cdot$ \`e un'operazione $\cdot : A \times A \to A$. Ad esempio $(\mathbb{N}, +)$ \`e una struttura algebrica.
 
-Le operazioni sono funzioni definite su prodotti cartesiani a valori in un insieme. Un'operazione binaria \`e definita sul prodotto cartesiano di due insiemi.
+Le operazioni sono funzioni definite su prodotti cartesiani a valori in un insieme. Un'operazione binaria \`e definita sul prodotto cartesiano fra due insiemi.
 
 Riprendendo la composizione, dati tre insiemi $A, B, C$, $B^A$ \`e l'insieme delle funzioni da $A$ in $B$, $C^B$ \`e l'insieme delle funzioni da $B$ in $C$. La composizione $\circ$ \`e un'operazione definita sul prodotto cartesiano degli insiemi $B^A \times C^B \to C^A$.
 
-Posso rappresentare un'operazione come funzione $\circ \left( f, g \right)$ o inserendo l'operatore fra i due operandi $ g \circ f $.
-
+Posso rappresentare un'operazione come funzione $(\circ \left( f, g \right))$ o inserendo l'operatore fra i due operandi $ (g \circ f) $.
 \begin{gather*}
 f: \mathbb{R} \times \mathbb{R} \to \mathbb{R} ; \
-f(x,y) = \sqrt{2}x + y \\
+f(x,y) = \sqrt{2} \cdot x + y \\
 g: \mathbb{R} \to \mathbb{R} \times \mathbb{R} ; \
 g(z) = (0,z) \\
 g \circ f : \mathbb{R} \times \mathbb{R} \to \mathbb{R} \times \mathbb{R} \\
-(x,y) \xrightarrow{f} \sqrt{2}x + y = z \xrightarrow{g} \left( 0, \sqrt{2}x + y \right) \\
+(x,y) \xrightarrow{f} \sqrt{2} \cdot x + y = z \xrightarrow{g} \left( 0, \sqrt{2}x + y \right) \\
 f \circ g : \mathbb{R} \to \mathbb{R} \\
-z \xrightarrow{g} (0,z) \xrightarrow{f} \sqrt{2} 0 + z = z
+z \xrightarrow{g} (0,z) \xrightarrow{f} \sqrt{2} \cdot 0 + z = z
 \end{gather*}
 
 Una struttura algebrica \`e un'insieme su cui \`e definita un'operazione che prende due elementi di quell'insieme e gliene associa un terzo.
 
-Una struttura algebrica \`e una coppia $\left(A, \cdot \right)$ in cui $A$ \`e un insieme e $\cdot$ \`e un'operazione $A \times A \to A$.
-
-Le strutture vengono classificate in base alle propriet\`a.
-
-\begin{enumerate}
-    \item Propriet\`a associativa. $\forall \ a, b, c \in A : a \cdot (b \cdot c) = (a \cdot b) \cdot c$
-    \item Esistenza di un'elemento neutro, o elemento identit\`a. $1 \in A : \forall \ a \in A , a \cdot 1 = a = 1 \cdot a$
-    \item Propriet\`a commutativa. $ \forall a, b \in A , a \cdot b = b \cdot a $. In una struttura algebrica commutativa in genere l'identit\`a si indica con 0.
-    \item Esistenza dell'inverso. $ \forall a \in A \ \exists \ b \in A $ t.c. $a \cdot b = 1 = b \cdot a $.
-\end{enumerate}
+Le strutture vengono classificate in base alle loro propriet\`a:
+\begin{description}
+    \item[Propriet\`a associativa\label{itm:strutture_associativa}] $\forall \ a, b, c \in A : a \cdot (b \cdot c) = (a \cdot b) \cdot c$
+    \item[Elemento neutro\label{itm:strutture_neutro}] Esistenza di un'elemento neutro, o elemento identit\`a. $1 \in A : \forall \ a \in A , a \cdot 1 = a = 1 \cdot a$
+    \item[Propriet\`a commutativa\label{itm:strutture_commutativa}] $ \forall a, b \in A , a \cdot b = b \cdot a $. In una struttura algebrica commutativa in genere l'identit\`a si indica con 0.
+    \item[Inverso\label{itm:strutture_inverso}] Esistenza dell'inverso. $ \forall a \in A \ \exists \ b \in A $ t.c. $a \cdot b = 1 = b \cdot a $.
+\end{description}
 
 \section{Classificazione delle strutture algebriche con una operazione}
 
 Per essere studiabile, una struttura algebrica deve essere quantomeno associativa.
 
-\begin{itemize}
-    \item Semigruppo: struttura algebrica associativa.
-    \item Monoide: struttura algebrica associativa con elemento ``identit\`a''.
-    \item Gruppo: struttura algebrica associativa con elemento identit\`a e con inverso.
-    \item Gruppo abeliano: struttura algebrica che presenta tutte e quattro le propriet\`a, associativa, elemento neutro, commutativa, inverso.
-\end{itemize}
+\begin{description}
+    \item[Semigruppo] struttura algebrica associativa.
+    \item[Monoide] struttura algebrica associativa con elemento identit\`a.
+    \item[Gruppo] struttura algebrica associativa con elemento identit\`a e con inverso (ossia, monoide con inverso).
+    \item[Gruppo abeliano] struttura algebrica che presenta tutte e quattro le propriet\`a: associativa, elemento neutro, commutativa, inverso.
+\end{description}
 
-La struttura algebrica $\left( \mathbb{N}, + \right)$ \`e un monoide commutativo. Anche $\left( \mathbb{N}, \cdot \right)$. $\left( \mathbb{Z}, + \right)$ \`e un gruppo perch\`e esiste l'inverso. $\left( \mathbb{Z}, \cdot \right)$ \`e un monoide, non ha l'inverso. Devo prendere i numeri razionali.
+La struttura algebrica $\left( \mathbb{N}, + \right)$ \`e un monoide commutativo. Anche $\left( \mathbb{N}, \cdot \right)$ \`e un monoide commutativo. $\left( \mathbb{Z}, + \right)$ \`e un gruppo perch\`e esiste l'inverso. $\left( \mathbb{Z}, \cdot \right)$ \`e un monoide, perch\'e non ha l'inverso.
 
 Il prototipo di tutti i gruppi \`e il gruppo simmetrico su $n$ elementi, il cui insieme \`e indicato con $S_n$. Prendiamo un insieme $E = \left\{ e_1, \dots, e_n \right\}$.
 
@@ -57,32 +55,33 @@ S_n = \left\{ f : E \to E \text{ t.c. $f$ \`e biunivoca} \right\}
 \]
 
 Il gruppo simmetrico \`e definito sull'insieme $S_n$ e l'operazione \`e la composizione: $\left( S_n, \circ \right)$.
-
 \begin{enumerate}
     \item $f \circ \left( g \circ h \right) = \left( f \circ g \right) \circ h$ 
-    \item L'unit\`a \`e la funzione identica (o identit\`a) $i_E : E \to E$ che associa $i_E(e) = e$. $f \circ i_E = f = i_E \circ f$ 
+    \item L'unit\`a \`e la funzione identica (o identit\`a) $i_E : E \to E$ tale che $\forall \ e \in E $ $i_E(e) = e$. $f \circ i_E = f = i_E \circ f$ 
     \item Una funzione biunivoca $f$ ha una funzione inversa $g$. $g : E \to E $ t.c. $ g(f(e)) = e$.
 \end{enumerate}
 
-Una funzione $f : E \to E $ su un insieme finito e iniettiva \`e necessariamente suriettiva e quindi biunivoca.
+Una funzione $f : E \to E $ iniettiva su un insieme finito $E$ \`e necessariamente suriettiva e quindi biunivoca.
 
 Un insieme \`e finito se non pu\`o essere messo in corrispondenza biunivoca con un suo sottoinsieme proprio.
 
-\subsection{Punto di vista dell'occupazione}
+% \subsection{Punto di vista dell'occupazione}
 
-$f : \left \{ 1, \dots, 6 \right \} \to \left \{ 1, \dots, 6 \right \}$. Penso il dominio come degli oggetti. Il codominio come dei ``cassetti''. La funzione \`e un modo di mettere gli oggetti del dominio nei ``cassetti''.
+% $f : \left \{ 1, \dots, 6 \right \} \to \left \{ 1, \dots, 6 \right \}$. Penso il dominio come degli oggetti. Il codominio come dei ``cassetti''. La funzione \`e un modo di mettere gli oggetti del dominio nei ``cassetti''.
 
-\begin{tabular}{cccccc}
-1 & 2 & 3 & 4 & 5 & 6 \\
-2 & 3 & 5  &1 & 6 & 4
-\end{tabular}
-\`E un'occupazione.
+% \begin{tabular}{cccccc}
+% 1 & 2 & 3 & 4 & 5 & 6 \\
+% 2 & 3 & 5  &1 & 6 & 4
+% \end{tabular}
+% \`E un'occupazione.
 
-\begin{tabular}{cccccc}
-1 & 2 & 3 & 4 & 5 & 6 \\
-6 & 6 & 3 & 5 & 5 & 5
-\end{tabular}
-Non \`e un'occupazione.
+% \begin{tabular}{cccccc}
+% 1 & 2 & 3 & 4 & 5 & 6 \\
+% 6 & 6 & 3 & 5 & 5 & 5
+% \end{tabular}
+% Non \`e un'occupazione.
+
+% SONO ARRIVATO QUI
 
 \subsection{Monoidi}
 
@@ -249,25 +248,33 @@ $(S_n, \circ)$ composizione e insieme delle funzioni iniettive da un insieme con
 
 Dati $a, b \in G$, se voglio avere l'inverso del prodotto $(a \cdot b)^{-1}$.
 
-Ho due funzioni \sigma e \tau dal punto di vista dell'occupazione.
+Ho due funzioni $\sigma$ e $\tau$ dal punto di vista dell'occupazione.
 
-\sigma
+\begin{tabular}{cccc}
+$\sigma$
 1 & 2 & 3 & 4 \\
 2 & 3 & 1 & 4
+\end{tabular}
 
-\tau
+\begin{tabular}{cccc}
+$\tau$
 1 & 2 & 3 & 4 \\
 1 & 2 & 4 & 3
+\end{tabular}
 
-\sigma \circ \tau
+\begin{tabular}{cccc}
+$\sigma \circ \tau$
 1 & 2 & 3 & 4 \\
 1 & 2 & 4 & 3 \\
 2 & 3 & 4 & 1
+\end{tabular}
 
-\tau \circ \sigma
+\begin{tabular}{cccc}
+$\tau \circ \sigma$
 1 & 2 & 3 & 4 \\
 2 & 3 & 1 & 4 \\
 2 & 4 & 1 & 3
+\end{tabular}
 
 Solo se il gruppo \`e commutativo ho che $(a \cdot b)^{-1} = a^{-1} \cdot b^{-1}$. Quindi se voglio trovare l'inverso di $(\sigma \circ \tau) \circ ? = i$ devo usare $\tau^{-1} \circ \sigma^{-1}$.
 
@@ -299,30 +306,49 @@ Con i monoidi avevamo $(M, \cdot)$ una struttura associativa con $1_M$. Il $\ker
 \]
 Come mai il nucleo adesso \`e una classe? 
 
-f : A \to B
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+  \node (A) {$A$};
+  \node (f) [right of=A, node distance=2cm] {$f$};
+  \node (B) [right of=f, node distance=2cm] {$B$};
+  \node (a) [below of=A, node distance=1cm] {$a$};
+  \node (b) [below of=a, node distance=1cm] {$b$};
+  \node (c) [below of=b, node distance=1cm] {$c$};
+  \node (d) [below of=c, node distance=1cm] {$d$};
+  \node (e) [below of=d, node distance=1cm] {$e$};
+  \node (1) [below of=B, node distance=1cm] {$1$};
+  \node (2) [below of=1, node distance=1cm] {$2$};
+  \node (3) [below of=2, node distance=1cm] {$3$};
+  \node (4) [below of=3, node distance=1cm] {$4$};
+  \node (5) [below of=4, node distance=1cm] {$5$};
+  \node (6) [below of=5, node distance=1cm] {$6$};
+  \node (7) [below of=6, node distance=1cm] {$7$};
+  \path[->]  (a) edge node {} (3)
+            (b) edge node {} (3)
+            (c) edge node {} (4)
+            (d) edge node {} (4)
+            (e) edge node {} (7)
+            ;
+\end{tikzpicture}
+\caption{\label{fig:esempio_funzione}$\ker f = \{ \{a, b \}, \{ c, d \}, \{ e \}\}$ }
+\end{figure}
 
-A B = 1 .. 7
-a \to 3
-b \to 3
-c \to 4
-d \to 4
-e \to 7
+Nel caso in figura \ref{fig:esempio_funzione} $\ker f = \{ \{a, b \}, \{ c, d \}, \{ e \}\}$. Ho \textit{bisogno} di sapere quali classi ci sono per ricostruire la funzione.
 
-In questo caso \ker f = \{ \{a, b \}, \{ c, d \}, \{ e \}\}. Ho bisogno di sapere quali classi ci sono per ricostruire la funzione.
-
-Per conoscere la f devo sapere tutti i blocchi della partizione, non posso ricostruire gli altri blocchi da un blocco solo.
+Per conoscere la $f$ devo sapere tutti i blocchi della partizione, non posso ricostruire gli altri blocchi da un blocco solo.
 
 Con i gruppi non \`e cos\`i. Mi basta la classe degli elementi che vanno nell'unit\`a. Se conosco una classe le conosco tutte.
 
-Fissato il \ker f conosco tutti gli elementi che hanno la stessa immagine di a, ossia a \cdot \ker f = [a].
+Fissato il $\ker f$ conosco tutti gli elementi che hanno la stessa immagine di $a$, ossia $a \cdot \ker f = [a]$.
 
-Abbiamo f morfismo di gruppi $ f : (G, \cdot ) \to (G', \ast)$. Dimostriamo intanto che il nucleo \`e un sottospazio, ossia un sottogruppo.
+Abbiamo $f$ morfismo di gruppi $ f : (G, \cdot ) \to (G', \ast)$. Dimostriamo intanto che il nucleo \`e un sottospazio, ossia un sottogruppo.
 
-\ker f = [1_G] conosco tutti gli elementi che finiscono nell'unit\`a di $G'$
+$\ker f = [1_G]$ conosco tutti gli elementi che finiscono nell'unit\`a di $G'$
 
-CNES afficnhe un sottoinsieme sia un sottogruppo \`e che se a, b \in S \Rightarrow a^{-1} b \in S.
+CNES afficnhe un sottoinsieme sia un sottogruppo \`e che se $a, b \in S \Rightarrow a^{-1} b \in S$.
 
-Prendiamo u, v \in \ker f. La tesi \`e che u^{-1} \cdot v \in \ker f. Quindi $f ( u^{-1} \cdot v ) = 1_{G'}$.
+Prendiamo $u, v \in \ker f$. La tesi \`e che $u^{-1} \cdot v \in \ker f$. Quindi $f ( u^{-1} \cdot v ) = 1_{G'}$.
 \[
 f( u^{-1} \cdot v ) = f(u^{-1}) \ast f(v) = f(u)^{-1} \ast f(v)
 \]
@@ -333,150 +359,165 @@ f(u)^{-1} \ast f(v) = 1_{G'} \ast 1_{G'} = 1_{G'}
 
 Teorema di omomorfismo per i gruppi
 
-Sia f : (G, \cdot) \to (G', \ast) un morfismo di gruppi, allora \varepsilon_f \`e una congruenza e il gruppo G / \varepsilon_f \`e isomorfo al gruppo (Im_f, \ast). Ogni elemento [a] di G / \varepsilon_f \`e del tipo a \cdot \ker f.
-
+Sia $f : (G, \cdot) \to (G', \ast)$ un morfismo di gruppi, allora $\varepsilon_f$ \`e una congruenza e il gruppo $G / \varepsilon_f$ \`e isomorfo al gruppo $(Im_f, \ast)$. Ogni elemento $[a] \in G / \varepsilon_f$ \`e del tipo $a \cdot \ker f$.
+\[
 F : (G / \varepsilon_f, \cdot) \to (Im_f, \ast)
-
+\]
+\[
 \forall [a] \in G / \varepsilon_f [a] = a \cdot \ker f
-
+\]
 Dimostrazione:
-b \in [a] \Rightarrow f(a) = f(b) per definizione hanno la stessa immagine tramite il morfismo.
+$b \in [a] \Rightarrow f(a) = f(b)$ per definizione hanno la stessa immagine tramite il morfismo.
 
-Quindi moltiplico entrambi i membri per f(a)^{-1}: f(a)^{-1} \ast f(b) = 1_{G'} \Rightarrow 1_{G'} = f(a)^{-1} \ast f(b) = f(a^{-1} \cdot b)
+Quindi moltiplico entrambi i membri per $f(a)^{-1}: f(a)^{-1} \ast f(b) = 1_{G'} \Rightarrow 1_{G'} = f(a)^{-1} \ast f(b) = f(a^{-1} \cdot b)$
 
-Quindi u = (a^{-1} \cdot b ) \in \ker f e b = a \cdot u = a \cdot (a^{-1} \cdot b)
+Quindi $u = (a^{-1} \cdot b ) \in \ker f e b = a \cdot u = a \cdot (a^{-1} \cdot b)$
 
-Viceversa, dobbiamo prendere b \in a \cdot \ker f \Rightarrow b = a \cdot u. Ha per forza la stessa immagine di a, infatti f(b) = f(a \cdot u) = f(a) \cdot f(u) = f(a) \cdot 1_G = f(a). Segue che b \`e nella classe di a, b \in [a].
+Viceversa, dobbiamo prendere $b \in a \cdot \ker f \Rightarrow b = a \cdot u$. Ha per forza la stessa immagine di $a$, infatti $f(b) = f(a \cdot u) = f(a) \cdot f(u) = f(a) \cdot 1_G = f(a)$. Segue che $b$ \`e nella classe di $a, b \in [a]$.
 
-Non essendo commutativo ho che b = a \cdot u = v \cdot a. Posso vedere b \in a \cdot \ker f sia in \ker f \cdot a.
+Non essendo commutativo ho che $b = a \cdot u = v \cdot a$. Posso vedere $b \in a \cdot \ker f$ sia in $\ker f \cdot a$.
 
 La prima \`e la classe laterale sinistra, la seconda \`e la classe laterale destra.
-
+\[
 \forall a \in G a \cdot ker f = \ker f \cdot a
-
+\]
+\[
 b = u \cdot a
-
+\]
+\[
 f(b) = f(u) \cdot f(a) = 1_{G'} \cdot f(a)
-
+\]
 Proiezioni. La seguente \`e la prima proiezione
-
-p_1 : R \times R \to R
-
+\[
+p_1 : \mathbb{R} \times \mathbb{R} \to \mathbb{R}
+\]
+\[
 p_1 (x, y) = x
-
-p_1 : (R \times R, +) \to (R, +)
-
-Qual \`e l'immagine Im_{p_1}? Im_{p_1} = \{ r \in R : \exists (x, y) p_1 (x, y) = r \}. In questo caso l'immagine \`e tutto R. Infatti \forall r \in R p_1(r, 0) = r.
+\]
+\[
+p_1 : (\mathbb{R} \times \mathbb{R}, +) \to (\mathbb{R}, +)
+\]
+Qual \`e l'immagine $Im_{p_1}$? $Im_{p_1} = \{ r \in \mathbb{R} : \exists (x, y) p_1 (x, y) = r \}$. In questo caso l'immagine \`e tutto $\mathbb{R}$. Infatti $\forall r \in \mathbb{R} p_1(r, 0) = r$.
 
 Adesso troviamo il nucleo.
+\[
+\ker f = \{ (x, y) \in \mathbb{R} \times \mathbb{R} : p_1(x, y) = 0 \} = \{ (0, y) : y \in \mathbb{R} \}
+\]
+L'unit\`a di $G 1_G = (0, 0) \in \ker p_1$
 
-\ker f = \{ (x, y) \in R \times R : p_1(x, y) = 0 \} = \{ (0, y) : y \in R \}
-
-L'unit\`a di G 1_G = (0, 0) \in \ker p_1
-
-0 \`e l'elemento neutro di (R, +).
-
-(2, 3) \in R \times R, p_1(2, 3) = 2
-
-[(2, 3)] = \{ (x, y) \in R \times R : f(x, y) = 2\}
-
+0 \`e l'elemento neutro di $(\mathbb{R}, +)$.
+\[
+(2, 3) \in \mathbb{R} \times \mathbb{R}, p_1(2, 3) = 2
+\]
+\[
+[(2, 3)] = \{ (x, y) \in \mathbb{R} \times \mathbb{R} : f(x, y) = 2\}
+\]
 Applicando il teorema di omomorfismo visto prima vediamo subito che \`e:
-
+\[
 [(2,3)] = (2, 3) + \ker p_1 = \{ (2, 3) + (0, y) = (2, y + 3) \}
-
+\]
 Altro esempio:
-\mathbb{R}[x] = insieme dei polinomi in una indeterminata x
+$\mathbb{R}[x] =$ insieme dei polinomi in una indeterminata $x$
 
-un polinomio \`e una espressione formale del tipo a_0 + a_1 x + \dots a_n x^n dove a_n \neq 0 e n si dice grado del polinomio.
+un polinomio \`e una espressione formale del tipo $a_0 + a_1 x + \dots a_n x^n$ dove $a_n \neq 0$ e $n$ si dice grado del polinomio.
 
-C'\`e una differenza fra x \to indeterminata e x \to variabile. L'indeterminata fa parte dei polinomi, e vuol dire che x \`e un simbolo. Variabile vuol dire che \`e un elemento di un insieme, ossia x \in E. In genere si confonde indeterminata con variabile, perch\'e quando si parla di polinomi la x \`e indeterminata, ma ogni polinomio individua una funzione polinomiale. p : R \to R a \mapsto p(a)
-
+C'\`e una differenza fra $x \to$ indeterminata e $x \to $ variabile. L'indeterminata fa parte dei polinomi, e vuol dire che $x$ \`e un simbolo. Variabile vuol dire che \`e un elemento di un insieme, ossia $x \in E$. In genere si confonde indeterminata con variabile, perch\'e quando si parla di polinomi la $x$ \`e indeterminata, ma ogni polinomio individua una funzione polinomiale. $p : R \to R a \mapsto p(a)$
+\[
 p(x) = 1 + 2x
-
-individua la funzione polinomiale p : R \to R \forall a \in R associa 1 + 2 \cdot a = p(a). Nel caso dei numeri reali, questa funzione \`e una biezione. Se due polinomi hanno la stessa funzione polinomiale, allora sono lo stesso polinomio. Non \`e vero se prendo altri insiemi.
+\]
+individua la funzione polinomiale $p : R \to R \forall a \in R$ associa $1 + 2 \cdot a = p(a)$. Nel caso dei numeri reali, questa funzione \`e una biezione. Se due polinomi hanno la stessa funzione polinomiale, allora sono lo stesso polinomio. Non \`e vero se prendo altri insiemi.
 
 Per fare i polinomi bisogna avere un campo.
 
-Se prendo Z_2 = {0,1}, ossia i resti della divisione per 2. Possiamo definire due operazioni, di somma e di prodotto.
+Se prendo $Z_2 = {0,1}$, ossia i resti della divisione per 2. Possiamo definire due operazioni, di somma e di prodotto.
 
+\begin{tabular}{c|cc}
 + & 0 & 1 \\
+\hline
 0 & 0 & 1 \\
 1 & 1 & 0
+\end{tabular}
 
-Z / \equiv_2, congruenza modulo 2.
+$Z / \equiv_2$, congruenza modulo 2.
 
-\cdot & 0 & 1 \\
+\begin{tabular}{c|cc}
+$\cdot$ & 0 & 1 \\
+\hline
 0 & 0 & 0 \\
 1 & 0 & 1
+\end{tabular}
 
-Un campo \`e un gruppo rispetto a + e un gruppo rispetto a \cdot senza elemento neutro (0).
+Un campo \`e un gruppo rispetto a $+$ e un gruppo rispetto a $\cdot$ senza elemento neutro (0).
 
-Posso creare i polinomi a coefficienti in Z_2, ossia Z_2[x], ad esempio 1 + x. La funzione polinomiale rispetto a questo polinomio \`e:
+Posso creare i polinomi a coefficienti in $Z_2$, ossia $Z_2[x]$, ad esempio $1 + x$. La funzione polinomiale rispetto a questo polinomio \`e:
 \begin{itemize}
-    \item per x = 0 \to p(0) = 1
-    \item per x = 1 \to p(1) = 0
+    \item per $x = 0 \to p(0) = 1$
+    \item per $x = 1 \to p(1) = 0$
 \end{itemize}
-Ma dato il polinomio 1 + x^2 ho:
+Ma dato il polinomio $1 + x^2$ ho:
 \begin{itemize}
-    \item per x = 0 \to p(0) = 1
-    \item per x = 1 \to p(1) = 0
+    \item per $x = 0 \to p(0) = 1$
+    \item per $x = 1 \to p(1) = 0$
 \end{itemize}
 Sono quindi due polinomi diversi che hanno la stessa funzione polinomiale.
 
 Due polinomi sono uguali se hanno tutti i coefficienti uguali.
 
-(R[x], +) \`e un gruppo commutativo. Come funziona il +? Sommo i coefficienti. L'elemento neutro \`e il polinomio nullo, ossia il polinomio con tutti i coefficienti uguali a 0. Si indica con 0 sottolineato. Il polinomio nullo ha grado -1.
+$(R[x], +)$ \`e un gruppo commutativo. Come funziona il +? Sommo i coefficienti. L'elemento neutro \`e il polinomio nullo, ossia il polinomio con tutti i coefficienti uguali a 0. Si indica con $\underline{0}$. Il polinomio nullo ha grado -1.
 
 Posso definire un morfismo di gruppi su tutta sta merda.
 
-Prendo tutti i polinomi di grado minore o uguale a due, e li indico R_2[x].
+Prendo tutti i polinomi di grado minore o uguale a due, e li indico $R_2[x]$.
 
-Prendo l'applicazione f : (R_2[x], +) \to (R^2, +) definito come segue:
-
+Prendo l'applicazione $f : (R_2[x], +) \to (R^2, +)$ definito come segue:
+\[
 f(a_0 + a_1 \cdot x + a_2 \cdot x^2) = (a_2, a_1 + a_2)
+\]
+Quindi $1 + 2x \mapsto (0, 2)$.
 
-Quindi 1 + 2x \mapsto (0, 2).
-
-Qual \`e l'immagine di questa f? 
-
+Qual \`e l'immagine di questa $f$? 
+\[
 Im_f = \{ (r, s) \in R^2 : \exists p(x) t.c. f(p(x)) = (r,s)\} = R^2
-
+\]
+\[
 (r, s) = f(0 + (s - r) x + r x^2)
-
+\]
 Troviamo il nucleo.
-
+\[
 \ker f = \{ p(x) \in R^2[x] : f(p(x)) = (0, 0)\}
+\]
+Quindi sono tutti i polinomi di grado 0 pi\`u il polinomio nullo, dovendo avere $a_2 = 0$ e $a_1 = 0$.
 
-Quindi sono tutti i polinomi di grado 0 pi\`u il polinomio nullo, dovendo avere a_2 = 0 e a_1 = 0.
-
-Tutti i polinomi [p(x)] = a_0 + a_1 x + a_2 x^2 devono potersi scrivere come p(x) + \ker f.
-
+Tutti i polinomi $[p(x)] = a_0 + a_1 x + a_2 x^2$ devono potersi scrivere come $p(x) + \ker f$.
+\[
 f(p(x)) = (a_2, a_1 + a_2)
-
+\]
+\[
 p(x) + \ker f
-
+\]
+\[
 q(x) \in [p(x)] sono q(x) = p(x) + a_0
-
-con a_0 \in \ker f
+\]
+con $a_0 \in \ker f$
 
 Esercizio:
 
-(G, \cdot), (G', \ast), poi abbiamo il morfismo f(G, \cdot) \to (G', \ast)
-
+$(G, \cdot)$, $(G', \ast)$, poi abbiamo il morfismo $f : (G, \cdot) \to (G', \ast)$
+\[
 \ker f \subseteq G
+\]
+\[
 Im_f \subseteq G'
+\]
+Caratterizzano il morfismo, questi due gruppi. f \`e un morfismo iniettivo (monomorfismo) $\Leftrightarrow \ker f = \{ 1_G\}$. Il morfismo \`e suriettivo (epimorfismo) $\Leftrightarrow$ solo se $Im_f = G'$.
 
-Caratterizzano il morfismo, questi due gruppi. f \`e un morfismo iniettivo (monomorfismo) \Leftrightarrow \ker f = \{ 1_G\}. Il morfismo \`e suriettivo (epimorfismo) \Leftrightarrow solo se Im_f G'.
+Il primo caso \`e evidente, il $\ker f$ ha solo un elemento quindi la classe degli elementi con la stessa immagine $[a] = a \cdot \ker f$ ha un solo elemento, ossia $a$. Si pu\`o anche dimostrare direttamente.
 
-Il primo caso \`e evidente, il \ker ha solo un elemento quindi la classe degli elementi con la stessa immagine [a] = a \cdot \ker f ha un solo elemento, ossia a. Si pu\`o anche dimostrare direttamente.
+$f$ \`e iniettiva per ipotesi. La tesi \`e che il nucleo \`e costituito da un solo elemento $\ker f = \{ 1_G \} $ ossia $f(1_G) = 1_{G'}$
 
-f \`e iniettiva per ipotesi. La tesi \`e che il nucleo \`e costituito da un solo elemento \ker f = \{ 1_G \} ossia f(1_G) = 1_{G'}
+Viceversa se $\ker f = \{ 1_G \} \Rightarrow f(a) = f(b) \Rightarrow f(a) \cdot f(b)^{-1} = 1_{G'} = f(a \cdot b^{-1}) = 1_{G'} \Rightarrow a \cdot b^{-1} = 1_G \Rightarrow a = b$
 
-Viceversa se \ker f = \{ 1_G \} \Rightarrow f(a) = f(b) \Rightarrow f(a) \cdot f(b)^{-1} = 1_{G'} = f(a \cdot b^{-1}) = 1_{G'} \Rightarrow a \cdot b^{-1} = 1_G \Rightarrow a = b
-
-Se prendiamo S sottogruppo di G possiamo considerare la classe laterale destra $a S$ e la classe laterale sinistra $S a$. Lo vediamo la prossima volta. 
-
-
+Se prendiamo $S$ sottogruppo di $G$ possiamo considerare la classe laterale destra $a S$ e la classe laterale sinistra $S a$. Lo vediamo la prossima volta. 
 
 
 
@@ -486,16 +527,16 @@ Se prendiamo S sottogruppo di G possiamo considerare la classe laterale destra $
 
 \section{Strutture algebriche con due operazioni}
 
-\begin{enumerate}
-    \item Anelli: un anello \`e una struttura algebrica $(A, +, \cdot)$ t.c. 
+\begin{description}
+    \item[Anelli] un anello \`e una struttura algebrica $(A, +, \cdot)$ t.c. 
     \begin{enumerate}
         \item La prima operazione $\left( A, + \right )$ \`e un gruppo abeliano.
         \item La seconda operazione considerata sull'insieme escluso l'elemento neutro, $(A \setminus \left \{ 0 \right \}, \cdot )$ \`e un semigruppo.
         \item $ \forall a, b, c \in A , \ a \cdot (b + c) = a \cdot b + a \cdot c $
         \item $ \forall a, b, c \in A , \ (a + b) \cdot c = a \cdot c + b \cdot c $
     \end{enumerate}
-    \item Campi: \`e un anello in cui $( A \setminus \left \{ 0 \right \}, \cdot )$ \`e un gruppo abeliano.
-\end{enumerate}
+    \item[Campi] \`e un anello in cui $( A \setminus \left \{ 0 \right \}, \cdot )$ \`e un gruppo abeliano.
+\end{description}
 
 Gli interi sono un anello: $\left ( \mathbb{Z}, +, \cdot \right )$.
 

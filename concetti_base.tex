@@ -1260,7 +1260,7 @@ allora $|S| = i_1 \cdot i_2 \cdot \dots i_n$.
 
 \subsection{Dimostrazioni biettive}
 
-Se voglio dimostrare che $a = b$, posso trovare due insiemi $A$ e $B$ tali che $|A| = a$ e $|B| = b$, e dimostrare che sono in biezione.
+Se voglio dimostrare che $a = b$, posso trovare due insiemi $A$ e $B$ tali che $|A| = a$ e $|B| = b$, e dimostrare che sono in biezione. Si indica solitamente con $A \leftrightarrow B$.
 
 Due insiemi con intersezione disgiunta possono essere i due blocchi di una partizione con due soli blocchi.
 
@@ -1439,7 +1439,7 @@ Devo definire l'insieme $E_k$. Per il principio del prodotto, \`e una terna:
 \[
 \left( X, \ f_k : X \to R, \ g_{(n - k)} : (A \setminus X) \to S \right)
 \]
-con $X \subseteq A$ tale che $|X| = k$, $f_k$ l'insieme delle funzioni da $X$ in $R$, e $g_{(n-k)}$ l'insieme delle funzioni da $A \setminus X$ (ossia il complementare di $X$) in $S$.
+con $X \subseteq A$ tale che $|X| = k$, $f_k$ appartenente all'insieme delle funzioni da $X$ in $R$, e $g_{(n-k)}$ appartenente all'insieme delle funzioni da $A \setminus X$ (ossia il complementare di $X$) in $S$.
 
 Dobbiamo mostrare ora che $T^A \leftrightarrow \bigsqcup E_k$, ossia che c'\`e una biezione. La funzione biettiva $F$ associa ad una funzione $f : A \to T$ una terna:
 \[
@@ -1460,7 +1460,7 @@ Il coefficiente multinomiale, indicato con:
 Sia $A$ un insieme con $n$ elementi, una $t$-scomposizione di $A$ \`e una $t$-upla $(E_1, \dots E_t)$ tale che:
 \begin{description}
   \item[1S] $\bigsqcup_{i = 1}^{t} E_i = A$
-  \item[2S] $E_1 \cap E_j = \emptyset$ se $i \neq j$ 
+  \item[2S] $E_i \cap E_j = \emptyset$ se $i \neq j$ 
 \end{description}
 $E_i$ \`e detto blocco.
 \end{defn}
@@ -1490,7 +1490,7 @@ Partendo da questa uguaglianza, so che:
 \binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots \ k_t!}
 \]
 
-\begin{prop}
+\begin{prop}\label{coeff_mult_valore}
 Il numero delle $t$-scomposizioni di $A$ $(E_1, \dots E_t)$ di $A$ (indicato anche con $E_1 + \dots + E_t = A$) tali che $|E_1| = k_1, \dots |E_t| = k_t$ \`e:
 \begin{equation}
 \binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots \ k_t!}
@@ -1524,11 +1524,11 @@ Si dimostra di nuovo per biezione. Prendo $x_i = r_i \in \mathbb{N}$. Quindi:
 (r_1 + \dots + r_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
 \binom{n}{k_1, \dots, k_t} \ r_1^{k_1} \dots r_t^{k_t}
 \]
-Il membro sinistro \`e uguale alla cardinalit\`a dell'insieme delle funzioni da $A$ in $T$ tali che $T = R_1 \cup \dots \cup R_t$, in cui $R_i $ con $i \in [1, t]$ insiemi a due a due disgiunti tali che $| R_i | = r_i$.
+Il membro sinistro \`e uguale alla cardinalit\`a dell'insieme delle funzioni da $A$ in $T$ tali che $T = R_1 \cup \dots \cup R_t$, in cui $R_i $ con $i \in [1, t]$ sono insiemi a due a due disgiunti tali che $| R_i | = r_i$.
 
 Ogni funzione individua una scomposizione di $A$ in $t$-blocchi, in cui ogni blocco \`e dato dalla controimmagine $f^{-1} (R_i)$ ed ha cardinalit\`a $k_i$. 
 
-Il membro destro \`e dato quindi dall'unione disgiunta di una serie di insiemi di $(t+1)$-tuple. Ciascuna $(t+1)$-upla ha al primo posto una $t$-scomposizione di $A$, e all'$i+1$-esimo posto una funzione dal blocco $K_i$ nell'insieme $R_i$. Per il principio del prodotto, il numero di queste $(t+1)$-uple, per ogni possibile $t$-scomposizione, \`e proprio:
+Il membro destro \`e dato quindi dall'unione disgiunta di una serie di insiemi di $(t+1)$-tuple. Ciascuna $(t+1)$-upla ha al primo posto una $t$-scomposizione di $A$, e all'$(i+1)$-esimo posto una funzione dal blocco $K_i$ nell'insieme $R_i$. Per il principio del prodotto, il numero di queste $(t+1)$-uple, per ogni possibile $t$-scomposizione, \`e proprio:
 \[
 \binom{n}{k_1, \dots, k_t} \ r_1^{k_1} \dots r_t^{k_t}
 \]
@@ -1557,7 +1557,7 @@ $R^A$ \`e l'insieme delle funzioni da $A$ in $R$. $|R^A| = r^n$. Una funzione $f
 \begin{prop}[Principio dei cassetti]
 Se $|A| > |R|$ non esistono funzioni iniettive da $A$ in $R$.
 \end{prop}
-Dal punto di vista dell'occupazione, se si mettono $n$ oggetti in $r$ cassetti con $n > r$, allora almeno un cassetto conterr\`a pi\`u di un oggetto. 
+Dal punto di vista dell'occupazione, se si mettono $|A| = n$ oggetti in $|R| = r$ cassetti con $n > r$, allora almeno un cassetto conterr\`a pi\`u di un oggetto. 
 
 Dal punto di vista della distribuzione, ogni parola di lunghezza $n$ con lettere in un alfabeto di cardinalit\`a $r$, con $n > r$, contiene almeno una lettera ripetuta.
 
@@ -1567,14 +1567,14 @@ I due punti di vista hanno una formalizzazione matematica distinta.
 Dato un triangolo equilatero di lato 1, e dati 5 punti interni, almeno 2 di essi hanno distanza minore di $\frac{1}{2}$.
 \end{prop}
 \begin{proof}
-Si pu\`o partizionare il triangolo in 4 blocchi come in figura \ref{triforza}, in modo che dati due punti qualsiasi in uno stesso blocco questi siano a meno di $\frac{1}{2}$ di distanza.
+Si pu\`o partizionare il triangolo in 4 blocchi come in figura \ref{fig:triforza}, in modo che dati due punti qualsiasi in uno stesso blocco questi siano a meno di $\frac{1}{2}$ di distanza.
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}
 \draw (0,0) -- (2,0) -- (1,1.73)-- (0,0);
 \draw[dashed] (1,0) -- (0.5,0.866) -- (1.5,0.866) -- (1,0);
 \end{tikzpicture}
-\caption{\label{triforza}Le quattro partizioni possibili}
+\caption{\label{fig:triforza}Le quattro partizioni possibili}
 \end{figure}
 \end{proof}
 
@@ -1582,7 +1582,53 @@ Si pu\`o partizionare il triangolo in 4 blocchi come in figura \ref{triforza}, i
 Se si colorano i punti del piano con due colori (R,B) esisterà un rettangolo con tutti i vertici dello stesso colore.
 \end{prop}
 \begin{proof}
-Se prendo tre punti allineati, so che almeno due hanno lo stesso colore. Se prendo nove terne di punti allineati, a loro volta allineate in modo da poter formare un rettangolo con ciascuna coppia di terne, so che almeno due terne hanno la stessa combinazione di colori.
+Se prendo tre punti allineati, so che almeno due hanno lo stesso colore. Se prendo nove terne di punti allineati, a loro volta allineate in modo da poter formare un rettangolo con ciascuna coppia di terne, so che almeno due terne hanno la stessa combinazione di colori (figura \ref{fig:piano_punti_colore}).
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+  \node (11) [circle, draw] {$R$};
+  \node (12) [below of=11, circle, draw] {$R$};
+  \node (13) [below of=12, circle, draw] {$R$};
+
+  \node (21) [right of=11, circle, draw] {$R$};
+  \node (22) [below of=21, circle, draw] {$R$};
+  \node (23) [below of=22, circle, draw] {$B$};
+
+  \node (31) [right of=21, circle, draw] {$B$};
+  \node (32) [below of=31, circle, draw] {$R$};
+  \node (33) [below of=32, circle, draw] {$B$};
+
+  \node (41) [right of=31, circle, draw] {$R$};
+  \node (42) [below of=41, circle, draw] {$B$};
+  \node (43) [below of=42, circle, draw] {$B$};
+
+  \node (51) [right of=41, circle, draw] {$R$};
+  \node (52) [below of=51, circle, draw] {$B$};
+  \node (53) [below of=52, circle, draw] {$R$};
+
+  \node (61) [right of=51, circle, draw] {$B$};
+  \node (62) [below of=61, circle, draw] {$R$};
+  \node (63) [below of=62, circle, draw] {$R$};
+
+  \node (71) [right of=61, circle, draw] {$B$};
+  \node (72) [below of=71, circle, draw] {$B$};
+  \node (73) [below of=72, circle, draw] {$R$};
+
+  \node (81) [right of=71, circle, draw] {$R$};
+  \node (82) [below of=81, circle, draw] {$B$};
+  \node (83) [below of=82, circle, draw] {$R$};
+
+  \node (91) [right of=81, circle, draw] {$B$};
+  \node (92) [below of=91, circle, draw] {$B$};
+  \node (93) [below of=92, circle, draw] {$B$};
+
+  \draw (51) -- (81);
+  \draw (81) -- (83);
+  \draw (83) -- (53);
+  \draw (53) -- (51);
+\end{tikzpicture}
+\caption{\label{fig:piano_punti_colore}Il rettangolo realizzabile sul piano colorato}
+\end{figure}
 \end{proof}
 Prendo l'insieme $I = \{ 0, 1, 2 \}$ e definisco $X = I \times I \times I$. Definisco la relazione di equivalenza $\rho$ come:
 \[
@@ -1667,29 +1713,29 @@ Quindi il numero di Stirling di II specie \`e:
 S(n,r) = \frac{|Sur(A,R)|}{r!} = \frac{1}{r!} \sum_{k = 0}^{n} (-1)^{k} \binom{r}{k} (r - k)^n
 \end{equation}
 
-% SONO ARRIVATO QUI
+Per il teorema di omomorfismo, data una funzione $f : A \to R$, ho che $|\ker f| = |Im_f|$. Consideriamo la funzione $F : \ker f \to Im_f$ che ad ogni blocco associa l'immagine degli elementi del dominio nel bocco ($F[x] = f(x)$), e definiamo la funzione $\bar F : \ker f \to R$ costruita a partire da $F$ tale che $\bar F [x] = f(x)$ in genere non \`e biunivoca, a meno che la funzione $f$ sia suriettiva. Di norma \`e solo iniettiva.
 
-Per il teorema di omomorfismo, data una funzione $f : A \to R$, $|\ker f| = |Im_f|$. Data la funzione $F : \ker f \to Im_f$ che ad ogni blocco associa l'immagine degli elementi del dominio nel bocco ($F[x] = f(x)$).
-
-Prendo la funzione $\bar F : \ker f \to R$ tale che $\bar F [x] = f(x)$.
-
-In genere non \`e biunivoca, a meno che la funzione $f$ sia suriettiva. Di norma \`e solo iniettiva.
-\[
+Diciamo questo:
+\begin{equation}
 f : A \to R \leftrightarrow ( \ker f , \bar F : \ker f \to R \text{ iniettiva})
-\]
-Sono in corrispondenza biunivoca.
+\end{equation}
+L'insieme delle funzioni da $A$ in $R$ \`e in corrispondenza biunivoca con l'insieme di coppie con al primo posto una partizione di $A$ ed al secondo posto una funzione $\bar F$ che a ciascun blocco di $A$ associa elementi distinti di $R$ (ossia, $\bar F$ \`e iniettiva).
+
+Quindi:
 \[
 r^n = \sum_{k = 1}^{r} S(n, k) \cdot [r]_k
 \]
-Come polinomio diventa:
+Si pu\`o scrivere anche come polinomio:
 \[
 x^n = \sum_{k = 1}^{r} S(n, k) \cdot [x]_k
 \]
-Dall'algebra lineare si impara che la successione delle potenze e la successione dei fattoriali decrescenti si possono esprimere l'uno in funzione dell'altra, ed i coefficienti di cui sopra si possono invertire.
+Dall'algebra lineare si impara che la successione delle potenze e la successione dei fattoriali decrescenti si possono esprimere l'uno in funzione dell'altra, ed i coefficienti di cui sopra si possono invertire. Non lo dimostriamo qui.
 \[
 [x]_n = \sum_{k = 1}^{r} s(n, k) x^k
 \]
-Con il coefficiente $s(n, k)$ ad indicare il numero di Stirling di prima specie.
+Il coefficiente $s(n, k)$ indica il numero di Stirling di prima specie.
+
+\subsection{Anagrammi}
 
 \textbf{Esercizio:} 
 \begin{enumerate}
@@ -1702,61 +1748,73 @@ Con il coefficiente $s(n, k)$ ad indicare il numero di Stirling di prima specie.
   \end{itemize}
 \end{enumerate}
 
-Dal punto di vista della distribuzione, il dominio \`e un insieme di posti di cardinalit\`a 10, mentre il codominio \`e l'insieme delle lettere $\{ $A, C, E, I, M, T$\}$. La parola MATEMATICA \`e una funzione che associa ad ogni posto una lettera del codominio. Gli anagrammi di MATEMATICA sono tutte quelle funzioni tali per cui la controimmagine $|f^{-1}(A)| = 3$, $|f^{-1}(M)| = 2$ e $|f^{-1}(T)| = 2$.
+Dal punto di vista della distribuzione, il dominio \`e un insieme di posti $P$ di cardinalit\`a 10, mentre il codominio \`e l'insieme delle lettere $L = \{ $A, C, E, I, M, T$\}$. La parola MATEMATICA \`e una funzione $f : P \to L $ che associa ad ogni posto del dominio una lettera del codominio. Gli anagrammi di MATEMATICA sono tutte quelle funzioni tali per cui le cardinalit\`a delle controimmagini delle lettere A, M e T sono: 
+\begin{align*}
+|f^{-1}(A)| = 3 \\ 
+|f^{-1}(M)| = 2 \\
+|f^{-1}(T)| = 2
+\end{align*}
+Sappiamo che ogni funzione individua un nucleo, ossia, in questo caso, una $6$-scomposizione $E_1, \dots E_6$ dell'insieme dei posti. Quale $6$-scomposizione dell'insieme dei posti \`e individuata dal nucleo della funzione che individua la parola ``MATEMATICA''?
 
-Quale scomposizione dell'insieme dei posti \`e associata alla funzione MATEMATICA?
-
-\begin{tabular}{cccccc}
+\begin{tabular}{c|c|c|c|c|c}
 A & C & E & I & M & T \\
 $E_1$ & $E_2$ & $E_3$ & $E_4$ & $E_5$ & $E_6$ \\
 $\{2, 6, 10\}$ & $\{9\}$ & $\{4\}$ & $\{8\}$ & $\{1,5\}$ & $\{3,7\}$ 
 \end{tabular}
 
-Quindi per trovare gli anagrammi devo trovare le scomposizioni tali che $|E_1| = 3$, $|E_2| = 1$, $|E_3| = 1$, $|E_4| = 1$, $|E_5| = 2$, $|E_6| = 2$.
-
-La scomposizione $( \{ 7, 1, 2\}, \{ 10\}, \{3\}, \{ 6\}, \{4, 5\}, \{8,9\})$, ad esempio, individua l'anagramma AAEMMIATTC.
-
+Quindi per trovare gli anagrammi devo trovare le $6$-scomposizioni tali che $|E_1| = 3$, $|E_2| = 1$, $|E_3| = 1$, $|E_4| = 1$, $|E_5| = 2$, $|E_6| = 2$. La scomposizione $( \{ 7, 1, 2\}, \{ 10\}, \{3\}, \{ 6\}, \{4, 5\}, \{8,9\})$, ad esempio, individua l'anagramma AAEMMIATTC. Per la proposizione \ref{coeff_mult_valore} \`e:
 \[
-\frac{10!}{3! 2! 2!}
+\frac{10!}{3! \ 2! \ 2!}
 \]
 
-$A_1 = $ insieme degli anagrammi che contengono la sequenza MATE.
-$A_2 = $ insieme degli anagrammi che contengono la sequenza ATI.
-$A_3 = $ insieme degli anagrammi che contengono la sequenza MAC. $|A_1 \cup A_2 \cup A_3|$ \`e la risposta al secondo punto, e posso calcolarlo con il principio di inclusione ed esclusione.
+Adesso dobbiamo trovare il numero di anagrammi contenenti le sequenze richieste:
+\begin{itemize}
+  \item $A_1 = $ insieme degli anagrammi che contengono la sequenza MATE.
+  \item $A_2 = $ insieme degli anagrammi che contengono la sequenza ATI.
+  \item $A_3 = $ insieme degli anagrammi che contengono la sequenza MAC.
+\end{itemize}
+$|A_1 \cup A_2 \cup A_3|$ \`e la risposta al secondo punto, e posso calcolarlo con il principio di inclusione ed esclusione, secondo il quale:
+\[
+|A_1 \cup A_2 \cup A_3| = |A_1| + |A_2| + |A_3| - |A_1 \cap A_2| - |A_1 \cap A_3| - |A_2 \cap A_3| + |A_1 \cap A_2 \cap A_3|
+\]
+Consideriamo ciascuna sequenza come un'unica lettera. 
 
-Considero ogni sequenza come un'unica lettera. Nel primo caso il mio codominio adesso \`e $\{ $(MATE), A, C, I, M, T$\}$, ed ho 7 posti. $|E_2| = 2$.
+Con $A_1$ il codominio \`e $\{ $(MATE), A, C, I, M, T$\}$, con la A ripetuta due volte ($|E_{\text{A}}| = 2$), e il dominio ha 7 posti. Quindi:
 \[
 |A_1| = \frac{7!}{2!}
 \]
-Nel secondo caso il mio codominio adesso \`e $\{ $(ATI), A, C, I, M, T$\}$, ed ho 8 posti. $|E_2| = 2$ e $|E_5| = 2$.
+Con $A_2$ il codominio \`e $\{ $(ATI), A, C, I, M, T$\}$, con la A e la M ripetute due volte ciascuna ($|E_{\text{A}}| = 2$ e $|E_{\text{M}}| = 2$), e il dominio ha 8 posti.
 \[
 |A_1| = \frac{8!}{2! \ 2!}
 \]
-Nel terzo caso il mio codominio adesso \`e $\{ $(MAC), A, C, I, M, T$\}$, ed ho 8 posti. $|E_2| = 2$ e $|E_6| = 2$.
+Con $A_3$ il codominio \`e $\{ $(MAC), A, C, I, M, T$\}$, con la A e la T ripetute due volte ciascuna ($|E_{\text{A}}| = 2$ e $|E_{\text{T}}| = 2$), e il dominio ha 8 posti.
 \[
 |A_1| = \frac{8!}{2! \ 2!}
 \]
+
 Ora devo trovare le cardinalit\`a delle intersezioni $|A_1 \cap A_2|$, $|A_1 \cap A_3|$ e $|A_2 \cap A_3|$.
-Nel primo caso il mio codominio adesso \`e $\{ $(MATE), (ATI), A, C, M$\}$, ed ho 5 posti.
+
+Con $A_1 \cap A_2$ il codominio \`e $\{ $(MATE), (ATI), A, C, M$\}$, e il dominio ha 5 posti.
 \[
 |A_1 \cap A_2| = 5!
 \]
-Nel secondo caso il mio codominio adesso \`e $\{ $(MATE), (MAC), A, I, T$\}$, ed ho 5 posti.
+Con $A_1 \cap A_3$ il codominio \`e $\{ $(MATE), (MAC), A, I, T$\}$, e il dominio ha 5 posti.
 \[
 |A_1 \cap A_3| = 5!
 \]
-Nel terzo caso il mio codominio adesso \`e $\{ $(ATI), (MAC), A, E, M, T$\}$, ed ho 6 posti.
+Con $A_2 \cap A_3$ il codominio \`e $\{ $(ATI), (MAC), A, E, M, T$\}$, e il dominio ha 6 posti.
 \[
 |A_2 \cap A_3| = 6!
 \]
-Ora devo trovare la cardinalit\`a dell'intersezione $|A_1 \cap A_2 \cap A_3|$. Il mio codominio adesso \`e $\{ $(MATE), (MAC), (ATI)$\}$, ed ho 3 posti.
+
+Ora devo trovare la cardinalit\`a dell'intersezione $|A_1 \cap A_2 \cap A_3|$. Il codominio \`e $\{ $(MATE), (MAC), (ATI)$\}$, e il dominio ha 3 posti.
 \[
 |A_1 \cap A_2 \cap A_3| = 3!
 \]
 Adesso possiamo applicare il principio di inclusione/esclusione.
 \[
 |A_1 \cup A_2 \cup A_3| = 
-\frac{7!}{2!} + 2 \cdot \frac{8!}{2! 2!} - 2 \cdot 5! - 6! + 3!
+\frac{7!}{2!} + 2 \cdot \frac{8!}{2! \ 2!} - 2 \cdot 5! - 6! + 3!
 \]
 
 \textbf{Esercizio:} 
@@ -1772,32 +1830,32 @@ Adesso possiamo applicare il principio di inclusione/esclusione.
 
 Abbiamo 8 posti. Il codominio \`e $\{$A, E, R, T$\}$. Il numero di anagrammi \`e:
 \[
-\frac{8!}{2! 2! 3!}
+\frac{8!}{2! \ 2! \ 3!}
 \]
-$A_1 = $ insieme degli anagrammi che contengono TRA. 
-$A_2 = $ insieme degli anagrammi che contengono ATTA. 
-$A_3 = $ insieme degli anagrammi che contengono ARE. 
-Nel primo caso il mio codominio adesso \`e $\{ $(TRA), A, E, R, T$\}$, ed ho 6 posti. $|E_4| = 2$.
-
-Ma posso ottenere l'anagramma TRATRAET in due modi: (TRA), T, R, A, E, T e T, R, A, (TRA), E, T. Quindi devo togliere il numero di parole formate da $\{ $(TRA),E,T$\}$ con $|E_\text{TRA}| = 2$.
+\begin{itemize}
+  \item $A_1 = $ insieme degli anagrammi che contengono TRA. 
+  \item $A_2 = $ insieme degli anagrammi che contengono ATTA. 
+  \item $A_3 = $ insieme degli anagrammi che contengono ARE. 
+\end{itemize}
+Con $A_1$ il codominio \`e $\{ $(TRA), A, E, R, T$\}$, ed ho 6 posti. $|E_{\text{T}}| = 2$. Ma posso ottenere l'anagramma TRATRAET in due modi: ((TRA), T, R, A, E, T) e (T, R, A, (TRA), E, T). Quindi devo togliere il numero di parole formate da $\{ $(TRA), E, T$\}$ con $|E_{\text{TRA}}| = 2$.
 \[
 |A_1| = \frac{6!}{2!} - \frac{4!}{2!}
 \]
-Nel secondo caso il mio codominio adesso \`e $\{ $(ATTA), E, R, T$\}$, ed ho 5 posti. $|E_3| = 2$.
+Con $A_2$ il codominio \`e $\{ $(ATTA), E, R, T$\}$, ed ho 5 posti. $|E_{\text{R}}| = 2$.
 \[
 |A_2| = \frac{5!}{2!}
 \]
-Nel terzo caso il mio codominio adesso \`e $\{ $(ARE), A, R, T$\}$, ed ho 6 posti. $|E_4| = 3$.
+Con $A_3$ il codominio \`e $\{ $(ARE), A, R, T$\}$, ed ho 6 posti. $|E_{\text{T}}| = 3$.
 \[
 |A_3| = \frac{6!}{3!}
 \]
 Adesso dobbiamo procedere con le intersezioni.
 
-Nel caso dell'intersezione $A_1 \cap A_2$, non posso avere la sequenza TRA e la sequenza ATTA separate, avendo solo due A nella parola TRATTARE. Quindi devo considerare TRATTA come una sola sequenza. Il codominio adesso \`e $\{ $(TRATTA), E, R$\}$. Ho 3 posti.
+Nel caso dell'intersezione $A_1 \cap A_2$, non posso avere la sequenza TRA e la sequenza ATTA separate, avendo solo due A nella parola TRATTARE. Quindi devo considerare TRATTA come una sola sequenza. Il codominio quindi \`e $\{ $(TRATTA), E, R$\}$. Ho 3 posti.
 \[
 |A_1 \cap A_2| = 3!
 \] 
-Per $A_1 \cap A_3$, il codominio \`e $\{ $(TRA), (ARE), T$\}$, con $|E_\text{T}| = 2$. Ho 4 posti. Ma posso anche avere la A in comune fra le due sequenze, e quindi avrei 4 posti ed un codominio $\{ $(TRARE), A, T$\}$ sempre con $|E_\text{T}| = 2$. Quindi:
+Per $A_1 \cap A_3$, il codominio \`e $\{ $(TRA), (ARE), T$\}$, con $|E_{\text{T}}| = 2$. Ho 4 posti. Ma posso anche avere la A in comune fra le due sequenze, e quindi avrei 4 posti ed un codominio $\{ $(TRARE), A, T$\}$ sempre con $|E_{\text{T}}| = 2$. Quindi:
 \[
 |A_1 \cap A_3| = \frac{4!}{2!} + \frac{4!}{2!} = 4!
 \]
@@ -1811,23 +1869,28 @@ L'unico modo per intersecare tutte e tre le sequenze \`e la sequenza TRATTARE. Q
 
 Dato un insieme $E$ ed una partizione tale per cui ogni classe ha lo stesso numero di elementi:
 \[
-\frac{|E|}{\text{numero delle classi}} = \text{ numero degli elementi di ciascuna classe}
+\frac{|E|}{\text{\# classi}} = \text{ \# elementi di ciascuna classe}
 \]
 Viceversa:
 \[
-\frac{|E|}{\text{numero degli elementi di ciascuna classe}} = \text{ numero delle classi}
+\frac{|E|}{\text{\# elementi di ciascuna classe}} = \text{ \# classi}
 \]
-Quindi una divisione pu\`o essere interpretata come il numero delle classi di equivalenza o come il numero degli elementi di ciascuna classe. So che il numero degli anagrammi di una parola di $n$ lettere, con ciascuna lettera ripetuta $k_i$ volte:
+Quindi ogni divisione pu\`o essere interpretata come una divisione fra la cardinalit\`a di un insieme e o il numero delle classi di equivalenza, o il numero degli elementi di ciascuna classe. Sappiamo che il numero degli anagrammi di una parola di $n$ lettere, con ciascuna lettera ripetuta $k_i$ volte, \`e:
 \[
 \frac{n!}{k_1! \dots k_t!}
 \]
-$S_n$ \`e l'insieme delle permutazioni di $E$, ed ha cardinalit\`a $|S_n| = n!$. Negli anagrammi $n$ \`e il numero di posti. Quindi $n!$ \`e la cardinalit\`a dell'insieme delle permutazioni dei posti. Definisco una relazione di equivalenza sull'insieme delle permutazioni dei posti.
+Come possiamo interpretare questa divisione? $S_n$ \`e l'insieme delle permutazioni di $E$ con $|E| = n$, ed ha cardinalit\`a $|S_n| = n!$. Negli anagrammi $n$ \`e il numero di posti, quindi $n!$ \`e la cardinalit\`a dell'insieme delle permutazioni dei posti. 
 
-Ad ogni permutazione di posti corrisponde un anagramma, ma la relazione non \`e biunivoca. Devo definire una relazione di equivalenza sull'insieme delle permutazioni dei posti. 
+Ad ogni permutazione di posti corrisponde un anagramma, ma la relazione non \`e biunivoca: a permutazioni distinte pu\`o corrispondere lo stesso anagramma. Dobbiamo prima definire una relazione di equivalenza sull'insieme delle permutazioni dei posti:
+\begin{defn}
+Definisco una relazione di equivalenza $\rho$ sull'insieme delle permutazioni e dico che, date le permutazioni $\sigma$ e $\tau$, $\sigma \ \rho \ \tau \Leftrightarrow \sigma$ e $\tau$ individuano lo stesso anagramma.
+\end{defn}
+Quindi $k_1! \dots k_t!$ si pu\`o interpretare come il numero di elementi in ogni classe di equivalenza, e quindi c'\`e una relazione biunivoca fra l'insieme delle classi di equivalenza sulle permutazioni e l'insieme degli anagrammi:
+\[
+\frac{n!}{k_1! \dots k_t!} = \frac{\text{\# di permutazioni}}{\text{\# di permutazioni equivalenti}} = \text{\# di anagrammi}
+\]
 
-Definisco una relazione di equivalenza $\rho$ sull'insieme delle permutazioni e dico che $\sigma \rho \tau \Leftrightarrow \sigma$ e $\tau$ individuano lo stesso anagramma.
-
-Quindi $k_1! \dots k_t!$ \`e il numero di elementi in ogni classe di equivalenza.
+\subsubsection{Permutazioni senza punti fissi}
 
 \textbf{Esercizio:} $d_n = $ numero delle permutazioni di $E$ ($|E| = n$) senza punti fissi, ossia $\forall \ x \in E $ $ f(x) \neq x$. Supponiamo $E = \{1, 2, \dots n \} = [n]$.
 
@@ -1835,15 +1898,17 @@ Diciamo che $A_i$ \`e l'insieme delle permutazioni che fissano $i$ ($f(i) = i$).
 
 Quindi $d_n = |S_n| - |A_1 \cup \dots \cup A_n|$.
 
-La cardinalit\`a di ogni $|A_i|$ \`e $(n - 1)!$. La cardinalit\`a di $A_i \cap A_j $ \`e $(n - 2)!$. In generale, la cardinalit\`a di $k$ insiemi distinti $|A_{i_1} \cap \dots \cap A_{i_k}| = (n - k)!$.
+La cardinalit\`a di ogni $A_i$ \`e $(n - 1)!$. La cardinalit\`a di $A_i \cap A_j $ \`e $(n - 2)!$. In generale, la cardinalit\`a dell'intersezione di $k$ insiemi distinti $|A_{i_1} \cap \dots \cap A_{i_k}| = (n - k)!$.
 
-Andiamo a sostituire nella formula del principio di inclusione/esclusione.
+Sostituiamo nella formula del principio di inclusione/esclusione:
 \[
 \sum_{\emptyset \neq I \subseteq \{1, \dots n \}} (-1)^{|I| - 1} \binom{n}{|I|} \cdot (n - |I|)! =
 \binom{n}{1} \cdot (n-1)! - \binom{n}{2} \cdot (n - 2)! \dots
 \]
 
+% SONO ARRIVATO QUI
 
+% WEB
 
 
 
