@@ -104,9 +104,7 @@ Considerando $(\mathbb{N}, \cdot)$ e l'elemento neutro 1, i pari non sono un sot
 Dati i monoidi $(M, \cdot)$ e $(A, \ast)$, un morfismo di monoidi \`e un'applicazione $f : M \to A$ che conserva le strutture, ossia tale che $\forall \ x,y \in M $ ho che $f(x \cdot y) = f(x) \ast f(y)$. Inoltre, $f(1_M) = 1_A$.
 \end{defn}
 
-\subsection{Teorema di omomorfismo per i monoidi}
-
-% SONO ARRIVATO QUI
+\subsection{Teorema di omomorfismo per i monoidi\label{omomorfismo_monoidi}}
 
 \begin{prop}
 Sia $f : (M, \cdot) \to (A, \ast)$ un morfismo di monoidi, $f$ definisce una relazione di equivalenza $\varepsilon_f$ tale che $\ker f = M / \varepsilon_f \cong Im_f$, ossia il quoziente \`e isomorfo all'immagine. Inoltre il quoziente ha una struttura di monoide:
@@ -124,11 +122,11 @@ Anche $(\ker f, \cdot)$ \`e un monoide. Dobbiamo dimostrare l'esistenza dell'iso
 
 $\ker f$ \`e l'insieme delle classi di equivalenza $[x] = \{ y \in M : x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y) \} \in \ker f$.
 
-Definiamo l'operazione fra classi come la classe del prodotto di due rappresentanti $[x] \cdot [z] = [x \cdot z]$ qualsiasi rappresentante scelgo della classe. Devo quindi verificare che la definizione sia indipendente dai rappresentanti. L'operazione fra classi \`e associativa, perch\'e \`e associativa l'operazione fra rappresentanti.
+Definiamo l'operazione di prodotto fra classi come la classe del prodotto di due rappresentanti $[x] \cdot [z] = [x \cdot z]$ qualsiasi rappresentante scelgo della classe. Bisogna verificare che questa definizione sia indipendente dai rappresentnati! Lo faremo nella sezione \ref{congruenze}, in particolare nella dimostrazione \ref{congruenza_monoidi}. 
 
-Inoltre ho l'unit\`a $[1_M]$ in $\ker f$.
+L'operazione fra classi \`e associativa, perch\'e \`e associativa l'operazione fra rappresentanti. Inoltre ho l'unit\`a $[1_M]$ in $\ker f$.
 
-L'isomorfismo fra $(Im_f, \ast)$ e $(\ker f, \cdot)$ segue naturalmente dal fatto che $\ker f $ e $Im_f$ sono in biezione, ed inoltre, essendo monoidi, la funzione $f$ \`e un isomorfismo di monoidi.
+L'isomorfismo fra $(Im_f, \ast)$ e $(\ker f, \cdot)$ segue naturalmente dal fatto che $\ker f $ e $Im_f$ sono in biezione. Inoltre, essendo entrambi dei monoidi, la funzione $f$ \`e un isomorfismo di monoidi.
 \end{proof}
 
 \subsection{Potenze (iterazioni sui monoidi)}
@@ -148,7 +146,7 @@ $\forall \ n \in \mathbb{N}$, $a \cdot a^n = a^n \cdot a$, ossia la potenza \`e 
 \begin{proof}
 Si dimostra per induzione. Si vede subito che con $n = 0$, per definizione $a \cdot a^0 = a = a^0 \cdot a$.
 
-Per definizione $a \cdot a^{n+1} = a \cdot a \cdot a^{n} $, per ipotesi induttiva $ a \cdot a^n \cdot a $ che di nuovo per definizione \`e $ a^{n+1} \cdot a$.
+Per definizione di potenza $a \cdot a^{n+1} = a \cdot a \cdot a^{n} $, per ipotesi induttiva $ a \cdot a^n \cdot a $ che di nuovo per definizione di potenza \`e $ a^{n+1} \cdot a$.
 \end{proof}
 \begin{prop}
 Valgono tutte le propriet\`a tipiche delle potenze:
@@ -163,48 +161,61 @@ Passo induttivo. $a^{m + n + 1} = a \cdot a^{m + n}$ per definizione di potenze.
 \end{proof}
 
 \begin{theorem}
-Dato $(M, \cdot)$ monoide ed un elemento $a \in M$, esiste un solo morfismo di monoidi $f : (\mathbb{N}, +) \to (M, \cdot)$ tale che $f(1) = a$.
+Dato un monoide $(M, \cdot)$ ed un elemento $a \in M$, esiste un solo morfismo di monoidi $f : (\mathbb{N}, +) \to (M, \cdot)$ tale che $f(1) = a$, ed \`e $f(n) = a^n$.
 \end{theorem}
 \begin{proof}
-$f(n) = a^n$. $f$ \`e un morfismo di monoidi. Infatti verifica $f(m+n) = f(m) \cdot f(n)$ e $f(0) = 1_M$. Per le propriet\`a dimostrare precedentemente, $f(m+ n) = a^{m+n} = a^m \cdot a^n = f(m) \cdot f(n)$, e $f(0) = a^0 = 1_M$ per definizione di potenze. Infine, $f(1) = a^1 = a \cdot a^0 = a \cdot 1_M = a$.
+$f$ \`e un morfismo di monoidi, quindi deve verificare che $f(m+n) = f(m) \cdot f(n)$ e che $f(0) = 1_M$. 
 
-Dimostriamone ora l'unicit\`a. Sia $g : (\mathbb{N}, +) \to (M, \cdot )$ tale che $g(1) = a$, dimostriamo che $\forall n \in \mathbb{N} g(n) = f(n) = a^n$.
+Per le propriet\`a delle potenze dimostrare precedentemente, $f(m+ n) = a^{m+n} = a^m \cdot a^n = f(m) \cdot f(n)$, e $f(0) = a^0 = 1_M$ per la definizione delle potenze. 
+
+Inoltre verifica la condizione $f(1) = a$, infatti $f(1) = a^1 = a \cdot a^0 = a \cdot 1_M = a$.
+
+Dobbiamo dimostrare l'unicit\`a di $f$. Sia $g : (\mathbb{N}, +) \to (M, \cdot )$ un morfismo tale che $g(1) = a$, dimostriamo che $\forall n \in \mathbb{N} $ $ g(n) = f(n) = a^n$.
 
 Dimostriamolo per induzione su $n$. Per definizione di morfismo di monoidi, $g(0) = 1_M = f(0) = a^0$.
 
 Supponiamo che $g(n) = f(n)$, per definizione di morfismo di monoidi $g(n+1) = g(1) \cdot g(n) = a \cdot g(n) = a \cdot f(n) = a \cdot a^n = a^{n+1}$.
 \end{proof}
 
-Sia $\Gamma$ un insieme, prendo $(\mathbb{P}(\Gamma), \cup)$. \`E una struttura algebrica, ed in particolare un monoide. L'unione \`e associativa ($(A \cup B) \cup C = A \cup (B \cup C)$), ed esiste l'elemento neutro $\emptyset$.
+\begin{exmp}
+Sia $\Gamma$ un insieme, la struttura algebrica $(\mathbb{P}(\Gamma), \cup)$ \`e in particolare un monoide. L'unione \`e associativa ($(A \cup B) \cup C = A \cup (B \cup C)$), ed esiste l'elemento neutro $\emptyset$.
 
-Anche $(\mathbb{P}(\Gamma), \cap)$ \`e un monoide, con elemento neutro pari a $\Gamma$, poich\'e $\forall A$ $\Gamma \cap A = A$. Abbiamo quindi due esempi di monoidi commutativi.
+Anche $(\mathbb{P}(\Gamma), \cap)$ \`e un monoide, con $\Gamma$ come elemento neutro, poich\'e $\forall \ A$ $\Gamma \cap A = A$. Abbiamo quindi due esempi di monoidi commutativi.
 
-Fissiamo $\emptyset \neq S \subseteq \Gamma$, possiamo considerare $\mathbb{P}(S)$ e definire l'applicazione $f : \mathbb{P}(\Gamma) \to \mathbb{P}(S)$ tale che $f(A) = A \cap S$. 
+Fissato un insieme $S \subseteq \Gamma$ diverso da $\emptyset$, possiamo considerare il suo insieme delle parti $\mathbb{P}(S)$ e definire l'applicazione $f : \mathbb{P}(\Gamma) \to \mathbb{P}(S)$ tale che $f(A) = A \cap S$. 
 
-Vediamo se questa applicazione \`e un morfismo di monoidi considerando $(\mathbb{P}(\Gamma), \cup)$ e $(\mathbb{P}(S), \cup)$. Dobbiamo dimostrare che $f( A \cup B) = f(A) \cup f(B)$. Infatti $f(A \cup B) = (A \cup B) \cap S = (A \cap S) \cup (B \cap S)$ per la propriet\`a distributiva, che \`e proprio $f(A) \cup f(B)$.
+Verifichiamo che questa applicazione \`e un morfismo di monoidi rispetto a $(\mathbb{P}(\Gamma), \cup)$ e $(\mathbb{P}(S), \cup)$. Dobbiamo dimostrare che $f( A \cup B) = f(A) \cup f(B)$. Infatti $f(A \cup B) = (A \cup B) \cap S = (A \cap S) \cup (B \cap S)$ per la propriet\`a distributiva, che \`e proprio $f(A) \cup f(B)$.
 
-Inoltre conserva l'elemento neutro, poich\'e $f(\emptyset) = \emptyset \cap S = \emptyset$.
+Inoltre l'applicazione conserva l'elemento neutro, poich\'e $f(\emptyset) = \emptyset \cap S = \emptyset$.
 
-Vediamo se \`e un morfismo di monoidi anche considerando $(\mathbb{P}(\Gamma), \cap)$ e $(\mathbb{P}(S), \cap)$. $f(A \cap B) = f(A) \cap f(B)$, infatti $(A \cap B) \cap S - (A \cap S) \cap (B \cap S)$. Conserva anche l'elemento neutro, poich\'e $f(\Gamma) = \Gamma \cap S = S$.
+Verifichiamo che \`e un morfismo di monoidi anche rispetto $(\mathbb{P}(\Gamma), \cap)$ e $(\mathbb{P}(S), \cap)$. $f(A \cap B) = f(A) \cap f(B)$, infatti $(A \cap B) \cap S = (A \cap S) \cap (B \cap S)$ sempre per la propriet\`a distributiva. E anche in questo caso l'applicazione conserva l'elemento neutro, poich\'e $f(\Gamma) = \Gamma \cap S = S$, ed $S$ \`e proprio l'elemento neutro di $(\mathbb{P}(S), \cap)$.
+\end{exmp}
 
-Sia $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ tale che $f(A) = \bar A = \{ x \in Gamma : x \notin A\}$. Poich\'e $\bar{A \cup B} = \bar A \cap \bar B$, $f : (\mathbb{P}(\Gamma), \cup) \to (\mathbb{P}(\Gamma), \cap)$ \`e un morfismo di monoidi visto che $f(A \cup B) = f(A) \cap f(B)$, e $f(\emptyset) = \bar \emptyset = \Gamma$. 
+\begin{exmp}
+Sia $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ un'applicazione tale che $f(A) = \bar A = \{ x \in Gamma : x \notin A\}$, ossia che associa ad $A$ il suo complementare $\bar A$. L'applicazione $f : (\mathbb{P}(\Gamma), \cup) \to (\mathbb{P}(\Gamma), \cap)$ \`e un morfismo di monoidi visto che verifica $f(A \cup B) = f(A) \cap f(B)$ per le leggi di De Morgan ($\bar{A \cup B} = \bar A \cap \bar B$) e $f(\emptyset) = \bar \emptyset = \Gamma$.
 
 Possiamo considerare la stessa applicazione come un morfismo di monoidi da $f : (\mathbb{P}(\Gamma), \cap) \to (\mathbb{P}(\Gamma), \cup)$. Infatti $f(A \cap B) = \bar{A \cap B} = \bar A \cup \bar B = f(A) \cup f(B)$ e $f(\Gamma) = \bar \Gamma = \emptyset$.
+\end{exmp}
 
-\subsection{Congruenze}
+\subsection{Congruenze\label{congruenze}}
 
-Le congruenze sono relazioni d'equivalenza definite sulle strutture algebriche. Sia $\varepsilon$ una relazione d'equivalenza su $A$, con $(A, \cdot)$ monoide, si dice congruenza rispetto a $\cdot$ se, dati $a \varepsilon b$ e $c \varepsilon d$, ho che $a \cdot c \varepsilon b \cdot d$.
+\begin{defn}
+Le congruenze sono relazioni d'equivalenza definite sulle strutture algebriche. Sia $\varepsilon$ una relazione d'equivalenza su $A$, con $(A, \cdot)$ monoide, si dice che $\varepsilon$ \`e una congruenza rispetto a $\cdot$ se, dati $a \ \varepsilon \ b$ e $c \ \varepsilon \ d$, ho che $a \cdot c \ \varepsilon \ b \cdot d$.
+\end{defn}
 
-Vuol dire che, dati $a \in [a]$ e $c \in [c]$, se $a \cdot c \in [a \cdot c]$ e ho una congruenza, allora $b \in [a]$ e $d \in [c]$ sono tali che $b \cdot d \in [a \cdot c]$. La congruenza fa s\`i che io possa definire le operazioni sulle classi.
+Vuol dire che, dati $a \in [a]$ e $c \in [c]$, se $a \cdot c \in [a \cdot c]$ e ho una congruenza, allora $b \in [a]$ e $d \in [c]$ sono tali che $b \cdot d \in [a \cdot c]$. La congruenza fa s\`i che io possa definire operazioni sulle classi.
 
-Considerando quindi un morfismo di monoidi $f : (M, \cdot) \to (A, \ast)$, se definisco la relazione di equivalenza $\varepsilon_f$ tale che $x, y \in M$ sono $x \varepsilon_f y \Leftrightarrow f(x) = f(y)$, questa relazione di equivalenza \`e una congruenza.
-\begin{proof}
-$x \varepsilon_f y$, $z \varepsilon_f w \Rightarrow (x \cdot z) \varepsilon_f (y \cdot w)$.
+\begin{prop}
+Riprendendo il teorema \ref{omomorfismo_monoidi}, abbiamo che considerato un morfismo di monoidi $f : (M, \cdot) \to (A, \ast)$, se definisco la relazione di equivalenza $\varepsilon_f$ tale che $x, y \in M$ sono $x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)$, questa relazione di equivalenza \`e una congruenza.
+\end{prop}
+\begin{proof}\label{congruenza_monoidi}
+$x \ \varepsilon_f \ y$, $z \ \varepsilon_f \ w \Rightarrow (x \cdot z) \ \varepsilon_f \ (y \cdot w)$.
 
-Infatti $f(x \cdot z) = f(x) \ast f(y)$ e $f(y \cdot w) = f(y) \ast f(w)$. 
+Infatti $f(x \cdot z) = f(x) \ast f(z)$ e $f(y \cdot w) = f(y) \ast f(w)$. 
 \end{proof}
+% SONO ARRIVATO QUI
 
-Avevamo definito $\rho$ su $\mathbb{N} \times \mathbb{N}$, come $(m, n) \rho (a, b) \Leftrightarrow m+b = n+a$. Quindi a partire da $(M, \cdot) $ possiamo creare altri monoidi $(M^n, \cdot)$, ad esempio su $M^2 = M \times M$ in cui $(x, y) \cdot (z, t) = (x \cdot z, y \cdot t)$.
+Avevamo definito $\rho$ su $\mathbb{N} \times \mathbb{N}$, come $(a, b) \ \rho \ (c, d) \Leftrightarrow a+d = b+c$. Quindi a partire da $(M, \cdot) $ possiamo creare altri monoidi $(M^n, \cdot)$, ad esempio su $M^2 = M \times M$ in cui $(x, y) \cdot (z, t) = (x \cdot z, y \cdot t)$.
 
 Ad esempio $(\mathbb{N}, +) \to (\mathbb{N} \times \mathbb{N}, +)$ in cui $(m, n) + (a, b) = (m+a, n+b)$ con l'elemento neutro $(0,0)$.
 
@@ -536,157 +547,185 @@ Viceversa se $\ker f = \{ 1_G \} \Rightarrow f(a) = f(b) \Rightarrow f(a) \cdot 
 
 Se prendiamo $S$ sottogruppo di $G$ possiamo considerare la classe laterale destra $a S$ e la classe laterale sinistra $S a$. Lo vediamo la prossima volta. 
 
-Teorema di omomorfismo per i gruppi
+\subsection{Teorema di omomorfismo per i gruppi}
 
-Dato un morfismo f : (G, c\dto) \to (G', \ast), allora 
+Dato un morfismo $f : (G, c\dto) \to (G', \ast)$, allora 
 \begin{enumerate}
-    \item \varepsilon_f individuata da f (x \varepsilon_f y \Leftrightarrow f(x) = f(y)) \`e una congruenza
-    \item Il gruppo (G / \varepsilon_f, c\dto) \`e isomorfo al sottogruppo (Im_f, \ast) di (G', \ast). Questo vale per ogni struttura algebrica.
+    \item $\varepsilon_f$ individuata da $f$ ($x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)$) \`e una congruenza
+    \item Il gruppo $(G / \varepsilon_f, \cdot)$ \`e isomorfo al sottogruppo $(Im_f, \ast)$ di $(G', \ast)$. Questo vale per ogni struttura algebrica.
 \end{enumerate}
 
-f individua due sottogruppi, \ker f = \{ u \in G : f(u) = 1_{G'} \} \le G, Im_f = \{ x' \in G' : \exists x \in G f(x) = x'\} \le G'. 
-
+$f$ individua due sottogruppi, $\ker f = \{ u \in G : f(u) = 1_{G'} \} \le G$, $Im_f = \{ x' \in G' : \exists x \in G f(x) = x'\} \le G'$. 
+\[
 \forall a \in G [a] = a \cdot \ker f = \ker f \cdot a
-
-Prop:
-Tutte le classi hanno la stessa cardinalit\`a |[a]| = |a \cdot \ker f| = |\ker f|
-
-Dim:
+\]
+\begin{prop}
+Tutte le classi hanno la stessa cardinalit\`a $|[a]| = |a \cdot \ker f| = |\ker f|$
+\end{prop}
+\begin{proof}
 Bisogna far vedere che esiste una corrispondenza biunivoca.
-
+\[
 \forall a \in G \varphi_a : \ker f \to a \cdot \ker f
-
+\]
+\[
 \forall u \in \ker f \varphi_a (u) = a \cdot u \in a \cdot \ker f
+\]
+$\varphi_a$ \`e biunivoca. 
 
-\varphi_a \`e biunivoca. 
-
-\varphi_a \`e iniettiva, infatti \forall u, v \in \ker f tali che \varphi_a (u) = \varphi_a (v), ho che a \cdot u = a \cdot v \Rightarrow essendo in un gruppo a ha l'inverso, quindi a^{-1} \cdot a \cdot u = a^{-1} \cdot a \cdot v \Rightarrow u = v.
+$\varphi_a$ \`e iniettiva, infatti $\forall u$, $v \in \ker f $ tali che $\varphi_a (u) = \varphi_a (v)$, ho che a $\cdot u = a \cdot v \Rightarrow$ essendo in un gruppo $a$ ha l'inverso, quindi $a^{-1} \cdot a \cdot u = a^{-1} \cdot a \cdot v \Rightarrow u = v$.
+\end{proof}
 
 Vediamo cosa succede se prendiamo un sottogruppo qualunque.
 
-Sia S \le G un sottogruppo qualunque di G. Prendo a \in G e moltiplico tutti gli elementi di S per a.
+Sia $S \le G$ un sottogruppo qualunque di $G$. Prendo $a \in G$ e moltiplico tutti gli elementi di $S$ per $a$, ossia faccio $a \cdot S$ e $S \cdot a$.
 
-a \cdot S e S \cdot a
+$a \cdot S = \{ x \in G : x = a \cdot s con s \in S \}$ \`e la classe laterale sinistra di $S$
 
-a \cdot S = \{ x \in G : x = a \cdot s con s \in S \} \`e la classe laterale sinistra di S
+$S \cdot a = \{ x \in G : x = s \cdot a con s \in S \}$ \`e la classe laterale destra di $S$
 
-S \cdot a = \{ x \in G : x = s \cdot a con s \in S \} \`e la classe laterale destra di S
-
-Per lo stesso motivo di prima tutte le classi laterali hanno la stessa cardinalit\`a di S |a \cdot S| = |S| = |S \cdot a| \forall a \in G
+Per lo stesso motivo di prima tutte le classi laterali hanno la stessa cardinalit\`a di $S |a \cdot S| = |S| = |S \cdot a| \forall a \in G$
 
 Prendiamo l'insieme di sottoinsiemi sinistri
-
+\[
 \{ a \cdot S\}_{a \in G} a \cdot S \subseteq G
-
-a \cdot S non \`e un sottogruppo perch\'e non contiene l'unit\`a, ma \`e un sottoinsieme. L'insieme delle classi sinistre \`e una partizione di G.
+\]
+$a \cdot S$ non \`e un sottogruppo perch\'e non contiene l'unit\`a, ma \`e un sottoinsieme. L'insieme delle classi sinistre \`e una partizione di $G$.
 \begin{enumerate}
-    \item \bigcup_{a \in G} a \cdot S = G
-    \item a \cdot S \neq \emptyset, infatti necessariamente a \in a \cdot S, essendo a = a \cdot 1_G e 1_G \in S
-    \item a \cdot S \cap a \cdot S \neq \emptyset \Rightarrow a \cdot s = b \cdot S
+    \item $\bigcup_{a \in G} a \cdot S = G$
+    \item $a \cdot S \neq \emptyset$, infatti necessariamente $a \in a \cdot S$, essendo $a = a \cdot 1_G$ e $1_G \in S$
+    \item $a \cdot S \cap a \cdot S \neq \emptyset \Rightarrow a \cdot s = b \cdot S$
 \end{enumerate}
 Dimostriamo il punto tre.
 
-a \cdot S \cap b \cdot S \neq \emptyset \Rightarrow a \cdot S = b \cdot S
+$a \cdot S \cap b \cdot S \neq \emptyset \Rightarrow a \cdot S = b \cdot S$
 
+\[
 c \in a \cdot S \cap b \cdot S
+\]
+\[
 c = a \cdot s = b \cdot v con s, v \in S
+\]
 \`e l'ipotesi
 
 La tesi \`e:
-x \in a \cdot S \Rightarrow = a \cdot u con u \in S
-Per ipotesi ho a = c \cdot s^{-1} \Rightarrow x = c \cdot s^{-1} \cdot u, ma sempre per ipotesi ho che x = b \cdot v \cdot s^{-1} \cdot u. Quindi x \in b \cdot S, avendo che (v \cdot s^{-1} \cdot u) \in S.
+$x \in a \cdot S \Rightarrow = a \cdot u$ con $u \in S$
+Per ipotesi ho $a = c \cdot s^{-1} \Rightarrow x = c \cdot s^{-1} \cdot u$, ma sempre per ipotesi ho che $x = b \cdot v \cdot s^{-1} \cdot u$. Quindi $x \in b \cdot S$, avendo che $(v \cdot s^{-1} \cdot u) \in S$.
 
-Se \{a \cdot S\}_{a \in G} \`e una partizione di G, individua in G una relazione di equivalenza che chiamiamo % tilde preceduta da S
-per indicare che S \`e una classe laterale sinistra.
+Se $\{a \cdot S\}_{a \in G}$ \`e una partizione di $G$, individua in $G$ una relazione di equivalenza che indichiamo con $\lateralsx{S}$ (perch\'e che $S$ \`e una classe laterale sinistra).
 
-Dico che due elementi sono equivalenti se sono nello stesso blocco. Ossia x, y \in G dico x \equiv y \Leftrightarrow \exists a \in G x, y \in a \cdot S \Leftrightarrow x = a c\dot s e y = a \cdot v con s, v \in S. Si pu\`o semplificare ulteriormente questa definizione, perch\'e se un elemento x \`e nella classe posso prender x come rappresentante, e quind idire che x \in y \cdot S o che y \in x \cdot S o che x \cdot S = y \cdot S.
+Dico che due elementi sono equivalenti se sono nello stesso blocco. Ossia dati $x, y \in G$ dico $x \lateralsx{S} y \Leftrightarrow \exists a \in G x, y \in a \cdot S \Leftrightarrow x = a \cdot s$ e $y = a \cdot v$ con $s, v \in S$. Si pu\`o semplificare ulteriormente questa definizione, perch\'e se un elemento $x$ \`e nella classe posso prendere $x$ come rappresentante, e quindi dire che $x \in y \cdot S$ o che $y \in x \cdot S$ o che $x \cdot S = y \cdot S$ (sono tutte definizioni equivalenti).
 
-Quindi posso scrivere x \in y \cdot S come x = y \cdot s con s \in S.
-
+Quindi posso scrivere $x \in y \cdot S$ come $x = y \cdot s$ con $s \in S$.
+\[
 s = y^{-1} \cdot x \in S
-
+\]
 Qual \`e la differenza con il nucleo? Nel nucleo le classi laterali coincidono, in generale no. Le classi laterali hanno la stessa cardinalit\`a ma non sono identiche.
 
 Le due relazioni di equivalenza destra e sinistra (simboli qui) non sono uguali, e non sono congruenze.
-
+\[
 a \cdot S \neq S \cdot a
+\]
+Nel caso del nucleo invece abbiamo che $a \cdot \ker f = \ker f \cdot a$, e la relazione di equivalenza destra e sinistra \`e una sola, ossia $\varepsilon_f$, ed \`e una congruenza.
 
-Nel caso del nucleo invece abbiamo che a \cdot \ker f = \ker f \cdot a, e la relazione di equivalenza destra e sinistra \`e una sola, ossia \varepsilon_f, ed \`e una congruenza.
+Facciamo un esempio. Consideriamo $S_4$
 
-Facciamo un esempio. S_4
-
-(G, \cdot) e a \in G, possiamo indicare con < a > = sottogruppo generato da a \in G costitiuto da tutte le potenze generate da a. Per le propriet\`a delle potenze \`e un sottogruppo, infatti contiene 1_G = a^{0}.
-
+$(G, \cdot)$ e $a \in G$, possiamo indicare con $< a > =$ sottogruppo generato da $a \in G$ costitiuto da tutte le potenze generate da $a$. Per le propriet\`a delle potenze \`e un sottogruppo, infatti contiene $1_G = a^{0}$.
+\[
 S_4
-
+\]
+\[
 < a > = \{ a^{z} : z \in \mathbb{Z} \}
+\]
+Contiene anche l'inverso di $a^{n}$, ossia $a^{-n}$
 
-Contiene anche l'inverso di a^{n}, ossia a^{-n}
+Prendiamo il sottogruppo generato da questa permutazione, e tutte le potenze generate da questa $\sigma$:
 
-Prendiamo il sottogruppo generato da questa permutazione, e tutte le potenze generate da questa \sigma:
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma$} \\
+1 & 2 & 3 & 4 \\
+2 & 3 & 1 & 4 
+\end{tabular}
 
-\sigma
-1 2 3 4
-2 3 1 4
-
+\[
 \sigma^{0} = id
-
+\]
+\[
 \sigma^{1} = \sigma
+\]
+$\sigma^{2}$ cosa \`e?
 
-\sigma^{2} cosa \`e?
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma^{2}$} \\
+1 & 2 & 3 & 4 \\
+2 & 3 & 1 & 4 \\
+3 & 1 & 2 & 4
+\end{tabular}
 
-\sigma^{2}
-1 2 3 4
-2 3 1 4
-3 1 2 4
+Se poi faccio $\sigma^{3}$ riottengo l'identit\`a.
 
-Se poi faccio \sigma^{3} riottengo l'identit\`a.
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma^{3}$} \\
+1 & 2 & 3 & 4 \\
+3 & 1 & 2 & 4 \\
+1 & 2 & 3 & 4 
+\end{tabular}
 
-\sigma^{3}
-1 2 3 4
-3 1 2 4
-1 2 3 4
-
-Quindi il gruppo H = < \sigma > = \{ 1 , \sigma, \sigma^{2} \}. L'inversa di \sigma \`e \sigma^{2}. H \`e un gruppo finito di ordine 3.
+Quindi il gruppo $H = < \sigma > = \{ 1 , \sigma, \sigma^{2} \}$. L'inversa di $\sigma$ \`e $\sigma^{2}$. $H$ \`e un gruppo finito di ordine 3.
 
 Facciamo la relazione di equivalenza e la classe laterale.
 
-Prendiamo due elementi equivalenti, \mu  e \tau \Leftrightarrow \sigma \tau^{-1} \in H. Quindi \mu \tau^{-1} = \rho \in H, quindi o l'identit\`a, o \sigma o \sigma^{2}.
+Prendiamo due elementi equivalenti, $\mu$  e $\tau \Leftrightarrow \sigma \tau^{-1} \in H$. Quindi $\mu \tau^{-1} = \rho \in H$, quindi o l'identit\`a, o $\sigma$ o $\sigma^{2}$.
 
-\tau
-1 2 3 4
-2 1 4 3
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\tau$} \\
+1 & 2 & 3 & 4 \\
+2 & 1 & 4 & 3
+\end{tabular}
 
-\tau \sigma
-1 2 3 4
-2 1 4 3
-3 2 4 1
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma \cdot \tau$} \\
+1 & 2 & 3 & 4 \\
+2 & 1 & 4 & 3 \\
+3 & 2 & 4 & 1
+\end{tabular}
 
-Quindi \mu \`e:
+Quindi $\mu$ \`e:
 
-\mu
-1 2 3 4
-3 2 4 1
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\mu$} \\
+1 & 2 & 3 & 4 \\
+3 & 2 & 4 & 1
+\end{tabular}
 
-Prendiamo \tau'
-1 2 3 4
-4 3 2 1
+Prendiamo $\tau'$
 
-Applichiamo \sigma
+\begin{tabular}{cccc}
+1 & 2 & 3 & 4 \\
+4 & 3 & 2 & 1
+\end{tabular}
 
-\tau' \sigma
-1 2 3 4
-4 3 2 1
-4 1 3 2
+Applichiamo $\sigma$
 
-Otteniamo \mu' equivalente a \tau'
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma \cdot \tau'$} \\
+1 & 2 & 3 & 4 \\
+4 & 3 & 2 & 1 \\
+4 & 1 & 3 & 2
+\end{tabular}
 
-1 2 3 4
-4 1 3 2
+Otteniamo $\mu'$ equivalente a $\tau'$
+
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\mu'$} \\
+1 & 2 & 3 & 4 \\
+4 & 1 & 3 & 2
+\end{tabular}
 
 % Dobbiamo far vedere ora che \mu, \tau, \mu' e \tau' sono nella stessa classe.
 
-Siamo nella classe destra, avendo fatto \sigma \tau (va vista come composizione).
+Siamo nella classe destra, avendo fatto $\sigma \tau$ (va vista come composizione).
+
+% SONO ARRIVATO QUI A SISTEMARE
 
 La congruenza mi d\`a modo di definire il prodotto fra classi. 
 
