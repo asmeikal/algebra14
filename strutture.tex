@@ -1,4 +1,3 @@
-% WEB
 
 \begin{center}
 \indent
@@ -35,7 +34,7 @@ Le strutture vengono classificate in base alle loro propriet\`a:
     \item[Inverso\label{itm:strutture_inverso}] Esistenza dell'inverso. $ \forall a \in A \ \exists \ b \in A $ t.c. $a \cdot b = 1 = b \cdot a $.
 \end{description}
 
-\section{Classificazione delle strutture algebriche con una operazione}
+\subsection{Classificazione delle strutture algebriche con una operazione}
 
 Per essere studiabile, una struttura algebrica deve essere quantomeno associativa.
 
@@ -48,6 +47,7 @@ Per essere studiabile, una struttura algebrica deve essere quantomeno associativ
 
 La struttura algebrica $\left( \mathbb{N}, + \right)$ \`e un monoide commutativo. Anche $\left( \mathbb{N}, \cdot \right)$ \`e un monoide commutativo. $\left( \mathbb{Z}, + \right)$ \`e un gruppo perch\`e esiste l'inverso. $\left( \mathbb{Z}, \cdot \right)$ \`e un monoide, perch\'e non ha l'inverso.
 
+\begin{defn}[Gruppo simmetrico]
 Il prototipo di tutti i gruppi \`e il gruppo simmetrico su $n$ elementi, il cui insieme \`e indicato con $S_n$. Prendiamo un insieme $E = \left\{ e_1, \dots, e_n \right\}$.
 
 \[
@@ -60,6 +60,7 @@ Il gruppo simmetrico \`e definito sull'insieme $S_n$ e l'operazione \`e la compo
     \item L'unit\`a \`e la funzione identica (o identit\`a) $i_E : E \to E$ tale che $\forall \ e \in E $ $i_E(e) = e$. $f \circ i_E = f = i_E \circ f$ 
     \item Una funzione biunivoca $f$ ha una funzione inversa $g$. $g : E \to E $ t.c. $ g(f(e)) = e$.
 \end{enumerate}
+\end{defn}
 
 Una funzione $f : E \to E $ iniettiva su un insieme finito $E$ \`e necessariamente suriettiva e quindi biunivoca.
 
@@ -82,7 +83,7 @@ Un insieme \`e finito se non pu\`o essere messo in corrispondenza biunivoca con 
 % Non \`e un'occupazione.
 
 
-\subsection{Monoidi}
+\section{Monoidi}
 
 Un monoide $(M, \cdot)$ \`e una struttura algebrica con un'operazione $\cdot : M \times M \to M$ tale che:
 \begin{description}
@@ -221,7 +222,9 @@ Ad esempio $(\mathbb{N}, +) \to (\mathbb{N} \times \mathbb{N}, +)$ in cui $(m, n
 
 $\rho$ \`e una congruenza rispetto a + in $\mathbb{N} \times \mathbb{N}$. Inoltre, avendo visto che $\mathbb{N} \times \mathbb{N} / \rho = \mathbb{Z}$, abbiamo che $(\mathbb{Z}, +)$ \`e un monoide.
 
-\subsection{Gruppi}
+% WEB
+
+\section{Gruppi}
 
 $(G, \cdot)$ \`e un gruppo se:
 \begin{description}
@@ -385,7 +388,7 @@ Ma $f(u)^{-1} = 1_{G'}$, quindi ho:
 f(u)^{-1} \ast f(v) = 1_{G'} \ast 1_{G'} = 1_{G'}
 \]
 
-Teorema di omomorfismo per i gruppi
+\subsection{Teorema di omomorfismo per i gruppi}
 
 Sia $f : (G, \cdot) \to (G', \ast)$ un morfismo di gruppi, allora $\varepsilon_f$ \`e una congruenza e il gruppo $G / \varepsilon_f$ \`e isomorfo al gruppo $(Im_f, \ast)$. Ogni elemento $[a] \in G / \varepsilon_f$ \`e del tipo $a \cdot \ker f$.
 \[
@@ -549,7 +552,7 @@ Se prendiamo $S$ sottogruppo di $G$ possiamo considerare la classe laterale dest
 
 \subsection{Teorema di omomorfismo per i gruppi}
 
-Dato un morfismo $f : (G, c\dto) \to (G', \ast)$, allora 
+Dato un morfismo $f : (G, \cdot) \to (G', \ast)$, allora 
 \begin{enumerate}
     \item $\varepsilon_f$ individuata da $f$ ($x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)$) \`e una congruenza
     \item Il gruppo $(G / \varepsilon_f, \cdot)$ \`e isomorfo al sottogruppo $(Im_f, \ast)$ di $(G', \ast)$. Questo vale per ogni struttura algebrica.
@@ -725,122 +728,148 @@ Otteniamo $\mu'$ equivalente a $\tau'$
 
 Siamo nella classe destra, avendo fatto $\sigma \tau$ (va vista come composizione).
 
-% SONO ARRIVATO QUI A SISTEMARE
-
 La congruenza mi d\`a modo di definire il prodotto fra classi. 
 
-Dati a, b nella classe 1, dati a', b' nella classe 2. Le classi sono definite sulla struttura (A, \cdot). Vogliamo definire il prodotto fra classi, ossia [1] \cdot [2] = [3]. 
+Dati $a, b$ nella classe 1, dati $a', b'$ nella classe 2. Le classi sono definite sulla struttura $(A, \cdot)$. Vogliamo definire il prodotto fra classi, ossia $[1] \cdot [2] = [3]$. 
 
-La congruenza fa in modo che comunque prendo i rappresentanti i prodotti vanno sempre nella stessa classe. Quindi a \cdot a' e b \cdot b' \in [3].
+La congruenza fa in modo che comunque prendo i rappresentanti i prodotti vanno sempre nella stessa classe. Quindi $a \cdot a'$ e $b \cdot b' \in [3]$.
 
-Possiamo vedere che \tau per \tau' e \mu per \mu' non vanno nella stessa classe.
+Possiamo vedere che $\tau$ per $\tau'$ e $\mu$ per $\mu'$ non vanno nella stessa classe.
 
-Che ordine ha il sottogruppo H? Lo possiamo dire per il teorema di Lagrange.
+Che ordine ha il sottogruppo $H$? Lo possiamo dire per il teorema di Lagrange.
 
 Teorema di Lagrange
-(G, \cdot) gruppo finito, la cardinalit\`a di G si dice ordine.
+$(G, \cdot)$ gruppo finito, la cardinalit\`a di $G$ si dice ordine.
 
-Prendiamo |G| = n, allora se H \`e un sottogruppo di G, l'ordine di G \`e diviso dall'ordine di H
+Prendiamo $|G| = n$, allora se $H$ \`e un sottogruppo di $G$, l'ordine di $G$ \`e diviso dall'ordine di $H$
+\[
 \frac{|G|}{|H|}
-Questo intero \`e detto indice di H.
+\]
+Questo intero \`e detto indice di $H$.
 
 Un gruppo di ordine un numero primo ha due sottogruppi.
 
-G \to \{ a H\}_{a \in G}
-\`e una partizione di G
-
+$G \to \{ a H\}_{a \in G}$
+\`e una partizione di $G$
+\[
 |a H| = |H|
+\]
+\[
+|G / \lateralsx{H}| = \frac{|G|}{|H|}
+\]
+\begin{defn}
+un sottogruppo $N$ di $G$ si dice normale se $\forall a \in G$ $a N = N a$, ossia ogni classe laterale destra \`e uguale alla classe laterale sinistra. I nuclei dei morfismi sono sottogruppi normali.
+\end{defn}
+CNES affinch\'e $N$ sia normale \`e che $\forall a \in G$ e $\forall u \in N$, $a \cdot u \cdot a^{-1} \in G$. Deriva banalmente da $a \cdot N = N \cdot a$
 
-|G / equiv di H| = \frac{|G|}{|H|}
-
-Defn:
-un sottogruppo N di G si dice normale se \forall a \in G a N = N a, ossia ogni classe laterale destra \`e uguale alla classe laterale sinistra. I nuclei dei morfismi sono sottogruppi normali.
-
-CNES affinch\'e N sia normale \`e che \forall a \in G e \forall u \in N, a \cdot u \cdot a^{-1} \in G. Deriva banalmente da a \cdot N = N \cdot a
-
-CNES affinch\'e N sia normale \`e che tilde_N (o N_tilde) \`e una congruenza.
+CNES affinch\'e $N$ sia normale \`e che $\lateraldx{N}$ (o $\lateralsx{N}$) \`e una congruenza.
 
 Tutti i nuclei dei morfismi sono sottogruppi normali.
 
 Ogni permutazione \`e una biezione che pu\`o essere indicata sia dal punto di vista dell'occupazione sia dal punto di vista della distribuzione (come parola).
 
-\sigma \in S_n
+\[
+\sigma \in S_8
+\]
 
-1 2 3 4 5 6 7 8
-1 7 4 6 5 2 3 8
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\sigma$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+1 & 7 & 4 & 6 & 5 & 2 & 3 & 8
+\end{tabular}
 
 O come parola:
-
+\[
 17465238
-
+\]
 Possiamo indicare le permutazioni come composte di cicli.
+\[
+\sigma = (1) (2 7 3 4 6) (5) (8)
+\]
+$(2 7 3 4 6)$ significa che il 2 va nel 7, il 7 nel 3, il 3 nel 4 e il 4 nel 6.
 
-\sigma (1) (2 7 3 4 6) (5) (8)
+$\mu (3 1) (5 4 2) (8 7 6)$ \`e un prodotto di cicli. Corrisponde alla permutazione:
 
-(2 7 3 4 6) significa che il 2 va nel 7, il 7 nel 3, il 3 nel 4 e il 4 nel 6.
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\mu$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+3 & 5 & 1 & 2 & 4 & 8 & 6 & 7
+\end{tabular}
 
-\mu (3 1) (5 4 2) (8 7 6) \`e un prodotto di cicli. Corrisponde alla permutazione:
-
-1 2 3 4 5 6 7 8
-3 5 1 2 4 8 6 7
-
-Le permutazioni vengono rappresentate come prodotti di cicli. I cicli di lunghezza 1 non vengono scritti, visto che ogni elemento va a finire in s\'e stesso. Quindi \sigma (1) (2 7 3 4 6) (5) (8) posso scriverla come \sigma (2 7 3 4 6).
+Le permutazioni vengono rappresentate come prodotti di cicli. I cicli di lunghezza 1 non vengono scritti, visto che ogni elemento va a finire in s\'e stesso. Quindi $\sigma = (1) (2 7 3 4 6) (5) (8)$ posso scriverla come $\sigma = (2 7 3 4 6)$.
 
 Data una permutazione
+\[
 \sigma \in S_n 
-
+\]
 Definita su
+\[
 [n] = \{1 \dots n\}
-
+\]
 Ho la relazione di equivalenza sui cicli
-x equiv_sigma y \Leftrightarrow \exists n \in \mathbb{N} tc. y = \sigma^{n} (x)
+$x equiv_sigma y \Leftrightarrow \exists n \in \mathbb{N} $ t.c. $ y = \sigma^{n} (x)$
 
-Esercizio: questa \`e una relazione di equivalenza che divide [n] in classi di equivalenza. Le classi sono i cicli.
+\textbf{Esercizio:} questa \`e una relazione di equivalenza che divide $[n]$ in classi di equivalenza. Le classi sono i cicli.
 
-Ad esempio, nel caso del \sigma di prima, 7 = \sigma(2), 3 = \sigma^{2}(2), 4 = \sigma^{3} (2), 6 = \sigma^{4} (2)
+Ad esempio, nel caso del $\sigma$ di prima, $7 = \sigma(2)$, $3 = \sigma^{2}(2)$, $4 = \sigma^{3} (2)$, $6 = \sigma^{4} (2)$.
 
-x \`e equivalente a tutti gli elementi \sigma (x), \sigma^{2} (x), \dots \sigma^{t}(x) fino alla t-esima permutazione che torna in x (altrimenti il ciclo sarebbe infinito).
-
+$x$ \`e equivalente a tutti gli elementi $\sigma (x), \sigma^{2} (x), \dots \sigma^{t}(x)$ fino alla $t$-esima permutazione che torna in $x$ (altrimenti il ciclo sarebbe infinito).
+\[
 \mu_x : [n] \to [n]
-
+\]
 Definita come:
-\mu_x (y) = y se y \notin [x]
+\[
+\mu_x (y) =
+\begin{cases}
+y se y \notin [x] \\
+\sigma(y) se y \in [x]
+\end{cases}
+\]
+Quindi $\mu_x$ si comporta come $\mu$ nella partizione individuata da $x$, e tutti gli altri restano fissi.
 
-\mu_x (y) = \sigma(y) se y \in [x]
+Quindi $\mu_3$ \`e:
 
-Quindi \mu_x si comporta come \mu nella partizione individuata da x, e tutti gli altri restano fissi.
-
-Quindi \mu_3 \`e:
-
-1 2 3 4 5 6 7 8
-3 2 1 4 5 6 7 8
-
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\mu_3$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+3 & 2 & 1 & 4 & 5 & 6 & 7 & 8
+\end{tabular}
+\[
 \mu_3 = \mu_1
+\]
+$\mu_5 = \mu_4 = \mu_2$ si comporta come $\mu$ solo sulla partizione individuata da 5:
 
-\mu_5 = \mu_4 = \mu_2 si comporta come \mu solo sulla partizione individuata da 5:
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\mu_5$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+1 & 5 & 3 & 2 & 4 & 6 & 7 & 8
+\end{tabular}
 
-1 2 3 4 5 6 7 8
-1 5 3 2 4 6 7 8
+$\mu_6 = \mu_7 = \mu_8$ si comporta come $\mu$ solo sulla partizione individuata da 6:
 
-\mu_6 = \mu_7 = \mu_8 si comporta come \mu solo sulla partizione individuata da 6:
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\mu_6$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+1 & 2 & 3 & 4 & 5 & 8 & 6 & 7
+\end{tabular}
 
-1 2 3 4 5 6 7 8
-1 2 3 4 5 8 6 7
+$\mu$ come prodotto di cicli si scrive come prodotto di cicli, ossia posso comporre $\mu_3$, $\mu_5$ e $\mu_6$ per ottenere $\mu$.
 
-\mu come prodotto di cicli si scrive come prodotto di cicli, ossia posso comporre \mu_3, \mu_5 e \mu_6 per ottenere \mu.
-
-1 2 3 4 5 6 7 8
-3 2 1 4 5 6 7 8 \mu_3
-3 5 1 2 4 6 7 8 \mu_5
-3 5 1 2 4 8 6 7 \mu_6
+\begin{tabular}{*{9}{c}}
+\multicolumn{9}{c}{$\mu = \mu_3 \circ \mu_5 \circ \mu_6$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & \\
+3 & 2 & 1 & 4 & 5 & 6 & 7 & 8 & $\mu_3$ \\
+3 & 5 & 1 & 2 & 4 & 6 & 7 & 8 & $\mu_5$ \\
+3 & 5 & 1 & 2 & 4 & 8 & 6 & 7 & $\mu_6$
+\end{tabular}
 
 Questo si chiama rappresentazione delle permutazioni come cicli disgiunti.
 
 Non si possono omettere le parentesi, o si avrebbe una parola.
 
-Con \mathbb{N} possiamo trovare una rappresentazione standard (o canonica) dei cicli, senza parentesi.
+Con $\mathbb{N}$ possiamo trovare una rappresentazione standard (o canonica) dei cicli, senza parentesi.
 
-Consideriamo il ciclo (3 1 2) 5 (7 8) (4 6)
+Consideriamo i cicli (3 1 2) 5 (7 8) (4 6)
 
 \begin{enumerate}
     \item descrivo i cicli partendo dall'elemento maggiore:
@@ -851,59 +880,65 @@ Consideriamo il ciclo (3 1 2) 5 (7 8) (4 6)
     3 1 2 5 6 4 8 7
 \end{enumerate}
 
-Rappresentazione canonica o standard di una permutazione di [n].
+Rappresentazione canonica o standard di una permutazione di $[n]$.
 
 Trasposizioni = permutazioni che scambiano due elementi. Quindi hanno un solo ciclo di lunghezza 2 e tutti gli altri di lunghezza 1.
 
-Teorema:
+\begin{theorem}
 Ogni permutazione si pu\`o scrivere come un prodotto di trasposizioni. Il numero di trasposizioni varia.
+\end{theorem}
 
-Se \sigma si esprime come un prodotto di un numero pari di trasposizioni, allora ogni altro prodotto di trasposizioni che mi d\`a \sigma ha un numero pari di trasposizioni. Vale anche con i dispari.
+Se $\sigma$ si esprime come un prodotto di un numero pari di trasposizioni, allora ogni altro prodotto di trasposizioni che mi d\`a $\sigma$ ha un numero pari di trasposizioni. Vale anche con i dispari.
 
-Defn:
+\begin{defn}
 Una permutazione \`e pari se si esprime come prodotto di un numero pari di trasposizioni, dispari se si esprime come prodotto di un numero dispari di trasposizioni.
+\end{defn}
 
-A_n = insieme delle permutazioni pari \subseteq S_n
+$A_n =$ insieme delle permutazioni pari $\subseteq S_n$
 
-\`E un sottogruppo di S_n?
+\`E un sottogruppo di $S_n$?
 
-1 \in A_n (contiene l'unit\`a)
+$1 \in A_n$ (contiene l'unit\`a)
 
-Deve essere un gruppo rispetto alle permutazioni. \sigma, \mu \in A_n \Rightarrow (\sigma \cdot \mu) \in A_n. 
+Deve essere un gruppo rispetto alle permutazioni. $\sigma, \mu \in A_n \Rightarrow (\sigma \cdot \mu) \in A_n$.
 
-Allo stesso modo \sigma^{-1} \in A_n. Come si ottiene \sigma^{-1}?
+Allo stesso modo $\sigma^{-1} \in A_n$. Come si ottiene $\sigma^{-1}$?
 
-\sigma = \tau_{1} \dots \tau_{n} con n = 2t e \tau_i una trasposizione. L'inverso di una trasposizione \`e se stessa, ossia \tau^{-1} = \tau, quindi:
-
+$\sigma = \tau_{1} \dots \tau_{n}$ con $n = 2t$ e $\tau_i$ una trasposizione. L'inverso di una trasposizione \`e se stessa, ossia $\tau^{-1} = \tau$, quindi:
+\[
 \sigma^{-1} = \tau_n \dots \tau_1
+\]
+$A_n$ \`e quindi un sottogruppo di $S_n$ e si chiama gruppo alterno di ordine $n$.
 
-A_n \`e quindi un sottogruppo di S_n e si chiama gruppo alterno di ordine n.
-
-L'insieme delle permutazioni dispari non \`e un sottogruppo di S_n perch\'e il prodotto di due permutazioni dispari \`e una permutazione pari.
+L'insieme delle permutazioni dispari non \`e un sottogruppo di $S_n$ perch\'e il prodotto di due permutazioni dispari \`e una permutazione pari.
 
 Il numero delle permutazioni dispari \`e uguale al numero delle permutazioni pari.
-
+\[
 |A_n| = \frac{n!}{2}
+\]
+\textbf{Esercizio:} trovare la corrispondenza biunivoca fra le permutazioni pari e le permutazioni dispari.
 
-Esercizio: trovare la corrispondenza biunivoca fra le permutazioni pari e le permutazioni dispari.
+Trovare $F : A_n \to P_n$ e $F^{-1} : P_n \to A_n$, con $P_n$ ad indicare l'insieme delle permutazioni dispari.
 
-Trovare F : A_n \to P_n e F^{-1} : P_n \to A_n, con P_n ad indicare l'insieme delle permutazioni dispari.
+Come conseguenza abbiamo quanto detto sopra, ossia siccome la cardinalit\`a dell'insieme delle permutazioni ha cardinalit\`a $n!$ la cardinalit\`a di $A_n$ \`e $\frac{n!}{2}$
 
-Come conseguenza abbiamo quanto detto sopra, ossia siccome la cardinalit\`a dell'insieme delle permutazioni ha cardinalit\`a n! la cardinalit\`a di A_n \`e \frac{n!}{2}
-
-L'indice di A_n \`e:
+L'indice di $A_n$ \`e:
+\[
 \frac{|S_n|}{A_n} = 2
+\]
+$A_n$ \`e un sottogruppo normale.
 
-A_n \`e un sottogruppo normale.
-
-A_n \`e il nucleo del morfismo f : S_n \to \mathbb{Z}_2:
-
+$A_n$ \`e il nucleo del morfismo $f : S_n \to \mathbb{Z}_2$:
+\[
 f (\sigma) = 
 \begin{cases}
-0 se \sigma \`e pari \\
-1 se \sigma \`e dispari 
+0 \text{ se } \sigma \text{ \`e pari} \\
+1 \text{ se } \sigma \text{ \`e dispari} 
 \end{cases}
+\]
 \`E un morfismo perch\'e 1 per 1 va in 0 e 0 per 0 va in 0, ossia una permutazione pari per una pari va in una pari, e una permutazione dispari per una dispari va in una pari.
+
+% SONO ARRIVATO QUI A SISTEMARE
 
 % SONO ARRIVATO QUI A SCRIVERE
 

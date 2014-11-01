@@ -828,7 +828,7 @@ In questo reticolo, $\inf(X,Y) = X \cap Y$, quindi $f(\inf(X,Y)) = f(X \cap Y) =
 \begin{exmp}\label{morfismo_no_reticoli}
 Sia $\Gamma$ un insieme finito, definisco una funzione su $\mathbb{P}(\Gamma)$ e $(\mathbb{N}, \le)$ $f : \mathbb{P}(\Gamma) \to \mathbb{N}$ come $\forall \ X \in \mathbb{P}(\Gamma) f(X) = |X|$.
 
-Devo verificare \ref{itm:M1}. $f(\inf(X,Y)) = \inf(f(X),f(Y))$. $f(X \cap Y) = |X \cap Y|$, mentre $\inf(f(X),f(Y)) = \inf(|X|,|Y|)$, ossia il minore fra i due numeri. Non \`e vero in generale, quindi questa funzione non \`e un morfismo di reticoli.
+Devo verificare \ref{itm:M1}, ossia che $f(\inf(X,Y)) = \inf(f(X),f(Y))$. $f(X \cap Y) = |X \cap Y|$, mentre $\inf(f(X),f(Y)) = \inf(|X|,|Y|)$, ossia il minore fra i due numeri. Non \`e vero in generale, quindi questa funzione non \`e un morfismo di reticoli.
 \end{exmp}
 
 In realt\`a \ref{itm:M1} implica \ref{itm:M2}, a differenza di quanto visto nelle relazioni di equivalenza e di ordine.
@@ -1240,7 +1240,7 @@ C'\`e una corrispondenza biunivoca $F : (A \times B) \to [m \cdot n]$. Quanto va
 
 \`E possibile generalizzare la regola del prodotto.
 \begin{prop}[Principio del prodotto 2]
-Se prendo un insieme finito di insiemi $A_1, \dots a_t$, ho che:
+Se prendo un insieme finito di insiemi $\{ A_1$, $ \dots A_t \}$, ho che:
 \[
 \left| A_1 \times \dots \times A_t \right| = |A_1| \cdot \ldots \cdot |A_t|
 \]
@@ -1586,41 +1586,41 @@ Se prendo tre punti allineati, so che almeno due hanno lo stesso colore. Se pren
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}
-  \node (11) [circle, draw] {$R$};
-  \node (12) [below of=11, circle, draw] {$R$};
-  \node (13) [below of=12, circle, draw] {$R$};
+  \node (11) [circle, draw, fill=red!30!white] {$R$};
+  \node (12) [below of=11, circle, draw, fill=red!30!white] {$R$};
+  \node (13) [below of=12, circle, draw, fill=red!30!white] {$R$};
 
-  \node (21) [right of=11, circle, draw] {$R$};
-  \node (22) [below of=21, circle, draw] {$R$};
-  \node (23) [below of=22, circle, draw] {$B$};
+  \node (21) [right of=11, circle, draw, fill=red!30!white] {$R$};
+  \node (22) [below of=21, circle, draw, fill=red!30!white] {$R$};
+  \node (23) [below of=22, circle, draw, fill=blue!30!white] {$B$};
 
-  \node (31) [right of=21, circle, draw] {$B$};
-  \node (32) [below of=31, circle, draw] {$R$};
-  \node (33) [below of=32, circle, draw] {$B$};
+  \node (31) [right of=21, circle, draw, fill=blue!30!white] {$B$};
+  \node (32) [below of=31, circle, draw, fill=red!30!white] {$R$};
+  \node (33) [below of=32, circle, draw, fill=blue!30!white] {$B$};
 
-  \node (41) [right of=31, circle, draw] {$R$};
-  \node (42) [below of=41, circle, draw] {$B$};
-  \node (43) [below of=42, circle, draw] {$B$};
+  \node (41) [right of=31, circle, draw, fill=red!30!white] {$R$};
+  \node (42) [below of=41, circle, draw, fill=blue!30!white] {$B$};
+  \node (43) [below of=42, circle, draw, fill=blue!30!white] {$B$};
 
-  \node (51) [right of=41, circle, draw] {$R$};
-  \node (52) [below of=51, circle, draw] {$B$};
-  \node (53) [below of=52, circle, draw] {$R$};
+  \node (51) [right of=41, circle, draw, fill=red!30!white] {$R$};
+  \node (52) [below of=51, circle, draw, fill=blue!30!white] {$B$};
+  \node (53) [below of=52, circle, draw, fill=red!30!white] {$R$};
 
-  \node (61) [right of=51, circle, draw] {$B$};
-  \node (62) [below of=61, circle, draw] {$R$};
-  \node (63) [below of=62, circle, draw] {$R$};
+  \node (61) [right of=51, circle, draw, fill=blue!30!white] {$B$};
+  \node (62) [below of=61, circle, draw, fill=red!30!white] {$R$};
+  \node (63) [below of=62, circle, draw, fill=red!30!white] {$R$};
 
-  \node (71) [right of=61, circle, draw] {$B$};
-  \node (72) [below of=71, circle, draw] {$B$};
-  \node (73) [below of=72, circle, draw] {$R$};
+  \node (71) [right of=61, circle, draw, fill=blue!30!white] {$B$};
+  \node (72) [below of=71, circle, draw, fill=blue!30!white] {$B$};
+  \node (73) [below of=72, circle, draw, fill=red!30!white] {$R$};
 
-  \node (81) [right of=71, circle, draw] {$R$};
-  \node (82) [below of=81, circle, draw] {$B$};
-  \node (83) [below of=82, circle, draw] {$R$};
+  \node (81) [right of=71, circle, draw, fill=red!30!white] {$R$};
+  \node (82) [below of=81, circle, draw, fill=blue!30!white] {$B$};
+  \node (83) [below of=82, circle, draw, fill=red!30!white] {$R$};
 
-  \node (91) [right of=81, circle, draw] {$B$};
-  \node (92) [below of=91, circle, draw] {$B$};
-  \node (93) [below of=92, circle, draw] {$B$};
+  \node (91) [right of=81, circle, draw, fill=blue!30!white] {$B$};
+  \node (92) [below of=91, circle, draw, fill=blue!30!white] {$B$};
+  \node (93) [below of=92, circle, draw, fill=blue!30!white] {$B$};
 
   \draw (51) -- (81);
   \draw (81) -- (83);
