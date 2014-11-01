@@ -1,4 +1,3 @@
-% WEB
 
 \begin{center}
 \indent
@@ -35,7 +34,7 @@ Le strutture vengono classificate in base alle loro propriet\`a:
     \item[Inverso\label{itm:strutture_inverso}] Esistenza dell'inverso. $ \forall a \in A \ \exists \ b \in A $ t.c. $a \cdot b = 1 = b \cdot a $.
 \end{description}
 
-\section{Classificazione delle strutture algebriche con una operazione}
+\subsection{Classificazione delle strutture algebriche con una operazione}
 
 Per essere studiabile, una struttura algebrica deve essere quantomeno associativa.
 
@@ -48,6 +47,7 @@ Per essere studiabile, una struttura algebrica deve essere quantomeno associativ
 
 La struttura algebrica $\left( \mathbb{N}, + \right)$ \`e un monoide commutativo. Anche $\left( \mathbb{N}, \cdot \right)$ \`e un monoide commutativo. $\left( \mathbb{Z}, + \right)$ \`e un gruppo perch\`e esiste l'inverso. $\left( \mathbb{Z}, \cdot \right)$ \`e un monoide, perch\'e non ha l'inverso.
 
+\begin{defn}[Gruppo simmetrico]
 Il prototipo di tutti i gruppi \`e il gruppo simmetrico su $n$ elementi, il cui insieme \`e indicato con $S_n$. Prendiamo un insieme $E = \left\{ e_1, \dots, e_n \right\}$.
 
 \[
@@ -60,6 +60,7 @@ Il gruppo simmetrico \`e definito sull'insieme $S_n$ e l'operazione \`e la compo
     \item L'unit\`a \`e la funzione identica (o identit\`a) $i_E : E \to E$ tale che $\forall \ e \in E $ $i_E(e) = e$. $f \circ i_E = f = i_E \circ f$ 
     \item Una funzione biunivoca $f$ ha una funzione inversa $g$. $g : E \to E $ t.c. $ g(f(e)) = e$.
 \end{enumerate}
+\end{defn}
 
 Una funzione $f : E \to E $ iniettiva su un insieme finito $E$ \`e necessariamente suriettiva e quindi biunivoca.
 
@@ -81,119 +82,149 @@ Un insieme \`e finito se non pu\`o essere messo in corrispondenza biunivoca con 
 % \end{tabular}
 % Non \`e un'occupazione.
 
-% SONO ARRIVATO QUI
 
-\subsection{Monoidi}
+\section{Monoidi}
 
 Un monoide $(M, \cdot)$ \`e una struttura algebrica con un'operazione $\cdot : M \times M \to M$ tale che:
 \begin{description}
     \item[1M] L'operazione $\cdot$ \`e associativa;
-    \item[2M] $\exists 1_M \forall a \in M $ t.c. $1_M \cdot a = a = a \cdot 1_M$, ossia esiste l'elemento unit\`a. 
+    \item[2M] $\exists \ 1_M $ t.c. $ \forall \ a \in M$ $ 1_M \cdot a = a = a \cdot 1_M$, ossia esiste l'elemento identit\`a. 
 \end{description}
 
-Un sottomonoide $(S, \cdot)$ con $S \subseteq M$ \`e un onoide in cui $\cdot S \times S \to S$, ossia $S$ \`e chiuso, cio\`e $s \cdot s' \in S$ e $1_M \in S$.
+Un sottomonoide $(S, \cdot)$ con $S \subseteq M$ \`e un monoide in cui esiste l'operazione $\cdot : S \times S \to S$, ossia $S$ \`e chiuso, cio\`e $s \cdot s' \in S$ e $1_M \in S$.
 
-Ad esempio, considerando $(\mathbb{N}, +)$, $(P, +)$ con $P = \{ m \in \mathbb{N} : \exists k $ t.c. $m = 2k \}$ \`e un sottomonoide di $(\mathbb{N},+)$ perch\`e la somma di due pari \`e pari e lo 0 appartiene ai pari.
+Ad esempio, considerando $(\mathbb{N}, +)$, $(P, +)$ con $P = \{ m \in \mathbb{N} : \exists \ k $ t.c. $m = 2k \}$ \`e un sottomonoide di $(\mathbb{N},+)$ perch\`e la somma di due pari \`e pari e lo 0 appartiene ai pari.
 
-$k \mathbb{N} = \{ m \in \mathbb{N} : \exists t \in \mathbb{N} $ t.c. $ m = k t\}$ \`e la ``versione generale'' dell'insieme dei numeri pari.
+$k \mathbb{N} = \{ m \in \mathbb{N} : \exists \ t \in \mathbb{N} $ t.c. $ m = k t\}$ \`e la ``versione generale'' dell'insieme dei numeri pari.
 
-Considerando $(\mathbb{N}, \cdot)$ e l'elemento neutro 1, i pari non sono un sottomonoide, ma i dispari s\`i.
+Considerando $(\mathbb{N}, \cdot)$ e l'elemento neutro 1, i pari non sono un sottomonoide perch\'e non hanno l'elemento neutro, ma i dispari s\`i.
 
 \subsection{Morfismi di monoidi}
 
 \begin{defn}
-Dati $(M, \cdot)$ e $(A, \ast)$ un morfismo di monoidi \`e un'applicazione $f : M \to A$ che conserva le strutture, ossia tale che $\forall \ x,y \in M $ ho che $f(x \cdot y) = f(x) \ast f(y)$. Inoltre, $f(1_M) = 1_A$.
+Dati i monoidi $(M, \cdot)$ e $(A, \ast)$, un morfismo di monoidi \`e un'applicazione $f : M \to A$ che conserva le strutture, ossia tale che $\forall \ x,y \in M $ ho che $f(x \cdot y) = f(x) \ast f(y)$. Inoltre, $f(1_M) = 1_A$.
 \end{defn}
 
-\subsection{Teorema di omomorfismo per i monoidi}
+\subsection{Teorema di omomorfismo per i monoidi\label{omomorfismo_monoidi}}
 
 \begin{prop}
 Sia $f : (M, \cdot) \to (A, \ast)$ un morfismo di monoidi, $f$ definisce una relazione di equivalenza $\varepsilon_f$ tale che $\ker f = M / \varepsilon_f \cong Im_f$, ossia il quoziente \`e isomorfo all'immagine. Inoltre il quoziente ha una struttura di monoide:
 \[
 (M / \varepsilon_f , \cdot) \cong (Im_f, \ast)
 \]
-Con $(Im_f, \ast)$ sottomonoide di $(A, \ast)$.
+con $(Im_f, \ast)$ sottomonoide di $(A, \ast)$.
 \end{prop}
 \begin{proof}
-Ogni morfismo di monoidi individua un sottomonoide di $(A, \ast)$, che \`e $(Im_f, \ast)$. $\forall f(x), f(y) \in Im_f$, $f(x) \ast f(y) = f(x \cdot y) \in Im_f$, quindi $Im_f $ \`e chiuso rispetto a $\ast$. Inoltre $1_A \in Im_f \Rightarrow f(1_M) = 1_A$ perch\'e \`e un morfismo di monoidi.
+Ogni morfismo di monoidi $f : (M, \cdot) \to (A, \ast)$ individua un sottomonoide di $(A, \ast)$, che \`e $(Im_f, \ast)$. 
 
-$[x] = \{ y \in M : x \varepsilon_f y \Leftrightarrow f(x) = f(y) \}$ $(\ker f, \cdot)$ \`e un monoide.
+Essendo $f$ un morfismo di monoidi, $\forall f(x), f(y) \in Im_f$, $f(x) \ast f(y) = f(x \cdot y) \in Im_f$, quindi $Im_f $ \`e chiuso rispetto a $\ast$. Devo poi verificare che $1_A \in Im_f \Leftarrow f(1_M) = 1_A$.
 
-$[x] \cdot [z] = [x \cdot z]$ qualsiasi rappresentante scelgo della classe. Devo quindi verificare che la definizione sia indipendente dai rappresentanti. Inoltre ho l'unit\`a $[1_M]$ in $\ker f$.
+Anche $(\ker f, \cdot)$ \`e un monoide. Dobbiamo dimostrare l'esistenza dell'isomorfismo con $Im_f$.
 
-L'isomorfismo fra $(Im_f, \ast)$ e $(\ker f, \cdot)$ segue naturalmente dal fatto che $\ker f $ e $Im_f$ sono in biezione, ed inoltre, essendo monoidi, la funzione $f$ \`e un morfismo di monoidi.
+$\ker f$ \`e l'insieme delle classi di equivalenza $[x] = \{ y \in M : x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y) \} \in \ker f$.
+
+Definiamo l'operazione di prodotto fra classi come la classe del prodotto di due rappresentanti $[x] \cdot [z] = [x \cdot z]$ qualsiasi rappresentante scelgo della classe. Bisogna verificare che questa definizione sia indipendente dai rappresentnati! Lo faremo nella sezione \ref{congruenze}, in particolare nella dimostrazione \ref{congruenza_monoidi}. 
+
+L'operazione fra classi \`e associativa, perch\'e \`e associativa l'operazione fra rappresentanti. Inoltre ho l'unit\`a $[1_M]$ in $\ker f$.
+
+L'isomorfismo fra $(Im_f, \ast)$ e $(\ker f, \cdot)$ segue naturalmente dal fatto che $\ker f $ e $Im_f$ sono in biezione. Inoltre, essendo entrambi dei monoidi, la funzione $f$ \`e un isomorfismo di monoidi.
 \end{proof}
 
 \subsection{Potenze (iterazioni sui monoidi)}
 
+\begin{defn}[Potenze]
 A partire dal monoide $(M, \cdot)$ possiamo definire le iterazioni dell'operazione $\cdot$, ossia le potenze.
 
 Sia $ a \in M$, si definisce:
-\begin{itemize}
+\begin{enumerate}
     \item $a^0 = 1_M$
     \item $a^{n+1} = a \cdot a^{n}$
-\end{itemize}
-Che propriet\`a hanno le iterazioni? $\forall n \in \mathbb{N}$, $a \cdot a^n = a^n \cdot a$, ossia \`e commutativa. Lo vediamo subito con $n = 0$, $a \cdot a^0 = a = a^0 \cdot a$.
+\end{enumerate}
+\end{defn}
+\begin{prop}[Commutativit\`a della potenza]
+$\forall \ n \in \mathbb{N}$, $a \cdot a^n = a^n \cdot a$, ossia la potenza \`e commutativa.
+\end{prop}
+\begin{proof}
+Si dimostra per induzione. Si vede subito che con $n = 0$, per definizione $a \cdot a^0 = a = a^0 \cdot a$.
 
-Per definizione $a \cdot a^{n+1} = a \cdot a \cdot a^{n} = a \cdot a^n \cdot a = a^{n+1} \cdot a$ per ipotesi induttiva.
-
-Abbiamo anche le classiche propriet\`a delle potenze:
-
-$a^{m + n} = a^m \cdot a^n$
-
+Per definizione di potenza $a \cdot a^{n+1} = a \cdot a \cdot a^{n} $, per ipotesi induttiva $ a \cdot a^n \cdot a $ che di nuovo per definizione di potenza \`e $ a^{n+1} \cdot a$.
+\end{proof}
+\begin{prop}
+Valgono tutte le propriet\`a tipiche delle potenze:
+\[
+a^{m + n} = a^m \cdot a^n
+\]
+\end{prop}
+\begin{proof}
 Si dimostra anche questo per induzione su $n$. Con $n = 0$, $a^{m+0} = a^m = a^m \cdot 1_M = a^m \cdot a^0$.
 
 Passo induttivo. $a^{m + n + 1} = a \cdot a^{m + n}$ per definizione di potenze. Applicando l'ipotesi induttiva, $a \cdot a^{m + n} = a \cdot a^m \cdot a^n$. Per commutativit\`a $a \cdot a^m \cdot a^n = a^m \cdot a \cdot a^n = a^m \cdot a^{n+1}$.
+\end{proof}
 
 \begin{theorem}
-Dato $(M, \cdot)$ monoide ed un elemento $a \in M$, esiste un solo morfismo di monoidi $f : (\mathbb{N}, +) \to (M, \cdot)$ tale che $f(1) = a$.
+Dato un monoide $(M, \cdot)$ ed un elemento $a \in M$, esiste un solo morfismo di monoidi $f : (\mathbb{N}, +) \to (M, \cdot)$ tale che $f(1) = a$, ed \`e $f(n) = a^n$.
 \end{theorem}
 \begin{proof}
-$f(n) = a^n$. $f$ \`e un morfismo di monoidi. Infatti verifica $f(m+n) = f(m) \cdot f(n)$ e $f(0) = 1_M$. Per le propriet\`a dimostrare precedentemente, $f(m+ n) = a^{m+n} = a^m \cdot a^n = f(m) \cdot f(n)$, e $f(0) = a^0 = 1_M$ per definizione di potenze. Infine, $f(1) = a^1 = a \cdot a^0 = a \cdot 1_M = a$.
+$f$ \`e un morfismo di monoidi, quindi deve verificare che $f(m+n) = f(m) \cdot f(n)$ e che $f(0) = 1_M$. 
 
-Dimostriamone ora l'unicit\`a. Sia $g : (\mathbb{N}, +) \to (M, \cdot )$ tale che $g(1) = a$, dimostriamo che $\forall n \in \mathbb{N} g(n) = f(n) = a^n$.
+Per le propriet\`a delle potenze dimostrare precedentemente, $f(m+ n) = a^{m+n} = a^m \cdot a^n = f(m) \cdot f(n)$, e $f(0) = a^0 = 1_M$ per la definizione delle potenze. 
+
+Inoltre verifica la condizione $f(1) = a$, infatti $f(1) = a^1 = a \cdot a^0 = a \cdot 1_M = a$.
+
+Dobbiamo dimostrare l'unicit\`a di $f$. Sia $g : (\mathbb{N}, +) \to (M, \cdot )$ un morfismo tale che $g(1) = a$, dimostriamo che $\forall n \in \mathbb{N} $ $ g(n) = f(n) = a^n$.
 
 Dimostriamolo per induzione su $n$. Per definizione di morfismo di monoidi, $g(0) = 1_M = f(0) = a^0$.
 
 Supponiamo che $g(n) = f(n)$, per definizione di morfismo di monoidi $g(n+1) = g(1) \cdot g(n) = a \cdot g(n) = a \cdot f(n) = a \cdot a^n = a^{n+1}$.
 \end{proof}
 
-Sia $\Gamma$ un insieme, prendo $(\mathbb{P}(\Gamma), \cup)$. \`E una struttura algebrica, ed in particolare un monoide. L'unione \`e associativa ($(A \cup B) \cup C = A \cup (B \cup C)$), ed esiste l'elemento neutro $\emptyset$.
+\begin{exmp}
+Sia $\Gamma$ un insieme, la struttura algebrica $(\mathbb{P}(\Gamma), \cup)$ \`e in particolare un monoide. L'unione \`e associativa ($(A \cup B) \cup C = A \cup (B \cup C)$), ed esiste l'elemento neutro $\emptyset$.
 
-Anche $(\mathbb{P}(\Gamma), \cap)$ \`e un monoide, con elemento neutro pari a $\Gamma$, poich\'e $\forall A$ $\Gamma \cap A = A$. Abbiamo quindi due esempi di monoidi commutativi.
+Anche $(\mathbb{P}(\Gamma), \cap)$ \`e un monoide, con $\Gamma$ come elemento neutro, poich\'e $\forall \ A$ $\Gamma \cap A = A$. Abbiamo quindi due esempi di monoidi commutativi.
 
-Fissiamo $\emptyset \neq S \subseteq \Gamma$, possiamo considerare $\mathbb{P}(S)$ e definire l'applicazione $f : \mathbb{P}(\Gamma) \to \mathbb{P}(S)$ tale che $f(A) = A \cap S$. 
+Fissato un insieme $S \subseteq \Gamma$ diverso da $\emptyset$, possiamo considerare il suo insieme delle parti $\mathbb{P}(S)$ e definire l'applicazione $f : \mathbb{P}(\Gamma) \to \mathbb{P}(S)$ tale che $f(A) = A \cap S$. 
 
-Vediamo se questa applicazione \`e un morfismo di monoidi considerando $(\mathbb{P}(\Gamma), \cup)$ e $(\mathbb{P}(S), \cup)$. Dobbiamo dimostrare che $f( A \cup B) = f(A) \cup f(B)$. Infatti $f(A \cup B) = (A \cup B) \cap S = (A \cap S) \cup (B \cap S)$ per la propriet\`a distributiva, che \`e proprio $f(A) \cup f(B)$.
+Verifichiamo che questa applicazione \`e un morfismo di monoidi rispetto a $(\mathbb{P}(\Gamma), \cup)$ e $(\mathbb{P}(S), \cup)$. Dobbiamo dimostrare che $f( A \cup B) = f(A) \cup f(B)$. Infatti $f(A \cup B) = (A \cup B) \cap S = (A \cap S) \cup (B \cap S)$ per la propriet\`a distributiva, che \`e proprio $f(A) \cup f(B)$.
 
-Inoltre conserva l'elemento neutro, poich\'e $f(\emptyset) = \emptyset \cap S = \emptyset$.
+Inoltre l'applicazione conserva l'elemento neutro, poich\'e $f(\emptyset) = \emptyset \cap S = \emptyset$.
 
-Vediamo se \`e un morfismo di monoidi anche considerando $(\mathbb{P}(\Gamma), \cap)$ e $(\mathbb{P}(S), \cap)$. $f(A \cap B) = f(A) \cap f(B)$, infatti $(A \cap B) \cap S - (A \cap S) \cap (B \cap S)$. Conserva anche l'elemento neutro, poich\'e $f(\Gamma) = \Gamma \cap S = S$.
+Verifichiamo che \`e un morfismo di monoidi anche rispetto $(\mathbb{P}(\Gamma), \cap)$ e $(\mathbb{P}(S), \cap)$. $f(A \cap B) = f(A) \cap f(B)$, infatti $(A \cap B) \cap S = (A \cap S) \cap (B \cap S)$ sempre per la propriet\`a distributiva. E anche in questo caso l'applicazione conserva l'elemento neutro, poich\'e $f(\Gamma) = \Gamma \cap S = S$, ed $S$ \`e proprio l'elemento neutro di $(\mathbb{P}(S), \cap)$.
+\end{exmp}
 
-Sia $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ tale che $f(A) = \bar A = \{ x \in Gamma : x \notin A\}$. Poich\'e $\bar{A \cup B} = \bar A \cap \bar B$, $f : (\mathbb{P}(\Gamma), \cup) \to (\mathbb{P}(\Gamma), \cap)$ \`e un morfismo di monoidi visto che $f(A \cup B) = f(A) \cap f(B)$, e $f(\emptyset) = \bar \emptyset = \Gamma$. 
+\begin{exmp}
+Sia $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ un'applicazione tale che $f(A) = \bar A = \{ x \in Gamma : x \notin A\}$, ossia che associa ad $A$ il suo complementare $\bar A$. L'applicazione $f : (\mathbb{P}(\Gamma), \cup) \to (\mathbb{P}(\Gamma), \cap)$ \`e un morfismo di monoidi visto che verifica $f(A \cup B) = f(A) \cap f(B)$ per le leggi di De Morgan ($\bar{A \cup B} = \bar A \cap \bar B$) e $f(\emptyset) = \bar \emptyset = \Gamma$.
 
 Possiamo considerare la stessa applicazione come un morfismo di monoidi da $f : (\mathbb{P}(\Gamma), \cap) \to (\mathbb{P}(\Gamma), \cup)$. Infatti $f(A \cap B) = \bar{A \cap B} = \bar A \cup \bar B = f(A) \cup f(B)$ e $f(\Gamma) = \bar \Gamma = \emptyset$.
+\end{exmp}
 
-\subsection{Congruenze}
+\subsection{Congruenze\label{congruenze}}
 
-Le congruenze sono relazioni d'equivalenza definite sulle strutture algebriche. Sia $\varepsilon$ una relazione d'equivalenza su $A$, con $(A, \cdot)$ monoide, si dice congruenza rispetto a $\cdot$ se, dati $a \varepsilon b$ e $c \varepsilon d$, ho che $a \cdot c \varepsilon b \cdot d$.
+\begin{defn}
+Le congruenze sono relazioni d'equivalenza definite sulle strutture algebriche. Sia $\varepsilon$ una relazione d'equivalenza su $A$, con $(A, \cdot)$ monoide, si dice che $\varepsilon$ \`e una congruenza rispetto a $\cdot$ se, dati $a \ \varepsilon \ b$ e $c \ \varepsilon \ d$, ho che $a \cdot c \ \varepsilon \ b \cdot d$.
+\end{defn}
 
-Vuol dire che, dati $a \in [a]$ e $c \in [c]$, se $a \cdot c \in [a \cdot c]$ e ho una congruenza, allora $b \in [a]$ e $d \in [c]$ sono tali che $b \cdot d \in [a \cdot c]$. La congruenza fa s\`i che io possa definire le operazioni sulle classi.
+Vuol dire che, dati $a \in [a]$ e $c \in [c]$, se $a \cdot c \in [a \cdot c]$ e ho una congruenza, allora $b \in [a]$ e $d \in [c]$ sono tali che $b \cdot d \in [a \cdot c]$. La congruenza fa s\`i che io possa definire operazioni sulle classi.
 
-Considerando quindi un morfismo di monoidi $f : (M, \cdot) \to (A, \ast)$, se definisco la relazione di equivalenza $\varepsilon_f$ tale che $x, y \in M$ sono $x \varepsilon_f y \Leftrightarrow f(x) = f(y)$, questa relazione di equivalenza \`e una congruenza.
-\begin{proof}
-$x \varepsilon_f y$, $z \varepsilon_f w \Rightarrow (x \cdot z) \varepsilon_f (y \cdot w)$.
+\begin{prop}
+Riprendendo il teorema \ref{omomorfismo_monoidi}, abbiamo che considerato un morfismo di monoidi $f : (M, \cdot) \to (A, \ast)$, se definisco la relazione di equivalenza $\varepsilon_f$ tale che $x, y \in M$ sono $x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)$, questa relazione di equivalenza \`e una congruenza.
+\end{prop}
+\begin{proof}\label{congruenza_monoidi}
+$x \ \varepsilon_f \ y$, $z \ \varepsilon_f \ w \Rightarrow (x \cdot z) \ \varepsilon_f \ (y \cdot w)$.
 
-Infatti $f(x \cdot z) = f(x) \ast f(y)$ e $f(y \cdot w) = f(y) \ast f(w)$. 
+Infatti $f(x \cdot z) = f(x) \ast f(z)$ e $f(y \cdot w) = f(y) \ast f(w)$. 
 \end{proof}
+% SONO ARRIVATO QUI
 
-Avevamo definito $\rho$ su $\mathbb{N} \times \mathbb{N}$, come $(m, n) \rho (a, b) \Leftrightarrow m+b = n+a$. Quindi a partire da $(M, \cdot) $ possiamo creare altri monoidi $(M^n, \cdot)$, ad esempio su $M^2 = M \times M$ in cui $(x, y) \cdot (z, t) = (x \cdot z, y \cdot t)$.
+Avevamo definito $\rho$ su $\mathbb{N} \times \mathbb{N}$, come $(a, b) \ \rho \ (c, d) \Leftrightarrow a+d = b+c$. Quindi a partire da $(M, \cdot) $ possiamo creare altri monoidi $(M^n, \cdot)$, ad esempio su $M^2 = M \times M$ in cui $(x, y) \cdot (z, t) = (x \cdot z, y \cdot t)$.
 
 Ad esempio $(\mathbb{N}, +) \to (\mathbb{N} \times \mathbb{N}, +)$ in cui $(m, n) + (a, b) = (m+a, n+b)$ con l'elemento neutro $(0,0)$.
 
 $\rho$ \`e una congruenza rispetto a + in $\mathbb{N} \times \mathbb{N}$. Inoltre, avendo visto che $\mathbb{N} \times \mathbb{N} / \rho = \mathbb{Z}$, abbiamo che $(\mathbb{Z}, +)$ \`e un monoide.
 
-\subsection{Gruppi}
+% WEB
+
+\section{Gruppi}
 
 $(G, \cdot)$ \`e un gruppo se:
 \begin{description}
@@ -357,7 +388,7 @@ Ma $f(u)^{-1} = 1_{G'}$, quindi ho:
 f(u)^{-1} \ast f(v) = 1_{G'} \ast 1_{G'} = 1_{G'}
 \]
 
-Teorema di omomorfismo per i gruppi
+\subsection{Teorema di omomorfismo per i gruppi}
 
 Sia $f : (G, \cdot) \to (G', \ast)$ un morfismo di gruppi, allora $\varepsilon_f$ \`e una congruenza e il gruppo $G / \varepsilon_f$ \`e isomorfo al gruppo $(Im_f, \ast)$. Ogni elemento $[a] \in G / \varepsilon_f$ \`e del tipo $a \cdot \ker f$.
 \[
@@ -519,8 +550,395 @@ Viceversa se $\ker f = \{ 1_G \} \Rightarrow f(a) = f(b) \Rightarrow f(a) \cdot 
 
 Se prendiamo $S$ sottogruppo di $G$ possiamo considerare la classe laterale destra $a S$ e la classe laterale sinistra $S a$. Lo vediamo la prossima volta. 
 
+\subsection{Teorema di omomorfismo per i gruppi}
 
+Dato un morfismo $f : (G, \cdot) \to (G', \ast)$, allora 
+\begin{enumerate}
+    \item $\varepsilon_f$ individuata da $f$ ($x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)$) \`e una congruenza
+    \item Il gruppo $(G / \varepsilon_f, \cdot)$ \`e isomorfo al sottogruppo $(Im_f, \ast)$ di $(G', \ast)$. Questo vale per ogni struttura algebrica.
+\end{enumerate}
 
+$f$ individua due sottogruppi, $\ker f = \{ u \in G : f(u) = 1_{G'} \} \le G$, $Im_f = \{ x' \in G' : \exists x \in G f(x) = x'\} \le G'$. 
+\[
+\forall a \in G [a] = a \cdot \ker f = \ker f \cdot a
+\]
+\begin{prop}
+Tutte le classi hanno la stessa cardinalit\`a $|[a]| = |a \cdot \ker f| = |\ker f|$
+\end{prop}
+\begin{proof}
+Bisogna far vedere che esiste una corrispondenza biunivoca.
+\[
+\forall a \in G \varphi_a : \ker f \to a \cdot \ker f
+\]
+\[
+\forall u \in \ker f \varphi_a (u) = a \cdot u \in a \cdot \ker f
+\]
+$\varphi_a$ \`e biunivoca. 
+
+$\varphi_a$ \`e iniettiva, infatti $\forall u$, $v \in \ker f $ tali che $\varphi_a (u) = \varphi_a (v)$, ho che a $\cdot u = a \cdot v \Rightarrow$ essendo in un gruppo $a$ ha l'inverso, quindi $a^{-1} \cdot a \cdot u = a^{-1} \cdot a \cdot v \Rightarrow u = v$.
+\end{proof}
+
+Vediamo cosa succede se prendiamo un sottogruppo qualunque.
+
+Sia $S \le G$ un sottogruppo qualunque di $G$. Prendo $a \in G$ e moltiplico tutti gli elementi di $S$ per $a$, ossia faccio $a \cdot S$ e $S \cdot a$.
+
+$a \cdot S = \{ x \in G : x = a \cdot s con s \in S \}$ \`e la classe laterale sinistra di $S$
+
+$S \cdot a = \{ x \in G : x = s \cdot a con s \in S \}$ \`e la classe laterale destra di $S$
+
+Per lo stesso motivo di prima tutte le classi laterali hanno la stessa cardinalit\`a di $S |a \cdot S| = |S| = |S \cdot a| \forall a \in G$
+
+Prendiamo l'insieme di sottoinsiemi sinistri
+\[
+\{ a \cdot S\}_{a \in G} a \cdot S \subseteq G
+\]
+$a \cdot S$ non \`e un sottogruppo perch\'e non contiene l'unit\`a, ma \`e un sottoinsieme. L'insieme delle classi sinistre \`e una partizione di $G$.
+\begin{enumerate}
+    \item $\bigcup_{a \in G} a \cdot S = G$
+    \item $a \cdot S \neq \emptyset$, infatti necessariamente $a \in a \cdot S$, essendo $a = a \cdot 1_G$ e $1_G \in S$
+    \item $a \cdot S \cap a \cdot S \neq \emptyset \Rightarrow a \cdot s = b \cdot S$
+\end{enumerate}
+Dimostriamo il punto tre.
+
+$a \cdot S \cap b \cdot S \neq \emptyset \Rightarrow a \cdot S = b \cdot S$
+
+\[
+c \in a \cdot S \cap b \cdot S
+\]
+\[
+c = a \cdot s = b \cdot v con s, v \in S
+\]
+\`e l'ipotesi
+
+La tesi \`e:
+$x \in a \cdot S \Rightarrow = a \cdot u$ con $u \in S$
+Per ipotesi ho $a = c \cdot s^{-1} \Rightarrow x = c \cdot s^{-1} \cdot u$, ma sempre per ipotesi ho che $x = b \cdot v \cdot s^{-1} \cdot u$. Quindi $x \in b \cdot S$, avendo che $(v \cdot s^{-1} \cdot u) \in S$.
+
+Se $\{a \cdot S\}_{a \in G}$ \`e una partizione di $G$, individua in $G$ una relazione di equivalenza che indichiamo con $\lateralsx{S}$ (perch\'e che $S$ \`e una classe laterale sinistra).
+
+Dico che due elementi sono equivalenti se sono nello stesso blocco. Ossia dati $x, y \in G$ dico $x \lateralsx{S} y \Leftrightarrow \exists a \in G x, y \in a \cdot S \Leftrightarrow x = a \cdot s$ e $y = a \cdot v$ con $s, v \in S$. Si pu\`o semplificare ulteriormente questa definizione, perch\'e se un elemento $x$ \`e nella classe posso prendere $x$ come rappresentante, e quindi dire che $x \in y \cdot S$ o che $y \in x \cdot S$ o che $x \cdot S = y \cdot S$ (sono tutte definizioni equivalenti).
+
+Quindi posso scrivere $x \in y \cdot S$ come $x = y \cdot s$ con $s \in S$.
+\[
+s = y^{-1} \cdot x \in S
+\]
+Qual \`e la differenza con il nucleo? Nel nucleo le classi laterali coincidono, in generale no. Le classi laterali hanno la stessa cardinalit\`a ma non sono identiche.
+
+Le due relazioni di equivalenza destra e sinistra (simboli qui) non sono uguali, e non sono congruenze.
+\[
+a \cdot S \neq S \cdot a
+\]
+Nel caso del nucleo invece abbiamo che $a \cdot \ker f = \ker f \cdot a$, e la relazione di equivalenza destra e sinistra \`e una sola, ossia $\varepsilon_f$, ed \`e una congruenza.
+
+Facciamo un esempio. Consideriamo $S_4$
+
+$(G, \cdot)$ e $a \in G$, possiamo indicare con $< a > =$ sottogruppo generato da $a \in G$ costitiuto da tutte le potenze generate da $a$. Per le propriet\`a delle potenze \`e un sottogruppo, infatti contiene $1_G = a^{0}$.
+\[
+S_4
+\]
+\[
+< a > = \{ a^{z} : z \in \mathbb{Z} \}
+\]
+Contiene anche l'inverso di $a^{n}$, ossia $a^{-n}$
+
+Prendiamo il sottogruppo generato da questa permutazione, e tutte le potenze generate da questa $\sigma$:
+
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma$} \\
+1 & 2 & 3 & 4 \\
+2 & 3 & 1 & 4 
+\end{tabular}
+
+\[
+\sigma^{0} = id
+\]
+\[
+\sigma^{1} = \sigma
+\]
+$\sigma^{2}$ cosa \`e?
+
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma^{2}$} \\
+1 & 2 & 3 & 4 \\
+2 & 3 & 1 & 4 \\
+3 & 1 & 2 & 4
+\end{tabular}
+
+Se poi faccio $\sigma^{3}$ riottengo l'identit\`a.
+
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma^{3}$} \\
+1 & 2 & 3 & 4 \\
+3 & 1 & 2 & 4 \\
+1 & 2 & 3 & 4 
+\end{tabular}
+
+Quindi il gruppo $H = < \sigma > = \{ 1 , \sigma, \sigma^{2} \}$. L'inversa di $\sigma$ \`e $\sigma^{2}$. $H$ \`e un gruppo finito di ordine 3.
+
+Facciamo la relazione di equivalenza e la classe laterale.
+
+Prendiamo due elementi equivalenti, $\mu$  e $\tau \Leftrightarrow \sigma \tau^{-1} \in H$. Quindi $\mu \tau^{-1} = \rho \in H$, quindi o l'identit\`a, o $\sigma$ o $\sigma^{2}$.
+
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\tau$} \\
+1 & 2 & 3 & 4 \\
+2 & 1 & 4 & 3
+\end{tabular}
+
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma \cdot \tau$} \\
+1 & 2 & 3 & 4 \\
+2 & 1 & 4 & 3 \\
+3 & 2 & 4 & 1
+\end{tabular}
+
+Quindi $\mu$ \`e:
+
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\mu$} \\
+1 & 2 & 3 & 4 \\
+3 & 2 & 4 & 1
+\end{tabular}
+
+Prendiamo $\tau'$
+
+\begin{tabular}{cccc}
+1 & 2 & 3 & 4 \\
+4 & 3 & 2 & 1
+\end{tabular}
+
+Applichiamo $\sigma$
+
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\sigma \cdot \tau'$} \\
+1 & 2 & 3 & 4 \\
+4 & 3 & 2 & 1 \\
+4 & 1 & 3 & 2
+\end{tabular}
+
+Otteniamo $\mu'$ equivalente a $\tau'$
+
+\begin{tabular}{cccc}
+\multicolumn{4}{c}{$\mu'$} \\
+1 & 2 & 3 & 4 \\
+4 & 1 & 3 & 2
+\end{tabular}
+
+% Dobbiamo far vedere ora che \mu, \tau, \mu' e \tau' sono nella stessa classe.
+
+Siamo nella classe destra, avendo fatto $\sigma \tau$ (va vista come composizione).
+
+La congruenza mi d\`a modo di definire il prodotto fra classi. 
+
+Dati $a, b$ nella classe 1, dati $a', b'$ nella classe 2. Le classi sono definite sulla struttura $(A, \cdot)$. Vogliamo definire il prodotto fra classi, ossia $[1] \cdot [2] = [3]$. 
+
+La congruenza fa in modo che comunque prendo i rappresentanti i prodotti vanno sempre nella stessa classe. Quindi $a \cdot a'$ e $b \cdot b' \in [3]$.
+
+Possiamo vedere che $\tau$ per $\tau'$ e $\mu$ per $\mu'$ non vanno nella stessa classe.
+
+Che ordine ha il sottogruppo $H$? Lo possiamo dire per il teorema di Lagrange.
+
+Teorema di Lagrange
+$(G, \cdot)$ gruppo finito, la cardinalit\`a di $G$ si dice ordine.
+
+Prendiamo $|G| = n$, allora se $H$ \`e un sottogruppo di $G$, l'ordine di $G$ \`e diviso dall'ordine di $H$
+\[
+\frac{|G|}{|H|}
+\]
+Questo intero \`e detto indice di $H$.
+
+Un gruppo di ordine un numero primo ha due sottogruppi.
+
+$G \to \{ a H\}_{a \in G}$
+\`e una partizione di $G$
+\[
+|a H| = |H|
+\]
+\[
+|G / \lateralsx{H}| = \frac{|G|}{|H|}
+\]
+\begin{defn}
+un sottogruppo $N$ di $G$ si dice normale se $\forall a \in G$ $a N = N a$, ossia ogni classe laterale destra \`e uguale alla classe laterale sinistra. I nuclei dei morfismi sono sottogruppi normali.
+\end{defn}
+CNES affinch\'e $N$ sia normale \`e che $\forall a \in G$ e $\forall u \in N$, $a \cdot u \cdot a^{-1} \in G$. Deriva banalmente da $a \cdot N = N \cdot a$
+
+CNES affinch\'e $N$ sia normale \`e che $\lateraldx{N}$ (o $\lateralsx{N}$) \`e una congruenza.
+
+Tutti i nuclei dei morfismi sono sottogruppi normali.
+
+Ogni permutazione \`e una biezione che pu\`o essere indicata sia dal punto di vista dell'occupazione sia dal punto di vista della distribuzione (come parola).
+
+\[
+\sigma \in S_8
+\]
+
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\sigma$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+1 & 7 & 4 & 6 & 5 & 2 & 3 & 8
+\end{tabular}
+
+O come parola:
+\[
+17465238
+\]
+Possiamo indicare le permutazioni come composte di cicli.
+\[
+\sigma = (1) (2 7 3 4 6) (5) (8)
+\]
+$(2 7 3 4 6)$ significa che il 2 va nel 7, il 7 nel 3, il 3 nel 4 e il 4 nel 6.
+
+$\mu (3 1) (5 4 2) (8 7 6)$ \`e un prodotto di cicli. Corrisponde alla permutazione:
+
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\mu$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+3 & 5 & 1 & 2 & 4 & 8 & 6 & 7
+\end{tabular}
+
+Le permutazioni vengono rappresentate come prodotti di cicli. I cicli di lunghezza 1 non vengono scritti, visto che ogni elemento va a finire in s\'e stesso. Quindi $\sigma = (1) (2 7 3 4 6) (5) (8)$ posso scriverla come $\sigma = (2 7 3 4 6)$.
+
+Data una permutazione
+\[
+\sigma \in S_n 
+\]
+Definita su
+\[
+[n] = \{1 \dots n\}
+\]
+Ho la relazione di equivalenza sui cicli
+$x equiv_sigma y \Leftrightarrow \exists n \in \mathbb{N} $ t.c. $ y = \sigma^{n} (x)$
+
+\textbf{Esercizio:} questa \`e una relazione di equivalenza che divide $[n]$ in classi di equivalenza. Le classi sono i cicli.
+
+Ad esempio, nel caso del $\sigma$ di prima, $7 = \sigma(2)$, $3 = \sigma^{2}(2)$, $4 = \sigma^{3} (2)$, $6 = \sigma^{4} (2)$.
+
+$x$ \`e equivalente a tutti gli elementi $\sigma (x), \sigma^{2} (x), \dots \sigma^{t}(x)$ fino alla $t$-esima permutazione che torna in $x$ (altrimenti il ciclo sarebbe infinito).
+\[
+\mu_x : [n] \to [n]
+\]
+Definita come:
+\[
+\mu_x (y) =
+\begin{cases}
+y se y \notin [x] \\
+\sigma(y) se y \in [x]
+\end{cases}
+\]
+Quindi $\mu_x$ si comporta come $\mu$ nella partizione individuata da $x$, e tutti gli altri restano fissi.
+
+Quindi $\mu_3$ \`e:
+
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\mu_3$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+3 & 2 & 1 & 4 & 5 & 6 & 7 & 8
+\end{tabular}
+\[
+\mu_3 = \mu_1
+\]
+$\mu_5 = \mu_4 = \mu_2$ si comporta come $\mu$ solo sulla partizione individuata da 5:
+
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\mu_5$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+1 & 5 & 3 & 2 & 4 & 6 & 7 & 8
+\end{tabular}
+
+$\mu_6 = \mu_7 = \mu_8$ si comporta come $\mu$ solo sulla partizione individuata da 6:
+
+\begin{tabular}{*{8}{c}}
+\multicolumn{8}{c}{$\mu_6$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+1 & 2 & 3 & 4 & 5 & 8 & 6 & 7
+\end{tabular}
+
+$\mu$ come prodotto di cicli si scrive come prodotto di cicli, ossia posso comporre $\mu_3$, $\mu_5$ e $\mu_6$ per ottenere $\mu$.
+
+\begin{tabular}{*{9}{c}}
+\multicolumn{9}{c}{$\mu = \mu_3 \circ \mu_5 \circ \mu_6$} \\
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & \\
+3 & 2 & 1 & 4 & 5 & 6 & 7 & 8 & $\mu_3$ \\
+3 & 5 & 1 & 2 & 4 & 6 & 7 & 8 & $\mu_5$ \\
+3 & 5 & 1 & 2 & 4 & 8 & 6 & 7 & $\mu_6$
+\end{tabular}
+
+Questo si chiama rappresentazione delle permutazioni come cicli disgiunti.
+
+Non si possono omettere le parentesi, o si avrebbe una parola.
+
+Con $\mathbb{N}$ possiamo trovare una rappresentazione standard (o canonica) dei cicli, senza parentesi.
+
+Consideriamo i cicli (3 1 2) 5 (7 8) (4 6)
+
+\begin{enumerate}
+    \item descrivo i cicli partendo dall'elemento maggiore:
+    (3 1 2) 5 (8 7) (6 4)
+    \item ordino in maniera crescente in base al primo elemento
+    (3 1 2) 5 (6 4) (8 7)
+    \item ora posso togliere le parentesi, perch\'e so che i cicli finiscono al primo elemento non decrescente
+    3 1 2 5 6 4 8 7
+\end{enumerate}
+
+Rappresentazione canonica o standard di una permutazione di $[n]$.
+
+Trasposizioni = permutazioni che scambiano due elementi. Quindi hanno un solo ciclo di lunghezza 2 e tutti gli altri di lunghezza 1.
+
+\begin{theorem}
+Ogni permutazione si pu\`o scrivere come un prodotto di trasposizioni. Il numero di trasposizioni varia.
+\end{theorem}
+
+Se $\sigma$ si esprime come un prodotto di un numero pari di trasposizioni, allora ogni altro prodotto di trasposizioni che mi d\`a $\sigma$ ha un numero pari di trasposizioni. Vale anche con i dispari.
+
+\begin{defn}
+Una permutazione \`e pari se si esprime come prodotto di un numero pari di trasposizioni, dispari se si esprime come prodotto di un numero dispari di trasposizioni.
+\end{defn}
+
+$A_n =$ insieme delle permutazioni pari $\subseteq S_n$
+
+\`E un sottogruppo di $S_n$?
+
+$1 \in A_n$ (contiene l'unit\`a)
+
+Deve essere un gruppo rispetto alle permutazioni. $\sigma, \mu \in A_n \Rightarrow (\sigma \cdot \mu) \in A_n$.
+
+Allo stesso modo $\sigma^{-1} \in A_n$. Come si ottiene $\sigma^{-1}$?
+
+$\sigma = \tau_{1} \dots \tau_{n}$ con $n = 2t$ e $\tau_i$ una trasposizione. L'inverso di una trasposizione \`e se stessa, ossia $\tau^{-1} = \tau$, quindi:
+\[
+\sigma^{-1} = \tau_n \dots \tau_1
+\]
+$A_n$ \`e quindi un sottogruppo di $S_n$ e si chiama gruppo alterno di ordine $n$.
+
+L'insieme delle permutazioni dispari non \`e un sottogruppo di $S_n$ perch\'e il prodotto di due permutazioni dispari \`e una permutazione pari.
+
+Il numero delle permutazioni dispari \`e uguale al numero delle permutazioni pari.
+\[
+|A_n| = \frac{n!}{2}
+\]
+\textbf{Esercizio:} trovare la corrispondenza biunivoca fra le permutazioni pari e le permutazioni dispari.
+
+Trovare $F : A_n \to P_n$ e $F^{-1} : P_n \to A_n$, con $P_n$ ad indicare l'insieme delle permutazioni dispari.
+
+Come conseguenza abbiamo quanto detto sopra, ossia siccome la cardinalit\`a dell'insieme delle permutazioni ha cardinalit\`a $n!$ la cardinalit\`a di $A_n$ \`e $\frac{n!}{2}$
+
+L'indice di $A_n$ \`e:
+\[
+\frac{|S_n|}{A_n} = 2
+\]
+$A_n$ \`e un sottogruppo normale.
+
+$A_n$ \`e il nucleo del morfismo $f : S_n \to \mathbb{Z}_2$:
+\[
+f (\sigma) = 
+\begin{cases}
+0 \text{ se } \sigma \text{ \`e pari} \\
+1 \text{ se } \sigma \text{ \`e dispari} 
+\end{cases}
+\]
+\`E un morfismo perch\'e 1 per 1 va in 0 e 0 per 0 va in 0, ossia una permutazione pari per una pari va in una pari, e una permutazione dispari per una dispari va in una pari.
+
+% SONO ARRIVATO QUI A SISTEMARE
 
 % SONO ARRIVATO QUI A SCRIVERE
 
