@@ -120,7 +120,7 @@ L'insieme delle funzioni da $A$ in $B$ si indica con $B^A$. Questo insieme verif
 
 \subsubsection{Composizione}
 
-Date le funzioni $f : A \to B$ e $g : B \to C$, la composizione $g \circ f : A \to C$ \`e definita come:
+Date le funzioni $f : A \to B$ e $g : B \to C$, la composizione di $f$ e $g$ (``$f$ composto $g$'') $g \circ f : A \to C$ \`e definita come:
 \[
 \forall \ a \in A , \ {g \circ f}(a) = g(f(a))
 \]
@@ -1630,11 +1630,13 @@ Se prendo tre punti allineati, so che almeno due hanno lo stesso colore. Se pren
 \caption{\label{fig:piano_punti_colore}Il rettangolo realizzabile sul piano colorato}
 \end{figure}
 \end{proof}
+\begin{exmp}
 Prendo l'insieme $I = \{ 0, 1, 2 \}$ e definisco $X = I \times I \times I$. Definisco la relazione di equivalenza $\rho$ come:
 \[
 (x, y, z) \ \rho \ (x', y', z') \Leftrightarrow \{ x, y, z \} = \{ x', y', z'\}
 \]
 $\rho$ divide $X$ in classi di equivalenza. Quali sono gli elementi della classe $[(0,1,0)]$? Posso indicarla con $[\{0,1\}]$, ed \`e evidente che gli elementi della classe sono 6.
+\end{exmp}
 
 \subsection{Principio di inclusione/esclusione}
 
@@ -1676,7 +1678,7 @@ Quindi:
 
 Se indico con $S(n, k)$ (numero di Stirling di II specie) il numero delle partizioni in $k$-blocchi \textit{non vuoti} di un insieme con $n$ elementi, indicando con $Sur(A, R)$ l'insieme delle funzioni suriettive da $A$ in $R$, posso esprimere il numero delle funzioni suriettive $|Sur(A,R)| $ come $S(n,r) \cdot r!$, con $|A| = n$ e $|R| = r$.
 
-Ogni funzione suriettiva $f : A \to R $ individua biunivocamente una coppia $(\pi, F)$ dove $\pi$ \`e una partizione di $A$ in $|R|$-blocchi, in cui ogni blocco (necessariamente non vuoto) \`e individuato da $f^{-1}(r) \forall \ r \in R$, ed $F$ \`e una biezione da $\pi \to R$. Quindi se voglio costruire una funzione suriettiva da $A$ in $R$, partiziono $A$ in $r$ blocchi \textit{non vuoti} e creo una biezione dai blocchi individuati in $A$ ad $R$.
+Ogni funzione suriettiva $f : A \to R $ individua biunivocamente una coppia $(\pi, F)$ dove $\pi$ \`e una partizione di $A$ in $|R|$-blocchi, in cui ogni blocco (necessariamente non vuoto, o la funzione non sarebbe suriettiva) \`e individuato dalla controimmagine $f^{-1}(r) \ \forall \ r \in R$, ed $F$ \`e una biezione da $\pi \to R$. Quindi se voglio costruire una funzione suriettiva da $A$ in $R$, partiziono $A$ in $r$ blocchi \textit{non vuoti} e creo una biezione dai blocchi individuati in $A$ ad $R$.
 
 Ora troviamo $|Sur(A,R)|$ usando il principio di inclusione/esclusione.
 

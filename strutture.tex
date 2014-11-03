@@ -47,14 +47,14 @@ Per essere studiabile, una struttura algebrica deve essere quantomeno associativ
 
 La struttura algebrica $\left( \mathbb{N}, + \right)$ \`e un monoide commutativo. Anche $\left( \mathbb{N}, \cdot \right)$ \`e un monoide commutativo. $\left( \mathbb{Z}, + \right)$ \`e un gruppo perch\`e esiste l'inverso. $\left( \mathbb{Z}, \cdot \right)$ \`e un monoide, perch\'e non ha l'inverso.
 
+\subsection{Gruppo simmetrico}
+
 \begin{defn}[Gruppo simmetrico]
 Il prototipo di tutti i gruppi \`e il gruppo simmetrico su $n$ elementi, il cui insieme \`e indicato con $S_n$. Prendiamo un insieme $E = \left\{ e_1, \dots, e_n \right\}$.
-
 \[
 S_n = \left\{ f : E \to E \text{ t.c. $f$ \`e biunivoca} \right\}
 \]
-
-Il gruppo simmetrico \`e definito sull'insieme $S_n$ e l'operazione \`e la composizione: $\left( S_n, \circ \right)$.
+Quindi $S_n$ \`e l'insieme di tutte le permutazioni degli elementi di $E$. Il gruppo simmetrico \`e definito sull'insieme $S_n$ e l'operazione \`e la composizione: $\left( S_n, \circ \right)$.
 \begin{enumerate}
     \item $f \circ \left( g \circ h \right) = \left( f \circ g \right) \circ h$ 
     \item L'unit\`a \`e la funzione identica (o identit\`a) $i_E : E \to E$ tale che $\forall \ e \in E $ $i_E(e) = e$. $f \circ i_E = f = i_E \circ f$ 
@@ -62,9 +62,7 @@ Il gruppo simmetrico \`e definito sull'insieme $S_n$ e l'operazione \`e la compo
 \end{enumerate}
 \end{defn}
 
-Una funzione $f : E \to E $ iniettiva su un insieme finito $E$ \`e necessariamente suriettiva e quindi biunivoca.
-
-Un insieme \`e finito se non pu\`o essere messo in corrispondenza biunivoca con un suo sottoinsieme proprio.
+Una funzione $f : E \to E $ iniettiva su un insieme finito $E$ \`e necessariamente suriettiva e quindi biunivoca. Un insieme \`e finito se non pu\`o essere messo in corrispondenza biunivoca con un suo sottoinsieme proprio.
 
 % \subsection{Punto di vista dell'occupazione}
 
@@ -167,7 +165,7 @@ Dato un monoide $(M, \cdot)$ ed un elemento $a \in M$, esiste un solo morfismo d
 \begin{proof}
 $f$ \`e un morfismo di monoidi, quindi deve verificare che $f(m+n) = f(m) \cdot f(n)$ e che $f(0) = 1_M$. 
 
-Per le propriet\`a delle potenze dimostrare precedentemente, $f(m+ n) = a^{m+n} = a^m \cdot a^n = f(m) \cdot f(n)$, e $f(0) = a^0 = 1_M$ per la definizione delle potenze. 
+Per le propriet\`a delle potenze dimostrate precedentemente, $f(m+ n) = a^{m+n} = a^m \cdot a^n = f(m) \cdot f(n)$, e $f(0) = a^0 = 1_M$ per la definizione delle potenze. 
 
 Inoltre verifica la condizione $f(1) = a$, infatti $f(1) = a^1 = a \cdot a^0 = a \cdot 1_M = a$.
 
@@ -181,7 +179,7 @@ Supponiamo che $g(n) = f(n)$, per definizione di morfismo di monoidi $g(n+1) = g
 \begin{exmp}
 Sia $\Gamma$ un insieme, la struttura algebrica $(\mathbb{P}(\Gamma), \cup)$ \`e in particolare un monoide. L'unione \`e associativa ($(A \cup B) \cup C = A \cup (B \cup C)$), ed esiste l'elemento neutro $\emptyset$.
 
-Anche $(\mathbb{P}(\Gamma), \cap)$ \`e un monoide, con $\Gamma$ come elemento neutro, poich\'e $\forall \ A$ $\Gamma \cap A = A$. Abbiamo quindi due esempi di monoidi commutativi.
+Anche $(\mathbb{P}(\Gamma), \cap)$ \`e un monoide, con $\Gamma$ come elemento neutro, poich\'e $\forall \ A$, $\Gamma \cap A = A$. Abbiamo quindi due esempi di monoidi commutativi.
 
 Fissato un insieme $S \subseteq \Gamma$ diverso da $\emptyset$, possiamo considerare il suo insieme delle parti $\mathbb{P}(S)$ e definire l'applicazione $f : \mathbb{P}(\Gamma) \to \mathbb{P}(S)$ tale che $f(A) = A \cap S$. 
 
@@ -193,15 +191,15 @@ Verifichiamo che \`e un morfismo di monoidi anche rispetto $(\mathbb{P}(\Gamma),
 \end{exmp}
 
 \begin{exmp}
-Sia $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ un'applicazione tale che $f(A) = \bar A = \{ x \in Gamma : x \notin A\}$, ossia che associa ad $A$ il suo complementare $\bar A$. L'applicazione $f : (\mathbb{P}(\Gamma), \cup) \to (\mathbb{P}(\Gamma), \cap)$ \`e un morfismo di monoidi visto che verifica $f(A \cup B) = f(A) \cap f(B)$ per le leggi di De Morgan ($\bar{A \cup B} = \bar A \cap \bar B$) e $f(\emptyset) = \bar \emptyset = \Gamma$.
+Sia $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ un'applicazione tale che $f(A) = \overline{A} = \{ x \in \Gamma : x \notin A\}$, ossia che associa ad $A$ il suo complementare $\overline{A}$. L'applicazione $f : (\mathbb{P}(\Gamma), \cup) \to (\mathbb{P}(\Gamma), \cap)$ \`e un morfismo di monoidi visto che verifica $f(A \cup B) = f(A) \cap f(B)$ per le leggi di De Morgan ($\overline{A \cup B} = \overline{A} \cap \overline{B}$) e $f(\emptyset) = \overline{\emptyset} = \Gamma$.
 
-Possiamo considerare la stessa applicazione come un morfismo di monoidi da $f : (\mathbb{P}(\Gamma), \cap) \to (\mathbb{P}(\Gamma), \cup)$. Infatti $f(A \cap B) = \bar{A \cap B} = \bar A \cup \bar B = f(A) \cup f(B)$ e $f(\Gamma) = \bar \Gamma = \emptyset$.
+Possiamo considerare la stessa applicazione come un morfismo di monoidi da $f : (\mathbb{P}(\Gamma), \cap) \to (\mathbb{P}(\Gamma), \cup)$. Infatti $f(A \cap B) = \overline{A \cap B} = \overline{A} \cup \overline{B} = f(A) \cup f(B)$ e $f(\Gamma) = \overline{\Gamma} = \emptyset$.
 \end{exmp}
 
 \subsection{Congruenze\label{congruenze}}
 
 \begin{defn}
-Le congruenze sono relazioni d'equivalenza definite sulle strutture algebriche. Sia $\varepsilon$ una relazione d'equivalenza su $A$, con $(A, \cdot)$ monoide, si dice che $\varepsilon$ \`e una congruenza rispetto a $\cdot$ se, dati $a \ \varepsilon \ b$ e $c \ \varepsilon \ d$, ho che $a \cdot c \ \varepsilon \ b \cdot d$.
+Le congruenze sono relazioni d'equivalenza definite sulle strutture algebriche. Sia $\varepsilon$ una relazione d'equivalenza su $A$, con $(A, \cdot)$ monoide, si dice che $\varepsilon$ \`e una congruenza rispetto all'operazione $\cdot$ se, dati $a \ \varepsilon \ b$ e $c \ \varepsilon \ d$, ho che $a \cdot c \ \varepsilon \ b \cdot d$.
 \end{defn}
 
 Vuol dire che, dati $a \in [a]$ e $c \in [c]$, se $a \cdot c \in [a \cdot c]$ e ho una congruenza, allora $b \in [a]$ e $d \in [c]$ sono tali che $b \cdot d \in [a \cdot c]$. La congruenza fa s\`i che io possa definire operazioni sulle classi.
@@ -214,7 +212,6 @@ $x \ \varepsilon_f \ y$, $z \ \varepsilon_f \ w \Rightarrow (x \cdot z) \ \varep
 
 Infatti $f(x \cdot z) = f(x) \ast f(z)$ e $f(y \cdot w) = f(y) \ast f(w)$. 
 \end{proof}
-% SONO ARRIVATO QUI
 
 Avevamo definito $\rho$ su $\mathbb{N} \times \mathbb{N}$, come $(a, b) \ \rho \ (c, d) \Leftrightarrow a+d = b+c$. Quindi a partire da $(M, \cdot) $ possiamo creare altri monoidi $(M^n, \cdot)$, ad esempio su $M^2 = M \times M$ in cui $(x, y) \cdot (z, t) = (x \cdot z, y \cdot t)$.
 
@@ -226,90 +223,102 @@ $\rho$ \`e una congruenza rispetto a + in $\mathbb{N} \times \mathbb{N}$. Inoltr
 
 \section{Gruppi}
 
+\begin{defn}
 $(G, \cdot)$ \`e un gruppo se:
 \begin{description}
     \item[1G] $(G, \cdot)$ \`e un monoide
-    \item[2G] $\forall a \in G \exists b \in G $ tale che $a \cdot b = 1_G$, comunemente indicato con $b = a^{-1}$ e detto inverso di $a$.
+    \item[2G] $\forall \ a \in G $, $ \exists \ b \in G $ tale che $a \cdot b = 1_G$, con $b$ comunemente indicato come $a^{-1}$ e detto inverso di $a$.
 \end{description}
+\end{defn}
 
-Possiamo definire un morfismo di gruppi. Un morfismo conserva strutture e propriet\`a. Deve quindi essere un morfismo di monoidi che manda l'inverso nell'inverso.
-
+Possiamo definire un morfismo di gruppi. Un morfismo conserva strutture e propriet\`a, deve quindi essere un morfismo di monoidi che manda l'inverso nell'inverso.
+\begin{defn}[Morfismo di gruppi]
 Quindi $f : (G, \cdot) \to (G', \ast)$ \`e un morfismo di gruppi se:
 \begin{enumerate}
     \item \`e un morfismo di monoidi
     \item $\forall a \in G f(a^{-1}) = (f(a))^{-1}$
 \end{enumerate}
-Ma queste due cose sono conseguenza di una sola propriet\`a, ossia che il morfismo conserva le operazioni. Infatti se $f(a \cdot b) = f(a) \ast f(b)$ allora sono vere tutte le propriet\`a.
+\end{defn}
+\begin{prop}
+Queste due propriet\`a sono la conseguenza di una sola, ossia che il morfismo conserva le operazioni. Infatti se $f(a \cdot b) = f(a) \ast f(b)$ allora sono vere tutte le propriet\`a.
+\end{prop}
+\begin{proof}
+Un morfismo che conserva le operazioni manda le unit\`a nelle unit\`a: $f(1_G) = f(1_G \cdot 1_G) = f(1_G) \ast f(1_G)$. Essendo entrambi gruppi hanno l'inverso, quindi moltiplicando entrambi i lati per l'inverso di $f(1_G)$ abbiamo $(f(1_G))^{-1} \ast f(1_G) = (f(1_G))^{-1} \ast f(1_G) \ast f(1_G) \Rightarrow 1_{G'} = f(1_G)$.
 
-Infatti manda le unit\`a nelle unit\`a: $f(1_G) = f(1_G \cdot 1_G) = f(1_G) \cdot f(1_G)$. Ma essendo monoidi hanno l'inverso, quindi $(f(1_G))^{-1} \cdot f(1_G) = (f(1_G))^{-1} \cdot f(1_G) \cdot f(1_G) \Rightarrow f(1_G) = 1_{G'}$.
+Inoltre, se il morfismo conserva le operazioni manda gli inversi negli inversi, ossia $f(a^{-1}) = (f(a))^{-1}$. Infatti $f(a) \ast f(a^{-1}) = f(a \cdot a^{-1}) = f(1_G) = 1_{G'} = f(a) \ast (f(a))^{-1}$.
+\end{proof}
 
-Manda gli inversi negli inversi: $f(a^{-1}) = f(a)^{-1}$. Infatti $f(a) \ast f(a^{-1}) = f(a \cdot a^{-1}) = f(1_G) = 1_{G'}$.
+\subsection{Sottogruppi}
 
-Sottogruppi
-
-Partendo da $(G, \cdot)$ e scegliendo $\emptyset \neq S \subseteq G$, un sottogruppo $(S, \cdot)$ deve essere:
+\begin{defn}[Sottogruppo]
+Partendo da $(G, \cdot)$ e scegliendo $S \subseteq G$ diverso da $\emptyset$, un sottogruppo $(S, \cdot)$ deve essere:
 \begin{itemize}
-    \item Chiuso: $\forall s, s' \in S$, $s \cdot s' \in S$
-    \item Deve contenere l'unit\`a: $1_G \in S$. E quindi $S$ \`e un sottomonoide di $G$
+    \item Chiuso: $\forall \ s, s' \in S$, $s \cdot s' \in S$
+    \item Deve contenere l'unit\`a: $1_G \in S$ (quindi $S$ \`e un sottomonoide di $G$)
     \item Per essere anche un sottogruppo, $S$ deve essere chiuso rispetto agli inversi: $s \in S \Rightarrow s^{-1} \in S$.
 \end{itemize}
-Condizione necessaria e sufficiente affinch\'e $(S, \cdot)$ con $S \neq \emptyset$ sia un sottogruppo del gruppo $(G, \cdot)$ :
+\end{defn}
+\begin{prop}
+Condizione necessaria e sufficiente affinch\'e $(S, \cdot)$ con $S \neq \emptyset$ sia un sottogruppo del gruppo $(G, \cdot)$ \`e:
 \[
-\forall a, b \in S \Rightarrow a^{-1} \cdot  b \in S
+a, b \in S \Rightarrow a^{-1} \cdot  b \in S
 \]
-Dimostrare che \`e condizione necessaria \`e banale. 
+\end{prop}
+\begin{proof}
+Dimostrare che \`e condizione necessaria \`e banale. Per definizione di sottogruppo $a^{-1}$ \`e in $S$, ed essendo chiuso $a^{-1} \cdot b \in S$.
 
-Per definizione di sottogruppo $a^{-1}$ \`e in $S$, ed essendo chiuso $a^{-1} \cdot b \in S$.
+Dobbiamo dimostrare che \`e sufficiente. $S \neq \emptyset$, quindi ha almeno un elemento $a \in S$. Prendiamo $b = a $, per la propriet\`a indicata sopra $a \cdot a^{-1} \in S \Rightarrow 1_G \in S$. Quindi $S$ contiene almeno l'elemento neutro.
 
-Dobbiamo dimostrare che \`e sufficiente. $S \neq \emptyset$, quindi ha almeno un elemento $a \in S$. Prendiamo $b = a^{-1} $, per la propriet\`a sopra $a \cdot a^{-1} \in S \Rightarrow 1_G \in S$.
+Contiene l'inverso: $\forall \ x \in S $, $ x^{-1} \in S$ sempre per la propriet\`a sopra. Infatti prendendo $a = x$ e $b = 1_G$, $a^{-1} \cdot b \in S$ ossia $x^{-1} \cdot 1_G \in S \Rightarrow x^{-1} \in S$.
 
-$\forall x \in S \Rightarrow x^{-1} \in S$ sempre per la propriet\`a sopra. Infatti prendendo $a = x$ e $b = 1_G$, $a^{-1} \cdot b \in S$ quindi $x^{-1} \cdot 1_G \in S \Rightarrow x^{-1} \in S$.
+\`E chiuso: $\forall \ s, s' \in S \Rightarrow s \cdot s' \in S$. Abbiamo appena visto che $s \in S \Rightarrow s^{-1} \in S$, quindi per la solita propriet\`a ho che $(s^{-1})^{-1} \cdot s' \in S \Rightarrow s \cdot s' \in S$.
+\end{proof}
 
-Chiusura: $\forall s, s' \in S \Rightarrow s \cdot s' \in S$. Abbiamo gi\`a che $s \in S \Rightarrow s^{-1} \in S$, quindi per la solita propriet\`a ho che $(s^{-1})^{-1} \cdot s' \in S \Rightarrow s \cdot s' \in S$.
+% SONO ARRIVATO QUI
 
-$(\mathbb{Z}, +) \to (\mathbb{N} \times \mathbb{N}, +) / \rho$.
+% $(\mathbb{Z}, +) \to (\mathbb{N} \times \mathbb{N}, +) / \rho$.
 
-Quali sono i sottogruppi di $(\mathbb{Z}, +)$? In generale sono sottogruppi di $\mathbb{Z}$ tutti i gruppi $(k \mathbb{Z}, +)$, anzi sono gli unici.
+I sottogruppi di $(\mathbb{Z}, +)$ sono tutti e solo i gruppi $(k \mathbb{Z}, +)$. $(\mathbb{Z}, \cdot)$ non \`e un gruppo perch\'e non ha l'inverso per ogni elemento.
 
-$(\mathbb{Z}, \cdot)$ non \`e un gruppo perch\'e non ha l'inverso per ogni elemento.
+Dati $a, b \in G$, voglio conoscere l'inverso del prodotto $a \cdot b$, ossia $(a \cdot b)^{-1}$. Solitamente un gruppo $(G, \cdot)$ non \`e commutativo. Solo se il gruppo \`e commutativo ho che $(a \cdot b)^{-1} = a^{-1} \cdot b^{-1}$.
 
-$(G, \cdot)$ non \`e commutativo.
+Consideriamo il gruppo simmetrico $(S_n, \circ)$, definito sull'insieme delle funzioni iniettive da un insieme con $n$ elementi in s\'e stesso con l'operazione di composizione. Non \`e un gruppo commutativo.
 
-$(S_n, \circ)$ composizione e insieme delle funzioni iniettive da un insieme con $n$ elementi in s\'e stesso. Non \`e commutativo.
+Prendiamo le due funzioni $\sigma$ e $\tau$ dal punto di vista dell'occupazione in figura \ref{fig:gruppo_simmetrico}. Se voglio trovare l'inverso $pi$ di $\sigma \circ \tau$ tale che $(\sigma \circ \tau) \circ \pi = i$ devo usare $\pi = (\tau^{-1} \circ \sigma^{-1})$.
 
-Dati $a, b \in G$, se voglio avere l'inverso del prodotto $(a \cdot b)^{-1}$.
-
-Ho due funzioni $\sigma$ e $\tau$ dal punto di vista dell'occupazione.
-
+\begin{figure}[ht]
+\centering
 \begin{tabular}{cccc}
-$\sigma$
+\multicolumn{4}{c}{$\sigma$} \\
+\hline
 1 & 2 & 3 & 4 \\
 2 & 3 & 1 & 4
-\end{tabular}
-
+\end{tabular} \qquad
 \begin{tabular}{cccc}
-$\tau$
+\multicolumn{4}{c}{$\tau$} \\
+\hline
 1 & 2 & 3 & 4 \\
 1 & 2 & 4 & 3
 \end{tabular}
 
 \begin{tabular}{cccc}
-$\sigma \circ \tau$
+\multicolumn{4}{c}{$\sigma \circ \tau$} \\
+\hline
 1 & 2 & 3 & 4 \\
 1 & 2 & 4 & 3 \\
 2 & 3 & 4 & 1
-\end{tabular}
-
+\end{tabular} \qquad
 \begin{tabular}{cccc}
-$\tau \circ \sigma$
+\multicolumn{4}{c}{$\tau \circ \sigma$} \\
+\hline
 1 & 2 & 3 & 4 \\
 2 & 3 & 1 & 4 \\
 2 & 4 & 1 & 3
 \end{tabular}
+\caption{\label{fig:gruppo_simmetrico}Il gruppo simmetrico non \`e commutativo}
+\end{figure}
 
-Solo se il gruppo \`e commutativo ho che $(a \cdot b)^{-1} = a^{-1} \cdot b^{-1}$. Quindi se voglio trovare l'inverso di $(\sigma \circ \tau) \circ ? = i$ devo usare $\tau^{-1} \circ \sigma^{-1}$.
-
-L'inverso del prodotto \`e il prodotto degli inversi scambiati di posto.
+Quindi, l'inverso del prodotto \`e il prodotto degli inversi scambiati di posto:
 \[
 (a \cdot b) \cdot (b^{-1} \cdot a^{-1}) = a \cdot (b \cdot b^{-1}) 
 \cdot a^{-1} = a \cdot 1_G \cdot a^{-1} = 1_G
@@ -317,25 +326,26 @@ L'inverso del prodotto \`e il prodotto degli inversi scambiati di posto.
 
 Un'applicazione $f : G \to G'$ \`e un morfismo di gruppi se $\forall a, b \in G$ ho che $f(a \cdot b) = f(a) \ast f(b) \Rightarrow f(1_G) = 1_{G'}$ e $f(a^{-1}) = (f(a))^{-1}$.
 
-Teorema di omomorfismo per i gruppi.
+\begin{exmp} 
+La funzione $\log : (\mathbb{R}^{+}, \cdot) \to (\mathbb{R}, +)$ \`e un morfismo di gruppi, perch\'e $\log(a \cdot b) = \log(a) + \log(b)$.
 
-Esempio: $\log : (\mathbb{R}^{+}, \cdot) \to (\mathbb{R}, +)$ \`e un morfismo di gruppi, perch\'e $\log(a \cdot b) = \log(a) + \log(b)$.
+Anche la funzione $\exp : (\mathbb{R}, +) \to (\mathbb{R}^{+}, \cdot)$ \`e un morfismo di gruppi, infatti  $\exp(a + b) = \exp(a) \cdot \exp(b)$.
 
-Anche la funzione $\exp : \mathbb{R} + \to \mathbb{R}^{+} \cdot$ \`e un morfismo di gruppi.  $\exp(a + b) = \exp(a) \cdot \exp(b)$
+Anche l'iterazione della somma \`e un morfismo di gruppi. $f_n : (\mathbb{Z}, +) \to (\mathbb{Z}, +) $, infatti $\forall \ z \in \mathbb{Z}$, $f_n(z) = n \cdot z$
+\end{exmp}
 
-Anche l'iterazione della somma \`e un morfismo di gruppi. $f_n : \mathbb{Z} + \to \mathbb{Z} + $ $\forall z \in \mathbb{Z}$ $f_n(z) = n \cdot z$
+\subsection{Nucleo di un morfismo di gruppi}
 
 Ogni morfismo di gruppi $f$ individua due sottogruppi:
 \begin{itemize}
     \item $Im_f \subseteq G'$
-    \item $\ker f \subseteq G$ $\ker f = \{ u \in G : f(u) = 1_{G'}\}$, quindi $\ker f$ \`e una classe, ossia $\ker f \in G / \varepsilon_f$
+    \item $\ker f \subseteq G$. Diversamente dalle definizioni gi\`a viste, in questo caso il nucleo $\ker f = \{ u \in G : f(u) = 1_{G'}\}$ \`e una classe, ossia $\ker f \in G / \varepsilon_f$
 \end{itemize}
 
-Con i monoidi avevamo $(M, \cdot)$ una struttura associativa con $1_M$. Il $\ker f$ l'abbiamo chiamato quoziente, ossia:
+Con i monoidi avevamo una struttura associativa $(M, \cdot)$ contenente l'unit\`a $1_M$. Il $\ker f$ l'abbiamo chiamato ``quoziente'', ossia:
 \[
 \ker f = M / \varepsilon_f
 \]
-Come mai il nucleo adesso \`e una classe? 
 
 \begin{figure}[ht]
 \centering
@@ -365,15 +375,11 @@ Come mai il nucleo adesso \`e una classe?
 \caption{\label{fig:esempio_funzione}$\ker f = \{ \{a, b \}, \{ c, d \}, \{ e \}\}$ }
 \end{figure}
 
-Nel caso in figura \ref{fig:esempio_funzione} $\ker f = \{ \{a, b \}, \{ c, d \}, \{ e \}\}$. Ho \textit{bisogno} di sapere quali classi ci sono per ricostruire la funzione.
+Nel caso in figura \ref{fig:esempio_funzione} $\ker f = \{ \{a, b \}, \{ c, d \}, \{ e \}\}$. Ho \textit{bisogno} di sapere quali classi ci sono per ricostruire la funzione. Per conoscere la $f$ devo sapere tutti i blocchi della partizione, non posso ricostruire gli altri blocchi da un blocco solo.
 
-Per conoscere la $f$ devo sapere tutti i blocchi della partizione, non posso ricostruire gli altri blocchi da un blocco solo.
+Con i gruppi non \`e cos\`i. Mi basta la classe degli elementi che vanno nell'unit\`a. Se conosco questa classe le conosco tutte. Infatti fissato il $\ker f$ conosco tutti gli elementi che hanno la stessa immagine di $a$, ossia $a \cdot \ker f = [a]$.
 
-Con i gruppi non \`e cos\`i. Mi basta la classe degli elementi che vanno nell'unit\`a. Se conosco una classe le conosco tutte.
-
-Fissato il $\ker f$ conosco tutti gli elementi che hanno la stessa immagine di $a$, ossia $a \cdot \ker f = [a]$.
-
-Abbiamo $f$ morfismo di gruppi $ f : (G, \cdot ) \to (G', \ast)$. Dimostriamo intanto che il nucleo \`e un sottospazio, ossia un sottogruppo.
+Abbiamo un morfismo di gruppi $ f : (G, \cdot ) \to (G', \ast)$. Dimostriamo intanto che il nucleo \`e un sottospazio, ossia un sottogruppo.
 
 $\ker f = [1_G]$ conosco tutti gli elementi che finiscono nell'unit\`a di $G'$
 
@@ -908,7 +914,7 @@ $\sigma = \tau_{1} \dots \tau_{n}$ con $n = 2t$ e $\tau_i$ una trasposizione. L'
 \[
 \sigma^{-1} = \tau_n \dots \tau_1
 \]
-$A_n$ \`e quindi un sottogruppo di $S_n$ e si chiama gruppo alterno di ordine $n$.
+$A_n$ \`e quindi un sottogruppo di $S_n$ e si chiama gruppo alterno di ordine \label{gruppo_alterno} $n$.
 
 L'insieme delle permutazioni dispari non \`e un sottogruppo di $S_n$ perch\'e il prodotto di due permutazioni dispari \`e una permutazione pari.
 
@@ -940,8 +946,166 @@ f (\sigma) =
 
 % SONO ARRIVATO QUI A SISTEMARE
 
-% SONO ARRIVATO QUI A SCRIVERE
+A_n = gruppo alterno su n elementi. \`E un sottogruppo di S_n.
 
+|A_n| = \frac{n!}{2}
+
+Esercizio: dimostrarlo
+
+|S_n| = n!
+
+A_n \`e il gruppo di permutazioni pari, ossia l'insieme di permutazioni esprimibili come il prodotto di un numero pari di trasposizioni.
+
+Una trasposizione ha \textit{un} ciclo di lunghezza 2 e tutti gli altri di lunghezza 1.
+
+D_n = insieme delle permutazioni dispari.
+
+C'\`e una biezione F : A_n \to D_n
+
+\forall \sigma \in A_n F(\sigma), come la definisco la biezione?
+
+Prendiamo [n] - \{ 1 \dots n \} sui primi n numeri naturali. \sigma \`e una permutazione pari sui primi n numeri naturali. Per rendere \sigma dispari, la moltiplico per un'altra trasposizione.
+
+F(\sigma) = (1 2) \cdot \sigma \in D_n
+
+F \`e biunivoca. Deve esistere F^{-1} : D_n \to A_n
+
+D_n(\sigma) = (1 2) \cdot \sigma
+
+(F F^{-1}) (\delta) = F((1 2) \delta) = (1 2) \cdot (1 2) \delta = \delta
+
+(F^{-1} F) (\sigma) = F^{-1}((1 2) \sigma) = (1 2) \cdot (1 2) \cdot \sigma = \sigma
+
+Esercizio 2: ogni permutazione si esprime come prodotto di trasposizioni.
+
+Prendiamo una permutazione \sigma. Abbiamo dimostrato che le permutazioni si possono esprimere come prodotto di cicli.
+
+\sigma = \mu_1 \cdot \mu_2 \dots \mu_t
+
+\sigma \`e il prodotto di t permutazioni. Ciascuna \mu_i \`e una permutazione k_i-ciclica, ossia \mu_i ha un solo ciclo di lunghezza i, tutti gli altri cicli sono di lunghezza 1.
+
+1 2 3 4 5 6 7
+2 4 1 3 6 5 7
+
+(1 2 4 3) (5 6) = \mu_1 \cdot \mu_2
+
+\mu_1 = (1 2 4 3)
+
+\mu_2 = (5 6)
+
+Quindi basta dimostrare che ogni permutazione k ciclica si pu\`o esprimere come un prodotto di trasposizioni.
+
+Per scrivere una permutazione k ciclica come prodotto di trasposizioni, accoppio gli elementi a due a due.
+
+(1 2 4 3) = (1 2) (2 4) (4 3)
+
+1 2 3 4 5 6 7
+1 2 4 3 5 6 7
+1 4 2 3 5 6 7
+2 4 1 3 5 6 7
+
+L'ordine \`e l'ordine di composizione delle funzioni.
+
+Quindi, dato un ciclo \mu_i = a_1 \dots a_t, lo scrivo come prodotto di trasposizioni:
+
+\mu_i = (a_1 a_2) (a_2 a_3) \dots (a_{t-1} a_t)
+
+Quindi ogni permutazione k_i-ciclica ha parit\`a uguale alla parit\`a di k_i - 1.
+
+Quindi la parit\`a di \sigma = \mu_1 \cdot \mu_2 \dots \mu_t \`e:
+
+\sum_{i = 1}^{t} (k_i - 1) = t + \sum_{i = 1}^{t} k_i
+
+L'ordine di una permutazione \sigma \`e la cardinalit\`a del sottogruppo generato da \sigma, < \sigma >, ossia tutte le potenze di \sigma. Se prendo una permutazione \mu k-ciclica, l'ordine di \mu \`e k.
+
+Una trasposizione ha ordine 2. < (5 6) > = \{ 1, (5 6) \}
+
+Il sottogruppo generato da < (1 2 4 3) > = \{ 1, (1 2 4 3), (1 4) (2 3), (1 3 4 2) \}
+
+(1 2 4 3)^2
+1 2 3 4
+2 4 1 3
+4 3 2 1
+
+Quindi (1 2 4 3)^2 = (1 4) (2 3)
+
+(1 2 4 3)^2
+1 2 3 4
+2 4 1 3
+4 3 2 1
+3 1 4 2
+
+Quindi (1 2 4 3)^3 = (1 3 4 2)
+
+k \`e quindi \inf (t : \sigma^t = 1 con t \neq 0), \`e il pi\`u piccolo intero t per cui \sigma^t \`e l'identit\`a.
+
+Se in generale \sigma \`e il prodotto di \mu_1 \dots \mu_t, l'ordine di \sigma \`e il mcm delle lunghezze dell'ordine dei suoi cicli.
+
+\sigma^j = \mu_1^j \dots \mu_t^j = 1
+
+< \sigma > = \{ \sigma^0, \sigma^1 \dots \sigma^j \}
+
+j deve essere il mcm delle lunghezze di ciascun \mu_i
+
+Esercizio:
+
+H = \{ \sigma \in S_4 t.c. \sigma = 1 oppure \sigma \`e il prodotto di trasposizioni disgiunte \}. H \`e un sottogruppo di S_4?
+
+H = \{ 1, (1 2) (3 4), (1 3) (2 4), (1 4) (2 3) \}
+
+H contiene l'unit\`a, quindi verifica una delle propriet\`a. Verifichiamo se, data una permutazione \sigma, H deve contenere \sigma^{-1}. \`E verificato perch\'e l'inverso di un elemento \`e l'elemento stesso.
+
+In generale l'inverso di un prodotto in un gruppo non commutativo \`e il prodotto al contrario degli inversi. Ma in questo caso sono commutativi i singoli elementi, quindi:
+
+\sigma^{-1} = ((1 2) (3 4) )^{-1} = (3 4)^{-1} (1 2)^{-1} = (4 3) (2 1) = (1 2) (3 4)
+
+Si chiama idempotenza.
+
+\sigma_1 \sigma_2 = \sigma_3 = \sigma_2 \sigma_1
+
+\sigma_1 \sigma_3 = \sigma_1 = \sigma_3 \sigma_1
+
+\sigma_2 \sigma_3 = \sigma_2 = \sigma_3 \sigma_2
+
+Proviamolo con \sigma_1 \sigma_2:
+
+\sigma_1 \sigma_2
+1 2 3 4
+3 4 1 2
+4 3 2 1
+
+(1 4) (2 3)
+
+H \`e un sottogruppo commutativo di un gruppo non commutativo.
+
+L'ordine di H \`e 4. L'ordine di S_4 \`e 4! S_4 pu\`o avere sottogruppi di ordine che divide l'ordine di S_4.
+
+I sottogruppi di H (diversi da H e dall'unit\`a) devono avere ordine 2. I sottogruppi di ordine 2 sono 3: < \sigma_1 > = \{ 1, \sigma_1\}, < \sigma_2 > = \{1, \sigma_2\}, < \sigma_3 > = \{1, \sigma_3 \}.
+
+Se esprimo una \sigma come prodotto di cicli, il prodotto dei cicli \`e commutativo perch\'e i cicli sono disgiunti. Le permutazioni cicliche con elementi in comune non sono commutative.
+
+Esercizio:
+Determinare un elemento x di S_8 tale che a x a = a c b a b
+
+Dove a = (1 2 3) (2 3 4) (4 5 6)
+non \`e un prodotto di cicli.
+
+b = 
+1 2 3 4 5 6 7 8
+2 1 5 4 3 7 6 8
+dal punto di vista dell'occupazione
+
+c = (2 8)
+\`e una trasposizione.
+
+Determinare l'ordine di x, la sua parit\`a e una decomposizione in cicli disgiunti.
+
+Per determinare x dobbiamo fare:
+
+a^{-1} a x a a^{-1} = a^{-1} a c b a b a^{-1}
+x = c b a b a^{-1}
+
+% SONO ARRIVATO QUI A SCRIVERE
 
 \section{Strutture algebriche con due operazioni}
 
@@ -959,3 +1123,152 @@ f (\sigma) =
 Gli interi sono un anello: $\left ( \mathbb{Z}, +, \cdot \right )$.
 
 I razionali sono un campo: $\left ( \mathbb{Q}, +, \cdot \right )$. Anche $\mathbb{R}$ e $\mathbb{C}$ sono un campo.
+
+% SONO ARRIVATO QUI A SISTEMARE
+
+\subsection{Anelli}
+
+un anello \`e una struttura algebrica con 2 operazioni (A, +, \cdot) tale che:
+
+\begin{description}
+    \item[1A] (A, +) \`e un gruppo abeliano (ossia un gruppo commutativo)
+    \item[2A] (A, \cdot) \`e un semigruppo, ossia una struttura algebrica associativa
+    \item[3A] valgono le propriet\`a distributive (devo scriverle entrambe perch\'e non \`e detto che le operazioni siano associative)
+
+    \forall a b c \in A a (b + c) = ab + ac, (b + c) a = b a + c a
+\end{description}
+
+Se l'anello \`e un monoide rispetto al prodotto (ossia ha l'unit\`a), si chiama anello unitario.
+
+Anello unitario \Rightarrow (A, \cdot) \`e un monoide.
+
+Anello commutativo \Rightarrow (A, \cdot) \`e una struttura commutativa.
+
+Anello privo di divisori dello 0, con 0 a indicare l'unit\`a di (A, +). Se a \cdot b = 0 allora a = 0 oppure b = 0 (oppure non esclusivo).
+
+(\mathbb{Z}, +, \cdot) \`e un anello commutativo unitario privo di divisori dello 0.
+
+Prendiamo tutte le funzioni R^R rispetto a + e a \cdot (R^R, +, \cdot)
+
+(f + g) : R \to R \`e definita come (f + g) x = f(x) + g(x) 
+
+(f \cdot g) : R \to R \`e definita in modo naturale anche questa come (f \cdot g) (x) = f(x) \cdot g(x)
+
+Questo \`e un anello. Lo 0 di questo anello rispetto a (R^R, +) \`e \underline{0} : R \to R con \underline{0} + f = f = f + \underline{0}.
+
+\underline{0} (x) = 0
+
+1 : R \to R
+
+1(x) = 1
+
+Ha divisori dello 0. Ne facciamo un esempio, trovarne altri.
+
+f : R \to R
+f(x) =
+\begin{cases}
+x se x = 2n \\
+0 altrimenti
+\end{cases}
+
+f \neq \underline{0}
+
+Prendiamo una g : R \to R definita cos\`i:
+
+g(x) =
+\begin{cases}
+x se x = 2n + 1 \\
+0 altrimenti
+\end{cases}
+Anche g \neq \underline{0}
+
+ma (f \cdot g) (x) = 0 \forall x \in X
+
+Quindi f \cdot g = \underline{0}. Abbiamo trovato due elementi del gruppo (R^R, \cdot) il cui prodotto da \underline{0} anche se sono entrambi diversi da \underline{0}.
+
+f e g sono due divisori dello 0.
+
+Teorema di divisione
+
+Dato a \in Z e n > 0 con n \in N, allora esistono due numero q, r \in Z tali che
+\begin{description}
+    \item a = n \cdot q + r
+    \item 0 \le r < n
+\end{description}
+La coppia q, r \`e unica. Ossia se (q', r') soddisfa 1 e 2, allora q = q' e r = r'.
+
+Facciamo questa dimostrazione usando il principio del buon ordinamento di N. Tutti i sottoinsiemi di N diversi dal vuoto hanno un primo elemento.
+
+n \ge 2
+
+Indichiamo con M = \{ m \in N tali che m = a - n \cdot q con q \in Z \}
+
+Il resto r \`e uno degli elementi di M, in particolare il pi\`u piccolo. M \neq \emptyset, perch\'e se a > 0 \Rightarrow a \in M. Se invece a \le 0 \Rightarrow possiamo fare un piccolo trucchetto. a - n \cdot q = - a \cdot (-1 + n \cdot q) e pongo q = a,
+
+a - n \cdot a = - a \cdot (-1 + n \cdot a)
+
+a - n \cdot a \`e positivo, quindi - a \cdot (-1 + n a) \in M
+
+Siccome M \`e diverso dal vuoto e \`e sottoinsieme di N
+M \subseteq N
+segue per il principio del buon ordinamento che M ha un primo elemento r (il pi\`u piccolo).
+
+Quindi r = a - n q \Rightarrow a = n q + r.
+
+Dobbiamo dimostrare la seconda propriet\`a, ossia che 0 \le r < n
+
+Supponiamo per assurdo che n \le r \Rightarrow r = n + x con x \le r. Siccome a = n q + r, a = n q + (n + x) = n (q + 1) + x \Rightarrow x \in M e minore di r, quindi ho l'assurdo: r \`e il pi\`u piccolo elemento di M.
+
+Se voglio fare il teorema di divisione con un numero qualunque?
+
+Possiamo esprimere il teorema generale di divisione:
+
+a, b \in Z con b \neq 0 allora \exist q, r \in Z tali che a = q b + r e 0 \le r < |b|. La coppia q, r \`e unica anche in questo caso. Segue come conseguenza dal teorema precedente. 
+
+mcm(a,b) = m 
+\Leftrightarrow
+\begin{cases}
+m \ge 0 
+m = k a
+m = h b
+\`e il sup di a e b nel reticolo della divisibilit\`a: z = k' a e z = h' b \Rightarrow m \le z
+\end{cases}
+
+MCD(a,b) = d
+\Leftrightarrow
+\begin{cases}
+d \ge 0
+d | a (divide)
+d | b
+d' | a e d' | b \Rightarrow d' \le d
+Quindi d \`e l'inf di a e b nel reticolo di cui sopra.
+\end{cases}
+
+Esistenza del minimo comune multiplo. Esiste per il principio del buon ordinamento.
+
+M = \{ t \in N tali che t = k a e t = h b \}, M \`e non vuoto e ha un primo elementi, e quindi esiste il mcm.
+
+Perch\'e \`e non vuoto? Perch\'e a \cdot b \in M. mcm(a,b) \`e il pi\`u piccolo elemento di M.
+
+La dimostrazione per il MCD \`e pi\`u lunga.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
