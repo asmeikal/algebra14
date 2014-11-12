@@ -946,164 +946,188 @@ f (\sigma) =
 
 % SONO ARRIVATO QUI A SISTEMARE
 
-A_n = gruppo alterno su n elementi. \`E un sottogruppo di S_n.
-
+$A_n =$ gruppo alterno su n elementi. \`E un sottogruppo di $S_n$.
+\[
 |A_n| = \frac{n!}{2}
-
+\]
 Esercizio: dimostrarlo
-
+\[
 |S_n| = n!
-
-A_n \`e il gruppo di permutazioni pari, ossia l'insieme di permutazioni esprimibili come il prodotto di un numero pari di trasposizioni.
+\]
+$A_n$ \`e il gruppo di permutazioni pari, ossia l'insieme di permutazioni esprimibili come il prodotto di un numero pari di trasposizioni.
 
 Una trasposizione ha \textit{un} ciclo di lunghezza 2 e tutti gli altri di lunghezza 1.
 
-D_n = insieme delle permutazioni dispari.
+$D_n =$ insieme delle permutazioni dispari.
 
-C'\`e una biezione F : A_n \to D_n
+C'\`e una biezione $F : A_n \to D_n$
 
-\forall \sigma \in A_n F(\sigma), come la definisco la biezione?
+$\forall \ \sigma \in A_n F(\sigma)$, come la definisco la biezione?
 
-Prendiamo [n] - \{ 1 \dots n \} sui primi n numeri naturali. \sigma \`e una permutazione pari sui primi n numeri naturali. Per rendere \sigma dispari, la moltiplico per un'altra trasposizione.
-
+Prendiamo $[n] - \{ 1 \dots n \}$ sui primi n numeri naturali. $\sigma$ \`e una permutazione pari sui primi n numeri naturali. Per rendere $\sigma$ dispari, la moltiplico per un'altra trasposizione.
+\[
 F(\sigma) = (1 2) \cdot \sigma \in D_n
-
-F \`e biunivoca. Deve esistere F^{-1} : D_n \to A_n
-
+\]
+$F$ \`e biunivoca. Deve esistere $F^{-1} : D_n \to A_n$
+\[
 D_n(\sigma) = (1 2) \cdot \sigma
-
+\]
+\[
 (F F^{-1}) (\delta) = F((1 2) \delta) = (1 2) \cdot (1 2) \delta = \delta
-
+\]
+\[
 (F^{-1} F) (\sigma) = F^{-1}((1 2) \sigma) = (1 2) \cdot (1 2) \cdot \sigma = \sigma
-
+\]
 Esercizio 2: ogni permutazione si esprime come prodotto di trasposizioni.
 
-Prendiamo una permutazione \sigma. Abbiamo dimostrato che le permutazioni si possono esprimere come prodotto di cicli.
-
+Prendiamo una permutazione $\sigma$. Abbiamo dimostrato che le permutazioni si possono esprimere come prodotto di cicli.
+\[
 \sigma = \mu_1 \cdot \mu_2 \dots \mu_t
+\]
+$\sigma$ \`e il prodotto di $t$ permutazioni. Ciascuna $\mu_i$ \`e una permutazione $k_i$-ciclica, ossia $\mu_i$ ha un solo ciclo di lunghezza $i$, tutti gli altri cicli sono di lunghezza 1.
 
-\sigma \`e il prodotto di t permutazioni. Ciascuna \mu_i \`e una permutazione k_i-ciclica, ossia \mu_i ha un solo ciclo di lunghezza i, tutti gli altri cicli sono di lunghezza 1.
-
-1 2 3 4 5 6 7
-2 4 1 3 6 5 7
-
+\begin{tabular}{*{7}{c}}
+1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+2 & 4 & 1 & 3 & 6 & 5 & 7
+\end{tabular}
+\[
 (1 2 4 3) (5 6) = \mu_1 \cdot \mu_2
-
+\]
+\[
 \mu_1 = (1 2 4 3)
-
+\]
+\[
 \mu_2 = (5 6)
+\]
+Quindi basta dimostrare che ogni permutazione $k$ ciclica si pu\`o esprimere come un prodotto di trasposizioni.
 
-Quindi basta dimostrare che ogni permutazione k ciclica si pu\`o esprimere come un prodotto di trasposizioni.
-
-Per scrivere una permutazione k ciclica come prodotto di trasposizioni, accoppio gli elementi a due a due.
-
+Per scrivere una permutazione $k$ ciclica come prodotto di trasposizioni, accoppio gli elementi a due a due.
+\[
 (1 2 4 3) = (1 2) (2 4) (4 3)
-
-1 2 3 4 5 6 7
-1 2 4 3 5 6 7
-1 4 2 3 5 6 7
-2 4 1 3 5 6 7
+\]
+\begin{tabular}{*{7}{c}}
+1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+1 & 2 & 4 & 3 & 5 & 6 & 7 \\
+1 & 4 & 2 & 3 & 5 & 6 & 7 \\
+2 & 4 & 1 & 3 & 5 & 6 & 7
+\end{tabular}
 
 L'ordine \`e l'ordine di composizione delle funzioni.
 
-Quindi, dato un ciclo \mu_i = a_1 \dots a_t, lo scrivo come prodotto di trasposizioni:
-
+Quindi, dato un ciclo $\mu_i = a_1 \dots a_t$, lo scrivo come prodotto di trasposizioni:
+\[
 \mu_i = (a_1 a_2) (a_2 a_3) \dots (a_{t-1} a_t)
+\]
+Quindi ogni permutazione $k_i$-ciclica ha parit\`a uguale alla parit\`a di $k_i - 1$.
 
-Quindi ogni permutazione k_i-ciclica ha parit\`a uguale alla parit\`a di k_i - 1.
-
-Quindi la parit\`a di \sigma = \mu_1 \cdot \mu_2 \dots \mu_t \`e:
-
+Quindi la parit\`a di $\sigma = \mu_1 \cdot \mu_2 \dots \mu_t$ \`e:
+\[
 \sum_{i = 1}^{t} (k_i - 1) = t + \sum_{i = 1}^{t} k_i
+\]
+L'ordine di una permutazione $\sigma$ \`e la cardinalit\`a del sottogruppo generato da $\sigma$, $< \sigma >$, ossia tutte le potenze di $\sigma$. Se prendo una permutazione $\mu$ $k$-ciclica, l'ordine di $\mu$ \`e $k$.
 
-L'ordine di una permutazione \sigma \`e la cardinalit\`a del sottogruppo generato da \sigma, < \sigma >, ossia tutte le potenze di \sigma. Se prendo una permutazione \mu k-ciclica, l'ordine di \mu \`e k.
+Una trasposizione ha ordine 2. $< (5 6) > = \{ 1, (5 6) \}$
 
-Una trasposizione ha ordine 2. < (5 6) > = \{ 1, (5 6) \}
+Il sottogruppo generato da $< (1 2 4 3) > = \{ 1, (1 2 4 3), (1 4) (2 3), (1 3 4 2) \}$
 
-Il sottogruppo generato da < (1 2 4 3) > = \{ 1, (1 2 4 3), (1 4) (2 3), (1 3 4 2) \}
+\begin{tabular}{*{4}{c}}
+\multicolumn{4}{c}{$(1 2 4 3)^2$} \\
+1 & 2 & 3 & 4 \\
+2 & 4 & 1 & 3 \\
+4 & 3 & 2 & 1
+\end{tabular}
 
-(1 2 4 3)^2
-1 2 3 4
-2 4 1 3
-4 3 2 1
+Quindi $(1 2 4 3)^2 = (1 4) (2 3)$
 
-Quindi (1 2 4 3)^2 = (1 4) (2 3)
+\begin{tabular}{*{4}{c}}
+\multicolumn{4}{c}{$(1 2 4 3)^3$} \\
+1 & 2 & 3 & 4 \\
+2 & 4 & 1 & 3 \\
+4 & 3 & 2 & 1 \\
+3 & 1 & 4 & 2
+\end{tabular}
 
-(1 2 4 3)^2
-1 2 3 4
-2 4 1 3
-4 3 2 1
-3 1 4 2
+Quindi $(1 2 4 3)^3 = (1 3 4 2)$
 
-Quindi (1 2 4 3)^3 = (1 3 4 2)
+$k$ \`e quindi $\inf (t : \sigma^t = 1 con t \neq 0)$, \`e il pi\`u piccolo intero $t$ per cui $\sigma^t$ \`e l'identit\`a.
 
-k \`e quindi \inf (t : \sigma^t = 1 con t \neq 0), \`e il pi\`u piccolo intero t per cui \sigma^t \`e l'identit\`a.
-
-Se in generale \sigma \`e il prodotto di \mu_1 \dots \mu_t, l'ordine di \sigma \`e il mcm delle lunghezze dell'ordine dei suoi cicli.
-
+Se in generale $\sigma$ \`e il prodotto di $\mu_1 \dots \mu_t$, l'ordine di $\sigma$ \`e il $\mcm$ delle lunghezze dell'ordine dei suoi cicli.
+\[
 \sigma^j = \mu_1^j \dots \mu_t^j = 1
-
+\]
+\[
 < \sigma > = \{ \sigma^0, \sigma^1 \dots \sigma^j \}
-
-j deve essere il mcm delle lunghezze di ciascun \mu_i
+\]
+$j$ deve essere il $\mcm$ delle lunghezze di ciascun $\mu_i$
 
 Esercizio:
 
-H = \{ \sigma \in S_4 t.c. \sigma = 1 oppure \sigma \`e il prodotto di trasposizioni disgiunte \}. H \`e un sottogruppo di S_4?
-
+$H = \{ \sigma \in S_4 t.c. \sigma = 1$ oppure $\sigma$ \`e il prodotto di trasposizioni disgiunte$\}$. $H$ \`e un sottogruppo di $S_4$?
+\[
 H = \{ 1, (1 2) (3 4), (1 3) (2 4), (1 4) (2 3) \}
-
-H contiene l'unit\`a, quindi verifica una delle propriet\`a. Verifichiamo se, data una permutazione \sigma, H deve contenere \sigma^{-1}. \`E verificato perch\'e l'inverso di un elemento \`e l'elemento stesso.
+\]
+$H$ contiene l'unit\`a, quindi verifica una delle propriet\`a. Verifichiamo se, data una permutazione $\sigma$, $H$ deve contenere $\sigma^{-1}$. \`E verificato perch\'e l'inverso di un elemento \`e l'elemento stesso.
 
 In generale l'inverso di un prodotto in un gruppo non commutativo \`e il prodotto al contrario degli inversi. Ma in questo caso sono commutativi i singoli elementi, quindi:
-
+\[
 \sigma^{-1} = ((1 2) (3 4) )^{-1} = (3 4)^{-1} (1 2)^{-1} = (4 3) (2 1) = (1 2) (3 4)
-
+\]
 Si chiama idempotenza.
-
+\[
 \sigma_1 \sigma_2 = \sigma_3 = \sigma_2 \sigma_1
-
+\]
+\[
 \sigma_1 \sigma_3 = \sigma_1 = \sigma_3 \sigma_1
-
+\]
+\[
 \sigma_2 \sigma_3 = \sigma_2 = \sigma_3 \sigma_2
+\]
+Proviamolo con $\sigma_1 \sigma_2$:
 
-Proviamolo con \sigma_1 \sigma_2:
-
-\sigma_1 \sigma_2
-1 2 3 4
-3 4 1 2
-4 3 2 1
-
+\begin{tabular}{*{4}{c}}
+\multicolumn{4}{c}{$\sigma_1 \sigma_2$} \\
+1 & 2 & 3 & 4 \\
+3 & 4 & 1 & 2 \\
+4 & 3 & 2 & 1
+\end{tabular}
+\[
 (1 4) (2 3)
+\]
+$H$ \`e un sottogruppo commutativo di un gruppo non commutativo.
 
-H \`e un sottogruppo commutativo di un gruppo non commutativo.
+L'ordine di $H$ \`e 4. L'ordine di $S_4$ \`e $4!$ $S_4$ pu\`o avere sottogruppi di ordine che divide l'ordine di $S_4$.
 
-L'ordine di H \`e 4. L'ordine di S_4 \`e 4! S_4 pu\`o avere sottogruppi di ordine che divide l'ordine di S_4.
+I sottogruppi di $H$ (diversi da $H$ e dall'unit\`a) devono avere ordine 2. I sottogruppi di ordine 2 sono 3: $< \sigma_1 > = \{ 1, \sigma_1\}$, $< \sigma_2 > = \{1, \sigma_2\}$, $< \sigma_3 > = \{1, \sigma_3 \}$.
 
-I sottogruppi di H (diversi da H e dall'unit\`a) devono avere ordine 2. I sottogruppi di ordine 2 sono 3: < \sigma_1 > = \{ 1, \sigma_1\}, < \sigma_2 > = \{1, \sigma_2\}, < \sigma_3 > = \{1, \sigma_3 \}.
-
-Se esprimo una \sigma come prodotto di cicli, il prodotto dei cicli \`e commutativo perch\'e i cicli sono disgiunti. Le permutazioni cicliche con elementi in comune non sono commutative.
+Se esprimo una $\sigma$ come prodotto di cicli, il prodotto dei cicli \`e commutativo perch\'e i cicli sono disgiunti. Le permutazioni cicliche con elementi in comune non sono commutative.
 
 Esercizio:
-Determinare un elemento x di S_8 tale che a x a = a c b a b
+Determinare un elemento $x$ di $S_8$ tale che $a x a = a c b a b$
 
-Dove a = (1 2 3) (2 3 4) (4 5 6)
+Dove $a = (1 2 3) (2 3 4) (4 5 6)$
 non \`e un prodotto di cicli.
 
-b = 
-1 2 3 4 5 6 7 8
-2 1 5 4 3 7 6 8
+$b = $
+
+\begin{tabular}{*{8}{c}}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+2 & 1 & 5 & 4 & 3 & 7 & 6 & 8
+\end{tabular}
+
 dal punto di vista dell'occupazione
 
-c = (2 8)
+$c = (2 8)$
 \`e una trasposizione.
 
-Determinare l'ordine di x, la sua parit\`a e una decomposizione in cicli disgiunti.
+Determinare l'ordine di $x$, la sua parit\`a e una decomposizione in cicli disgiunti.
 
-Per determinare x dobbiamo fare:
-
+Per determinare $x$ dobbiamo fare:
+\[
 a^{-1} a x a a^{-1} = a^{-1} a c b a b a^{-1}
+\]
+\[
 x = c b a b a^{-1}
+\]
 
 % SONO ARRIVATO QUI A SCRIVERE
 
@@ -1128,288 +1152,298 @@ I razionali sono un campo: $\left ( \mathbb{Q}, +, \cdot \right )$. Anche $\math
 
 \subsection{Anelli}
 
-un anello \`e una struttura algebrica con 2 operazioni (A, +, \cdot) tale che:
+un anello \`e una struttura algebrica con 2 operazioni $(A, +, \cdot)$ tale che:
 
 \begin{description}
-    \item[1A] (A, +) \`e un gruppo abeliano (ossia un gruppo commutativo)
-    \item[2A] (A, \cdot) \`e un semigruppo, ossia una struttura algebrica associativa
-    \item[3A] valgono le propriet\`a distributive (devo scriverle entrambe perch\'e non \`e detto che le operazioni siano associative)
-
+    \item[1A] $(A, +)$ \`e un gruppo abeliano (ossia un gruppo commutativo)
+    \item[2A] $(A, \cdot)$ \`e un semigruppo, ossia una struttura algebrica associativa
+    \item[3A] valgono le propriet\`a distributive (devo scriverle entrambe perch\'e non \`e detto che le operazioni siano associative) % commutative?
+    \[
     \forall a b c \in A a (b + c) = ab + ac, (b + c) a = b a + c a
+    \]
 \end{description}
 
 Se l'anello \`e un monoide rispetto al prodotto (ossia ha l'unit\`a), si chiama anello unitario.
 
-Anello unitario \Rightarrow (A, \cdot) \`e un monoide.
+Anello unitario $\Rightarrow (A, \cdot)$ \`e un monoide.
 
-Anello commutativo \Rightarrow (A, \cdot) \`e una struttura commutativa.
+Anello commutativo $\Rightarrow (A, \cdot)$ \`e una struttura commutativa.
 
-Anello privo di divisori dello 0, con 0 a indicare l'unit\`a di (A, +). Se a \cdot b = 0 allora a = 0 oppure b = 0 (oppure non esclusivo).
+Anello privo di divisori dello 0, con 0 a indicare l'unit\`a di $(A, +)$. Se $a \cdot b = 0$ allora $a = 0$ oppure $b = 0$ (oppure non esclusivo).
 
-(\mathbb{Z}, +, \cdot) \`e un anello commutativo unitario privo di divisori dello 0.
+$(\mathbb{Z}, +, \cdot)$ \`e un anello commutativo unitario privo di divisori dello 0.
 
-Prendiamo tutte le funzioni R^R rispetto a + e a \cdot (R^R, +, \cdot)
+Prendiamo tutte le funzioni $R^R$ rispetto a $+$ e a $\cdot$ $(R^R, +, \cdot)$
 
-(f + g) : R \to R \`e definita come (f + g) x = f(x) + g(x) 
+$(f + g) : R \to R$ \`e definita come $(f + g) (x) = f(x) + g(x)$ 
 
-(f \cdot g) : R \to R \`e definita in modo naturale anche questa come (f \cdot g) (x) = f(x) \cdot g(x)
+$(f \cdot g) : R \to R$ \`e definita in modo naturale anche questa come $(f \cdot g) (x) = f(x) \cdot g(x)$
 
-Questo \`e un anello. Lo 0 di questo anello rispetto a (R^R, +) \`e \underline{0} : R \to R con \underline{0} + f = f = f + \underline{0}.
-
+Questo \`e un anello. Lo 0 di questo anello rispetto a $(R^R, +)$ \`e $\underline{0} : R \to R$ con $\underline{0} + f = f = f + \underline{0}$.
+\[
 \underline{0} (x) = 0
-
+\]
+\[
 1 : R \to R
-
+\]
+\[
 1(x) = 1
-
+\]
 Ha divisori dello 0. Ne facciamo un esempio, trovarne altri.
-
+\[
 f : R \to R
 f(x) =
 \begin{cases}
-x se x = 2n \\
-0 altrimenti
+x \text{ se } x = 2n \\
+0 \text{ altrimenti}
 \end{cases}
-
+\]
+\[
 f \neq \underline{0}
-
-Prendiamo una g : R \to R definita cos\`i:
-
+\]
+Prendiamo una $g : R \to R$ definita cos\`i:
+\[
 g(x) =
 \begin{cases}
-x se x = 2n + 1 \\
-0 altrimenti
+x \text{ se } x = 2n + 1 \\
+0 \text{ altrimenti}
 \end{cases}
-Anche g \neq \underline{0}
+\]
+Anche g $\neq \underline{0}$
 
-ma (f \cdot g) (x) = 0 \forall x \in X
+ma $(f \cdot g) (x) = 0 \forall x \in X$
 
-Quindi f \cdot g = \underline{0}. Abbiamo trovato due elementi del gruppo (R^R, \cdot) il cui prodotto da \underline{0} anche se sono entrambi diversi da \underline{0}.
+Quindi $f \cdot g = \underline{0}$. Abbiamo trovato due elementi del gruppo $(R^R, \cdot)$ il cui prodotto da $\underline{0}$ anche se sono entrambi diversi da $\underline{0}$.
 
-f e g sono due divisori dello 0.
+$f$ e $g$ sono due divisori dello 0.
 
-Teorema di divisione
+\subsection{Teorema di divisione}
 
-Dato a \in Z e n > 0 con n \in N, allora esistono due numero q, r \in Z tali che
+Dato $a \in \mathbb{Z}$ e $n > 0$ con $n \in \mathbb{N}$, allora esistono due numero $q, r \in \mathbb{Z}$ tali che
 \begin{description}
-    \item a = n \cdot q + r
-    \item 0 \le r < n
+    \item $a = n \cdot q + r$
+    \item $0 \le r < n$
 \end{description}
-La coppia q, r \`e unica. Ossia se (q', r') soddisfa 1 e 2, allora q = q' e r = r'.
+La coppia $q, r$ \`e unica. Ossia se $(q', r')$ soddisfa 1 e 2, allora $q = q'$ e $r = r'$.
 
-Facciamo questa dimostrazione usando il principio del buon ordinamento di N. Tutti i sottoinsiemi di N diversi dal vuoto hanno un primo elemento.
-
+Facciamo questa dimostrazione usando il principio del buon ordinamento di $\mathbb{N}$. Tutti i sottoinsiemi di $\mathbb{N}$ diversi dal vuoto hanno un primo elemento.
+\[
 n \ge 2
+\]
+Indichiamo con $M = \{ m \in \mathbb{N}$ tali che $m = a - n \cdot q$ con $q \in Z \}$
 
-Indichiamo con M = \{ m \in N tali che m = a - n \cdot q con q \in Z \}
-
-Il resto r \`e uno degli elementi di M, in particolare il pi\`u piccolo. M \neq \emptyset, perch\'e se a > 0 \Rightarrow a \in M. Se invece a \le 0 \Rightarrow possiamo fare un piccolo trucchetto. a - n \cdot q = - a \cdot (-1 + n \cdot q) e pongo q = a,
-
+Il resto $r$ \`e uno degli elementi di $M$, in particolare il pi\`u piccolo. $M \neq \emptyset$, perch\'e se $a > 0 \Rightarrow a \in M$. Se invece $a \le 0 \Rightarrow$ possiamo fare un piccolo trucchetto. $a - n \cdot q = - a \cdot (-1 + n \cdot q)$ e pongo $q = a$,
+\[
 a - n \cdot a = - a \cdot (-1 + n \cdot a)
+\]
+\[
+a - n \cdot a \text{ \`e positivo, quindi } - a \cdot (-1 + n a) \in M
+\]
+Siccome $M$ \`e diverso dal vuoto e \`e sottoinsieme di $\mathbb{N}$
+$M \subseteq \mathbb{N}$
+segue per il principio del buon ordinamento che $M$ ha un primo elemento $r$ (il pi\`u piccolo).
 
-a - n \cdot a \`e positivo, quindi - a \cdot (-1 + n a) \in M
+Quindi $r = a - n q \Rightarrow a = n q + r$.
 
-Siccome M \`e diverso dal vuoto e \`e sottoinsieme di N
-M \subseteq N
-segue per il principio del buon ordinamento che M ha un primo elemento r (il pi\`u piccolo).
+Dobbiamo dimostrare la seconda propriet\`a, ossia che $0 \le r < n$
 
-Quindi r = a - n q \Rightarrow a = n q + r.
-
-Dobbiamo dimostrare la seconda propriet\`a, ossia che 0 \le r < n
-
-Supponiamo per assurdo che n \le r \Rightarrow r = n + x con x \le r. Siccome a = n q + r, a = n q + (n + x) = n (q + 1) + x \Rightarrow x \in M e minore di r, quindi ho l'assurdo: r \`e il pi\`u piccolo elemento di M.
+Supponiamo per assurdo che $n \le r \Rightarrow r = n + x$ con $x \le r$. Siccome $a = n q + r$, $a = n q + (n + x) = n (q + 1) + x \Rightarrow x \in M$ e minore di $r$, quindi ho l'assurdo: $r$ \`e il pi\`u piccolo elemento di $M$.
 
 Se voglio fare il teorema di divisione con un numero qualunque?
 
 Possiamo esprimere il teorema generale di divisione:
 
-a, b \in Z con b \neq 0 allora \exist q, r \in Z tali che a = q b + r e 0 \le r < |b|. La coppia q, r \`e unica anche in questo caso. Segue come conseguenza dal teorema precedente. 
-
-mcm(a,b) = m 
+$a, b \in Z$ con $b \neq 0$ allora $\exists \ q, r \in Z$ tali che $a = q b + r$ e $0 \le r < |b|$. La coppia $q, r$ \`e unica anche in questo caso. Segue come conseguenza dal teorema precedente. 
+\[
+\mcm(a,b) = m 
 \Leftrightarrow
 \begin{cases}
-m \ge 0 
-m = k a
-m = h b
-\`e il sup di a e b nel reticolo della divisibilit\`a: z = k' a e z = h' b \Rightarrow m \le z
+m \ge 0 \\
+m = k a \\
+m = h b \\
+\text{ \`e il $\sup$ di $a$ e $b$ nel reticolo della divisibilit\`a: } z = k' a e z = h' b \Rightarrow m \le z
 \end{cases}
-
-MCD(a,b) = d
+\]
+\[
+\mcd(a,b) = d
 \Leftrightarrow
 \begin{cases}
-d \ge 0
-d | a (divide)
-d | b
-d' | a e d' | b \Rightarrow d' \le d
-Quindi d \`e l'inf di a e b nel reticolo di cui sopra.
+d \ge 0 \\
+d | a \text{ (divide)} \\
+d | b \\
+d' | a e d' | b \Rightarrow d' \le d \\
+\text{Quindi $d$ \`e l'$\inf$ di $a$ e $b$ nel reticolo di cui sopra.}
 \end{cases}
+\]
 
 Esistenza del minimo comune multiplo. Esiste per il principio del buon ordinamento.
 
-M = \{ t \in N tali che t = k a e t = h b \}, M \`e non vuoto e ha un primo elementi, e quindi esiste il mcm.
+$M = \{ t \in N$ tali che $t = k a$ e $t = h b \}$, $M$ \`e non vuoto e ha un primo elementi, e quindi esiste il \mcm.
 
-Perch\'e \`e non vuoto? Perch\'e a \cdot b \in M. mcm(a,b) \`e il pi\`u piccolo elemento di M.
+Perch\'e \`e non vuoto? Perch\'e $a \cdot b \in M$. $\mcm(a,b)$ \`e il pi\`u piccolo elemento di $M$.
 
-La dimostrazione per il MCD \`e pi\`u lunga.
+La dimostrazione per il $\mcd$ \`e pi\`u lunga.
 
-Dati a, b \in \mathbb{Z} con b \neq 0, MCD(a, b) = MCD(|a|, |b|)
+Dati $a, b \in \mathbb{Z}$ con $b \neq 0$, $\mcd(a, b) = \mcd(|a|, |b|)$
 
-Esistenza del MCD(a, b). Supponiamo a > 0, b > 0.
+Esistenza del $\mcd(a, b)$. Supponiamo $a > 0$, $b > 0$.
 
-Consideriamo l'insieme S_{a, b} = \{ n \in \mathbb{N}^{\ast} : n = a \cdot x + b \cdot y con x, y \in \mathbb{Z}\}, ossia n \`e combinazione lineare di a e b. x ed y sono i coefficienti della combinazione. \mathbb{N}^{\ast} = \mathbb{N} \setminus \{ 0 \}.
+Consideriamo l'insieme $S_{a, b} = \{ n \in \mathbb{N}^{\ast} : n = a \cdot x + b \cdot y$ con $x, y \in \mathbb{Z}\}$, ossia $n$ \`e combinazione lineare di $a$ e $b$. $x$ ed $y$ sono i coefficienti della combinazione. $\mathbb{N}^{\ast} = \mathbb{N} \setminus \{ 0 \}$.
 
-S_{a, b} \neq \emptyset, infatti a+b, a, b sono tutti \in S_{a,b}.
+$S_{a, b} \neq \emptyset$, infatti $a+b$, $a$, $b$ sono tutti $\in S_{a,b}$.
 
-S_{a,b} ha un minimo d = MCD(a,b). Bisogna dimostrare che:
+$S_{a,b}$ ha un minimo $d = \mcd(a,b)$. Bisogna dimostrare che:
 \begin{itemize}
-    \item d | a e d | b
-    \item z | a e z | b \Rightarrow z | d, ossia d \`e il \sup(a,b) nel reticolo (\mathbb{N}, |)
+    \item $d | a$ e $d | b$
+    \item $z | a$ e $z | b \Rightarrow z | d$, ossia $d$ \`e il $\sup(a,b)$ nel reticolo $(\mathbb{N}, |)$
 \end{itemize}
 \begin{proof}
-Tesi: d | a, con d = s \cdot a + t \cdot b come ipotesi, inoltre d \`e il minimo di S_{a,b}. Dobbiamo dimostrare che a = q \cdot d + r con r = 0 \Rightarrow r = a - q \cdot d \Rightarrow r = a - q \cdot (s \cdot a + t \cdot b) = a - q \cdot s \cdot a - q \cdot t \cdot b = a \cdot (1 - q \cdot s) + b \cdot (- q \cdot t)
+Tesi: $d | a$, con $d = s \cdot a + t \cdot b$ come ipotesi, inoltre $d$ \`e il minimo di $S_{a,b}$. Dobbiamo dimostrare che $a = q \cdot d + r$ con $r = 0 \Rightarrow r = a - q \cdot d \Rightarrow r = a - q \cdot (s \cdot a + t \cdot b) = a - q \cdot s \cdot a - q \cdot t \cdot b = a \cdot (1 - q \cdot s) + b \cdot (- q \cdot t)$
 
-Sappiamo che per il teorema di divisione su \mathbb{Z}, 0 \le r < d. r \`e una combinazione lineare di a, b, quindi r \in S_{a,b} se r \neq 0. Ma r deve essere pi\`u piccolo di d, quindi non pu\`o appartenere a S_{a,b} essendo d il minimo di S_{a,b}. Quindi r \`e necessariamente 0.
+Sappiamo che per il teorema di divisione su $\mathbb{Z}$, $0 \le r < d$. $r$ \`e una combinazione lineare di $a$, $b$, quindi $r \in S_{a,b}$ se $r \neq 0$. Ma $r$ deve essere pi\`u piccolo di $d$, quindi non pu\`o appartenere a $S_{a,b}$ essendo $d$ il minimo di $S_{a,b}$. Quindi $r$ \`e necessariamente 0.
 \end{proof}
 \begin{proof}
-Ipotesi: z | a e z | b. Tesi z < d quindi z | d.
+Ipotesi: $z | a$ e $z | b$. Tesi $z < d$ quindi $z | d$.
 
-a = z \cdot k e b = z \cdot h. Sapendo che d = s \cdot a + b \cdot t, posso sostituire e ottenere d = s \cdot z \cdot k + t \cdot z \cdot h, quindi d = z \cdot ( s \cdot k + t \cdot h), quindi d \`e un multiplo di z.
+$a = z \cdot k$ e $b = z \cdot h$. Sapendo che $d = s \cdot a + b \cdot t$, posso sostituire e ottenere $d = s \cdot z \cdot k + t \cdot z \cdot h$, quindi $d = z \cdot ( s \cdot k + t \cdot h)$, quindi $d$ \`e un multiplo di $z$.
 \end{proof}
 
-Il MCD si calcola con l'algoritmo di Euclide delle divisioni successive.
+Il $\mcd$ si calcola con l'algoritmo di Euclide delle divisioni successive.
 
 \begin{lem}
-Siano a > b > 0, allora posto d = MCD(a,b) e d' = MCD(b, r) dove a = q \cdot b + r, allora d = d'.
+Siano $a > b > 0$, allora posto $d = \mcd(a,b)$ e $d' = \mcd(b, r)$ dove $a = q \cdot b + r$, allora $d = d'$.
 \end{lem}
 \begin{proof}
-Tesi: d | d' e d' | d, e quindi sono uguali.
+Tesi: $d | d'$ e $d' | d$, e quindi sono uguali.
 
-d | a, d | b \Rightarrow d | ( b \cdot q + r ), ma siccome d | b , se divide la somma divide gli addendi, quindi d | r \Rightarrow d | r, d | b \Rightarrow d | d' ossia d < d'. \`E pi\`u piccolo del MCD(b, r), poich\'e divide entrambi.
+$d | a$, $d | b \Rightarrow d | ( b \cdot q + r )$, ma siccome $d | b$, se divide la somma divide gli addendi, quindi $d | r \Rightarrow d | r$, $d | b \Rightarrow d | d'$ ossia $d < d'$. \`E pi\`u piccolo del $\mcd(b, r)$, poich\'e divide entrambi.
 
-d' | b, d' | r \Rightarrow d' | a = q \cdot b + r \Rightarrow d' | a, d' | b \Rightarrow d' | d
+$d' | b$, $d' | r \Rightarrow d' | a = q \cdot b + r \Rightarrow d' | a$, $d' | b \Rightarrow d' | d$
 \end{proof}
 Su questo lemma si basa l'algoritmo di Euclide.
 
 Algoritmo:
 
-a > b > 0
+$a > b > 0$
 
-1 a = b \cdot q_1 + r_1  con 0 \le r_1 < b, se r_1 = 0 ho trovato il MCD(a,b) = b, altrimenti continuo
-2 b = r_1 \cdot q_2 + r_2  con 0 \le r_2 < r_1, se r_2 = 0 ho trovato il MCD(a,b) = r_1, ossia l'ultimo resto non nullo, altrimenti continuo
-3 r_1 = r_2 \cdot q_3 + r_3 ... il MCD(a,b) \`e l'ultimo resto non 0
+1 $a = b \cdot q_1 + r_1$  con $0 \le r_1 < b$, se $r_1 = 0$ ho trovato il $\mcd(a,b) = b$, altrimenti continuo
+2 $b = r_1 \cdot q_2 + r_2$  con $0 \le r_2 < r_1$, se $r_2 = 0$ ho trovato il $\mcd(a,b) = r_1$, ossia l'ultimo resto non nullo, altrimenti continuo
+3 $r_1 = r_2 \cdot q_3 + r_3$ ... il $\mcd(a,b)$ \`e l'ultimo resto non 0
 
-Poich\'e 0 \le r_{(i+1)} < r_i, \exists n > 0 t.c. r_{n} \neq 0 e r{(n+1)} = 0. Quindi al passo n-esimo avr\`o:
-
+Poich\'e $0 \le r_{(i+1)} < r_i$, $\exists \ n > 0$ t.c. $r_{n} \neq 0$ e $r{(n+1)} = 0$. Quindi al passo $n$-esimo avr\`o:
+\[
 n r_{(n-2)} = r{(n-1)} \cdot q_n + r_n
 (n+1) r_{(n+1)} = q_{(n+1)} \cdot r_n + 0
-
-Per il lemma sopra segue che MCD(a,b) = MCD(r_{(n-1)}, r_{n}) = r_{n}.
+\]
+Per il lemma sopra segue che $\mcd(a,b) = \mcd(r_{(n-1)}, r_{n}) = r_{n}$.
 
 Possiamo ricavere l'identit\`a di B\'ezouf
 
-d = MCD(a,b), quindi posso scriverlo come d = a \cdot s + b \cdot t con s, t \in \mathbb{Z}. L'identit\`a di B\'ezouf sono infinite.
+$d = \mcd(a,b)$, quindi posso scriverlo come $d = a \cdot s + b \cdot t$ con $s, t \in \mathbb{Z}$. L'identit\`a di B\'ezouf sono infinite.
 
-Possiamo scrivere d = a \cdot s + b \cdot t prendendo (s + k \cdot b, t - k \cdot a) e fare la combinazione lineare con questi coefficienti:
-
+Possiamo scrivere $d = a \cdot s + b \cdot t$ prendendo $(s + k \cdot b, t - k \cdot a)$ e fare la combinazione lineare con questi coefficienti:
+\[
 a (s + k \cdot b) + b \cdot (t - k \cdot a) = a \cdot s + k \cdot b \cdot a + b \cdot t - k \cdot a \cdot b = d
-
+\]
 Dimostrarlo per esercizio.
 
-Scriviamo ogni volta il resto in funzione di a e b.
+Scriviamo ogni volta il resto in funzione di $a$ e $b$.
 
-MCD(159, 42)
+$\mcd(159, 42)$
 
-159 > 42
-1. 159 = 43 (3) + 33     33 = 159 - 42 (3)
-2. 42 = 33 (1) + 9       9 = 42 - 33
-3. 33 = 9 (3) + 6        6 = 33 - 9 (3)
-4. 9 = 6 + 3             3 = 9 - 6
-5. 6 = 3 (2)
+\begin{tabular}{*{3}{c}}
+\multicolumn{3}{c}{$159 > 42$} \\
+1. & 159 = 43 (3) + 33     & 33 = 159 - 42 (3) \\
+2. & 42 = 33 (1) + 9       & 9 = 42 - 33 \\
+3. & 33 = 9 (3) + 6        & 6 = 33 - 9 (3) \\
+4. & 9 = 6 + 3             & 3 = 9 - 6 \\
+5. & 6 = 3 (2) &
+\end{tabular}
 
-MCD(159, 42) = 3
+Quindi $\mcd(159, 42) = 3$
 
 Vogliamo ora trovare l'identit\`a di B\'ezouf per 3.
 
 Possiamo scrivere 3 = 9 - 6
 
 Sostituiamo via via i resti.
-
+\[
 3 = 9 - 6 = 9 - 33 + 9 (3) = 9 (4) - 33 = 42 (4) - 33 (4) - 33 = 42 (4) - 33 (5) = 42 (4) - 159 (5) + 42 (15) = 42 (19) - 159 (5)
+\]
+Dati $a, b \in \mathbb{Z}$, $a$ e $b$ si dicono coprimi tra loro se $\mcd(a,b) = 1$
 
-Dati a, b \in \mathbb{Z}, a e b si dicono coprimi tra loro se MCD(a,b) = 1
+$p \in \mathbb{N}$ si dice primo se $p \neq 1$ e \`e divisibile solo per 1 e per $p$.
 
-p \in \mathbb{N} si dice primo se p \neq 1 e \`e divisibile solo per 1 e per p.
+$(\mathbb{Z}, +, \cdot)$ \`e un anello commutativo unitario privo di divisori dello zero.
 
-(\mathbb{Z}, +, \cdot) \`e un anello commutativo unitario privo di divisori dello zero.
+Per costruire $\mathbb{Z}$ abbiamo preso $\mathbb{N}$, costruito $\mathbb{N} \times \mathbb{N}$, abbiamo considerato il monoide $(\mathbb{N}, +)$ e creato il monoide $(\mathbb{N} \times \mathbb{N}, +)$. Se prendo una struttura algebrica e faccio il prodotto ottengo una struttura algebrica che mantiene le stesse operazioni e le stesse propriet\`a.
 
-Per costruire \mathbb{Z} abbiamo preso \mathbb{N}, costruito \mathbb{N} \times \mathbb{N}, abbiamo considerato il monoide (\mathbb{N}, +) e creato il monoide (\mathbb{N} \times \mathbb{N}, +). Se prendo una struttura algebrica e faccio il prodotto ottengo una struttura algebrica che mantiene le stesse operazioni e le stesse propriet\`a.
+Definisco adesso $+ : (\mathbb{N} \times \mathbb{N}) \times (\mathbb{N} \times \mathbb{N}) \to \mathbb{N} \times \mathbb{N}$ come $(a,b), (c,d) \mapsto (a,b) + (c,d) = (a + c, b + d)$
 
-Definisco adesso + : (\mathbb{N} \times \mathbb{N}) \times (\mathbb{N} \times \mathbb{N}) \to \mathbb{N} \times \mathbb{N} come (a,b), (c,d) \mapsto (a,b) + (c,d) = (a + c, b + d)
+Per ottenere $\mathbb{Z}$ si fa una relazione di equivalenza su $\mathbb{N} \times \mathbb{N}$, $\rho$, che \`e una congruenza rispetto a $+$.
 
-Per ottenere \mathbb{Z} si fa una relazione di equivalenza su \mathbb{N} \times \mathbb{N}, \rho, che \`e una congruenza rispetto a +.
+$(\mathbb{N} \times \mathbb{N} / \rho, +)$ \`e un monoide perch\'e $\rho$ \`e una congruenza. 
 
-(\mathbb{N} \times \mathbb{N} / \rho, +) \`e un monoide perch\'e \rho \`e una congruenza. 
+$(a,b) \ \rho \ (c,d) \Leftrightarrow a + d = b + c$, ossia $a - b = c - d$.
 
-(a,b) \ \rho \ (c,d) \Leftrightarrow a + d = b + c, ossia a - b = c - d.
-
-Esercizio: dimostrare che \rho \`e una congruenza.
+Esercizio: dimostrare che $\rho$ \`e una congruenza.
 
 
-\mathbb{N} \times \mathbb{N} / \simequiv \mathbb{R}, ossia \`e in corrispondenza biunivoca.
-
+$\mathbb{N} \times \mathbb{N} \simeq \mathbb{R}$, ossia \`e in corrispondenza biunivoca.
+\[
 [(m,n)] = 
 \begin{cases}
 [(m,0)] = +m
 [(0,0)] = \underline{0}
 [(0,m)] = -m
 \end{cases}
+\]
+Non \`e solo un monoide: \`e un gruppo, perch\'e ha l'inverso. $[(m, 0)] + [(0, m)] = [(m, m)] = [(0,0)]$
 
-Non \`e solo un monoide: \`e un gruppo, perch\'e ha l'inverso. [(m, 0)] + [(0, m)] = [(m, m)] = [(0,0)]
+$\mathbb{Z}$ ha un'altra operazione, $\cdot$, che potrei pensare dipendere da $(\mathbb{N}, \cdot)$, ma $\rho$ non \`e una congruenza rispetto a $(\mathbb{N} \times \mathbb{N}, \cdot)$.
 
-\mathbb{Z} ha un'altra operazione, \cdot, che potrei pensare dipendere da (\mathbb{N}, \cdot), ma \rho non \`e una congruenza rispetto a (\mathbb{N} \times \mathbb{N}, \cdot).
+$\cdot : (\mathbb{N} \times \mathbb{N}) \times (\mathbb{N} \times \mathbb{N}) \to \mathbb{N} \times \mathbb{N}$ tale che $(a, b) \cdot (c, d) = (a \cdot c, b \cdot d)$ \textit{non \`e} una congruenza. Scelgo quindi un'altra operazione $\cdot$ su $\mathbb{N} \times \mathbb{N}$.
 
-\cdot : (\mathbb{N} \times \mathbb{N}) \times (\mathbb{N} \times \mathbb{N}) \to \mathbb{N} \times \mathbb{N} tale che (a, b) \cdot (c, d) = (a \cdot c, b \cdot d) \textit{non \`e} una congruenza. Scelgo quindi un'altra operazione \cdot su \mathbb{N} \times \mathbb{N}.
+Vediamo intanto che $\rho$ non \`e una congruenza rispetto a $\cdot$.
 
-Vediamo intanto che \rho non \`e una congruenza rispetto a \cdot.
+Basta un controesempio: $(3, 0) \cdot (2, 0) = (6, 0)$. Prendiamo ora un elemento nella classe $[(3,0)]$, ad esempio $(6,3)$, ed un elemento nella classe $[(2,0)]$, ad esempio $(4,2)$. Il loro prodotto $(6,3) \cdot (4,2) = (24,6) \in [(18,0)] \neq [(6,0)]$.
 
-Basta un controesempio: (3, 0) \cdot (2, 0) = (6, 0). Prendiamo ora un elemento nella classe [(3,0)], ad esempio (6,3), ed un elemento nella classe [(2,0)], ad esempio (4,2). Il loro prodotto (6,3) \cdot (4,2) = (24,6) \in [(18,0)] \neq [(6,0)].
+Per ottenere quindi una congruenza in $\mathbb{Z}$ devo prendere un'altra moltiplicazione in $\mathbb{N} \times \mathbb{N}$.
 
-Per ottenere quindi una congruenza in \mathbb{Z} devo prendere un'altra moltiplicazione in \mathbb{N} \times \mathbb{N}.
+$(\mathbb{N} \times \mathbb{N}, +, \cdot)$. $+$ lo prendo direttamente da $(\mathbb{N}, +)$, mentre $\cdot$ lo prendo come
 
-(\mathbb{N} \times \mathbb{N}, +, \cdot). + lo prendo direttamente da (\mathbb{N}, +), mentre \cdot lo prendo come
+Se definisco la congruenza come $(m, n) \ \rho \ (p, q) \Leftrightarrow m \cdot q = n \cdot p$.
 
-Se definisco la congruenza come (m, n) \ \rho \ (p, q) \Leftrightarrow m \cdot q = n \cdot p.
+Quindi $(m - n) (p - q) = m p - n p + n q - m q = m p + n q - ( n p + m q)$
 
-Quindi (m - n) (p - q) = m p - n p + n q - m q = m p + n q - ( n p + m q)
-
-Se voglio esprimere questo intero m p + n q - ( n p + m q) in \mathbb{N} \times \mathbb{N}, come devo esprimerlo? Che coppia deve darmi?
-
+Se voglio esprimere questo intero $m p + n q - ( n p + m q)$ in $\mathbb{N} \times \mathbb{N}$, come devo esprimerlo? Che coppia deve darmi?
+\[
 (m, n) \cdot (p, q) \in [((m p + n q), (n p + m q))]
-
-Fissato un interno n \ge 2, abbiamo definito la congruenza \equiv_n (congruenza modulo n) come
-
+\]
+Fissato un interno $n \ge 2$, abbiamo definito la congruenza $\equiv_n$ (congruenza modulo $n$) come
+\[
 a, b \in \mathbb{Z}, a \equiv_n b \Leftrightarrow n | (a - b)
-
+\]
 \`E una congruenza rispetto a entrambe le operazioni.
 
-(\mathbb{Z} / \equiv_n, +, \cdot) \`e un anello commutativo e unitario. Non \`e privo di divisori dello zero.
-
+$(\mathbb{Z} / \equiv_n, +, \cdot)$ \`e un anello commutativo e unitario. Non \`e privo di divisori dello zero.
+\[
 \mathbb{Z} / \equiv_2 = \{ [0], [1] \}
+\]
+Ogni classe $[a] \in \mathbb{Z} / \equiv_n$ pu\`o essere rappresentato con il suo resto, ossia $[a] = [r]$ dove $r$ \`e il resto nella divisione di $a$ per $n$.
 
-Ogni classe [a] \in \mathbb{Z} / \equiv_n pu\`o essere rappresentato con il suo resto, ossia [a] = [r] dove r \`e il resto nella divisione di a per n.
+Possiamo considerare $\mathbb{Z}_n$ come l'insieme dei resti delle possibili divisioni. $\mathbb{Z}_n = \{ 0, 1 \dots (n-1)\}$
 
-Possiamo considerare \mathbb{Z}_n come l'insieme dei resti delle possibili divisioni. \mathbb{Z}_n = \{ 0, 1 \dots (n-1)\}
+$\varphi_n : Z / \equiv_n \to Z_n$ che associa ad ogni classe il resto della divisione, ossia $\varphi_n [a] = r$
 
-\varphi_n : Z / \equiv_n \to Z_n che associa ad ogni classe il resto della divisione, ossia \varphi_n [a] = r
-
-(\mathbb{Z}_n, +, \cdot ) \`e un anello.
-
+$(\mathbb{Z}_n, +, \cdot )$ \`e un anello.
+\[
 \mathbb{Z}_3 = \{ [0], [1], [2] \} \leftrightarrow \mathbb{Z}_3 = \{ 0, 1, 2 \}
-
+\]
 Se il gruppo \`e finito possiamo scrivere le tavole di composizione rispetto alle operazioni.
 
 \begin{tabular}{c|ccc}
-+ & 0 & 1 & 2 \\
+$+$ & 0 & 1 & 2 \\
 \hline
 0 & 0 & 1 & 2 \\
 1 & 1 & 2 & 0 \\
@@ -1417,7 +1451,7 @@ Se il gruppo \`e finito possiamo scrivere le tavole di composizione rispetto all
 \end{tabular}
 
 \begin{tabular}{c|ccc}
-\cdot & 0 & 1 & 2 \\
+$\cdot$ & 0 & 1 & 2 \\
 \hline
 0 & 0 & 0 & 0 \\
 1 & 0 & 1 & 2 \\
@@ -1426,7 +1460,7 @@ Se il gruppo \`e finito possiamo scrivere le tavole di composizione rispetto all
 
 Quando l'operazione \`e commutativa, la tavola \`e uguale rispetto alla diagonale (\`e simmetrica).
 
-(\mathbb{Z}_3, +, \cdot) \`e sempre un anello commutativo unitario. Ha l'unit\`a rispetto al \cdot, ossia 1.
+$(\mathbb{Z}_3, +, \cdot)$ \`e sempre un anello commutativo unitario. Ha l'unit\`a rispetto al $\cdot$, ossia 1.
 
 \begin{tabular}{c|cccc}
 + & 0 & 1 & 2 & 3 \\
@@ -1438,7 +1472,7 @@ Quando l'operazione \`e commutativa, la tavola \`e uguale rispetto alla diagonal
 \end{tabular}
 
 \begin{tabular}{c|cccc}
-\cdot & 0 & 1 & 2 & 3 \\
+$\cdot$ & 0 & 1 & 2 & 3 \\
 \hline
 0 & 0 & 0 & 0 & 0 \\
 1 & 0 & 1 & 2 & 3 \\
@@ -1446,149 +1480,151 @@ Quando l'operazione \`e commutativa, la tavola \`e uguale rispetto alla diagonal
 3 & 0 & 3 & 2 & 1
 \end{tabular}
 
-Sia (A, +, \cdot) un anello unitario (monoide associativo rispetto a \cdot), U(A) \`e il gruppo degli elementi invertibili di A rispetto a \cdot.
-
+Sia $(A, +, \cdot)$ un anello unitario (monoide associativo rispetto a $\cdot$), $U(A)$ \`e il gruppo degli elementi invertibili di $A$ rispetto a $\cdot$.
+\[
 U(\mathbb{Z}) = \{ -1, 1 \}
-
+\]
+\[
 U(\mathbb{Z}_2) = \{ 1 \}
-
+\]
+\[
 U(\mathbb{Z}_3) = \{ 1,  2 \}
-
-Vogliamo capire come \`e fatto in generale il gruppo degli elementi invertibili in \mathbb{Z}_n.
+\]
+Vogliamo capire come \`e fatto in generale il gruppo degli elementi invertibili in $\mathbb{Z}_n$.
 
 \begin{prop}
-[a] \in U(\mathbb{Z} / \equiv_n) \Leftrightarrow a, n sono coprimi, ossia MCD(a, n) = 1
+$[a] \in U(\mathbb{Z} / \equiv_n) \Leftrightarrow a$, $n$ sono coprimi, ossia $\mcd(a, n) = 1$
 \end{prop}
 
 \begin{cor}
-U(\mathbb{Z}_n) = \{ x \in \mathbb{N} : 0 < x < n e MCD(n, x) = 1\}
+$U(\mathbb{Z}_n) = \{ x \in \mathbb{N} : 0 < x < n \text{ e } \mcd(n, x) = 1\}$
 \end{cor}
 
-Z_p con p primo U(Z_p) = \{ 1 \dots (p-1)\}, ossia sono tutti quanti.
-
+$Z_p$ con $p$ primo $U(Z_p) = \{ 1 \dots (p-1)\}$, ossia sono tutti quanti.
+\[
 U(Z_4) = \{1, 3\}
+\]
+Ipotesi: classe $[a]$ invertibile in $Z / \equiv_n \Rightarrow \ \exists \ [b]$ t.c. $[a] \cdot [b] = [1]$. 
 
-Ipotesi: classe [a] invertibile in Z / \equiv_n \Rightarrow \exists [b] t.c. [a] \cdot [b] = [1]. 
+Quindi per definizione $[a \cdot b] = [a] \cdot [b] = [1]$. Quindi $a$ e $b$ nella divisione per $n$ hanno lo stesso resto, ossia 1, quindi $a \cdot b = n \cdot q + 1$, e per il teorema di B\'ezouf $a \cdot b - n \cdot q = 1$, ossia $1 \in S_{a, n}$, ossia 1 \`e combinazione lineare di $a$ e $n$. Quindi il $\mcd(a, n) = 1$, quindi $a$ e $n$ sono coprimi.
 
-Quindi per definizione [a \cdot b] = [a] \cdot [b] = [1]. Quindi a e b nella divisione per n hanno lo stesso resto, ossia 1, quindi a \cdot b = n \cdot q + 1, e per il teorema di B\'ezouf a \cdot b - n \cdot q = 1, ossia 1 \in S_{a, n}, ossia 1 \`e combinazione lineare di a e n. Quindi il MCD(a, n) = 1, quindi a e n sono coprimi.
+Dobbiamo dimostrare il viceversa, ossia $\mcd(a, n) = 1 \Rightarrow [a]$ \`e invertibile in $\mathbb{Z} / \equiv_n$.
 
-Dobbiamo dimostrare il viceversa, ossia MCD(a, n) = 1 \Rightarrow [a] \`e invertibile in \mathbb{Z} / \equiv_n.
-
-Quindi 1 \`e combinazione lineare di a e n, ossia 1 = a \cdot s + n \cdot t. Quindi passando alle classi, [1] = [a \cdot s + n \cdot t] = [a \cdot s] + [n \cdot t] = [a] \cdot [s] + [0] = [a] \cdot [s], quindi la classe rappresentata da s \`e l'inverso della classe rappresentata da a, perch\'e [a] \cdot [s] = [1].
+Quindi 1 \`e combinazione lineare di $a$ e $n$, ossia $1 = a \cdot s + n \cdot t$. Quindi passando alle classi, $[1] = [a \cdot s + n \cdot t] = [a \cdot s] + [n \cdot t] = [a] \cdot [s] + [0] = [a] \cdot [s]$, quindi la classe rappresentata da $s$ \`e l'inverso della classe rappresentata da $a$, perch\'e $[a] \cdot [s] = [1]$.
 
 Grazie all'identit\`a di B\'ezouf possiamo trovare l'inverso di una classe.
-
+\[
 [s] = [a]^{-1}
+\]
+Se prendiamo $Z_p$ con $p$ primo, $U(Z_p) = Z_p - \{ 0 \}$, ed \`e un gruppo, quindi $(Z_p, +, \cdot)$ \`e un campo, ossia \`e una struttura algebrica con due operazioni.
 
-Se prendiamo Z_p con p primo, U(Z_p) = Z_p - \{ 0 \}, ed \`e un gruppo, quindi (Z_p, +, \cdot) \`e un campo, ossia \`e una struttura algebrica con due operazioni.
-
-Un campo \`e una struttura algebrica (K, +, \cdot) tale che:
+Un campo \`e una struttura algebrica $(K, +, \cdot)$ tale che:
 \begin{itemize}
-    \item (K, +, \cdot) \`e un anello commutativo unitario
-    \item (K - \{0\}, \cdot) \`e un gruppo commutativo
+    \item $(K, +, \cdot)$ \`e un anello commutativo unitario
+    \item $(K - \{0\}, \cdot)$ \`e un gruppo commutativo
 \end{itemize}
 Inoltre valgono le leggi distributive.
 
-I campi non hanno divisori dello zero, ma gli anelli (Z_n, +, \cdot) hanno divisori dello zero. Infatti posso scrivere n = a \cdot b, siccome n non \`e primo, quindi la classe [0] = [a \cdot b] = [a] \cdot [b] entrambi diversi da 0. Due classi moltiplicate fanno la classe [0], quindi sono due divisori dello [0].
+I campi non hanno divisori dello zero, ma gli anelli $(Z_n, +, \cdot)$ hanno divisori dello zero. Infatti posso scrivere $n = a \cdot b$, siccome $n$ non \`e primo, quindi la classe $[0] = [a \cdot b] = [a] \cdot [b]$ entrambi diversi da 0. Due classi moltiplicate fanno la classe $[0]$, quindi sono due divisori dello $[0]$.
 
-Il campo (Z_p, +, \cdot) non ha divisori dello 0. Sia a \cdot  b = 0 con a \neq 0 e b \neq 0, avendo l'inverso per ogni elemento diverso da 0 avrei che a^{-1} \cdot a \cdot b = a^{-1} \cdot 0 = 0 \Rightarrow b = 0 ma sarebbe un assurdo.
+Il campo $(Z_p, +, \cdot)$ non ha divisori dello 0. Sia $a \cdot  b = 0$ con $a \neq 0$ e $b \neq 0$, avendo l'inverso per ogni elemento diverso da 0 avrei che $a^{-1} \cdot a \cdot b = a^{-1} \cdot 0 = 0 \Rightarrow b = 0$ ma sarebbe un assurdo.
 
-\begin{thm}[Teorema (fondamentale)]
-[a] \in Z / \equiv_n, questa classe \`e invertibile \Leftrightarrow MCD(a, n) = 1, ossia se sono coprimi.
-\end{thm}
+\begin{theorem}[Teorema (fondamentale)]
+$[a] \in Z / \equiv_n$, questa classe \`e invertibile $\Leftrightarrow \mcd(a, n) = 1$, ossia se sono coprimi.
+\end{theorem}
 
 Da questo teorema possiamo dedurre due corollari.
 
 \begin{cor}\label{corollario_interi_primo}
-Z_p = \{ 0, 1 \dots (p-1) \}, ossia l'anello dei resti modulo p, \`e un campo \Leftrightarrow p \`e un numero primo, ossia p \`e maggiore di 1 ed \`e divisibile solamente per 1 e per p.
+$Z_p = \{ 0, 1 \dots (p-1) \}$, ossia l'anello dei resti modulo $p$, \`e un campo $\Leftrightarrow p$ \`e un numero primo, ossia $p$ \`e maggiore di 1 ed \`e divisibile solamente per 1 e per $p$.
 
-Essere un campo significa che (Z_p \setminus \{ 0 \}, \cdot) con la moltiplicazione \`e un gruppo abeliano.
+Essere un campo significa che $(Z_p \setminus \{ 0 \}, \cdot)$ con la moltiplicazione \`e un gruppo abeliano.
 \end{cor}
 
 \begin{cor}\label{corollario_interi_secondo}
-p primo, p | a \cdot b \Rightarrow p | a oppure p | b
+$p$ primo, $p | a \cdot b \Rightarrow p | a$ oppure $p | b$
 \end{cor}
 \begin{proof}
-Consideriamo il campo (Z_p, +, \cdot). Se p | a \cdot b, significa che [p] = [0] = [a \cdot b] = [a] \cdot [b]. Siamo in un campo, che non ha divisori dello zero. Quindi [a] = [0] oppure [b] = [0].
+Consideriamo il campo $(Z_p, +, \cdot)$. Se $p | a \cdot b$, significa che $[p] = [0] = [a \cdot b] = [a] \cdot [b]$. Siamo in un campo, che non ha divisori dello zero. Quindi $[a] = [0]$ oppure $[b] = [0]$.
 \end{proof}
 
 \begin{prop}
-Ogni numero naturale n \in N maggiore di 1, o \`e primo o \`e prodotto di primi.
+Ogni numero naturale $n \in \mathbb{N}$ maggiore di 1, o \`e primo o \`e prodotto di primi.
 \end{prop}
 \begin{proof}
-Si dimostra per induzione su n. Per n = 2 \`e vero.
+Si dimostra per induzione su $n$. Per $n = 2$ \`e vero.
 
-Ipotesi di induzione: P(m) \`e vera \forall m \ge 2 con m < n. Dobbiamo dimostrare che P(n) \`e vera. O n \`e primo, e ho verificato P(n), oppure n non \`e primo, ossia n = a \cdot b con a < n e b < n. Per ipotesi di induzione P(a) e P(b) sono vere, quindi a \`e prodotto di primi o \`e primo, b \`e prodotto di primi o \`e primo, quindi n \`e prodotto di primi.
+Ipotesi di induzione: $P(m)$ \`e vera $\forall \ m \ge 2$ con $m < n$. Dobbiamo dimostrare che $P(n)$ \`e vera. O $n$ \`e primo, e ho verificato $P(n)$, oppure $n$ non \`e primo, ossia $n = a \cdot b$ con $a < n e b < n$. Per ipotesi di induzione $P(a)$ e $P(b)$ sono vere, quindi $a$ \`e prodotto di primi o \`e primo, $b$ \`e prodotto di primi o \`e primo, quindi $n$ \`e prodotto di primi.
 \end{proof}
 
-\begin{thm}[Teorema fondamentale dell'aritmetica]
-Ogni numero naturale n \ge 2 si esprime in un unico modo come prodotto di potenze di numeri primi, ossia n ha una sola fattorizzazione.
+\begin{theorem}[Teorema fondamentale dell'aritmetica]
+Ogni numero naturale $n \ge 2$ si esprime in un unico modo come prodotto di potenze di numeri primi, ossia $n$ ha una sola fattorizzazione.
 
-Ossia, n = p_{1}^{h_1} \dots p_{k}^{h^k} = q_{1}^{t_1} \dots q_{s}^{t_s} \Rightarrow k = s e \forall i \in [1, k] \exists j t.c. p_i^{h_i} = q_j^{t_j}.
-\end{thm}
+Ossia, $n = p_{1}^{h_1} \dots p_{k}^{h^k} = q_{1}^{t_1} \dots q_{s}^{t_s} \Rightarrow k = s$ e $\forall i \in [1, k] \exists j$ t.c. $p_i^{h_i} = q_j^{t_j}$.
+\end{theorem}
 \begin{proof}
-Si dimostra per induzione. Per n = 2 \`e vero.
+Si dimostra per induzione. Per $n = 2$ \`e vero.
 
-Supponiamo come ipotesi induttiva che P(m) sia vero per ogni 2 \le m < n. Per induzione dimostriamo che P(n) \`e vera.
-
+Supponiamo come ipotesi induttiva che $P(m)$ sia vero per ogni $2 \le m < n$. Per induzione dimostriamo che $P(n)$ \`e vera.
+\[
 n = p_{1}^{h_1} \dots p_{k}^{h^k} = q_{1}^{t_1} \dots q_{s}^{t_s}
-
-p_1 divide n, quindi divide q_{1}^{t_1} \dots q_{s}^{t_s}
-
+\]
+$p_1$ divide $n$, quindi divide $q_{1}^{t_1} \dots q_{s}^{t_s}$
+\[
 p_1 | n = q_{1}^{t_1} \dots q_{s}^{t_s}
+\]
+Per il corollario \ref{corollario_interi_secondo} $\exists \ j = 1 \dots s$ t.c. $p_1 | q_j$. Ma posso ripetere lo stesso discorso per $q_j$.
 
-Per il corollario \ref{corollario_interi_secondo} \exists j = 1 \dots s t.c. p_1 | q_j. Ma posso ripetere lo stesso discorso per q_j.
+Per il corollario \ref{corollario_interi_primo} $q_j$ divide $n$, quindi $q_j | n = p_{1}^{h_1} \dots p_{k}^{h^k}$. Deve esistere un indice $i_j$ tale che $q_j | p_{i_j}$.
 
-Per il corollario \ref{corollario_interi_primo} q_j divide n, quindi q_j | n = p_{1}^{h_1} \dots p_{k}^{h^k}. Deve esistere un indice i_j tale che q_j | p_{i_j}.
+$p_1 | q_j | p_{i_j} \Rightarrow p_1 = q_j = p_{i_j}$ essendo tutti primi.
 
-p_1 | q_j | p_{i_j} \Rightarrow p_1 = q_j = p_{i_j} essendo tutti primi.
-
-Essendo p_1 e q_j uguali, se divido n per p_1 ottengo due scomposizioni:
-
+Essendo $p_1$ e $q_j$ uguali, se divido $n$ per $p_1$ ottengo due scomposizioni:
+\[
 \frac{n}{p_1} = p_{1}^{h_1 - 1} \dots p_{k}^{h^k} = q_{1}^{t_1} \dots q_{j}^{t_j - 1}\dots q_{s}^{t_s}
+\]
+Sia $m = \frac{n}{p_1} < n \Rightarrow P(\frac{n}{p_1})$ \`e vera per ipotesi $\Rightarrow P(n)$ \`e vera.
 
-Sia m = \frac{n}{p_1} < n \Rightarrow P(\frac{n}{p_1}) \`e vera per ipotesi \Rightarrow P(n) \`e vera.
-
-Infatti per P( \frac{n}{p_1}) k = s e \forall i = 1 \dots k \exists r tale che p_i^{h_i} = q_r^{t_r}
+Infatti per $P( \frac{n}{p_1}) k = s$ e $\forall i = 1 \dots k \exists r$ tale che $p_i^{h_i} = q_r^{t_r}$
 \end{proof}
 
 Da questo segue:
-\begin{thm}
+\begin{theorem}
 I numeri primi sono infiniti.
-\end{thm}
+\end{theorem}
 \begin{proof}
-Supponiamo per assurdo che i numeri primi siano finiti. Abbiamo la lista di numeri primi p_1 \dots p_N. Consideriamo n = (p_1 \dots p_N) + 1. Non pu\`o essere un numero primo, perch\'e non \`e nella lista. Per il teorema fondamentale deve essere il prodotto di numeri primi.
+Supponiamo per assurdo che i numeri primi siano finiti. Abbiamo la lista di numeri primi $p_1 \dots p_N$. Consideriamo $n = (p_1 \dots p_N) + 1$. Non pu\`o essere un numero primo, perch\'e non \`e nella lista. Per il teorema fondamentale deve essere il prodotto di numeri primi.
 
-p_i | n = (p_1 \dots p_i \dots p_N) + 1 \Rightarrow p_i | (p_1 \dots p_i \dots p_N) e p_i | 1, che \`e l'assurdo.
+$p_i | n = (p_1 \dots p_i \dots p_N) + 1 \Rightarrow p_i | (p_1 \dots p_i \dots p_N)$ e $p_i | 1$, che \`e l'assurdo.
 \end{proof}
 
-(Z_n, +, \cdot) \`e un anello. Se n \`e primo, \`e un campo, quindi non ha divisori dello zero.
+$(Z_n, +, \cdot)$ \`e un anello. Se $n$ \`e primo, \`e un campo, quindi non ha divisori dello zero.
 
-Se n = a \cdot b con a < n e b < n, allora (Z_n, +, \cdot) \`e un anello con divisori dello zero.
+Se $n = a \cdot b$ con $a < n$ e $b < n$, allora $(Z_n, +, \cdot)$ \`e un anello con divisori dello zero.
 
-Sia U(A) = gruppo degli elementi invertibili dell'anello A. Considerando il campo (Z_p, +, \cdot) il gruppo degli invertibili U(Z_p) = \{1, \dots,  p-1\}, quindi la cardinalit\`a |U(Z_p)| = p-1.
+Sia $U(A) =$ gruppo degli elementi invertibili dell'anello $A$. Considerando il campo $(Z_p, +, \cdot)$ il gruppo degli invertibili $U(Z_p) = \{1, \dots,  p-1\}$, quindi la cardinalit\`a $|U(Z_p)| = p-1$.
 
-Vogliamo conoscere la cardinalit\`a di U(Z_n) nel caso generale.
+Vogliamo conoscere la cardinalit\`a di $U(Z_n)$ nel caso generale.
 
-Consideriamo la funzione \Phi : N^+ \to N^+ definita come \Phi (n) = numero degli interi minori di n e primi con n. |U(Z_n)| = \Phi(n). Infatti avevamo definito U(Z_n) come:
+Consideriamo la funzione $\Phi : N^+ \to N^+$ definita come $\Phi (n) =$ numero degli interi minori di $n$ e primi con $n$. $|U(Z_n)| = \Phi(n)$. Infatti avevamo definito $U(Z_n)$ come:
 \[
 U(Z_n) = \{ m \in Z_n : MCD(m, n) = 1 \}
 \]
 Calcoliamo questa funzione (detta funzione di Eulero). Il suo valore si trova con il principio di inclusione ed esclusione.
 
-Sia n = p_{1}^{h_1} \dots p_{k}^{h_k}, se voglio conoscere \Phi(n), so che sono n meno tutti i numeri che dividono n. Chiamo D l'insieme dei numeri m < n che dividono n.
+Sia $n = p_{1}^{h_1} \dots p_{k}^{h_k}$, se voglio conoscere $\Phi(n)$, so che sono $n$ meno tutti i numeri che dividono $n$. Chiamo $D$ l'insieme dei numeri $m < n$ che dividono $n$.
 \[
 \Phi(n) = n - D
 \]
-D si calcola con il principio di inclusione ed esclusione. 
+$D$ si calcola con il principio di inclusione ed esclusione. 
 
-Indichiamo con A_{p_i} = \{ m \in [n] : p_i | m \}, D = \bigcup_{i = 1}^{k} A_{p_i}. Quindi:
+Indichiamo con $A_{p_i} = \{ m \in [n] : p_i | m \}$, $D = \bigcup_{i = 1}^{k} A_{p_i}$. Quindi:
 \[
 |\bigcup_{i = 1}^{k} A_{p_i}| = \sum_{i = 1}^{k} |A_{p_i}| - \sum |A_{p_i} \cap A_{p_j}| + \sum |A_{p_i} \cap A_{p_j} \cap A_{p_k}| \dots (-1)^{k-1} |A_{p_i} \cap \dots A_{p_k} | 
 \]
-Sappiamo che |A_{p_i}| = \frac{n}{p_i}. Infatti m = k \cdot p_i \Rightarrow k = \frac{m}{p_i} \`e la cardinalit\`a dell'insieme dei numeri che dividono n.
+Sappiamo che $|A_{p_i}| = \frac{n}{p_i}$. Infatti $m = k \cdot p_i \Rightarrow k = \frac{m}{p_i}$ \`e la cardinalit\`a dell'insieme dei numeri che dividono $n$.
 
-Se prendiamo l'intersezione di due insiemi? |A_{p_i} \cap A_{p_j}| con i \neq j \`e:
+Se prendiamo l'intersezione di due insiemi? $|A_{p_i} \cap A_{p_j}|$ con $i \neq j$ \`e:
 \[
 |A_{p_i} \cap A_{p_j}| = \frac{n}{p_i \cdot p_j}
 \]
@@ -1596,274 +1632,281 @@ L'ultima intersezione ha cardinalit\`a 1. Quindi mettendo in evidenza:
 \[
 \Phi (n) = n - |D| = n \cdot (1 - \frac{1}{p_1}) \dots (1 - \frac{1}{p_k})
 \]
-\begin{thm}[Teorema di Fermat]
-Se prendo a \in Z e n \ge 2 tali che MCD(a, n) = 1, allora a^{\Phi(n)} \equiv_n 1. 
-\end{thm}
+\begin{theorem}[Teorema di Fermat]
+Se prendo $a \in Z$ e $n \ge 2$ tali che $\mcd(a, n) = 1$, allora $a^{\Phi(n)} \equiv_n 1$. 
+\end{theorem}
 \begin{proof}
-L'insieme degli elementi invertibili di Z_n \`e l'insieme di tutti gli h \in Z_n tali che MCD(h, n) = 1.
-
+L'insieme degli elementi invertibili di $Z_n$ \`e l'insieme di tutti gli $h \in Z_n$ tali che $\mcd(h, n) = 1$.
+\[
 U(Z_n) = \{ h \in Z_n : MCD(h, n) = 1 \}
-
+\]
+\[
 |U(Z_n)| = \Phi(n). 
+\]
+Il prodotto $\prod_{h \in U(Z_n)} [h \cdot a]$  per definizione del prodotto fra classi \`e $= \prod_{h \in U(Z_n)} [h] \cdot [a]$ e mettendo in evidenza $a$ $= [a]^{\Phi(n)} \cdot \prod_{h \in U(Z_n)} [h]$.
 
-Il prodotto \prod_{h \in U(Z_n)} [h \cdot a]  per definizione del prodotto fra classi \`e = \prod_{h \in U(Z_n)} [h] \cdot [a] e mettendo in evidenza a = [a]^{\Phi(n)} \cdot \prod_{h \in U(Z_n)} [h].
+Siccome il $\mcd(h, n) = 1$ e il $\mcd(a, n) = 1$, allora il $\mcd(a \cdot h, n) = 1$.
 
-Siccome il MCD(h, n) = 1 e il MCD(a, n) = 1, allora il MCD(a \cdot h, n) = 1.
+Quindi $\prod_{h \in U(Z_n)} [h \cdot a] = \prod_{h \in U(Z_n)} [h]$
 
-Quindi \prod_{h \in U(Z_n)} [h \cdot a] = \prod_{h \in U(Z_n)} [h]
-
-Segue che [a]^{\Phi(n)} = 1 \Rightarrow a^{\Phi(n)} \equiv_n 1.
+Segue che $[a]^{\Phi(n)} = 1 \Rightarrow a^{\Phi(n)} \equiv_n 1$.
 \end{proof}
 
 \begin{cor}[Piccolo teorema di Fermat]
-Dato p primo segue che a^{p-1} \equiv_p 1.
+Dato $p$ primo segue che $a^{p-1} \equiv_p 1$.
 \end{cor}
 
-\textbf{Esercizio:} calcolare le ultime 2 cifre di 81^{82}. Le ultime due cifre sono il resto modulo 100, quindi passando alle classi dobbiamo calcolare r < 100 tale che 81^{82} \equiv_{100} r, ossia il rappresentante della classe.
+\textbf{Esercizio:} calcolare le ultime 2 cifre di $81^{82}$. Le ultime due cifre sono il resto modulo 100, quindi passando alle classi dobbiamo calcolare $r < 100$ tale che $81^{82} \equiv_{100} r$, ossia il rappresentante della classe.
 
-Usiamo il teorema di Fermat. Calcoliamo 81^{\Phi (100)} \equiv_{100} 1. \Phi(100) = 40, possiamo quindi dire che 81^{40} \equiv_{100} 1.
+Usiamo il teorema di Fermat. Calcoliamo $81^{\Phi (100)} \equiv_{100} 1$. $\Phi(100) = 40$, possiamo quindi dire che $81^{40} \equiv_{100} 1$.
 
-Quindi: 81^{82} = 81^{80 + 2} = 81^{80} \cdot 81^{2} \equiv_{100} 1 \cdot 81^{2} = 6561 \equiv_{100} 61
+Quindi: $81^{82} = 81^{80 + 2} = 81^{80} \cdot 81^{2} \equiv_{100} 1 \cdot 81^{2} = 6561 \equiv_{100} 61$
 
-\subsection{Equazioni di primo grado in Z_n}
+\subsection{Equazioni di primo grado in $\mathbb{Z}_n$}
 
-Come \`e fatta un'equazione di primo grado in Z_n?
+Come \`e fatta un'equazione di primo grado in $Z_n$?
 
 \begin{enumerate}
-    \item se la vedo in Z_n, ho: a \cdot x = b con a, b, x \in Z_n
-    \item se la vedo come quoziente, ho: [a] \cdot [x] = [b] in Z / \equiv_n
-    \item se la vedo in Z, ho: a \cdot x \equiv_n b con a, b, x \in Z
+    \item se la vedo in $Z_n$, ho: $a \cdot x = b$ con $a, b, x \in Z_n$
+    \item se la vedo come quoziente, ho: $[a] \cdot [x] = [b]$ in $Z / \equiv_n$
+    \item se la vedo in $Z$, ho: $a \cdot x \equiv_n b$ con $a, b, x \in Z$
 \end{enumerate}
 
 \begin{oss}
-Le soluzioni di 3, se esistono, sono infinite, perch\'e se s \in Z \`e una soluzione, a \cdot s \equiv_n b. Quindi ogni altro s' \in [s] \`e tale che a \cdot s' \equiv_n b.
+Le soluzioni di 3, se esistono, sono infinite, perch\'e se $s \in Z$ \`e una soluzione, $a \cdot s \equiv_n b$. Quindi ogni altro $s' \in [s]$ \`e tale che $a \cdot s' \equiv_n b$.
 
-Passando alle classi si legge come [a \cdot s] = [b] \Rightarrow [a] c\dot [s] = [b], e prendendo [s'] = [s] anche [a] \cdot [s'] = [b]
+Passando alle classi si legge come $[a \cdot s] = [b] \Rightarrow [a] \cdot [s] = [b]$, e prendendo $[s'] = [s]$ anche $[a] \cdot [s'] = [b]$
 \end{oss}
 
 In generale si distinguono due casi:
 \begin{enumerate}
-    \item MCD(a, n) = 1 \Rightarrow [a] \`e invertibilie in Z / \equiv_n, ossia se a < n \Rightarrow a \`e invertibile in Z_n. Come si trova la soluzione?
+    \item $\mcd(a, n) = 1 \Rightarrow [a]$ \`e invertibilie in $Z / \equiv_n$, ossia se $a < n \Rightarrow a$ \`e invertibile in $Z_n$. Come si trova la soluzione?
     \begin{itemize}
-        \item Nel caso (1) a \cdot x = b in Z_n, x = a^{-1} \cdot b. La soluzione \`e unica.
-        \item Nel caso (2) [a] \cdot [x] = [b], allora la soluzione [x] = [a]^{-1} \cdot [b]. La soluzione \`e unica.
-        \item Nel caso (3) le soluzioni sono infinite e sono tutte congruenti a x modulo n.
+        \item Nel caso (1) $a \cdot x = b$ in $Z_n$, $x = a^{-1} \cdot b$. La soluzione \`e unica.
+        \item Nel caso (2) $[a] \cdot [x] = [b]$, allora la soluzione $[x] = [a]^{-1} \cdot [b]$. La soluzione \`e unica.
+        \item Nel caso (3) le soluzioni sono infinite e sono tutte congruenti a $x$ modulo $n$.
     \end{itemize}
-    \item MCD(a, n) = d > 1
+    \item $\mcd(a, n) = d > 1$
 \end{enumerate}
 
 \begin{exmp}
-3 x \equiv 2 \pmod{7}. Scrivo l'identit\`a di B\'ezouf:
-
+$3 x \equiv 2 \pmod{7}$. Scrivo l'identit\`a di B\'ezouf:
+\[
 1 = 3 \cdot s + 7 \cdot t = 3 \cdot (-2) + t \cdot (1)
-
+\]
 Quindi:
-
+\[
 [3] [x] = [2] \Rightarrow [x] = [3]^{-1} [2]
-
+\]
+\[
 [1] = [3] \cdot [-2] + [7] = [3] \cdot [-2] + [0] = [3] \cdot [-2] = [3] \cdot [5]
+\]
+$[-2] = -[2]$, qual \`e un rappresentante della classe $-[2]$? $-[2]$ \`e la classe che sommata a $[2]$ mi d\`a $[7] = [0]$. $[5] + [2] = [7]$
 
-[-2] = -[2], qual \`e un rappresentante della classe -[2]? -[2] \`e la classe che sommata a [2] mi d\`a [7] = [0]. [5] + [2] = [7]
-
-Quindi [x] = [5] \cdot [2] = [10] = [3]. La soluzione \`e [3]
+Quindi $[x] = [5] \cdot [2] = [10] = [3]$. La soluzione \`e $[3]$
 
 Un altro modo, sempre partendo dall'identit\`a di B\'ezouf, \`e:
 
-1 = 3 \cdot s + 7 \cdot t \Rightarrow 2 = 3 \cdot 2s + 14 \cdot t. Passo alle classi e ho:
-
+$1 = 3 \cdot s + 7 \cdot t \Rightarrow 2 = 3 \cdot 2s + 14 \cdot t$. Passo alle classi e ho:
+\[
 [x] = [3] [2s]
+\]
 \end{exmp}
 
-a, b \in Z e a,b > 0
+$a, b \in Z$ e $a,b > 0$
+\[
+S_{a,b} =  \{m \in N^+ : ax + by = m \text{ con } x,y \in Z \}
+\]
+Questo insieme ha un minimo $d = \inf S_{a,b} = MCD(a,b)$
 
-S_{a,b} =  \{m \in N^+ : ax + by = m con x,y \in Z \}
-
-Questo insieme ha un minimo d = inf S_{a,b} = MCD(a,b)
-
-Anche d si pu\`o scrivere come combinazione lineare di a e b. d \in S, d = a s + b t con s, t \in Z. Si chiama identit\`a di B\'ezouf. Le coppie s,t sono infinite.
-
+Anche $d$ si pu\`o scrivere come combinazione lineare di $a$ e $b$. $d \in S$, $d = a s + b t$ con $s, t \in Z$. Si chiama identit\`a di B\'ezouf. Le coppie $s,t$ sono infinite.
+\[
 D_{a,b} = \{ (s, t) \in Z \times Z : d = a s + b t \}
-
-Data una coppia (s,t), come posso trovarne un'altra? (s + k b, t - k a) \in D_{a,b} al variare di k \in Z. Andando a sostituire ho che:
-
+\]
+Data una coppia $(s,t)$, come posso trovarne un'altra? $(s + k b, t - k a) \in D_{a,b}$ al variare di $k \in Z$. Andando a sostituire ho che:
+\[
 a (s + kb) + b(t - ka) = as + kab + bt -kba = as + bt
-
+\]
 Per calcolare una identit\`a di B\'ezouf si usa l'algoritmo di Euclide delle divisioni successive.
 
 \begin{prop}
-S_{a,b} \`e l'insieme di tutti i multipli di d = MCD(a,b).
-
-S_{a,b} = \{ k d : k \in N^+ con d = MCD(a,b) \}
+$S_{a,b}$ \`e l'insieme di tutti i multipli di $d = \mcd(a,b)$.
+\[
+S_{a,b} = \{ k d : k \in N^+ \text{ con } d = \mcd(a,b) \}
+\]
 \end{prop}
 \begin{proof}
-Tesi: se m = kd \Rightarrow m \in S_{a,b}.
+Tesi: se $m = kd \Rightarrow m \in S_{a,b}$.
 
-m = k d = k (as + bt) = a (ks) + b (kt) \Rightarrow m \in S_{a,b} perch\'e possiamo prendere x = ks e y = kt.
+$m = k d = k (as + bt) = a (ks) + b (kt) \Rightarrow m \in S_{a,b}$ perch\'e possiamo prendere $x = ks e y = kt$.
 
-Viceversa se m \in S_{a,b} \Rightarrow m = kd.
+Viceversa se $m \in S_{a,b} \Rightarrow m = kd$.
 
-m = ax + by. Essendo d = MCD(a,b), ho che a = hd e b = h' d. Quindi m = hdx + h'dy = (hx + h'y) d \Rightarrow m \`e multiplo di d.
+$m = ax + by$. Essendo $d = \mcd(a,b)$, ho che $a = hd$ e $b = h' d$. Quindi $m = hdx + h'dy = (hx + h'y) d \Rightarrow m$ \`e multiplo di $d$.
 \end{proof}
-Quindi l'insieme S_{a,b} \`e l'insieme dei multipli del MCD.
+Quindi l'insieme $S_{a,b}$ \`e l'insieme dei multipli del $\mcd$.
 
 Teorema di Fermat:
 
-Se MCD(a, n) = 1 \Rightarrow a^{\Phi(n)} \equiv 1 \pmod n
+Se $\mcd(a, n) = 1 \Rightarrow a^{\Phi(n)} \equiv 1 \pmod n$
 
 Il teorema di Fermat \`e un corollario del teorema di Lagrange.
 
 Il teorema di Lagrange dice che dato un gruppo finito, l'ordine di ogni suo sottogruppo divide l'ordine del gruppo.
 
-Dato un gruppo G finito e S sottogruppo di G, |S| | |G| (ossia la cardinalit\`a di S divide la cardinalit\`a di G).
+Dato un gruppo $G$ finito e $S$ sottogruppo di $G$, $|S| \Big| |G|$ (ossia la cardinalit\`a di $S$ divide la cardinalit\`a di $G$).
 
 Perch\'e \`e una conseguenza? 
 
-\Phi(n) = | U(Z_n) | ossia la cardinalit\`a del gruppo degli elementi invertibili rispetto a \cdot dell'anello (Z_n, +, \cdot).
-
+$\Phi(n) = | U(Z_n) |$ ossia la cardinalit\`a del gruppo degli elementi invertibili rispetto a $\cdot$ dell'anello $(Z_n, +, \cdot)$.
+\[
 G = U(Z_n)
+\]
+$S = < a >$ \`e il sottogruppo generato da $a$, ossia tutte le potenze di $a$.
 
-S = < a > \`e il sottogruppo generato da a, ossia tutte le potenze di a.
-
-< a > = \{ a^0, \dots a^t \}. Ha t + 1 elementi. Quindi a^{t+1} = 1.
+$< a > = \{ a^0, \dots a^t \}$. Ha $t + 1$ elementi. Quindi $a^{t+1} = 1$.
 
 Esempio:
-(Z_12, +, \cdot) con Z_6 = \{0,1,2,3,4,5,6,7,8,9,10,11\}
+$(Z_12, +, \cdot)$ con $Z_12 = \{0,1,2,3,4,5,6,7,8,9,10,11\}$
+\[
+U(Z_12) = \{ a : \mcd(a, 12) = 1\} = \{ 1, 5, 7, 11 \}
+\]
+L'inverso di 5 \`e 5, perch\'e $5 \cdot 5 = 25 \equiv_{12} 1$. L'inverso di 7 \`e 7, l'inverso di 11 \`e 11. Abbiamo tre sottogruppi non banali di ordine 2.
 
-U(Z_12) = \{ a : MCD(a, 12) = 1\} = \{ 1, 5, 7, 11 \}
+Prendiamo il sottogruppo $S = \{ 1, 5 \}$. Dire che $\mcd(a, n) = 1$ significa che $a \in U(Z_n)$.
 
-L'inverso di 5 \`e 5, perch\'e 5 \cdot 5 = 25 \equiv_{12} 1. L'inverso di 7 \`e 7, l'inverso di 11 \`e 11. Abbiamo tre sottogruppi non banali di ordine 2.
+L'ordine \`e il pi\`u piccolo intero positivo che mi d\`a 1. Quindi $5^2 = 1$, essendo l'ordine di $S = \{ 1, 5 \}$ pari a 2.
 
-Prendiamo il sottogruppo S = \{ 1, 5 \}. Dire che MCD(a, n) = 1 significa che a \in U(Z_n).
+Siccome l'ordine $|< a >| = o | \Phi(n)$, $\Phi(n) = k \cdot o$. Quindi $a^{\Phi(n)} = a^{o \cdot k} = 1^k = 1$.
 
-L'ordine \`e il pi\`u piccolo intero positivo che mi d\`a 1. Quindi 5^2 = 1, essendo l'ordine di S = \{ 1, 5 \} pari a 2.
+Importante: $a \in U(Z_n) \Leftrightarrow \mcd(a, n) = 1$
 
-Siccome l'ordine |< a >| = o | \Phi(n), \Phi(n) = k \cdot o. Quindi a^{\Phi(n)} = a^{o \cdot k} = 1^k = 1.
-
-Importante: a \in U(Z_n) \Leftrightarrow MCD(a, n) = 1
-
-Equazioni in Z_n di primo grado
-
+Equazioni in $Z_n$ di primo grado
+\[
 ax = b, a, b \in Z_n, x \in Z_n
-
+\]
 \begin{enumerate}
-    \item MCD(a, n) = 1. a x = b ha una sola soluzione in Z_n x = a^{-1} \cdot b. Come si trova a^{-1}? Con l'identit\`a di B\'ezouf. Siccome MCD(a,n) = 1 \Rightarrow posso scrivere l'identit\`a di B\'ezouf per a, n. 1 = a \cdot s + n \cdot t. Passo alle classi modulo n.
+    \item $\mcd(a, n) = 1$. $a x = b$ ha una sola soluzione in $Z_n$ $x = a^{-1} \cdot b$. Come si trova $a^{-1}$? Con l'identit\`a di B\'ezouf. Siccome $\mcd(a,n) = 1 \Rightarrow$ posso scrivere l'identit\`a di B\'ezouf per $a, n$. $1 = a \cdot s + n \cdot t$. Passo alle classi modulo $n$.
 
-    [1] = [as] + [nt] = [as] + [0] = [a] [s] \Rightarrow [a^{-1}] = [s], ma poich\'e s = n q + r ho che r = a^{-1}
+    $[1] = [as] + [nt] = [as] + [0] = [a] [s] \Rightarrow [a^{-1}] = [s]$, ma poich\'e $s = n q + r$ ho che $r = a^{-1}$
 
-    1 = as + bt
-    ax = b
-    b = asb + ntb
-    [b] = [asb] = [a] [sb] = [a] [x]
+    $1 = as + bt$ \\
+    $ax = b$ \\
+    $b = asb + ntb$ \\
+    $[b] = [asb] = [a] [sb] = [a] [x]$
 
-    x = r, con sb = nq + r
+    $x = r$, con $sb = nq + r$
 
-    \item MCD(a, n) = d > 1
+    \item $\mcd(a, n) = d > 1$
 
     \begin{prop}
-    L'equazione a x = b ha soluzione in Z_n \Leftrightarrow d | b, altrimenti \`e incompatibile (non ha soluzioni).
+    L'equazione $a x = b$ ha soluzione in $Z_n \Leftrightarrow d | b$, altrimenti \`e incompatibile (non ha soluzioni).
     \end{prop}
     \begin{proof}
     Dimostriamo che \`e condizione necessaria.
 
-    Se a x = b \`e compatibile (ammette soluzioni) in Z_n, ossia \exists \ s \in Z_n t.c. a \cdot s = b, allora a s - b = q n, ossia \`e un multiplo di n. Quindi b = a \cdot s - q \cdot n, ossia b \in S_{a, n}. S_{a,n} sono tutti i multipli del MCD(a,n) = d \Rightarrow b = k \cdot d.
+    Se $a x = b$ \`e compatibile (ammette soluzioni) in $Z_n$, ossia $\exists \ s \in Z_n$ t.c. $a \cdot s = b$, allora $a s - b = q n$, ossia \`e un multiplo di $n$. Quindi $b = a \cdot s - q \cdot n$, ossia $b \in S_{a, n}$. $S_{a,n}$ sono tutti i multipli del $\mcd(a,n) = d \Rightarrow b = k \cdot d$.
 
     Dimostrare che la condizione \`e sufficiente segue il percorso inverso.
     \end{proof}
-    Vediamo come si calcolano le soluzioni di ax = b \in Z_n con MCD(a,n) = d > 1 e d | b.
+    Vediamo come si calcolano le soluzioni di $ax = b \in Z_n$ con $\mcd(a,n) = d > 1$ e $d | b$.
     \begin{oss}
-    MCD(a,n) = d \Leftrightarrow MCD(\frac{a}{d}, \frac{n}{d}) = 1
+    $\mcd(a,n) = d \Leftrightarrow \mcd(\frac{a}{d}, \frac{n}{d}) = 1$
     \end{oss}
     Quindi se prendo:
-
+    \[
     \frac{a}{d} x = \frac{b}{d} in Z_{\frac{n}{d}} 
+    \]
+    questa equazione ricade nel caso 1 e quindi ha una sola soluzione $s$.
 
-    questa equazione ricade nel caso 1 e quindi ha una sola soluzione s.
-
-    s \`e soluzione di \frac{a}{d} x = \frac{b}{d} in Z_{\frac{n}{d}} \Leftrightarrow s \`e soluzione di a \cdot x = b in Z_n.
+    $s$ \`e soluzione di $\frac{a}{d} x = \frac{b}{d}$ in $Z_{\frac{n}{d}} \Leftrightarrow s$ \`e soluzione di $a \cdot x = b$ in $Z_n$.
 
     Non \`e molto chiaro in questo modo. Scriviamolo come congruenza.
 
-    \frac{a}{d} x \equiv \frac{b}{d} \pmod \frac{n}{d} \Leftrightarrow s \`e soluzione a \cdot x \equiv b \pmod n
+    $\frac{a}{d} x \equiv \frac{b}{d} \pmod \frac{n}{d} \Leftrightarrow s$ \`e soluzione $a \cdot x \equiv b \pmod n$
 
     Chiamiamo (1) la prima parte e (2) la seconda
     \begin{proof}
     Da (1) segue che:
 
-    \frac{a}{d} s - \frac{b}{d} = q \frac{n}{d} \Rightarrow a s - b = q n \Rightarrow vale la (2).
+    $\frac{a}{d} s - \frac{b}{d} = q \frac{n}{d} \Rightarrow a s - b = q n \Rightarrow$ vale la (2).
 
     Viceversa basta seguire l'ordine inverso.
     \end{proof}
-    [s]_{\frac{n}{d}} \`e l'unica soluzione di [\frac{a}{d}]_{\frac{n}{d}} [x]_{\frac{n}{d}} = [\frac{b}{d}]_{\frac{n}{d}}, perch\'e il MCD(\frac{a}{d}, \frac{b}{d}) = 1
+    $[s]_{\frac{n}{d}}$ \`e l'unica soluzione di $[\frac{a}{d}]_{\frac{n}{d}} [x]_{\frac{n}{d}} = [\frac{b}{d}]_{\frac{n}{d}}$, perch\'e il $\mcd(\frac{a}{d}, \frac{b}{d}) = 1$
 
-    Le soluzioni di ax = b \pmod n si ripartiscono in classi di equivalenza modulo n e precisamente si ha [s]_{\frac{n}{d}} = [s]_{n} \cup [s + \frac{n}{d}]_{n} \cup \dots \cup [s + \frac{n}{d}(d-1)]_{n}
+    Le soluzioni di $ax = b \pmod n$ si ripartiscono in classi di equivalenza modulo $n$ e precisamente si ha $[s]_{\frac{n}{d}} = [s]_{n} \cup [s + \frac{n}{d}]_{n} \cup \dots \cup [s + \frac{n}{d}(d-1)]_{n}$
 
-    Ci\`o significa che le soluzioni di [a] \cdot [x] = [b] in Z / \equiv_n sono $d$, e sono le d-classi di equivalenza in cui si ripartisce l'unica soluzione [s]_{\frac{n}{d}} di [\frac{a}{d}] x = [\frac{b}{d}] in Z / \equiv_{\frac{n}{d}}
+    Ci\`o significa che le soluzioni di $[a] \cdot [x] = [b]$ in $Z / \equiv_n$ sono $d$, e sono le $d$-classi di equivalenza in cui si ripartisce l'unica soluzione $[s]_{\frac{n}{d}}$ di $[\frac{a}{d}] x = [\frac{b}{d}]$ in $Z / \equiv_{\frac{n}{d}}$
 
     \begin{proof}
-    Dimostriamo che: [s]_{\frac{n}{d}} = [s]_{n} \cup [s + \frac{n}{d}]_{n} \cup \dots \cup [s + \frac{n}{d}(d-1)]_{n}
+    Dimostriamo che: $[s]_{\frac{n}{d}} = [s]_{n} \cup [s + \frac{n}{d}]_{n} \cup \dots \cup [s + \frac{n}{d}(d-1)]_{n}$
 
-    t \in [s]_{\frac{n}{d}} \Leftrightarrow t - s = k \frac{n}{d}
+    $t \in [s]_{\frac{n}{d}} \Leftrightarrow t - s = k \frac{n}{d}$
 
-    Quindi : t = s + k \frac{n}{d}
+    Quindi : $t = s + k \frac{n}{d}$
 
-    Bisogna solo dimostrare che k < d
+    Bisogna solo dimostrare che $k < d$
 
-    Dividiamo per d:
+    Dividiamo per $d$:
 
-    k = n \cdot d + r
+    $k = n \cdot d + r$
 
-    Quindi t = s + (n d + r) \frac{n}{d}, e quindi
-    t = s + r \frac{n}{d}, perch\'e n \cdot d \equiv 0 \pmod n
+    Quindi $t = s + (n d + r) \frac{n}{d}$, e quindi
+    $t = s + r \frac{n}{d}$, perch\'e $n \cdot d \equiv 0 \pmod n$
 
-    Quindi t \in s + r \frac{n}{d} con r < d.
+    Quindi $t \in s + r \frac{n}{d}$ con $r < d$.
 
     Viceversa si segue l'ordine inverso.
 
-    Dobbiamo mostrare che le classi sono disgiunte. t \in [s + r \frac{n}{d}]_{n}, dove r < d \`e il resto della divisione di k per d. Non possono esserci due resti distinti, quindi [s + r_1 \frac{n}{d}] \cap [s + r_2 \frac{n}{d}] = \emptyset, perch\'e r_1 \neq r_2 ed entrambi r_1, r_2 < d.
+    Dobbiamo mostrare che le classi sono disgiunte. $t \in [s + r \frac{n}{d}]_{n}$, dove $r < d$ \`e il resto della divisione di $k$ per $d$. Non possono esserci due resti distinti, quindi $[s + r_1 \frac{n}{d}] \cap [s + r_2 \frac{n}{d}] = \emptyset$, perch\'e $r_1 \neq r_2$ ed entrambi $r_1, r_2 < d$.
     \end{proof}
 \end{enumerate}
 
 \begin{exmp}[Esempio del primo caso]
-3x = 11 \pmod 25
+$3x = 11 \pmod 25$
 
-MCD(3, 25) = 1 \Rightarrow ha una sola soluzione
+$\mcd(3, 25) = 1 \Rightarrow$ ha una sola soluzione
 
 Scrivo l'identit\`a di B\'ezouf
+\[
 1 = 3 (-8) + 25 (1) 
-
+\]
 Moltiplico entrambi i lati per 11:
+\[
 11 = 3 (-8) (11) + 25 (11)
-
+\]
 Passo alle classi:
+\[
 [11] = [3] [-8 \cdot 11] = [3] [17] [11] \Rightarrow [x] = [17] [11] = [11 \cdot 17] = [12]
+\]
+In $\mathbb{Z}$ ha infinite soluzioni, tutti gli interi nella classe $[12]$.
 
-In Z ha infinite soluzioni, tutti gli interi nella classe [12].
+L'unica soluzione in $Z_{25}$ \`e $x = 12$.
 
-L'unica soluzione in Z_{25} \`e x = 12.
-
-Vedendola come classi, [a] [x] = [b] in Z / \equiv_{25} l'unica soluzione \`e la classe [12] = [x].
+Vedendola come classi, $[a] [x] = [b]$ in $Z / \equiv_{25}$ l'unica soluzione \`e la classe $[12] = [x]$.
 \end{exmp}
 
 \begin{exmp}[Esempio del secondo caso]
-200 x \equiv 62 \pmod 22
+$200 x \equiv 62 \pmod 22$
 
 Dobbiamo anzitutto verificare la compatibilit\`a dell'equazione.
-
-MCD(200, 22) = 2
-
-Ha soluzioni, poich\'e 2 | 62.
+\[
+\mcd(200, 22) = 2
+\]
+Ha soluzioni, poich\'e $2 | 62$.
 
 Consideriamo l'equazione ottenuta dividendo tutto per 2.
-
+\[
 \frac{200}{2} x \equiv \frac{62}{2} \pmod 22 \Rightarrow 100 x \equiv 31 \pmod 11
-
-100 x \equiv 31 \pmod 11 ha un'unica soluzione, essendo che MCD(100, 11) = 1. Troviamo l'identit\`a di B\'ezouf 1 = 100 \cdot s + 11 \cdot t.
-
+\]
+$100 x \equiv 31 \pmod 11$ ha un'unica soluzione, essendo che $\mcd(100, 11) = 1$. Troviamo l'identit\`a di B\'ezouf $1 = 100 \cdot s + 11 \cdot t$.
+\[
 1 = 100 (s) + 11 (t) \Rightarrow 1 = 100 (1) + 11 (-9)
+\]
+La soluzione \`e la classe $[1]_{11}$. Va ripartita in 2 classi modulo 22.
 
-La soluzione \`e la classe [1]_{11}. Va ripartita in 2 classi modulo 22.
-
-[1]_{22} e [1 + \frac{n}{d}]_{22} = [1 + \frac{22}{2}]_{22} = [1 + 11]_{22} = [12]_{22} 
+$[1]_{22}$ e $[1 + \frac{n}{d}]_{22} = [1 + \frac{22}{2}]_{22} = [1 + 11]_{22} = [12]_{22} $
 \end{exmp}
 
 
