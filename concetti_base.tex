@@ -29,7 +29,7 @@ Il concetto pu\`o essere generalizzato da coppie a terne, quaterne, e in general
 
 Una relazione binaria tra due insiemi \`e un sottonisieme di $A \times B$. Il prodotto cartesiano non \`e associativo, ma i due insiemi $A \times B$ e $B \times A$ hanno la stessa cardinalit\`a.
 
-Una funzione da un'insieme $A$ ad un insieme $B$ \`e una terna $(A, B, f)$ o $f : A \to B$, dove $A$ si dice Dominio, $B$ si dice Codominio, ed $f$ \`e una relazione ($f \subseteq A \times B$) t.c. $\forall \ a \in A \ \exists \text{ un solo } b \in B \text{ t.c. } (a,b) \in f$, ossia che $b = f(a)$.
+Una funzione da un'insieme $A$ ad un insieme $B$ \`e una terna $(A, B, f)$ o $f : A \to B$, dove $A$ si dice Dominio, $B$ si dice Codominio, ed $f$ \`e una relazione ($f \subseteq A \times B$) t.c. $\forall a \in A \exists \text{ un solo } b \in B \text{ t.c. } (a,b) \in f$, ossia che $b = f(a)$.
 
 Esiste una funzione da $A = \emptyset$ a $B \neq \emptyset$? S\`i, la funzione $(\emptyset, B, \emptyset)$. Viceversa, una funzione da $A \neq \emptyset$ a $B = \emptyset$ non esiste.
 
@@ -50,7 +50,7 @@ R_3 = \left\{ (r, s) \in \mathbb{R}^+ \times \mathbb{R}^+ : r = s^2 \right\}
 \`E una funzione. Perch\'e?
 \vspace{3cm}
 
-\begin{defn}
+\begin{defn}[Uguaglianza tra funzioni]
 Due funzioni sono uguali solo se coincidono come terne.
 \end{defn}
 
@@ -58,11 +58,11 @@ Per definire una funzione bisogna definire l'insieme del Dominio, definire l'ins
 
 Sia $f : A \to B$ una funzione, $Im_f =$ immagine di $f$.
 \[
-Im_f = \left\{ b \in B : \exists \ a \in A \text{ t.c. } f(a) = b \right\}
+Im_f = \left\{ b \in B : \exists a \in A \text{ t.c. } f(a) = b \right\}
 \]
 
 \[
-f : \mathbb{N} \to \mathbb{N} \text{ t.c. } \forall \ n \in \mathbb{N} \ f(n) = 
+f : \mathbb{N} \to \mathbb{N} \text{ t.c. } \forall n \in \mathbb{N} \ f(n) = 
 \begin{cases} 
 n - 1 & \text{se $n$ \`e pari} \\
 n + 1 & \text{se $n$ \`e dispari}
@@ -71,7 +71,7 @@ n + 1 & \text{se $n$ \`e dispari}
 Non \`e una funzione perch\'e lo zero non ha immagine.
 
 \[
-f : \mathbb{R} \to \mathbb{R} \text{ t.c. } \forall \ r \in \mathbb{R} \ f(r) = 
+f : \mathbb{R} \to \mathbb{R} \text{ t.c. } \forall r \in \mathbb{R} \ f(r) = 
 \begin{cases}
 r^2 + 1 & \text{ se r $\leq$ 0 } \\
 r & \text{ se r $\geq$ 0} 
@@ -98,7 +98,7 @@ f: \mathbb{R} \times \mathbb{R} \to \mathbb{R} \text{ t.c. } f(x,y) = \sqrt{2}x 
 Non \`e iniettiva, perch\'e $(1,0)$ e $(0,\sqrt{2})$ hanno la stessa immagine. \`E suriettiva.
 
 \[
-\forall \ r \in \mathbb{R} \ \exists \ (x,y) \in \mathbb{R} \times \mathbb{R} \text{ t.c. } f(x,y) = \sqrt{2} x + y = r
+\forall r \in \mathbb{R} \exists (x,y) \in \mathbb{R} \times \mathbb{R} \text{ t.c. } f(x,y) = \sqrt{2} x + y = r
 \]
 Basta scegliere $(0,r)$ e $f(0,r) = r$.
 
@@ -106,23 +106,23 @@ Determiniamo le immagini della funzione per i Domini dati.
 
 \begin{gather*}
 A = \left\{ \left( a, - \sqrt{2}a\right) : a \in \mathbb{R}  \right\} \\
-f(A) = \left\{ r \in \mathbb{R} : \exists \ (a, - \sqrt{2}a) \text{ t.c. } f(a, - \sqrt{2} a) = r \right\} = \left\{ 0 \right\}
+f(A) = \left\{ r \in \mathbb{R} : \exists (a, - \sqrt{2}a) \text{ t.c. } f(a, - \sqrt{2} a) = r \right\} = \left\{ 0 \right\}
 \end{gather*}
 \begin{gather*}
 C = \left\{ (a, \sqrt{2} b) : a, b \in \mathbb{Z} \right\} \\
-f(C) = \left\{ r \in \mathbb{R} : \exists \ (a, \sqrt{2} b) \text{ t.c. } f(a, \sqrt{2}b) = r \right\} \\
+f(C) = \left\{ r \in \mathbb{R} : \exists (a, \sqrt{2} b) \text{ t.c. } f(a, \sqrt{2}b) = r \right\} \\
 r = f(a, \sqrt{2} b) = \sqrt{2} a + \sqrt{2} b = \sqrt{2} (a + b) \\
 (a+b) \in \mathbb{Z} \\
 r \in \sqrt{2} \mathbb{Z} = \left\{z : z = \sqrt{2} t \text{ con } t \in \mathbb{Z} \right\}
 \end{gather*}
 
-L'insieme delle funzioni da $A$ in $B$ si indica con $B^A$. Questo insieme verifica tutte le propriet\`a delle potenze. Alla somma corrisponde l'unione, al prodotto corrisponde il prodotto cartesiano. Inoltre $|B| = m$, $|A| = n$, $|B^A| = m^n$.
+L'insieme delle funzioni da $A$ in $B$ si indica con $B^A$. Questo insieme verifica tutte le propriet\`a delle potenze. Alla somma corrisponde l'unione, al prodotto corrisponde il prodotto cartesiano. Inoltre $\abs{B} = m$, $\abs{A} = n$, $\abs{B^A} = m^n$.
 
 \subsubsection{Composizione}
 
 Date le funzioni $f : A \to B$ e $g : B \to C$, la composizione di $f$ e $g$ (``$f$ composto $g$'') $g \circ f : A \to C$ \`e definita come:
 \[
-\forall \ a \in A , \ {g \circ f}(a) = g(f(a))
+\forall a \in A , \ {g \circ f}(a) = g(f(a))
 \]
 L'operazione di composizione \`e una funzione $f : B^A \times C^B \to C^A$.
 
@@ -138,13 +138,13 @@ Una relazione su un insieme $A$ \`e un sottoinsieme $R \subseteq A \times A$. I 
 \begin{description}
     \item[Relazioni d'ordine] Si indica con $\le$, $a \leq b$ indica che $a$ \`e in relazione con $b$. Propriet\`a:
     \begin{description}
-        \item [Riflessiva] $\forall \ x \in A : x \leq x$
-        \item [Antisimmetrica] $\forall \ x, y \in A \text{ se } x \leq y \text{ e }  y \leq x \Rightarrow x = y$
-        \item [Transitiva] $\forall \ x, y, z \in A \text{ se } x \leq y \text{ e } y \leq z \Rightarrow x \leq z$
+        \item [Riflessiva] $\forall x \in A : x \leq x$
+        \item [Antisimmetrica] $\forall x, y \in A \text{ se } x \leq y \text{ e }  y \leq x \Rightarrow x = y$
+        \item [Transitiva] $\forall x, y, z \in A \text{ se } x \leq y \text{ e } y \leq z \Rightarrow x \leq z$
     \end{description}
     \item[Relazioni di equivalenza] Si indica con $\varepsilon$, $a \varepsilon b$ indica che $a$ \`e in relazione con $b$. Propriet\`a:
     \begin{description}
-      \item [Riflessiva] (vedi sopra), posso scriverla anche come $\forall \ a \in A \ \exists \ x \in A : a \varepsilon x$
+      \item [Riflessiva] (vedi sopra), posso scriverla anche come $\forall a \in A \exists x \in A : a \varepsilon x$
       \item [Simmetrica] $x \varepsilon y \Rightarrow y \varepsilon x$.
       \item [Transitiva] (vedi sopra)
     \end{description}
@@ -157,16 +157,18 @@ Le tre propriet\`a di una relazione d'ordine (riflessiva, antisimmetrica e trans
   \item Riflessiva e antisimmetrica, ma non transitiva: definita su $\mathbb{N}, x R y \Leftrightarrow x - y \le 2$.
 \end{itemize}
 
-\textbf{Esercizio:} trovare altri esempi.
+\begin{esercizio}
+Trovare altri esempi.
 
 \vspace{5cm}
+\end{esercizio}
 
 Anche le propriet\`a delle relazioni d'equivalenza sono indipendenti. Potrebbe sembrare che la propriet\`a riflessiva sia conseguenza della propriet\`a simmetrica e della propriet\`a transitiva.
 \begin{gather*}
 x \varepsilon y \Rightarrow y \varepsilon x \text{ per la propriet\`a simmetrica} \\
 x \varepsilon y , y \varepsilon x \Rightarrow x \varepsilon x \text{ per la propriet\`a transitiva}
 \end{gather*}
-L'errore \`e che $x \varepsilon y$ non \`e dato \textit{per ogni $x$}: la relazione \`e riflessiva se $\forall \ x \in A \ \exists \ y : x \varepsilon y \Leftrightarrow $ la relazione \`e riflessiva.
+L'errore \`e che $x \varepsilon y$ non \`e dato \textit{per ogni $x$}: la relazione \`e riflessiva se $\forall x \in A \exists y : x \varepsilon y \Leftrightarrow $ la relazione \`e riflessiva.
 
 Altri esempi di relazioni con solo alcune delle propriet\`a delle relazioni d'ordine:
 \begin{itemize}
@@ -179,13 +181,15 @@ Altri esempi di relazioni con solo alcune delle propriet\`a delle relazioni d'or
   \item Relazione riflessiva, simmetrica ma non transitiva: dato l'insieme delle rette nello spazio euclideo, $r R s \Leftrightarrow r $ \`e complanare a $s$ ($r // s$ - $r$ parallela ad $s$ - oppure $r \cap s = \{ P \}$ - si incontrano in un punto).
 \end{itemize}
 
-\textbf{Esercizio}: verificare le propriet\`a delle seguenti relazioni.
+\begin{esercizio}
+Verificare le propriet\`a delle seguenti relazioni.
 \begin{itemize}
   \item Parallelismo tra rette dello spazio \vspace{3cm}
   \item $\mathbb{N} \times \mathbb{N}, (m, n) \rho (p, q) \Leftrightarrow (m + q) = (p + n)$, ossia $m - n = p - q$. \vspace{3cm}
-  \item $a, b \in \mathbb{Z}, a \equiv_n b \Leftrightarrow n | (a - b) \Leftrightarrow (a-b) = k n$ (congruenza modulo $n \in \mathbb{N}, n \ge 2$) \vspace{3cm}
+  \item $a, b \in \mathbb{Z}, a \equiv_n b \Leftrightarrow n \divides (a - b) \Leftrightarrow (a-b) = k n$ (congruenza modulo $n \in \mathbb{N}, n \ge 2$) \vspace{3cm}
   \item Data una funzione $f: A \to B $, $ \varepsilon_f = $ \`e relazione di equivalenza individuata da $f$, detta ``nucleo di $f$''. \`E una relazione su $A$ t.c. $a, a' \in A, a \varepsilon_f a' \Leftrightarrow f(a) = f(a')$. \vspace{3cm}
 \end{itemize}
+\end{esercizio}
 
 Data una relazione $R \subseteq A \times B$, possiamo definire $R^{\ast} = $ relazione duale di $R$. Due elementi $(a,b) \in A \times B$ sono $a \ R^{\ast} \ b \Leftrightarrow b \ R \ a$. Ad esempio, se $A = $ insieme di persone e $R = a $ figlio di $b$, la relazione duale \`e $R^{\ast} = b $ \`e genitore di $a$.
 
@@ -193,9 +197,9 @@ La duale di una relazione d'ordine \`e ancora una relazione d'ordine, e viene ti
 
 La coppia $(P, \leq)$ data dall'insieme $P \neq \emptyset$ con una relazione d'ordine $\le$ si dice insieme parzialmente ordinato.
 
-Se $\forall \ x, y \in P$ e si ha che $x \leq y \lor y \leq x$, $(P, \leq)$ si dice linearmente ordinato (o totalmente ordinato).
+Se $\forall x, y \in P$ e si ha che $x \leq y \lor y \leq x$, $(P, \leq)$ si dice linearmente ordinato (o totalmente ordinato).
 
-L'insieme dei numeri naturali $\mathbb{N}$ con la relazione d'ordine naturale $(\mathbb{N}, \leq)$ \`e totalmente ordinato. Ma possiamo prendere anche l'insieme dei numeri naturali con la relazione di divisibilit\`a $(\mathbb{N}, |)$, ossia $m | n \Leftrightarrow m \text{ divide } n \Leftrightarrow \exists \ k \in \mathbb{N}$ t.c. $n = k \ m$. Rispetto a questa relazione d'ordine, $\mathbb{N}$ non \`e totalmente ordinato.
+L'insieme dei numeri naturali $\mathbb{N}$ con la relazione d'ordine naturale $(\mathbb{N}, \leq)$ \`e totalmente ordinato. Ma possiamo prendere anche l'insieme dei numeri naturali con la relazione di divisibilit\`a $(\mathbb{N}, \divides)$, ossia $m \divides n \Leftrightarrow m \text{ divide } n \Leftrightarrow \exists k \in \mathbb{N}$ t.c. $n = k \ m$. Rispetto a questa relazione d'ordine, $\mathbb{N}$ non \`e totalmente ordinato.
 
 L'insieme delle parti di un insieme $\Gamma$ qualunque con la relazione ``\`e sottoinsieme di'' $\left(\mathbb{P}(\Gamma), \subseteq \right)$ \`e un insieme parzialmente ordinato. 
 
@@ -216,7 +220,7 @@ Si pu\`o generalizzare anche a $(P^n, \le)$, prendendo le $n$-uple al posto dell
 \end{defn}
 
 \begin{defn}[Ordine fra funzioni]\label{ordine_funzioni}
-Se prendo un insieme parzialmente ordinato $(P, \le)$ e un insieme qualsiasi $A$, posso definire una relazione su $(P^A, \le)$ (ricordando che $P^A$ \`e l'insieme di tutte le funzioni da $A$ a $P$). Come faccio a dire che date $f, g \in P^A \ f \le g$? Se $\forall \ a \in A \ f(a) \le g(a)$.
+Se prendo un insieme parzialmente ordinato $(P, \le)$ e un insieme qualsiasi $A$, posso definire una relazione su $(P^A, \le)$ (ricordando che $P^A$ \`e l'insieme di tutte le funzioni da $A$ a $P$). Come faccio a dire che date $f, g \in P^A \ f \le g$? Se $\forall a \in A \ f(a) \le g(a)$.
 \end{defn}
 
 \subsection{Diagramma di Hasse}
@@ -274,16 +278,18 @@ Dato un insieme e una relazione di ordine parziale su di esso $(A, \leq)$, rappr
             (3) edge node {} (1)
             ;
 \end{tikzpicture}
-\caption{Diagramma di Hasse della relazione $(A,|)$ sull'insieme $A = \{n \in \mathbb{N} : n | 24\} = \{ 1, 2, 3, 4, 6, 8, 12, 24 \} $}
+\caption{Diagramma di Hasse della relazione $(A,\divides)$ sull'insieme $A = \{n \in \mathbb{N} : n \divides 24\} = \{ 1, 2, 3, 4, 6, 8, 12, 24 \} $}
 \end{figure}
 
-\begin{theorem}
+\begin{theorem}[Ordinamento totale]
 Ogni insieme \`e suscettibile di un ordine totale, ossia si pu\`o totalmente ordinare.
 \end{theorem}
 
-\textbf{Esercizio:} determinare due ordini diversi su $\mathbb{Q}$.
+\begin{esercizio}
+Determinare due ordini diversi su $\mathbb{Q}$.
 
 \vspace{5cm}
+\end{esercizio}
 
 \subsection{INF e SUP}
 
@@ -306,20 +312,20 @@ Ossia, $\inf(x,y)$ \`e il pi\`u grande dei minoranti di $x,y$ e $\sup(x,y)$ \`e 
 
 Prendiamo l'insieme $\Gamma$, il suo insieme delle parti e la relazione ``\`e sottoinsieme di'' $(P(\Gamma),\subseteq)$, e due sottoinsiemi $A, B \subseteq \Gamma$, l'$\inf(A,B) = A \cap B$. Il $\sup(A,B) = A \cup B$.
 
-Prendiamo $(\mathbb{N},|)$ e due elementi $m, n$. L'$\inf(m,n) = \operatorname{MCD}(m,n)$, mentre il $\sup(m,n) = \operatorname{mcm}(m,n)$.
+Prendiamo $(\mathbb{N},\divides)$ e due elementi $m, n$. L'$\inf(m,n) = \operatorname{MCD}(m,n)$, mentre il $\sup(m,n) = \operatorname{mcm}(m,n)$.
 
 \section{Reticoli}
-\begin{defn}
-L'insieme parzialmente ordinato $(L, \leq)$ \`e un reticolo se $\forall \ x, y \in L $ esiste $\inf(x,y)$ ed esiste $\sup(x,y)$.
+\begin{defn}[Reticolo]
+L'insieme parzialmente ordinato $(L, \leq)$ \`e un reticolo se $\forall x, y \in L $ esiste $\inf(x,y)$ ed esiste $\sup(x,y)$.
 \end{defn}
 
 Posso interpretare i reticoli anche come strutture algebriche. Si possono definire due operazioni su $L$. 
 
 \begin{defn}[Operazione di $\inf$]
-Indicata con $\wedge: L \times L \to L$, definita come $ \forall \ (x,y) \in L \times L , \ x \wedge y = \inf(x,y) $.
+Indicata con $\wedge: L \times L \to L$, definita come $ \forall (x,y) \in L \times L , \ x \wedge y = \inf(x,y) $.
 \end{defn}
 \begin{defn}[Operazione di $\sup$]
-L'operazione di $\sup $, indicata con $ \vee: L \times L \to L$, definita come $\forall \ (x,y) \in L \times L , \ x \vee y = \sup(x,y)$.
+L'operazione di $\sup $, indicata con $ \vee: L \times L \to L$, definita come $\forall (x,y) \in L \times L , \ x \vee y = \sup(x,y)$.
 \end{defn}
 
 Ho definito quindi la struttura algebrica $(L, \wedge, \vee)$. Le due operazioni hanno le seguenti propriet\`a, dette \label{proprieta_dei_reticoli} \textbf{propriet\`a dei reticoli}:
@@ -347,15 +353,15 @@ x \wedge (y \wedge z) \leq x, y \Rightarrow x \wedge (y \wedge z) \leq x \wedge 
 Il secondo caso si dimostra subito perch\'e $y \wedge z \leq z, y \Rightarrow y \wedge z \leq z$ \`e vero per definizione di $\inf$. 
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[Relazioni d'ordine sui reticoli]
 Data una struttura algebrica $(L, \wedge, \vee)$ verificante le quattro propriet\`a dei reticoli, \`e possibile definire su $L$ una relazione d'ordine $\le$ t.c. $ x \wedge y = \inf(x,y) $ e $ x \vee y = \sup(x,y) $ in $ (L, \le)$, ossia $x \le y \Leftrightarrow x \wedge y = x $ (o anche $ x \vee y = y$).
 \end{theorem}
 \begin{proof}
 Dimostriamo che \`e una relazione d'ordine.
 \begin{itemize}
     \item Propriet\`a riflessiva: $x \le x$ per \ref{itm:r1}.
-    \item Antisimmetrica: $\forall \ x, y \in A \text{ se } x \leq y \text{ e }  y \leq x \Rightarrow x = y$. Dimostrazione: $x \le y \Rightarrow x \wedge y = x$, e $y \le x \Rightarrow y \wedge x = y$. Per \ref{itm:r2} $x = x \wedge y = y \wedge x = y$, per cui $x = y$.
-    \item Transitiva: $\forall \ x, y, z \in A \text{ se } x \leq y \land y \leq z \Rightarrow x \leq y$. Dimostrazione: $x \le y \Rightarrow x \wedge y = x$, $y \le z \Rightarrow y \wedge z = y$, da cui $x \le z$. Devo quindi dimostrare che $x \wedge z = x$, quindi che $(x \wedge y) \wedge z = x$. Per \ref{itm:r3} $(x \wedge y) \wedge z = x \wedge (y \wedge z) = x \wedge y = x$. 
+    \item Antisimmetrica: $\forall x, y \in A \text{ se } x \leq y \text{ e }  y \leq x \Rightarrow x = y$. Dimostrazione: $x \le y \Rightarrow x \wedge y = x$, e $y \le x \Rightarrow y \wedge x = y$. Per \ref{itm:r2} $x = x \wedge y = y \wedge x = y$, per cui $x = y$.
+    \item Transitiva: $\forall x, y, z \in A \text{ se } x \leq y \land y \leq z \Rightarrow x \leq y$. Dimostrazione: $x \le y \Rightarrow x \wedge y = x$, $y \le z \Rightarrow y \wedge z = y$, da cui $x \le z$. Devo quindi dimostrare che $x \wedge z = x$, quindi che $(x \wedge y) \wedge z = x$. Per \ref{itm:r3} $(x \wedge y) \wedge z = x \wedge (y \wedge z) = x \wedge y = x$. 
 \end{itemize}
 Rimane da dimostrare che $x \wedge y = \inf(x,y)$. Devo dimostrare due cose:
 \begin{enumerate}
@@ -384,7 +390,7 @@ Ci sono altre due propriet\`a dei reticoli:
   x \vee z \le y \vee z
   \end{cases}
   \]
-  \item [R6\label{itm:disuguaglianza_distributiva}] Disuguaglianza distributiva. In ogni reticolo $(L, \le) \ \forall \ x, y, z \in L $ si ha:
+  \item [R6\label{itm:disuguaglianza_distributiva}] Disuguaglianza distributiva. In ogni reticolo $(L, \le) \forall x, y, z \in L $ si ha:
   \[
   x \vee (y \wedge z) \le (x \vee y) \wedge (x \vee z)
   \]
@@ -427,7 +433,7 @@ Vediamo che le propriet\`a dei reticoli sono formule duali.
 
 Perch\`e bisogna scambiare le relazioni d'ordine? Dato un reticolo $(L, \le)$ e il suo duale $(L, \ge)$, il $\sup^{\ast} (x,y) = \inf(x,y)$, e l'$\inf^{\ast}(x,y) = \sup(x,y)$.
 
-\begin{theorem}
+\begin{theorem}[Dualit\`a]
 Se in un reticolo $(L, \le)$ \`e vero un enunciato $\xi$ relativo a stringhe del tipo $E(\wedge, \vee) \Rightarrow $ \`e vero l'enunciato duale $\xi^{\ast}$ di $\xi$ che si ottiene da $\xi$ sostituendo ad ogni stringa $E(\wedge, \vee)$ la stringa $E^{\ast}(\vee, \wedge)$, e se $E_i (\wedge, \vee) \le E_2 (\wedge, \vee)$, allora $E_i^{\ast} (\vee, \wedge) \ge E_2^{\ast} (\vee, \wedge)$.
 \end{theorem}
 Ogni volta che dimostro un teorema sui reticoli, \`e vero anche il teorema duale. 
@@ -438,9 +444,11 @@ x \wedge (y \vee z) \ge (x \wedge y) \vee (x \wedge z)
 \]
 Che \`e anche la propriet\`a di disuguaglianza distributiva in $(L^{\ast}, \ge)$.
 
-\textbf{Esercizio:} $\xi$: in un reticolo $(L, \le)$ si ha che $x \le z, y \in L \Rightarrow x \vee (y \wedge z) \le (x \vee y) \wedge z$ (disuguaglianza modulare). Dimostrarlo.
+\begin{esercizio}
+$\xi$: in un reticolo $(L, \le)$ si ha che $x \le z, y \in L \Rightarrow x \vee (y \wedge z) \le (x \vee y) \wedge z$ (disuguaglianza modulare). Dimostrarlo.
 
 \vspace{5cm}
+\end{esercizio}
 
 \begin{defn}[Reticolo distributivo]
 Se in $(L, \le)$ vale l'identit\`a $x \wedge (y \vee z) = (x \wedge y) \vee (x \wedge z)$, il reticolo si dice distributivo. Vale anche la duale.
@@ -470,32 +478,40 @@ Prendiamo ad esempio il reticolo in figura \ref{fig:mod_not_distr}: $(x \wedge y
 
 Mentre \`e modulare: prendiamo la coppia $0 \le x$ in relazione e $y \in L$ non in relazione con $x$ (lo scegliamo non in relazione con $x$ perch\'e altrimenti sarebbe banale la dimostrazione). $ 0 \vee (y \wedge x) = 0 \vee 0 = 0$, e $(0 \vee y) \wedge x = 0 \wedge x = 0$. Quindi, \`e modulare.
 
+\begin{esercizio}
 L'insieme delle parti \`e un reticolo distributivo, e quindi anche modulare. Dimostrarlo.
 
 \vspace{5cm}
+\end{esercizio}
 
-\textbf{Esercizio:} $(\mathbb{N}, |)$ \`e un reticolo distributivo?
+\begin{esercizio}
+$(\mathbb{N}, \divides)$ \`e un reticolo distributivo?
 
 \vspace{5cm}
+\end{esercizio}
+
 
 \section{Partizioni di $A$}
 
 \begin{defn}[Partizione]\label{partizione}
 Una partizione di $A$ \`e un insieme di sottoinsiemi di $A$, indicato con $\pi$, tale che:
 \begin{description}
-  \item[P1\label{itm:P1}] $\forall \ B \in \pi , \ B \neq \emptyset$
+  \item[P1\label{itm:P1}] $\forall B \in \pi , \ B \neq \emptyset$
   \item[P2\label{itm:P2}] $B, C \in \pi , \ B \cap C \neq \emptyset \Rightarrow B = C$
-  \item[P3\label{itm:P3}] $\forall \ a \in A \ \exists \ B \in \pi : a \in B$
+  \item[P3\label{itm:P3}] $\forall a \in A \exists B \in \pi : a \in B$
 \end{description}
 \end{defn}
 Una partizione $\pi$ \`e un insieme di sottoinsiemi non vuoti di $A$ t.c. hanno intersezione disgiunta e la loro unione \`e $A$. In altre parole, ogni elemento di $A$ appartiene ad un solo elemento di $\pi$.
 
 Gli elementi di una partizione sono chiamati ``blocchi''.
 
-Prendiamo $A = \mathbb{R}^2$. Posso pensare due partizioni banali: $\pi_0 = \left\{ B \subseteq \mathbb{R}^2 : |B| = 1 \right\}$, $\pi_1 = \left\{ \mathbb{R}^2 \right \}$.
+Prendiamo $A = \mathbb{R}^2$. Posso pensare due partizioni banali: $\pi_0 = \left\{ B \subseteq \mathbb{R}^2 : \abs{B} = 1 \right\}$, $\pi_1 = \left\{ \mathbb{R}^2 \right \}$.
 
-\textbf{Esercizio:} indicare altre partizioni su $\mathbb{R}^2$.
+\begin{esercizio}
+Indicare altre partizioni su $\mathbb{R}^2$.
+
 \vspace{5cm}
+\end{esercizio}
 
 \subsection{Classi di equivalenza}
 \begin{defn}[Classe di equivalenza]
@@ -505,18 +521,18 @@ Prendiamo una relazione di equivalenza $\varepsilon \subseteq A \times A$. Defin
 \]
 $[a]$ si chiama ``classe di equivalenza rappresentata da $a$''.
 \end{defn}
-\begin{prop}\label{insieme_quoziente}
+\begin{prop}[Insieme quoziente\label{insieme_quoziente}]
 Se considero l'insieme delle classi di equivalenza $A / \varepsilon$, chiamato ``insieme quoziente'', questo insieme \`e una partizione di $A$.
 \[
 A/\varepsilon = \left\{ [a] \subseteq \mathbb{P}(A) : [a] \text{ \`e una classe di equivalenza} \right\}
 \]
 \end{prop}
-\begin{proof}[Dimostrazione di \ref{insieme_quoziente}]
+\begin{proof}[Dimostrazione della proposizione \ref{insieme_quoziente}]
 Bisogna dimostrare le tre propriet\`a specificate in \ref{partizione}.
 \begin{itemize}
   \item $[a] \neq \emptyset$ \`e vero perch\'e la relazione \`e riflessiva, ed $a$ \`e in relazione almeno con s\'e stesso.
-  \item $[a] \cap [b] \neq \emptyset \Rightarrow [a] = [b]$. Supponiamo esista $z \in [a] \cap [b] \Rightarrow a \varepsilon z$ e $b \varepsilon z$. Essendo la relazione simmetrica e transitiva, $z \varepsilon b \Rightarrow a \varepsilon b$. Per la propriet\`a simmetrica, di nuovo, $b \varepsilon a$. Quindi $ \forall \ x \in [a] \Rightarrow a \varepsilon x $ e per transitivit\`a $ b \varepsilon x$.
-  \item $\forall \ a \in A \ \exists \ B \in \pi : a \in B$. Banalmente, ogni $\forall \ a \in A : a \in [a]$ con $[a] \in \mathbb{P}(A)$ per la propriet\`a riflessiva.
+  \item $[a] \cap [b] \neq \emptyset \Rightarrow [a] = [b]$. Supponiamo esista $z \in [a] \cap [b] \Rightarrow a \varepsilon z$ e $b \varepsilon z$. Essendo la relazione simmetrica e transitiva, $z \varepsilon b \Rightarrow a \varepsilon b$. Per la propriet\`a simmetrica, di nuovo, $b \varepsilon a$. Quindi $ \forall x \in [a] \Rightarrow a \varepsilon x $ e per transitivit\`a $ b \varepsilon x$.
+  \item $\forall a \in A \exists B \in \pi : a \in B$. Banalmente, ogni $\forall a \in A : a \in [a]$ con $[a] \in \mathbb{P}(A)$ per la propriet\`a riflessiva.
 \end{itemize}
 \end{proof}
 
@@ -526,7 +542,7 @@ Consideriamo l'insieme quoziente $\mathbb{Z} / \equiv_{n}$, con $\equiv_{n} $ si
 
 $\equiv_{n}$ con $n \in \mathbb{N}, n \ge 2$, \`e definita, con $ k \in \mathbb{Z}$, come:
 \[
-\forall \ a, b \in \mathbb{Z}, a \equiv_{n} b \Leftrightarrow n | (a - b) \Leftrightarrow (a - b) = k n 
+\forall a, b \in \mathbb{Z}, a \equiv_{n} b \Leftrightarrow n \divides (a - b) \Leftrightarrow (a - b) = k n 
 \]
 Posso definire quindi l'insieme quoziente sulla relazione di congruenza modulo $n$:
 \begin{gather*}
@@ -550,26 +566,29 @@ Le classi di equivalenza hanno come rappresentante il resto della divisione modu
 
 Il concetto di relazione di equivalenza \`e analogo al concetto di partizione. Data una relazione di equivalenza \`e data una partizione, e una partizione individua una relazione di equivalenza.
 
-\begin{prop}
+\begin{prop}[Relazioni di equivalenza e partizioni]
 Sia $A \neq \emptyset$ e $\varepsilon$ una relazione di equivalenza su $A$, allora $\varepsilon$ individua una partizione di $A$ data da $A / \varepsilon = \left \{ [a] :  \text{ \`e una classe di equivalenza}  \right \}$. Viceversa, data una partizione $\pi$ di $A$, $\pi$ individua una relazione di equivalenza $\varepsilon_{\pi}$ su $A$, tale che $A / \varepsilon_{\pi} = \pi$, ossia \`e possibile stabilire una biezione $F: \mathcal{E}(A) \to \Pi(A)$ dove $\mathcal{E}(A)$ \`e l'insieme delle relazioni di equivalenza su $A$ e $\Pi(A)$ \`e l'insieme delle partizioni di $A$.
 \end{prop}
 \begin{proof}
-Definisco $F$ come $\forall \ \varepsilon \in \mathcal{E}(A) \ F(\varepsilon) = A / \varepsilon$. Esiste la funzione $G$ inversa di $F$, $G : \Pi(A) \to \mathcal{E}(A)$, $G(\pi) = \varepsilon_{\pi}$ con $a \varepsilon_{\pi} b \Leftrightarrow a,b \in B \in \pi$.
+Definisco $F$ come $\forall \varepsilon \in \mathcal{E}(A) \ F(\varepsilon) = A / \varepsilon$. Esiste la funzione $G$ inversa di $F$, $G : \Pi(A) \to \mathcal{E}(A)$, $G(\pi) = \varepsilon_{\pi}$ con $a \varepsilon_{\pi} b \Leftrightarrow a,b \in B \in \pi$.
 \begin{gather*}
 \varepsilon \xrightarrow{F} A / \varepsilon \xrightarrow{G} \varepsilon \\
 \pi \xrightarrow{G} \varepsilon_{\pi} \xrightarrow{F} \pi = A / \varepsilon_{\pi} 
 \end{gather*}
 
-\textbf{Esercizio:} dimostrare che $F$ \`e iniettiva e suriettiva.
+\begin{esercizio}
+Dimostrare che $F$ \`e iniettiva e suriettiva.
 
 \vspace{5cm}
+\end{esercizio}
+
 \end{proof}
 
-Una semplice biezione non implica l'equivalenza. Prendo un insieme $E = \{e_1, e_2, \dots e_n\}$ di cardinalit\`a $|E| = n$, l'insieme delle relazioni d'ordine $L(E)$, e l'insieme delle sue permutazioni $S(E)$ di cardinalit\`a $n!$. Una permutazione \`e una biezione di un insieme finito. I due insiemi sono in corrispondenza biunivoca. Ho un'applicazione $F : S(E) \to L(E)$ che data un'occupazione $\sigma$ associa ad ogni elemento di $E$ il suo ordine associato $\sigma(e_1), \sigma(e_2), \dots \sigma(e_n)$. 
+Una semplice biezione non implica l'equivalenza. Prendo un insieme $E = \{e_1, e_2, \dots e_n\}$ di cardinalit\`a $\abs{E} = n$, l'insieme delle relazioni d'ordine $L(E)$, e l'insieme delle sue permutazioni $S(E)$ di cardinalit\`a $n!$. Una permutazione \`e una biezione di un insieme finito. I due insiemi sono in corrispondenza biunivoca. Ho un'applicazione $F : S(E) \to L(E)$ che data un'occupazione $\sigma$ associa ad ogni elemento di $E$ il suo ordine associato $\sigma(e_1), \sigma(e_2), \dots \sigma(e_n)$. 
 
 Ad ogni biezione posso associare un ordine. Ma i due concetti non sono analoghi (ossia equivalenti). Non ho un'unica biezione: per definire la biezione devo stabilire un ordine degli elementi di $E$. A seconda di come li ordino ho una biezione diversa.
 
-\begin{defn}
+\begin{defn}[Biezione naturale]
 Le biezioni naturali non dipendono dall'ordine lineare degli insiemi.
 \end{defn}
 
@@ -585,9 +604,11 @@ Ciascuno dei tre tipi di classi di equivalenza ha un rappresentante canonico.
 
 $\mathbb{N} \times \mathbb{N} / \rho$ \`e in corrispondenza biunivoca con $\mathbb{Z}$, associando $[(0,0)]$ a 0, $[(0,m)]$ a $-m$ e $[(m,0)]$ a $m$. Posso quindi costruire $\mathbb{Z}$ da $\mathbb{N}$.
 
-\textbf{Esercizio:} $(\mathbb{N} \times \mathbb{N}, \rho)$ con $(a,b) \rho (c,d) \Leftrightarrow a + d = b + c$. Dimostrare che $\rho$ \`e una relazione di equivalenza.
+\begin{esercizio}
+$(\mathbb{N} \times \mathbb{N}, \rho)$ con $(a,b) \rho (c,d) \Leftrightarrow a + d = b + c$. Dimostrare che $\rho$ \`e una relazione di equivalenza.
 
 \vspace{5cm}
+\end{esercizio}
 
 \subsubsection{Proiezione di $A$ sul suo insieme quoziente, e sezione}
 
@@ -598,7 +619,7 @@ $p$ \`e detta proiezione canonica, o naturale, ed \`e necessariamente suriettiva
 
 Posso definire una famiglia di applicazioni $s : A / \varepsilon \to A $ ``contrarie'' a $p$ tali che $s([a]) = a$, chiamate sezioni.
 \begin{defn}[Sezione]
-$\forall \ B \in A / \varepsilon , s(B) = a$ con $a \in B$. La sezione sceglie un elemento ``rappresentante'' da ogni classe di equivalenza. 
+$\forall B \in A / \varepsilon , s(B) = a$ con $a \in B$. La sezione sceglie un elemento ``rappresentante'' da ogni classe di equivalenza. 
 \end{defn}
 In generale non \`e suriettiva (a meno che le classi abbiano tutte cardinalit\`a 1), ma \`e necessariamente iniettiva.
 
@@ -625,10 +646,10 @@ L'assioma della scelta permette di ordinare totalmente un insieme infinito. Scel
 
 Ogni funzione $f$ definisce una relazione di equivalenza $\varepsilon_f$. 
 
-\begin{defn}
+\begin{defn}[Partizione individuata da una funzione]
 Data $f : A \to B$, definiamo $\varepsilon_f$ su $A$. $\varepsilon_f$ \`e definita da:
 \[
-\forall \ x, y \in A , \ x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)
+\forall x, y \in A , \ x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)
 \]
 \end{defn}
 
@@ -636,18 +657,18 @@ Data $f : A \to B$, definiamo $\varepsilon_f$ su $A$. $\varepsilon_f$ \`e defini
 L'insieme quoziente $A / \varepsilon_f$ \`e chiamato ``nucleo di $f$'', e si indica con $\ker f$.
 \end{defn}
 
-\begin{prop}
+\begin{prop}[Funzioni come composizione di funzioni suriettive con iniettive]
 Ogni funzione $f : A \to B$ si pu\`o esprimere come composta di una funzione suriettiva con una iniettiva.
 \end{prop}
 
 \begin{proof}
-Considero la funzione $F : \ker f \to Im_f$, che ad un elemento del nucleo di $f$ associa l'immagine del rappresentante di quell'elemento, ossia $b = F([a]) = f(c) \ \forall \ c \in [a] = f(a)$.
+Considero la funzione $F : \ker f \to Im_f$, che ad un elemento del nucleo di $f$ associa l'immagine del rappresentante di quell'elemento, ossia $b = F([a]) = f(c) \forall c \in [a] = f(a)$.
 
 La funzione $F$ viene poi composta con $i : Im_f \to B $, detta ``immersione''. Da wikipedia:
 \begin{defn}[Immersione]
 Una struttura $A$  si dice immersa nella struttura $B$ se esiste una funzione iniettiva $f: A \to B$ tale che l'immagine $f(A)$ conserva tutte o parte delle strutture matematiche presenti in $A$, ereditandole da quelle di $B$. La funzione prende anch'essa il nome di \textit{immersione}.
 \end{defn} 
-In questo caso la funzione di immersione $i$ \`e la funzione identit\`a $ \forall \ b \in Im_f \ i(b) = b$, poich\'e $Im_f \subseteq B$.
+In questo caso la funzione di immersione $i$ \`e la funzione identit\`a $ \forall b \in Im_f \ i(b) = b$, poich\'e $Im_f \subseteq B$.
 
 La funzione identit\`a composta $F$, composta con la proiezione $p$ di $f$, d\`a proprio $f$.
 
@@ -672,7 +693,7 @@ La funzione identit\`a composta $F$, composta con la proiezione $p$ di $f$, d\`a
 \begin{exmp}
 Consideriamo la funzione $f : \mathbb{R}^2 \to \mathbb{R}^3$ definita da $f(x,y) = (x,x,0)$.
 
-Le classi di equivalenza individuate in $\ker f$ saranno $[(x,y)] = \{ (z,t) \in \mathbb{R}^2 | z = x\}$. Per ogni classe possiamo individuare un rappresentante canonico del tipo $[(x,0)]$ con $x \in \mathbb{R}$.
+Le classi di equivalenza individuate in $\ker f$ saranno $[(x,y)] = \{ (z,t) \in \mathbb{R}^2 \divides z = x\}$. Per ogni classe possiamo individuare un rappresentante canonico del tipo $[(x,0)]$ con $x \in \mathbb{R}$.
 
 Ad ogni classe devo associare la sua immagine, quindi a $[(x,y)]$ \`e associato $(x,x,0)$.
 
@@ -695,18 +716,18 @@ Ad ogni classe devo associare la sua immagine, quindi a $[(x,y)]$ \`e associato 
 \end{exmp}
 
 \subsection{Teorema di omomorfismo per gli insiemi}
-\begin{prop}
-Per ogni $f : A \to B$ si ha $|Im_f| = |\ker f|$, ossia esiste una biezione $F : \ker f \to Im_f$.
+\begin{prop}[Corrispondenza biunivoca fra immagine e nucleo]
+Per ogni $f : A \to B$ si ha $\abs{Im_f} = \abs{\ker f}$, ossia esiste una biezione $F : \ker f \to Im_f$.
 \end{prop}
 \begin{proof}
 Per le definizioni di immagine di una funzione e nucleo di una funzione:
 \[
-Im_f = \{ b \in B : \exists \ a \in A \text{ t.c. } f(a) = b \}\subseteq B
+Im_f = \{ b \in B : \exists a \in A \text{ t.c. } f(a) = b \}\subseteq B
 \]
 \[
-\ker f = \{ [a] : \forall \ x \in [a] \ f(x) = f(a) \}
+\ker f = \{ [a] : \forall x \in [a] \ f(x) = f(a) \}
 \]
-$ \forall $ classe di $ \ker f \ F([a]) = f(a) = F([b]) \Rightarrow [a] = [b]$ e $\forall \ b \in Im_f \ b = f(a) \Rightarrow F([a]) = b$. $F$ \`e una funzione suriettiva e iniettiva, quindi gli elementi del $\ker f$ sono tanti quanti gli elementi di $Im_f$.
+$ \forall $ classe di $ \ker f \ F([a]) = f(a) = F([b]) \Rightarrow [a] = [b]$ e $\forall b \in Im_f \ b = f(a) \Rightarrow F([a]) = b$. $F$ \`e una funzione suriettiva e iniettiva, quindi gli elementi del $\ker f$ sono tanti quanti gli elementi di $Im_f$.
 \end{proof}
 
 \begin{figure}[ht]
@@ -744,9 +765,9 @@ $ \forall $ classe di $ \ker f \ F([a]) = f(a) = F([b]) \Rightarrow [a] = [b]$ e
 
 $\Pi (A)$ \`e insieme delle partizioni di $A$, $\subseteq $ \`e una relazione di raffinamento.
 
-Dati $\pi, \sigma \in \Pi(A)$, $\pi \subseteq \sigma \Leftrightarrow $ $\forall \ B \in \pi$ si ha che $B$ \`e contenuto in un blocco di $\sigma \Leftrightarrow $ ogni blocco di $\sigma$ \`e unione di blocchi di $\pi \Leftrightarrow \forall \ x, y \in A , \ x \ \varepsilon_{\pi} \ y \Rightarrow x \ \varepsilon_{\sigma} \ y$.
+Dati $\pi, \sigma \in \Pi(A)$, $\pi \subseteq \sigma \Leftrightarrow $ $\forall B \in \pi$ si ha che $B$ \`e contenuto in un blocco di $\sigma \Leftrightarrow $ ogni blocco di $\sigma$ \`e unione di blocchi di $\pi \Leftrightarrow \forall x, y \in A , \ x \ \varepsilon_{\pi} \ y \Rightarrow x \ \varepsilon_{\sigma} \ y$.
 
-\begin{prop}
+\begin{prop}[Partizione come reticolo]
 $\left( \Pi(A) , \subseteq \right)$ \`e un insieme parzialmente ordinato ed \`e un reticolo, ossia presi comunque due elementi c'\`e l'$\inf$ e il $\sup$.
 \end{prop}
 \begin{proof}
@@ -766,8 +787,8 @@ Verifichiamone le propriet\`a:
    \]
 \end{itemize}
 
-\begin{defn}
-$x \ \varepsilon_{(\pi \vee \sigma)} \ y \Leftrightarrow \exists \ x = a_1, a_2 \dots a_n = y $ tale che $a_i \ \varepsilon_{\pi} \ a_j$ oppure $a_i \ \varepsilon_{\sigma} \ a_j$ con $i \in [1, n-1]$, ossia ho una catena che mette in relazione $a_i$ con $a_j$ passando per $\pi$ o $\sigma$.
+\begin{defn}[$\sup$ fra partizioni]
+$x \ \varepsilon_{(\pi \vee \sigma)} \ y \Leftrightarrow \exists x = a_1, a_2 \dots a_n = y $ tale che $a_i \ \varepsilon_{\pi} \ a_j$ oppure $a_i \ \varepsilon_{\sigma} \ a_j$ con $i \in [1, n-1]$, ossia ho una catena che mette in relazione $a_i$ con $a_j$ passando per $\pi$ o $\sigma$.
 \end{defn}
 
 Poich\'e $(\pi \vee \sigma) = \sup (\pi, \sigma)$, allora:
@@ -786,38 +807,38 @@ Sono delle funzioni $f : A \to B$ che partono da $A$ con una struttura e arrivan
 \subsection{Morfismi di insiemi parzialmente ordinati}
 
 Detti anche ``morfismi d'ordine'' o funzioni monotone. 
-\begin{defn}
-Un morfismo di un insieme parzialmente ordinato \`e un'applicazione $f : P_1 \to P_2$ dove $(P_1, \le_{1})$ e $(P_2, \le_{2})$ sono insiemi particolarmente ordinati, tale che $\forall \ x, y \in P_1$ con $x \le_1 y \Rightarrow f(x) \le_2 f(y)$. $f$ \`e una funzione monotona (ossia $f$ conserva l'ordine). 
+\begin{defn}[Morfismo d'ordine]
+Un morfismo di un insieme parzialmente ordinato \`e un'applicazione $f : P_1 \to P_2$ dove $(P_1, \le_{1})$ e $(P_2, \le_{2})$ sono insiemi particolarmente ordinati, tale che $\forall x, y \in P_1$ con $x \le_1 y \Rightarrow f(x) \le_2 f(y)$. $f$ \`e una funzione monotona (ossia $f$ conserva l'ordine). 
 \end{defn}
 Quindi un morfismo va da un'insieme con una struttura ad un altro insieme con la sua struttura. Lo indicheremo con questa notazione:
 \[
 f : (P_1, \le_{1}) \to (P_2, \le_{2})
 \]
 \begin{exmp}
-Dati $P_1 = P_2 = \mathbb{P}(\Gamma)$ e la relazione $(\mathbb{P}(\Gamma), \subseteq)$, definisco $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ come, fissato $A$ sottoinsieme finito di $\Gamma$, $\forall \ X \in \mathbb{P}(\Gamma) f(X) = A \cap X$.
+Dati $P_1 = P_2 = \mathbb{P}(\Gamma)$ e la relazione $(\mathbb{P}(\Gamma), \subseteq)$, definisco $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ come, fissato $A$ sottoinsieme finito di $\Gamma$, $\forall X \in \mathbb{P}(\Gamma) f(X) = A \cap X$.
 
-$f$ \`e un morfismo $f : (\mathbb{P}(\Gamma), \subseteq) \to (\mathbb{P}(\Gamma), \subseteq)$ poich\'e $\forall \ X, Y \in \mathbb{P}(\Gamma) \ X \subseteq Y \Rightarrow f(X) \subseteq f(Y)$ visto che $X \cap A \subseteq Y \cap A$.
+$f$ \`e un morfismo $f : (\mathbb{P}(\Gamma), \subseteq) \to (\mathbb{P}(\Gamma), \subseteq)$ poich\'e $\forall X, Y \in \mathbb{P}(\Gamma) \ X \subseteq Y \Rightarrow f(X) \subseteq f(Y)$ visto che $X \cap A \subseteq Y \cap A$.
 \end{exmp}
 Questa propriet\`a si chiama \textbf{isotonia} di $\subseteq$. Anche l'unione ha questa propriet\`a: $g : (\mathbb{P}(\Gamma), \subseteq) \to (\mathbb{P}(\Gamma), \subseteq)$ con $g(X) = A \cup X$
 
 \begin{exmp}
-Sia $\Gamma$ un insieme finito, definisco una funzione su $\mathbb{P}(\Gamma)$ e $(\mathbb{N}, \le)$ $f : \mathbb{P}(\Gamma) \to \mathbb{N}$ come $\forall \ X \in \mathbb{P}(\Gamma) \ f(X) = |X|$. Anche questa \`e una funzione monotona.
+Sia $\Gamma$ un insieme finito, definisco una funzione su $\mathbb{P}(\Gamma)$ e $(\mathbb{N}, \le)$ $f : \mathbb{P}(\Gamma) \to \mathbb{N}$ come $\forall X \in \mathbb{P}(\Gamma) \ f(X) = \abs{X}$. Anche questa \`e una funzione monotona.
 \end{exmp}
 
 \subsection{Morfismi di reticoli}
 
-$(L, \le)$ \`e un reticolo se $\forall \ x, y \in L \ \exists \ \inf(x, y) $ e $ \exists \ \sup(x,y)$. Ogni reticolo individua una struttura algebrica con due operazioni, $(L, \wedge, \vee)$, e inoltre dalla struttura algebrica posso definire il reticolo.
+$(L, \le)$ \`e un reticolo se $\forall x, y \in L \exists \inf(x, y) $ e $ \exists \sup(x,y)$. Ogni reticolo individua una struttura algebrica con due operazioni, $(L, \wedge, \vee)$, e inoltre dalla struttura algebrica posso definire il reticolo.
 
-\begin{defn}
+\begin{defn}[Morfismo di reticoli]
 Dati due reticoli $(L_1, \le_1)$ e $(L_2, \le_2)$, un morfismo di reticoli \`e una funzione $f : L_1 \to L_2$ che verifica le seguenti propriet\`a:
 \begin{description}
-  \item[M1\label{itm:M1}] $\forall \ x, y \in L_1 \ f(\inf(x,y)) = \inf(f(x),f(y))$, e analogamente $\forall \ x, y \in L_1 \ f(\sup(x,y)) = \sup(f(x),f(y))$.
-  \item[M2\label{itm:M2}] Deve rispettare l'ordine. $\forall \ x, y \in L_1 $ con $x \le_1 y \Rightarrow f(x) \le_2 f(y)$.
+  \item[M1\label{itm:M1}] $\forall x, y \in L_1 \ f(\inf(x,y)) = \inf(f(x),f(y))$, e analogamente $\forall x, y \in L_1 \ f(\sup(x,y)) = \sup(f(x),f(y))$.
+  \item[M2\label{itm:M2}] Deve rispettare l'ordine. $\forall x, y \in L_1 $ con $x \le_1 y \Rightarrow f(x) \le_2 f(y)$.
 \end{description}
 \end{defn}
 
 \begin{exmp}
-Riprendendo l'esempio precedente, $P_1 = P_2 = \mathbb{P}(\Gamma)$ e la relazione $(\mathbb{P}(\Gamma), \subseteq)$, definisco $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ come, fissato $A$ sottoinsieme finito di $\Gamma$, $\forall \ X \in \mathbb{P}(\Gamma) \ f(X) = A \cap X$.
+Riprendendo l'esempio precedente, $P_1 = P_2 = \mathbb{P}(\Gamma)$ e la relazione $(\mathbb{P}(\Gamma), \subseteq)$, definisco $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ come, fissato $A$ sottoinsieme finito di $\Gamma$, $\forall X \in \mathbb{P}(\Gamma) \ f(X) = A \cap X$.
 
 In questo reticolo, $\inf(X,Y) = X \cap Y$, quindi $f(\inf(X,Y)) = f(X \cap Y) = (X \cap Y) \cap A$. Per verificare \ref{itm:M1}, $(X \cap Y) \cap A = \inf(f(X,Y)) = \inf(X \cap A, Y \cap A) = (X \cap A) \cap (Y \cap A)$, vero per la propriet\`a commutativa, la propriet\`a associativa e l'idempotenza degli insiemi.
 \[
@@ -826,15 +847,15 @@ In questo reticolo, $\inf(X,Y) = X \cap Y$, quindi $f(\inf(X,Y)) = f(X \cap Y) =
 \end{exmp}
 
 \begin{exmp}\label{morfismo_no_reticoli}
-Sia $\Gamma$ un insieme finito, definisco una funzione su $\mathbb{P}(\Gamma)$ e $(\mathbb{N}, \le)$ $f : \mathbb{P}(\Gamma) \to \mathbb{N}$ come $\forall \ X \in \mathbb{P}(\Gamma) f(X) = |X|$.
+Sia $\Gamma$ un insieme finito, definisco una funzione su $\mathbb{P}(\Gamma)$ e $(\mathbb{N}, \le)$ $f : \mathbb{P}(\Gamma) \to \mathbb{N}$ come $\forall X \in \mathbb{P}(\Gamma) f(X) = \abs{X}$.
 
-Devo verificare \ref{itm:M1}, ossia che $f(\inf(X,Y)) = \inf(f(X),f(Y))$. $f(X \cap Y) = |X \cap Y|$, mentre $\inf(f(X),f(Y)) = \inf(|X|,|Y|)$, ossia il minore fra i due numeri. Non \`e vero in generale, quindi questa funzione non \`e un morfismo di reticoli.
+Devo verificare \ref{itm:M1}, ossia che $f(\inf(X,Y)) = \inf(f(X),f(Y))$. $f(X \cap Y) = \abs{X \cap Y}$, mentre $\inf(f(X),f(Y)) = \inf(\abs{X},\abs{Y})$, ossia il minore fra i due numeri. Non \`e vero in generale, quindi questa funzione non \`e un morfismo di reticoli.
 \end{exmp}
 
 In realt\`a \ref{itm:M1} implica \ref{itm:M2}, a differenza di quanto visto nelle relazioni di equivalenza e di ordine.
 
-\begin{prop}
-$(L, \le_1)$ e $(L, \le_2)$ due reticoli. Sia $f : L_1 \to L_2$ tale che $\forall \ x, y \in L_1 \ f(\inf(x,y)) = \inf (f(x),f(y))$ e $\forall \ x, y \in L_1 \ f(\sup(x,y)) = \sup (f(x),f(y))$, allora $f$ \`e una funzione monotona, e quindi \`e un morfismo di reticoli.
+\begin{prop}[Morfismo di reticoli 2]
+$(L, \le_1)$ e $(L, \le_2)$ due reticoli. Sia $f : L_1 \to L_2$ tale che $\forall x, y \in L_1 \ f(\inf(x,y)) = \inf (f(x),f(y))$ e $\forall x, y \in L_1 \ f(\sup(x,y)) = \sup (f(x),f(y))$, allora $f$ \`e una funzione monotona, e quindi \`e un morfismo di reticoli.
 \end{prop}
 \begin{proof}
 Bisogna dimostrare che conserva l'ordine, ossia che se $x \le_1 y \Rightarrow f(x) \le_2 f(y)$. Per l'ipotesi, $\inf(x,y) = x$ e $\sup(x,y)= y$. Quindi $f(\inf(x,y)) = f(x)$. Per \ref{itm:M1} $f(\inf(x,y)) = \inf(f(x),f(y))$, quindi $f(x) = \inf(f(x),f(y)) \Rightarrow f(x) \le_2 f(y)$.
@@ -844,7 +865,7 @@ Stessa dimostrazione vale per il $\sup$. Abbiamo dimostrato gi\`a che il contrar
 \subsection{Isomorfismi}
 Un isomorfismo \`e un morfismo biunivoco.
 
-Dato l'insieme delle parti di $\Gamma$, $(\mathbb{P}(\Gamma), \subseteq)$, e l'insieme $2 = \{ 0, 1 \}$, $2^{\Gamma}$ \`e l'insieme delle funzioni $\Gamma \to \{0,1\}$. Date due funzioni $f, g \in 2^{\Gamma}$, $f \le g \Leftrightarrow \forall \ x \in 2 $ ho che $ f(x) \le g(x)$ (come da  definizione \ref{ordine_funzioni}). 
+Dato l'insieme delle parti di $\Gamma$, $(\mathbb{P}(\Gamma), \subseteq)$, e l'insieme $2 = \{ 0, 1 \}$, $2^{\Gamma}$ \`e l'insieme delle funzioni $\Gamma \to \{0,1\}$. Date due funzioni $f, g \in 2^{\Gamma}$, $f \le g \Leftrightarrow \forall x \in 2 $ ho che $ f(x) \le g(x)$ (come da  definizione \ref{ordine_funzioni}). 
 
 $(2^{\Gamma}, \le)$ \`e un reticolo. Infatti $\inf(f,g) : \Gamma \to 2$ \`e:
 \[
@@ -865,7 +886,7 @@ f(x) & \text{ altrimenti}
 
 Un esempio di isomorfismo \`e quindi $F : \mathbb{P}(\Gamma) \to 2^{\Gamma}$. Prendo un sottoinsieme $A \subseteq \Gamma$ (ossia un elemento $A \in \mathbb{P}(\Gamma)$) e definisco la ``funzione caratteristica di $A$'' che indicher\`o con $\varphi_{A} : \Gamma \to 2$ che dice se un elemento di $\Gamma$ \`e o non \`e in $\Gamma$, ossia:
 \[
-\forall \ x \in \Gamma \ \varphi_A (x) = 
+\forall x \in \Gamma \ \varphi_A (x) = 
 \begin{cases}
 0 \text{ se } x \notin A \\
 1 \text{ se } x \in A
@@ -876,15 +897,15 @@ $F$ \`e biunivoca. Dimostriamo che \`e iniettiva e suriettiva.
 Se $A, B \in \mathbb{P}(\Gamma)$ e $\varphi_A = \varphi_B \Rightarrow A = B$, ossia per doppia inclusione $A \le B$ e $B \le A$.
 \end{prop}
 \begin{proof}
-Per definizione di funzione caratteristica, $\forall \ x \in A \Rightarrow \varphi_A(x) = 1 = \varphi_B(x) \Rightarrow x \in B$.
+Per definizione di funzione caratteristica, $\forall x \in A \Rightarrow \varphi_A(x) = 1 = \varphi_B(x) \Rightarrow x \in B$.
 \end{proof}
 \begin{prop}
-$\forall \ f \in 2^{\Gamma} \ \exists \ A \in \mathbb{P}(\Gamma)$ t.c. $\varphi_A = f$.
+$\forall f \in 2^{\Gamma} \exists A \in \mathbb{P}(\Gamma)$ t.c. $\varphi_A = f$.
 \end{prop}
 \begin{proof}
 Prendo $\Gamma = \{ 1, 2, 3, 4, 5, 6, 7\}$, e rappresento $f$ dal punto di vista dell'occupazione.
 
-\begin{tabular}{ccccccc}
+\begin{tabular}{*{7}{c}}
 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
 0 & 0 & 1 & 1 & 0 & 1 & 0
 \end{tabular}
@@ -892,7 +913,7 @@ Prendo $\Gamma = \{ 1, 2, 3, 4, 5, 6, 7\}$, e rappresento $f$ dal punto di vista
 Quindi $A = \{ 3, 4, 6 \} = f^{-1} (1)$, ossia la controimmagine di $\varphi_A$.
 \end{proof}
 
-Poich\'e $F$ \`e un isomorfismo, $A \subseteq B \Rightarrow F(A) \le F(B) = \varphi(A) \le \varphi(B)$, infatti $\forall \ x \in \Gamma$:
+Poich\'e $F$ \`e un isomorfismo, $A \subseteq B \Rightarrow F(A) \le F(B) = \varphi(A) \le \varphi(B)$, infatti $\forall x \in \Gamma$:
 \[
 \varphi_A(x) = 
 \begin{cases}
@@ -911,7 +932,7 @@ Per le propriet\`a dei reticoli:
 \begin{itemize}
   \item $\varphi_{A \cap B} \le \varphi_A, \varphi_B$
   \[
-  \forall \ x \in \Gamma \varphi_{A \cap B} (x) =
+  \forall x \in \Gamma \varphi_{A \cap B} (x) =
   \begin{cases}
   0 \text{ se } x \notin (A \cap B) \\
   1 \text{ altrimenti}
@@ -928,7 +949,7 @@ Per le propriet\`a dei reticoli:
   \begin{gather*}
   f \in 2^{\Gamma} \\
   f \le \varphi_A, \varphi_B \Rightarrow
-  \forall \ x \in \Gamma \ f(x) \le 
+  \forall x \in \Gamma \ f(x) \le 
   \varphi_A(x) 
   \text{ e } 
   \varphi_B(x) \\
@@ -1016,7 +1037,7 @@ L'immagine di $\sigma$ \`e tutto $\mathbb{N}$ escluso lo 0. $Im_{\sigma} = \math
 Sia $U = Im_{\sigma} \cup 0$. $U$ coincide con $\mathbb{N}$ per \ref{itm:N3}. Infatti:
 \begin{itemize}
   \item $0 \in U$ per definizione di $U$;
-  \item $\forall \ n \in U, \ \sigma(n) \in U$.
+  \item $\forall n \in U, \ \sigma(n) \in U$.
 \end{itemize}
 \end{proof}
 L'elemento $\sigma(0)$ si indica con 1.
@@ -1029,7 +1050,7 @@ Dato un insieme $A \neq \emptyset$ ed una funzione $f : A \to A$, con $\circ : A
 Le iterazioni di $f : A \to A$ sono definite da:
 \begin{itemize}
   \item $f^0 = id_A$;
-  \item $\forall \ n \in \mathbb{N}$ definisco $f^{\sigma(n)} = f \circ f^n$.
+  \item $\forall n \in \mathbb{N}$ definisco $f^{\sigma(n)} = f \circ f^n$.
 \end{itemize}
 \end{defn}
 \begin{prop}
@@ -1043,7 +1064,7 @@ Sia $U = \{ n \in \mathbb{N} : f^n $ \`e ben definita $\}$. $0 \in U$ per defini
 Definiamo le iterazioni di $\sigma$ come segue:
 \begin{itemize}
   \item $\sigma^0 = id_{\mathbb{N}}$;
-  \item $\sigma^{\sigma(n)} = \sigma \circ \sigma^n \ \forall \ n \in \mathbb{N}$.
+  \item $\sigma^{\sigma(n)} = \sigma \circ \sigma^n \forall n \in \mathbb{N}$.
 \end{itemize}
 \end{defn}
 
@@ -1068,10 +1089,10 @@ Ho un monoide $(M, \cdot)$. $\cdot : M \times M \to M $ associativa e con unit\`
 \end{defn}
 
 \begin{prop}
-$\forall \ n \in \mathbb{N} \setminus \{ 0 \}$, $0 \notin Im_{\sigma^n}$, ossia lo 0 non \`e nell'immagine di nessuna iterazione di $\sigma$, ossia comunque itero $\sigma$ non ottengo mai lo 0.
+$\forall n \in \mathbb{N} \setminus \{ 0 \}$, $0 \notin Im_{\sigma^n}$, ossia lo 0 non \`e nell'immagine di nessuna iterazione di $\sigma$, ossia comunque itero $\sigma$ non ottengo mai lo 0.
 \end{prop}
 \begin{proof}
-Lo dimostriamo per assurdo. Supponiamo che $\exists \ n \in \mathbb{N}$ t.c. $0 \in Im_{\sigma^n} \Rightarrow \exists \ x \in \mathbb{N}$ t.c. $\sigma^n (x) = 0$. Poich\'e $n \neq 0 \Rightarrow n \in Im_{\sigma} = \mathbb{N} \setminus \{ 0 \} \Rightarrow n = \sigma(t)$. Quindi $0 = \sigma^n(x) = \sigma^{\sigma(t)}(x) = (\sigma \circ \sigma^t)(x) = \sigma(\sigma^t(x)) \Rightarrow 0 \in Im_{\sigma}$. Ho ottenuto l'assurdo con \ref{itm:N2}.
+Lo dimostriamo per assurdo. Supponiamo che $\exists n \in \mathbb{N}$ t.c. $0 \in Im_{\sigma^n} \Rightarrow \exists x \in \mathbb{N}$ t.c. $\sigma^n (x) = 0$. Poich\'e $n \neq 0 \Rightarrow n \in Im_{\sigma} = \mathbb{N} \setminus \{ 0 \} \Rightarrow n = \sigma(t)$. Quindi $0 = \sigma^n(x) = \sigma^{\sigma(t)}(x) = (\sigma \circ \sigma^t)(x) = \sigma(\sigma^t(x)) \Rightarrow 0 \in Im_{\sigma}$. Ho ottenuto l'assurdo con \ref{itm:N2}.
 \end{proof}
 Attraverso le tre propriet\`a che definiscono $\mathbb{N}$ si possono ritrovare tutte le altre propriet\`a di $\mathbb{N}$. 
 
@@ -1091,7 +1112,7 @@ $n + 1 = n + \sigma(0) = \sigma(n)$
 
 L'operazione + \`e associativa, oltre che commutativa. 
 
-La somma in $\mathbb{N}$ ha la ``regola di cancellazione''. $\forall \ m, n, k \in \mathbb{N}$, se $m + k = n + k \Rightarrow m = n$. In realt\`a in $\mathbb{N}$ non esiste l'inverso, quindi questa regola ha poco a che vedere con la ``cancellazione''.
+La somma in $\mathbb{N}$ ha la ``regola di cancellazione''. $\forall m, n, k \in \mathbb{N}$, se $m + k = n + k \Rightarrow m = n$. In realt\`a in $\mathbb{N}$ non esiste l'inverso, quindi questa regola ha poco a che vedere con la ``cancellazione''.
 
 Tutte le propriet\`a sono pi\`u facili da dimostare con il seguente lemma.
 \begin{lem}\label{successore_somma}
@@ -1105,7 +1126,7 @@ m + \sigma(n) = \sigma^{\sigma(n)} (m) = (\sigma \circ \sigma^n) (m) = \sigma ( 
 \]
 \end{proof}
 \begin{defn}[Prodotto su $\mathbb{N}$]
-$(\mathbb{N}, \cdot)$ \`e un'operazione $\cdot : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ tale che $\forall \ (m, n) \in \mathbb{N} \times \mathbb{N}$, $m \cdot n = (\sigma^m)^n(0)$.
+$(\mathbb{N}, \cdot)$ \`e un'operazione $\cdot : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ tale che $\forall (m, n) \in \mathbb{N} \times \mathbb{N}$, $m \cdot n = (\sigma^m)^n(0)$.
 \end{defn}
 Il prodotto \`e un'operazione associativa e distributiva.
 
@@ -1135,21 +1156,21 @@ Usando i due lemmi (lemma \ref{successore_somma} e lemma \ref{prodotto_successor
 
 Possiamo definire una relazione d'ordine totale (e naturale) su $\mathbb{N}$ usando le due operazioni.
 \begin{defn}[Ordine naturale]
-$m \le n \Leftrightarrow \exists \ k \in \mathbb{N} : m + k = n$
+$m \le n \Leftrightarrow \exists k \in \mathbb{N} : m + k = n$
 \end{defn}
-\`E una relazione d'ordine totale (ossia l'insieme $\mathbb{N}$ \`e linearmente ordinato), ossia $\forall \ m, n \in \mathbb{N}$ si ha che $ m \le n$ oppure $n \le m$.
+\`E una relazione d'ordine totale (ossia l'insieme $\mathbb{N}$ \`e linearmente ordinato), ossia $\forall m, n \in \mathbb{N}$ si ha che $ m \le n$ oppure $n \le m$.
 
 L'ordine naturale su $\mathbb{N}$ \`e un ``ordine buono'', ossia $(\mathbb{N}, \le)$ si dice ``bene ordinato''. Il ``buon ordinamento'' \`e equivalente all'assioma della scelta. Vuol dire che ogni suo sottoinsieme non vuoto ha un primo elemento. $\mathbb{R}$, ad esempio, non \`e bene ordinato.
 \begin{proof}[Dimostrazione del buon ordinamento]
-Dimostriamolo per assurdo. Suppongo esista un sottoinsieme $V \neq \emptyset$ che non ha un primo elemento. Ossia, $\forall \ v \in V \ \exists \ w \in V$ t.c. $w \le v$.
+Dimostriamolo per assurdo. Suppongo esista un sottoinsieme $V \neq \emptyset$ che non ha un primo elemento. Ossia, $\forall v \in V \exists w \in V$ t.c. $w \le v$.
 
-Consideriamo la proposizione $P_n$: ``$\forall \ n \in \mathbb{N} \land \ \forall \ v \in V, \ n \le v$'' e dimostriamo che \`e vera $\forall \ n \in \mathbb{N}$.
+Consideriamo la proposizione $P_n$: ``$\forall n \in \mathbb{N} \land \forall v \in V, \ n \le v$'' e dimostriamo che \`e vera $\forall n \in \mathbb{N}$.
 
-\`E vero con 0: $\forall \ v \in V 0 \le v$.
+\`E vero con 0: $\forall v \in V 0 \le v$.
 
-Supponiamo sia vero per un $n \in \mathbb{N}$, e dimostriamo che \`e vero per $\sigma(n) $ che $ \forall \ v \in V \sigma(n) \le v$.
+Supponiamo sia vero per un $n \in \mathbb{N}$, e dimostriamo che \`e vero per $\sigma(n) $ che $ \forall v \in V \sigma(n) \le v$.
 
-Per ipotesi di induzione so che $\forall \ v \in V, \ n \le v \Rightarrow \exists \ x \in \mathbb{N}$ t.c. $n + x = v$, per la definizione di $\le$. $x$ non pu\`o essere 0, altrimenti $n$ sarebbe il primo elemento di $V$. Quindi $x \neq 0 \Rightarrow x = \sigma(y) = y + 1$, e quindi $n + y + 1 = v $ ma per la propriet\`a commutativa $n + 1 + y = v \Rightarrow \sigma(n) + y = v \Rightarrow \sigma(n) \le v$.
+Per ipotesi di induzione so che $\forall v \in V, \ n \le v \Rightarrow \exists x \in \mathbb{N}$ t.c. $n + x = v$, per la definizione di $\le$. $x$ non pu\`o essere 0, altrimenti $n$ sarebbe il primo elemento di $V$. Quindi $x \neq 0 \Rightarrow x = \sigma(y) = y + 1$, e quindi $n + y + 1 = v $ ma per la propriet\`a commutativa $n + 1 + y = v \Rightarrow \sigma(n) + y = v \Rightarrow \sigma(n) \le v$.
 
 Siamo giunti all'assurdo. Se prendo $n = v + 1$ avrei che $v + 1 \le v$.
 \end{proof}
@@ -1170,22 +1191,22 @@ Dati due insiemi $A$ e $B$, se dico $A \rho B \Leftrightarrow $ esiste una corri
    \item simmetrica;
    \item transitiva.
  \end{itemize} 
- Quindi $\rho$ \`e una relazione di equivalenza nell'insieme degli insiemi finiti. $A \rho B \Leftrightarrow |A| = |B| \Leftrightarrow A \leftrightarrow B \Leftrightarrow$ la cardinalit\`a di $A$ \`e uguale alla cardinalit\`a di $B$.
+ Quindi $\rho$ \`e una relazione di equivalenza nell'insieme degli insiemi finiti. $A \rho B \Leftrightarrow \abs{A} = \abs{B} \Leftrightarrow A \leftrightarrow B \Leftrightarrow$ la cardinalit\`a di $A$ \`e uguale alla cardinalit\`a di $B$.
 
 \subsection{Principio della somma}
 
 \begin{prop}[Principio della somma]
- Dati $A$, $B$ tali che $A \cap B = \emptyset$, segue che $|A \cup B| = |A| + |B|$.
+ Dati $A$, $B$ tali che $A \cap B = \emptyset$, segue che $\abs{A \cup B} = \abs{A} + \abs{B}$.
 \end{prop}
 \begin{proof}
-$|A| = m$, $|B| = n$. Devo quindi poter realizzare una corrispondenza biunivoca $F$ fra $|A \cup B|$ e $[m + n]$. Ossia, dati $A = \{ a_1, a_2, \dots a_m\}$ e $B = \{ b_1, b_2 \dots b_n\}$, ho che $F(a_i) = i$ e $F(b_i) = m + i$.
+$\abs{A} = m$, $\abs{B} = n$. Devo quindi poter realizzare una corrispondenza biunivoca $F$ fra $\abs{A \cup B}$ e $[m + n]$. Ossia, dati $A = \{ a_1, a_2, \dots a_m\}$ e $B = \{ b_1, b_2 \dots b_n\}$, ho che $F(a_i) = i$ e $F(b_i) = m + i$.
 \end{proof}
 
 \`E possibile generalizzare la regola della somma.
 \begin{prop}[Principio della somma 2]
 Dati $t$ insiemi $A_1, \dots A_t$ tali che $A_i \cap A_j = \emptyset$ se $i \neq j$, ho che:
 \[
-\left| \bigcup_{i = 1}^{t} A_i\right| = \sum_{i = 1}^{t} |A_i|
+\abs{\bigcup_{i = 1}^{t} A_i} = \sum_{i = 1}^{t} \abs{A_i}
 \]
 \end{prop}
 
@@ -1194,7 +1215,7 @@ $+ \mapsto A \dotcup B$ con $ A \cap B = \emptyset$.
 \subsection{Principio del prodotto}
 
 \begin{prop}[Principio del prodotto]
-Dati $A$, $B$, ho che $|A \times B| = |A| \cdot |B|$.
+Dati $A$, $B$, ho che $\abs{A \times B} = \abs{A} \cdot \abs{B}$.
 \end{prop}
 \begin{proof}
 C'\`e una corrispondenza biunivoca $F : (A \times B) \to [m \cdot n]$. Quanto vale $F (a_i, b_j)$? In generale, contando con il metodo della diagonale (figura \ref{fig:metodo_diagonale}), ho che sulla diagonale $k$-esima trovo tutte le coppie tali per cui $i + j = k + 1$.
@@ -1242,7 +1263,7 @@ C'\`e una corrispondenza biunivoca $F : (A \times B) \to [m \cdot n]$. Quanto va
 \begin{prop}[Principio del prodotto 2]
 Se prendo un insieme finito di insiemi $\{ A_1$, $ \dots A_t \}$, ho che:
 \[
-\left| A_1 \times \dots \times A_t \right| = |A_1| \cdot \ldots \cdot |A_t|
+\abs{A_1 \times \dots \times A_t} = \abs{A_1} \cdot \ldots \cdot \abs{A_t}
 \]
 \end{prop}
 \begin{proof}
@@ -1253,19 +1274,19 @@ Si dimostra per induzione su $t$.
 Dato un sottoinsieme $S$ del prodotto cartesiano $X^n$, $S \subseteq X^n$, ossia un insieme di $n$-uple, se verifico che:
 \begin{itemize}
   \item al primo posto di una $n$-upla in $S$ ci sono $i_1$ elementi;
-  \item $\forall \ j = 2 \dots n-1$ ci sono $i_j$ $n$-uple che hanno le prime $j-1$ coordinate uguali;
+  \item $\forall j = 2 \dots n-1$ ci sono $i_j$ $n$-uple che hanno le prime $j-1$ coordinate uguali;
 \end{itemize}
-allora $|S| = i_1 \cdot i_2 \cdot \dots i_n$.
+allora $\abs{S} = i_1 \cdot i_2 \cdot \dots i_n$.
 \end{defn}
 
 \subsection{Dimostrazioni biettive}
 
-Se voglio dimostrare che $a = b$, posso trovare due insiemi $A$ e $B$ tali che $|A| = a$ e $|B| = b$, e dimostrare che sono in biezione. Si indica solitamente con $A \leftrightarrow B$.
+Se voglio dimostrare che $a = b$, posso trovare due insiemi $A$ e $B$ tali che $\abs{A} = a$ e $\abs{B} = b$, e dimostrare che sono in biezione. Si indica solitamente con $A \leftrightarrow B$.
 
 Due insiemi con intersezione disgiunta possono essere i due blocchi di una partizione con due soli blocchi.
 
 \begin{prop}
-Dato l'insieme delle funzioni da $A$ in $R$ $R^A = \{ f : A \to R\}$, se $|A| = n$ e $|R| = r$, allora $|R^A| = r^n = |R^n|$. Quindi esiste una biezione fra $R^A$ e $R^n$. $R^n$ \`e il prodotto di $R$ con s\'e stesso $n$ volte. Quindi le funzioni da $A$ in $R$ sono quante le $R$-uple di $n$ elementi.
+Dato l'insieme delle funzioni da $A$ in $R$ $R^A = \{ f : A \to R\}$, se $\abs{A} = n$ e $\abs{R} = r$, allora $\abs{R^A} = r^n = \abs{R^n}$. Quindi esiste una biezione fra $R^A$ e $R^n$. $R^n$ \`e il prodotto di $R$ con s\'e stesso $n$ volte. Quindi le funzioni da $A$ in $R$ sono quante le $R$-uple di $n$ elementi.
 \end{prop}
 \begin{proof}
 Data una funzione $f : A \to R$, definisco $F : R^A \to R^n$ tale che $(f, A = \{ a_1, \dots a_n\}) \mapsto (f(a_1), \dots f(a_n))$, che dal punto di vista dell'occupazione \`e:
@@ -1278,12 +1299,12 @@ $f(a_1)$ & $f(a_2)$ & $\dots$ & $f(a_n)$
 Ossia, ad ogni funzione $f : A \to R$ associo la $n$-upla dei valori di $f$ ordinata seguendo un ordine lineare degli elementi di $A$.
 \end{proof}
 \begin{prop}
-Dati $A, B$ disgiunti, $R^A \times R^B$ ha cardinalit\`a $|R^A \times R^B| = |R^{A \cup B}|$, dato che $|R^A| = r^n$ e $|R^B| = r^m$ e che quindi $r^n \cdot r^m = r^{n + m}$.
+Dati $A, B$ disgiunti, $R^A \times R^B$ ha cardinalit\`a $\abs{R^A \times R^B} = \abs{R^{A \cup B}}$, dato che $\abs{R^A} = r^n$ e $\abs{R^B} = r^m$ e che quindi $r^n \cdot r^m = r^{n + m}$.
 
-Quindi $|R^A \times R^B| $ e $ |R^{A \cup B}|$ sono in corrispondenza biunivoca.
+Quindi $\abs{R^A \times R^B} $ e $ \abs{R^{A \cup B}}$ sono in corrispondenza biunivoca.
 \end{prop}
 \begin{proof}
-Esiste una biezione $F : R^A \times R^B \to R^{A \cup B}$. Questa funzione prende una coppia di funzioni e ne restituisce una terza $(f : A \to R, g: B \to R) \mapsto h : (A \cup B) \to R$ definita come, $\forall \ x \in A \cup B$:
+Esiste una biezione $F : R^A \times R^B \to R^{A \cup B}$. Questa funzione prende una coppia di funzioni e ne restituisce una terza $(f : A \to R, g: B \to R) \mapsto h : (A \cup B) \to R$ definita come, $\forall x \in A \cup B$:
 \[
 h(x) = 
 \begin{cases}
@@ -1294,10 +1315,10 @@ g(x) \text{ se } x \in B
 \end{proof}
 Dati due insiemi $R$, $S$ ed un insieme $A$:
 \[
-|R^A \times S^A| = |(R \times S)^A|
+\abs{R^A \times S^A} = \abs{(R \times S)^A}
 \]
 \[
-|(R^A)^B| = |R^{A \cdot B}|
+\abs{(R^A)^B} = \abs{R^{A \cdot B}}
 \]
 \textbf{Esercizio:} definire la biezione che dimostra le due propriet\`a precedenti.
 \vspace{5cm}
@@ -1326,36 +1347,36 @@ $[r]_n = 0$ se $r < n$. Inoltre, $[r]_n = n!$ se $r = n$.
 \end{oss}
 
 \begin{prop}
-Dato $In(A,R)$, l'insieme delle funzioni iniettive da $A$ in $R$, se $|A| = n$ e $|R| = r$, allora $|In (A,R)| = [r]_n$.
+Dato $In(A,R)$, l'insieme delle funzioni iniettive da $A$ in $R$, se $\abs{A} = n$ e $\abs{R} = r$, allora $\abs{In (A,R)} = [r]_n$.
 
 In altre parole, il fattoriale decrescente $[r]_n$ corrisponde all'insieme delle funzioni iniettive da $A$ in $R$ $In(A,R)$.
 
 \[
-\left| In(A,R) \right| = \left| In (A- \{x\},R) \right| \cdot \left| R - Im_f \right|
+\abs{In(A,R)} = \abs{In (A- \{x\},R)} \cdot \abs{R - Im_f}
 \]
 
 \end{prop}
 \begin{proof}
-Ricordiamo la definizione di iniettivit\`a: $\forall \ x, y \in A$ se $f(x) = f(y) \Rightarrow x = y$, $f$ \`e iniettiva.
+Ricordiamo la definizione di iniettivit\`a: $\forall x, y \in A$ se $f(x) = f(y) \Rightarrow x = y$, $f$ \`e iniettiva.
 
-Dimostriamo ora la proposizione per induzione. Se $A = \emptyset$, $|In(\emptyset, R)| = 1$.
+Dimostriamo ora la proposizione per induzione. Se $A = \emptyset$, $\abs{In(\emptyset, R)} = 1$.
 
 Supponendo di aver calcolato il numero di funzioni inettive da un insieme con $n$ elementi ad un insieme con $r$ elementi (ossia $[r]_n$), dobbiamo determinare $[r]_{n+1}$.
 
-Se $|A| = (n+1)$, sapendo che tutti gli elementi di $A$ sono distinti, prendo $x \in A$.
+Se $\abs{A} = (n+1)$, sapendo che tutti gli elementi di $A$ sono distinti, prendo $x \in A$.
 
 Data una funzione $f : A \to R$, questa individua una coppia $(f(x), f^{-} : A \setminus \{ x \} \to R)$ dove $f^{-}$ \`e definita come $f$ ossia $f^{-} (a) = f(a)$.
 
-In quanti modi si pu\`o scegliere $f(x)$? In $|R \setminus Im_{f^-}|$ modi (ossia, $r - n$). Le funzioni iniettive da $A \setminus \{ x \}$ in $R$ sono $[r]_n$ per definizione, quindi per il principio del prodotto il numero di coppie che posso creare sono $[r]_{n+1} = [r]_n \cdot (r - n)$.
+In quanti modi si pu\`o scegliere $f(x)$? In $\abs{R \setminus Im_{f^-}}$ modi (ossia, $r - n$). Le funzioni iniettive da $A \setminus \{ x \}$ in $R$ sono $[r]_n$ per definizione, quindi per il principio del prodotto il numero di coppie che posso creare sono $[r]_{n+1} = [r]_n \cdot (r - n)$.
 \end{proof}
 
 \begin{prop}
-Sappiamo che $|\mathbb{P}(A)| = |2^A| = 2^n$ con $|A| = n$. Quanti sono i sottoinsiemi pari di $A$, ossia $S \subseteq A $ t.c. $|S| = 2k$?
+Sappiamo che $\abs{\mathbb{P}(A)} = \abs{2^A} = 2^n$ con $\abs{A} = n$. Quanti sono i sottoinsiemi pari di $A$, ossia $S \subseteq A $ t.c. $\abs{S} = 2k$?
 
 Gli insiemi di cardinalit\`a pari sono tanti quanti quelli di cardinalit\`a dispari, quindi sono $2^{n-1}$.
 \end{prop}
 \begin{proof}
-So che $2^{n-1} = |\mathbb{P}(A \setminus \{x\})|$, quindi l'insieme dei sottoinsiemi pari di $A$ \`e in biezione con l'insieme delle parti di $A$ a cui ho tolto un elemento. Indicando con $P$ l'insieme dei sottoinsiemi pari di $A$, ho una biezione $F : \mathbb{P}(A \setminus \{x\}) \to P$:
+So che $2^{n-1} = \abs{\mathbb{P}(A \setminus \{x\})}$, quindi l'insieme dei sottoinsiemi pari di $A$ \`e in biezione con l'insieme delle parti di $A$ a cui ho tolto un elemento. Indicando con $P$ l'insieme dei sottoinsiemi pari di $A$, ho una biezione $F : \mathbb{P}(A \setminus \{x\}) \to P$:
 \[
 F(S) = 
 \begin{cases}
@@ -1376,7 +1397,7 @@ $\binom{n}{k}$ \`e il numero di sottoinsiemi con $k$ elementi, indicato con $\ma
 Fissato un $x \in A$, $\binom{n-1}{k}$ \`e l'insieme di tutti i sottoinsiemi con $k$ elementi di $A \setminus \{ x \}$, $\binom{n-1}{k-1}$ \`e l'insieme di tutti i sottoinsiemi con $k - 1$ elementi di $A \setminus \{x \}$.
 \end{prop}
 \begin{proof}
-$\forall \ S \subseteq A$ con $|S| = k$ e $x \in A$ ho due casi: $x \in S$ o $x \notin S$. Definisco la biezione $F : \mathbb{P}_k (A) \to \mathbb{P}_k (A \setminus \{ x \}) \cup \mathbb{P}_{k - 1} (A \setminus \{ x \})$ come:
+$\forall S \subseteq A$ con $\abs{S} = k$ e $x \in A$ ho due casi: $x \in S$ o $x \notin S$. Definisco la biezione $F : \mathbb{P}_k (A) \to \mathbb{P}_k (A \setminus \{ x \}) \cup \mathbb{P}_{k - 1} (A \setminus \{ x \})$ come:
 \[
 F (S) =
 \begin{cases}
@@ -1384,11 +1405,11 @@ S \text{ se } x \notin S \\
 S \setminus \{ x \} \text{ se } x \in S
 \end{cases}
 \]
-Ho quindi che $\mathbb{P}_k (A) = X \cup Y$ con $X = \{ S \subseteq A : |S| = k \land x \in S \}$ e $Y = \{ S \subseteq A : |S| = k \land x \notin S\}$. Se tolgo $x$ da $A$, le cardinalit\`a dei due insiemi diventano $|X| = \binom{n - 1}{k - 1}$ e $|Y| = \binom{n - 1}{k}$.
+Ho quindi che $\mathbb{P}_k (A) = X \cup Y$ con $X = \{ S \subseteq A : \abs{S} = k \land x \in S \}$ e $Y = \{ S \subseteq A : \abs{S} = k \land x \notin S\}$. Se tolgo $x$ da $A$, le cardinalit\`a dei due insiemi diventano $\abs{X} = \binom{n - 1}{k - 1}$ e $\abs{Y} = \binom{n - 1}{k}$.
 \end{proof}
 
 % TODO che vuol dire questo
-% $\{ r^n \}_{n \in \mathbb{N}} \leftrightarrow \{ f : A_n \to R\} = \{ |R^{A_n}| \}$ con $|A_n| = n$ e $|R| = r$.
+% $\{ r^n \}_{n \in \mathbb{N}} \leftrightarrow \{ f : A_n \to R\} = \{ \abs{R^{A_n}} \}$ con $\abs{A_n} = n$ e $\abs{R} = r$.
 
 \begin{prop}
 Quanto valgono i coefficienti binomiali? Diciamo questo:
@@ -1399,53 +1420,53 @@ da cui segue che:
 \[
 \binom{r}{n} = \frac{[r]_n}{n!} = \frac{r!}{n! \cdot {r-n}!}
 \]
-Stiamo dicendo quindi che $[r]_n$ (il numero di funzioni iniettive da $A$ in $R$ con $|A| = n$ e $|R| = r$) \`e uguale alla cardinalit\`a di un insieme di coppie $|E|$. $n!$ \`e il numero di elementi al secondo posto della coppia, $\binom{r}{n}$ \`e il numero di elementi al primo posto.
+Stiamo dicendo quindi che $[r]_n$ (il numero di funzioni iniettive da $A$ in $R$ con $\abs{A} = n$ e $\abs{R} = r$) \`e uguale alla cardinalit\`a di un insieme di coppie $\abs{E}$. $n!$ \`e il numero di elementi al secondo posto della coppia, $\binom{r}{n}$ \`e il numero di elementi al primo posto.
 \end{prop}
 \begin{proof}
 $\binom{r}{n}$ \`e il numero di sottoinsiemi con $n$ elementi di un insieme con $r$ elementi.
 \[
-E = \{ (S, ?) \text{ con } |S| = n \land S \subseteq R \}
+E = \{ (S, ?) \text{ con } \abs{S} = n \land S \subseteq R \}
 \]
-Abbiamo visto che ogni funzione $f : A \to R$ individua un'insieme immagine $Im_f \subseteq R$ e una partizione $\ker f \in \Pi(A)$, e che questi due insiemi sono in corrispondenza biunivoca $|Im_f| = |\ker f |$.
+Abbiamo visto che ogni funzione $f : A \to R$ individua un'insieme immagine $Im_f \subseteq R$ e una partizione $\ker f \in \Pi(A)$, e che questi due insiemi sono in corrispondenza biunivoca $\abs{Im_f} = \abs{\ker f}$.
 
 Se prendo una funzione iniettiva, il nucleo della funzione \`e la partizione pi\`u piccola, avendo per elementi le classi rappresentate dai singoli elementi del dominio. Quante sono le iniezioni $In(A, S)$ con $S = Im_f$? $[n]_n = n!$
 
-Quindi, $ E = \{ (S, \bar f : A \to S) $, con $ |S| = n \land S \subseteq R $ e $\bar f : A \to S$ insieme delle biezioni da $A$ in $S$ $\}$
+Quindi, $ E = \{ (S, \bar f : A \to S) $, con $ \abs{S} = n \land S \subseteq R $ e $\bar f : A \to S$ insieme delle biezioni da $A$ in $S$ $\}$
 \end{proof}
 
 \subsection{Teorema binomiale}
 \begin{prop}[Teorema binomiale\label{teorema_binomiale}]
 \[
-\forall \ n \in \mathbb{N} \text{ con } n > 0 \ 
+\forall n \in \mathbb{N} \text{ con } n > 0 \ 
 (x + y)^n = 
 \sum_{k = 0}^n \binom{n}{k} \ x^k y^{n - k}
 \]
 \end{prop}
 Si possono dimostrare anche identit\`a polinomiali con le biezioni. Quando sono uguali due polinomi? Quando nel loro sviluppo hanno tutti i coefficienti uguali.
 \begin{theorem}[Identit\`a polinomiale]
-Dati due polinomi in $n$ variabili $p(x_1, \ \dots \ x_n)$ e $q(x_1, \ \dots \ x_n)$, sono uguali se coincidono su insiemi infiniti, ossia se $\forall \ (a_1, \ \dots \ a_n) \in I^n$ con $I \subseteq \mathbb{R} $ e $ |I| = \infty$, $p(a_1, \ \dots \ a_n) = q(a_1, \ \dots \ a_n)$, ossia i due polinomi coincidono ($p = q$).
+Dati due polinomi in $n$ variabili $p(x_1, \ \dots \ x_n)$ e $q(x_1, \ \dots \ x_n)$, sono uguali se coincidono su insiemi infiniti, ossia se $\forall (a_1, \ \dots \ a_n) \in I^n$ con $I \subseteq \mathbb{R} $ e $ \abs{I} = \infty$, $p(a_1, \ \dots \ a_n) = q(a_1, \ \dots \ a_n)$, ossia i due polinomi coincidono ($p = q$).
 \end{theorem}
 Al posto di $x$ e di $y$ posso quindi mettere due interi $r, s \in \mathbb{N}$, e dimostrare che $(r + s)^n = \sum_{k = 0}^n \binom{n}{k} r^k s^{n - k}$.
 \begin{proof}
-Il membro sinistro della proposizione equivalente alla definizione \ref{teorema_binomiale}, $(r + s)^n$, \`e la cardinalit\`a dell'insieme di funzioni da un insieme con $n$ elementi ad uno con cardinalit\`a $r + s$, ossia all'unione disgiunta di due insiemi con cardinalit\`a rispettivamente $r$ e $s$. Dicendo quindi che gli insiemi $A$, $R$ e $S$ hanno cardinalit\`a $|A| = n$, $|R| = r $ e $|S| = s$, e che $T = R \cup S$, ho che $(r + s)^n = \left| T^A \right|$.
+Il membro sinistro della proposizione equivalente alla definizione \ref{teorema_binomiale}, $(r + s)^n$, \`e la cardinalit\`a dell'insieme di funzioni da un insieme con $n$ elementi ad uno con cardinalit\`a $r + s$, ossia all'unione disgiunta di due insiemi con cardinalit\`a rispettivamente $r$ e $s$. Dicendo quindi che gli insiemi $A$, $R$ e $S$ hanno cardinalit\`a $\abs{A} = n$, $\abs{R} = r $ e $\abs{S} = s$, e che $T = R \cup S$, ho che $(r + s)^n = \abs{T^A}$.
 
 Il membro destro della proposizione \`e una somma, quindi corrisponde all'unione disgiunta di $n$ insiemi.
 \[
-\left| \bigsqcup_{k = 0}^{n} E_k \right| = \sum_{k = 0}^{n} \left| E_k \right|
+\abs{\bigsqcup_{k = 0}^{n} E_k} = \sum_{k = 0}^{n} \abs{E_k}
 \text{ con }
-|E_k| = \binom{n}{k} \ r^k s^{n - k}
+\abs{E_k} = \binom{n}{k} \ r^k s^{n - k}
 \]
 Devo definire l'insieme $E_k$. Per il principio del prodotto, \`e una terna:
 \[
 \left( X, \ f_k : X \to R, \ g_{(n - k)} : (A \setminus X) \to S \right)
 \]
-con $X \subseteq A$ tale che $|X| = k$, $f_k$ appartenente all'insieme delle funzioni da $X$ in $R$, e $g_{(n-k)}$ appartenente all'insieme delle funzioni da $A \setminus X$ (ossia il complementare di $X$) in $S$.
+con $X \subseteq A$ tale che $\abs{X} = k$, $f_k$ appartenente all'insieme delle funzioni da $X$ in $R$, e $g_{(n-k)}$ appartenente all'insieme delle funzioni da $A \setminus X$ (ossia il complementare di $X$) in $S$.
 
 Dobbiamo mostrare ora che $T^A \leftrightarrow \bigsqcup E_k$, ossia che c'\`e una biezione. La funzione biettiva $F$ associa ad una funzione $f : A \to T$ una terna:
 \[
 \left( f^{-1} (R), \ f_k : X \to R, \ g_{(n - k)} : (A \setminus X) \to S \right) \in E_k
 \]
-con $f^{-1}(R) = X$ a indicare la controimmagine di $R$ e $|f^{-1}(R)| = k$.
+con $f^{-1}(R) = X$ a indicare la controimmagine di $R$ e $\abs{f^{-1}(R)} = k$.
 \end{proof}
 
 \subsection{Coefficienti multinomiali}
@@ -1454,7 +1475,7 @@ Il coefficiente multinomiale, indicato con:
 \[
 \binom{n}{k_1 \dots k_t}
 \]
-\`e il numero delle $t$-scomposizioni di un insieme $A$ con $n$ elementi nella forma $(E_1, \dots, E_t)$ tali che $|E_1| = k_1, \dots |E_t| = k_t$.
+\`e il numero delle $t$-scomposizioni di un insieme $A$ con $n$ elementi nella forma $(E_1, \dots, E_t)$ tali che $\abs{E_1} = k_1, \dots \abs{E_t} = k_t$.
 
 \begin{defn}[$t$-scomposizioni]
 Sia $A$ un insieme con $n$ elementi, una $t$-scomposizione di $A$ \`e una $t$-upla $(E_1, \dots E_t)$ tale che:
@@ -1491,7 +1512,7 @@ Partendo da questa uguaglianza, so che:
 \]
 
 \begin{prop}\label{coeff_mult_valore}
-Il numero delle $t$-scomposizioni di $A$ $(E_1, \dots E_t)$ di $A$ (indicato anche con $E_1 + \dots + E_t = A$) tali che $|E_1| = k_1, \dots |E_t| = k_t$ \`e:
+Il numero delle $t$-scomposizioni di $A$ $(E_1, \dots E_t)$ di $A$ (indicato anche con $E_1 + \dots + E_t = A$) tali che $\abs{E_1} = k_1, \dots \abs{E_t} = k_t$ \`e:
 \begin{equation}
 \binom{n}{k_1, \dots k_t} = \frac{n!}{k_1! \ \dots \ k_t!}
 \end{equation}
@@ -1503,7 +1524,7 @@ Per $t = 2$ \`e vero. Supponiamo sia vero per $t > 2$. Prendiamo una $(t+1)$-sco
 \]
 in cui $E_{t+1} \subseteq A$ e $(E_1, \dots E_t)$ \`e una $t$-scomposizione di $A \setminus E_{t+1}$, poich\'e $E_1 + \dots + E_t + E_{t+1} = A$.
 
-In quanti modi posso scegliere un sottoinsieme $|E_{t+1}| = k_{t+1}$? In $\binom{n}{k_{t+1}}$ modi. Quindi quante coppie $(E_{t+1}, (E_1, \dots E_t))$ ho? \`E un prodotto, e per il principio del prodotto:
+In quanti modi posso scegliere un sottoinsieme $\abs{E_{t+1}} = k_{t+1}$? In $\binom{n}{k_{t+1}}$ modi. Quindi quante coppie $(E_{t+1}, (E_1, \dots E_t))$ ho? \`E un prodotto, e per il principio del prodotto:
 \[
 \binom{n}{k_{t+1}} \cdot \frac{(n - k_{t+1})!}{k_1! \dots k_{t}!}
 \]
@@ -1513,7 +1534,7 @@ Semplificando, si ottiene la tesi.
 \subsection{Teorema multinomiale}
 \begin{prop}
 \begin{equation}
-(x_1 + \dots + x_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
+(x_1 + \dots + x_t)^n = \sum_{(k_1, \dots k_t) : k_1 + \dots k_t = n}
 \binom{n}{k_1, \dots, k_t} \ x_1^{k_1} \dots x_t^{k_t}
 \end{equation}
 Dove la sommatoria indica la somma di tutte le $t$-uple $(k_1, \dots k_t)$ tali che $k_1 + \dots + k_t = n$.
@@ -1521,10 +1542,10 @@ Dove la sommatoria indica la somma di tutte le $t$-uple $(k_1, \dots k_t)$ tali 
 \begin{proof}
 Si dimostra di nuovo per biezione. Prendo $x_i = r_i \in \mathbb{N}$. Quindi:
 \[
-(r_1 + \dots + r_t)^n = \sum_{(k_1, \dots k_t) | k_1 + \dots k_t = n}
+(r_1 + \dots + r_t)^n = \sum_{(k_1, \dots k_t) : k_1 + \dots k_t = n}
 \binom{n}{k_1, \dots, k_t} \ r_1^{k_1} \dots r_t^{k_t}
 \]
-Il membro sinistro \`e uguale alla cardinalit\`a dell'insieme delle funzioni da $A$ in $T$ tali che $T = R_1 \cup \dots \cup R_t$, in cui $R_i $ con $i \in [1, t]$ sono insiemi a due a due disgiunti tali che $| R_i | = r_i$.
+Il membro sinistro \`e uguale alla cardinalit\`a dell'insieme delle funzioni da $A$ in $T$ tali che $T = R_1 \cup \dots \cup R_t$, in cui $R_i $ con $i \in [1, t]$ sono insiemi a due a due disgiunti tali che $\abs{R_i} = r_i$.
 
 Ogni funzione individua una scomposizione di $A$ in $t$-blocchi, in cui ogni blocco \`e dato dalla controimmagine $f^{-1} (R_i)$ ed ha cardinalit\`a $k_i$. 
 
@@ -1549,15 +1570,15 @@ Ponendo $x = 1$, per il teorema binomiale, ho la tesi.
 
 \subsection{Principio dei cassetti}
 
-$R^A$ \`e l'insieme delle funzioni da $A$ in $R$. $|R^A| = r^n$. Una funzione $f : A \to R \in R^A$ la posso interpretare in due modi:
+$R^A$ \`e l'insieme delle funzioni da $A$ in $R$. $\abs{R^A} = r^n$. Una funzione $f : A \to R \in R^A$ la posso interpretare in due modi:
 \begin{description}
   \item[Punto di vista dell'occupazione] $A$ viene interpretato come un insieme di oggetti. Il codominio $R$ viene interpretato come un insieme di cassetti. Quindi una funzione da $A$ in $R$ \`e un modo di disporre gli oggetti di $A$ nei cassetti di $R$.
   \item[Punto di vista della distribuzione] Rappresento l'insieme $A$ come un insieme di posti, e l'insieme $R$ come un insieme di lettere (ossia come un alfabeto). Una funzione $f : A \to R$ mi d\`a una parola, ossia un modo di disporre le lettere di $R$ nei posti di $A$.
 \end{description}
 \begin{prop}[Principio dei cassetti]
-Se $|A| > |R|$ non esistono funzioni iniettive da $A$ in $R$.
+Se $\abs{A} > \abs{R}$ non esistono funzioni iniettive da $A$ in $R$.
 \end{prop}
-Dal punto di vista dell'occupazione, se si mettono $|A| = n$ oggetti in $|R| = r$ cassetti con $n > r$, allora almeno un cassetto conterr\`a pi\`u di un oggetto. 
+Dal punto di vista dell'occupazione, se si mettono $\abs{A} = n$ oggetti in $\abs{R} = r$ cassetti con $n > r$, allora almeno un cassetto conterr\`a pi\`u di un oggetto. 
 
 Dal punto di vista della distribuzione, ogni parola di lunghezza $n$ con lettere in un alfabeto di cardinalit\`a $r$, con $n > r$, contiene almeno una lettera ripetuta.
 
@@ -1643,8 +1664,8 @@ $\rho$ divide $X$ in classi di equivalenza. Quali sono gli elementi della classe
 \begin{prop}
 Sia $\Gamma$ un insieme e siano $A_1, \dots, A_t$ sottoinsiemi finiti di $\Gamma$.
 \begin{equation}
-| A_1 \cup A_2 \cup \ldots \cup A_t |  = 
-\sum_{\emptyset \neq I \subseteq \{ 1, \ldots, t \}} (-1)^{|I| - 1} \left| \bigcap_{i \in I} A_i \right|
+\abs{A_1 \cup A_2 \cup \ldots \cup A_t}  = 
+\sum_{\emptyset \neq I \subseteq \{ 1, \ldots, t \}} (-1)^{\abs{I} - 1} \abs{\bigcap_{i \in I} A_i} 
 \end{equation}
 \end{prop}
 \begin{proof}
@@ -1652,7 +1673,7 @@ Si pu\`o dimostrare per induzione, o si pu\`o fare una dimostrazione combinatori
 
 Prendiamo $x \in A_1 \cup \dots \cup A_t$ e siano $A_{j_1} \dots A_{j_n}$ i sottoinsiemi che contengono $x$, ossia se $i \neq j_1 , \dots j_n$ allora $x \notin A_i$. Il contributo che $x$ porta alla somma \`e evidentemente 1, perch\'e la cardinalit\`a dell'unione aumenta di uno.
 
-Per $|I| = 1$ aggiunger\`o 1 per ogni sottoinsieme $A_{j_1} \dots A_{j_n}$, ossia per ogni sottoinsieme contenente $x$ poich\'e ogni altro $A_i$ non aggiunger\`a niente alla somma. Per $k > 1$ il contributo alla somma sar\`a 1 solo per le intersezioni fra i sottoinsiemi $A_{j_1} \dots A_{j_n}$, e 0 per ogni intersezione contenente un altro $A_i$. Quindi il contributo di $x$ alla somma sar\`a:
+Per $\abs{I} = 1$ aggiunger\`o 1 per ogni sottoinsieme $A_{j_1} \dots A_{j_n}$, ossia per ogni sottoinsieme contenente $x$ poich\'e ogni altro $A_i$ non aggiunger\`a niente alla somma. Per $k > 1$ il contributo alla somma sar\`a 1 solo per le intersezioni fra i sottoinsiemi $A_{j_1} \dots A_{j_n}$, e 0 per ogni intersezione contenente un altro $A_i$. Quindi il contributo di $x$ alla somma sar\`a:
 \[
 \sum_{k = 1}^{n} (-1)^{k - 1} \ \binom{n}{k}
 \]
@@ -1674,28 +1695,28 @@ Quindi:
 
 % Qualunque funzione $f : A \to R$ individua una relazione di equivalenza, e quindi una partizione $\ker f$ chiamata ``nucleo di $f$''. Dati $x, y \in A$, ho che $x \ \varepsilon_f \ y \Leftrightarrow f(x) = f(y)$.
 
-% Sappiamo che nucleo e immagine di $f$ sono in corrispondenza biunivoca. $|\ker f| = |Im_f|$.
+% Sappiamo che nucleo e immagine di $f$ sono in corrispondenza biunivoca. $\abs{\ker f} = \abs{Im_f}$.
 
-Se indico con $S(n, k)$ (numero di Stirling di II specie) il numero delle partizioni in $k$-blocchi \textit{non vuoti} di un insieme con $n$ elementi, indicando con $Sur(A, R)$ l'insieme delle funzioni suriettive da $A$ in $R$, posso esprimere il numero delle funzioni suriettive $|Sur(A,R)| $ come $S(n,r) \cdot r!$, con $|A| = n$ e $|R| = r$.
+Se indico con $S(n, k)$ (numero di Stirling di II specie) il numero delle partizioni in $k$-blocchi \textit{non vuoti} di un insieme con $n$ elementi, indicando con $Sur(A, R)$ l'insieme delle funzioni suriettive da $A$ in $R$, posso esprimere il numero delle funzioni suriettive $\abs{Sur(A,R)} $ come $S(n,r) \cdot r!$, con $\abs{A} = n$ e $\abs{R} = r$.
 
-Ogni funzione suriettiva $f : A \to R $ individua biunivocamente una coppia $(\pi, F)$ dove $\pi$ \`e una partizione di $A$ in $|R|$-blocchi, in cui ogni blocco (necessariamente non vuoto, o la funzione non sarebbe suriettiva) \`e individuato dalla controimmagine $f^{-1}(r) \ \forall \ r \in R$, ed $F$ \`e una biezione da $\pi \to R$. Quindi se voglio costruire una funzione suriettiva da $A$ in $R$, partiziono $A$ in $r$ blocchi \textit{non vuoti} e creo una biezione dai blocchi individuati in $A$ ad $R$.
+Ogni funzione suriettiva $f : A \to R $ individua biunivocamente una coppia $(\pi, F)$ dove $\pi$ \`e una partizione di $A$ in $\abs{R}$-blocchi, in cui ogni blocco (necessariamente non vuoto, o la funzione non sarebbe suriettiva) \`e individuato dalla controimmagine $f^{-1}(r) \forall r \in R$, ed $F$ \`e una biezione da $\pi \to R$. Quindi se voglio costruire una funzione suriettiva da $A$ in $R$, partiziono $A$ in $r$ blocchi \textit{non vuoti} e creo una biezione dai blocchi individuati in $A$ ad $R$.
 
-Ora troviamo $|Sur(A,R)|$ usando il principio di inclusione/esclusione.
+Ora troviamo $\abs{Sur(A,R)}$ usando il principio di inclusione/esclusione.
 
 Possiamo trovare il numero delle funzioni suriettive dall'insieme di tutte le funzioni $R^A$ togliendo le funzioni non suriettive.
 
-Supponiamo per semplicit\`a che $R = \{ 1, \ldots , r\} = [r]$. $f$ non \`e suriettiva $\Leftrightarrow \exists \ i = 1, \ldots, r$ tale che $i \notin Im_f$. Se indico con $A_i = \{ f : A \to R : i \notin Im_f \}$, l'unione $A_1 \cup \ldots \cup A_r$ \`e l'insieme delle funzioni non suriettive.
+Supponiamo per semplicit\`a che $R = \{ 1, \ldots , r\} = [r]$. $f$ non \`e suriettiva $\Leftrightarrow \exists i = 1, \ldots, r$ tale che $i \notin Im_f$. Se indico con $A_i = \{ f : A \to R : i \notin Im_f \}$, l'unione $A_1 \cup \ldots \cup A_r$ \`e l'insieme delle funzioni non suriettive.
 \[
-Sur(A,R) = |R^A| - |A_1 \cup \dots \cup A_r|
+Sur(A,R) = \abs{R^A} - \abs{A_1 \cup \dots \cup A_r}
 \]
-Calcoliamo $|A_1 \cup \ldots \cup A_r|$ con il principio di inclusione/esclusione.
+Calcoliamo $\abs{A_1 \cup \ldots \cup A_r}$ con il principio di inclusione/esclusione.
 \[
-| A_1 \cup \ldots \cup A_r |  = 
-\sum_{\emptyset \neq I \subseteq \{ 1, \ldots, r \}} (-1)^{|I| - 1} \left| \bigcap_{i \in I} A_i \right|
+\abs{A_1 \cup \ldots \cup A_r} = 
+\sum_{\emptyset \neq I \subseteq \{ 1, \ldots, r \}} (-1)^{\abs{I} - 1} \abs{\bigcap_{i \in I} A_i}
 \]
-Se prendo $I$ costituito da un solo elemento, $|A_1| = \left| (R \setminus \{ 1 \})^A \right| = (r - 1)^n$, quindi la cardinalit\`a del generico $A_i = (r-1)^n$.
+Se prendo $I$ costituito da un solo elemento, $\abs{A_1} = \abs{(R \setminus \{ 1 \})^A} = (r - 1)^n$, quindi la cardinalit\`a del generico $A_i = (r-1)^n$.
 
-Con $|I| = 2$, la cardinalit\`a dell'intersezione $|A_1 \cap A_2| = (r - 2)^n$. In generale $|A_{i_1} \cap \dots \cap A_{i_r}| = (r - k)^n$.
+Con $\abs{I} = 2$, la cardinalit\`a dell'intersezione $\abs{A_1 \cap A_2} = (r - 2)^n$. In generale $\abs{A_{i_1} \cap \dots \cap A_{i_r}} = (r - k)^n$.
 
 Quindi generalizzando:
 \[
@@ -1705,17 +1726,17 @@ Quindi generalizzando:
 \]
 Sapendo che $r^n$ \`e $(-1)^0 \binom{r}{0} \ (r - 0)^n$:
 \begin{align*}
-|Sur(A,R)| = 
+\abs{Sur(A,R)} = 
 r^n - \sum_{k = 1}^{n} (-1)^{k - 1} \binom{r}{k} (r - k)^n =  \\
 r^n + \sum_{k = 1}^{n} (-1)^{k} \binom{r}{k} (r - k)^n =  \\
 \sum_{k = 0}^{n} (-1)^{k} \binom{r}{k} (r - k)^n
 \end{align*}
 Quindi il numero di Stirling di II specie \`e:
 \begin{equation}
-S(n,r) = \frac{|Sur(A,R)|}{r!} = \frac{1}{r!} \sum_{k = 0}^{n} (-1)^{k} \binom{r}{k} (r - k)^n
+S(n,r) = \frac{\abs{Sur(A,R)}}{r!} = \frac{1}{r!} \sum_{k = 0}^{n} (-1)^{k} \binom{r}{k} (r - k)^n
 \end{equation}
 
-Per il teorema di omomorfismo, data una funzione $f : A \to R$, ho che $|\ker f| = |Im_f|$. Consideriamo la funzione $F : \ker f \to Im_f$ che ad ogni blocco associa l'immagine degli elementi del dominio nel bocco ($F[x] = f(x)$), e definiamo la funzione $\bar F : \ker f \to R$ costruita a partire da $F$ tale che $\bar F [x] = f(x)$ in genere non \`e biunivoca, a meno che la funzione $f$ sia suriettiva. Di norma \`e solo iniettiva.
+Per il teorema di omomorfismo, data una funzione $f : A \to R$, ho che $\abs{\ker f} = \abs{Im_f}$. Consideriamo la funzione $F : \ker f \to Im_f$ che ad ogni blocco associa l'immagine degli elementi del dominio nel bocco ($F[x] = f(x)$), e definiamo la funzione $\bar F : \ker f \to R$ costruita a partire da $F$ tale che $\bar F [x] = f(x)$ in genere non \`e biunivoca, a meno che la funzione $f$ sia suriettiva. Di norma \`e solo iniettiva.
 
 Diciamo questo:
 \begin{equation}
@@ -1752,9 +1773,9 @@ Il coefficiente $s(n, k)$ indica il numero di Stirling di prima specie.
 
 Dal punto di vista della distribuzione, il dominio \`e un insieme di posti $P$ di cardinalit\`a 10, mentre il codominio \`e l'insieme delle lettere $L = \{ $A, C, E, I, M, T$\}$. La parola MATEMATICA \`e una funzione $f : P \to L $ che associa ad ogni posto del dominio una lettera del codominio. Gli anagrammi di MATEMATICA sono tutte quelle funzioni tali per cui le cardinalit\`a delle controimmagini delle lettere A, M e T sono: 
 \begin{align*}
-|f^{-1}(A)| = 3 \\ 
-|f^{-1}(M)| = 2 \\
-|f^{-1}(T)| = 2
+\abs{f^{-1}(A)} = 3 \\ 
+\abs{f^{-1}(M)} = 2 \\
+\abs{f^{-1}(T)} = 2
 \end{align*}
 Sappiamo che ogni funzione individua un nucleo, ossia, in questo caso, una $6$-scomposizione $E_1, \dots E_6$ dell'insieme dei posti. Quale $6$-scomposizione dell'insieme dei posti \`e individuata dal nucleo della funzione che individua la parola ``MATEMATICA''?
 
@@ -1764,7 +1785,7 @@ $E_1$ & $E_2$ & $E_3$ & $E_4$ & $E_5$ & $E_6$ \\
 $\{2, 6, 10\}$ & $\{9\}$ & $\{4\}$ & $\{8\}$ & $\{1,5\}$ & $\{3,7\}$ 
 \end{tabular}
 
-Quindi per trovare gli anagrammi devo trovare le $6$-scomposizioni tali che $|E_1| = 3$, $|E_2| = 1$, $|E_3| = 1$, $|E_4| = 1$, $|E_5| = 2$, $|E_6| = 2$. La scomposizione $( \{ 7, 1, 2\}, \{ 10\}, \{3\}, \{ 6\}, \{4, 5\}, \{8,9\})$, ad esempio, individua l'anagramma AAEMMIATTC. Per la proposizione \ref{coeff_mult_valore} \`e:
+Quindi per trovare gli anagrammi devo trovare le $6$-scomposizioni tali che $\abs{E_1} = 3$, $\abs{E_2} = 1$, $\abs{E_3} = 1$, $\abs{E_4} = 1$, $\abs{E_5} = 2$, $\abs{E_6} = 2$. La scomposizione $( \{ 7, 1, 2\}, \{ 10\}, \{3\}, \{ 6\}, \{4, 5\}, \{8,9\})$, ad esempio, individua l'anagramma AAEMMIATTC. Per la proposizione \ref{coeff_mult_valore} \`e:
 \[
 \frac{10!}{3! \ 2! \ 2!}
 \]
@@ -1775,47 +1796,47 @@ Adesso dobbiamo trovare il numero di anagrammi contenenti le sequenze richieste:
   \item $A_2 = $ insieme degli anagrammi che contengono la sequenza ATI.
   \item $A_3 = $ insieme degli anagrammi che contengono la sequenza MAC.
 \end{itemize}
-$|A_1 \cup A_2 \cup A_3|$ \`e la risposta al secondo punto, e posso calcolarlo con il principio di inclusione ed esclusione, secondo il quale:
+$\abs{A_1 \cup A_2 \cup A_3}$ \`e la risposta al secondo punto, e posso calcolarlo con il principio di inclusione ed esclusione, secondo il quale:
 \[
-|A_1 \cup A_2 \cup A_3| = |A_1| + |A_2| + |A_3| - |A_1 \cap A_2| - |A_1 \cap A_3| - |A_2 \cap A_3| + |A_1 \cap A_2 \cap A_3|
+\abs{A_1 \cup A_2 \cup A_3} = \abs{A_1} + \abs{A_2} + \abs{A_3} - \abs{A_1 \cap A_2} - \abs{A_1 \cap A_3} - \abs{A_2 \cap A_3} + \abs{A_1 \cap A_2 \cap A_3}
 \]
 Consideriamo ciascuna sequenza come un'unica lettera. 
 
-Con $A_1$ il codominio \`e $\{ $(MATE), A, C, I, M, T$\}$, con la A ripetuta due volte ($|E_{\text{A}}| = 2$), e il dominio ha 7 posti. Quindi:
+Con $A_1$ il codominio \`e $\{ $(MATE), A, C, I, M, T$\}$, con la A ripetuta due volte ($\abs{E_{\text{A}}} = 2$), e il dominio ha 7 posti. Quindi:
 \[
-|A_1| = \frac{7!}{2!}
+\abs{A_1} = \frac{7!}{2!}
 \]
-Con $A_2$ il codominio \`e $\{ $(ATI), A, C, I, M, T$\}$, con la A e la M ripetute due volte ciascuna ($|E_{\text{A}}| = 2$ e $|E_{\text{M}}| = 2$), e il dominio ha 8 posti.
+Con $A_2$ il codominio \`e $\{ $(ATI), A, C, I, M, T$\}$, con la A e la M ripetute due volte ciascuna ($\abs{E_{\text{A}}} = 2$ e $\abs{E_{\text{M}}} = 2$), e il dominio ha 8 posti.
 \[
-|A_1| = \frac{8!}{2! \ 2!}
+\abs{A_1} = \frac{8!}{2! \ 2!}
 \]
-Con $A_3$ il codominio \`e $\{ $(MAC), A, C, I, M, T$\}$, con la A e la T ripetute due volte ciascuna ($|E_{\text{A}}| = 2$ e $|E_{\text{T}}| = 2$), e il dominio ha 8 posti.
+Con $A_3$ il codominio \`e $\{ $(MAC), A, C, I, M, T$\}$, con la A e la T ripetute due volte ciascuna ($\abs{E_{\text{A}}} = 2$ e $\abs{E_{\text{T}}} = 2$), e il dominio ha 8 posti.
 \[
-|A_1| = \frac{8!}{2! \ 2!}
+\abs{A_1} = \frac{8!}{2! \ 2!}
 \]
 
-Ora devo trovare le cardinalit\`a delle intersezioni $|A_1 \cap A_2|$, $|A_1 \cap A_3|$ e $|A_2 \cap A_3|$.
+Ora devo trovare le cardinalit\`a delle intersezioni $\abs{A_1 \cap A_2}$, $\abs{A_1 \cap A_3}$ e $\abs{A_2 \cap A_3}$.
 
 Con $A_1 \cap A_2$ il codominio \`e $\{ $(MATE), (ATI), A, C, M$\}$, e il dominio ha 5 posti.
 \[
-|A_1 \cap A_2| = 5!
+\abs{A_1 \cap A_2} = 5!
 \]
 Con $A_1 \cap A_3$ il codominio \`e $\{ $(MATE), (MAC), A, I, T$\}$, e il dominio ha 5 posti.
 \[
-|A_1 \cap A_3| = 5!
+\abs{A_1 \cap A_3} = 5!
 \]
 Con $A_2 \cap A_3$ il codominio \`e $\{ $(ATI), (MAC), A, E, M, T$\}$, e il dominio ha 6 posti.
 \[
-|A_2 \cap A_3| = 6!
+\abs{A_2 \cap A_3} = 6!
 \]
 
-Ora devo trovare la cardinalit\`a dell'intersezione $|A_1 \cap A_2 \cap A_3|$. Il codominio \`e $\{ $(MATE), (MAC), (ATI)$\}$, e il dominio ha 3 posti.
+Ora devo trovare la cardinalit\`a dell'intersezione $\abs{A_1 \cap A_2 \cap A_3}$. Il codominio \`e $\{ $(MATE), (MAC), (ATI)$\}$, e il dominio ha 3 posti.
 \[
-|A_1 \cap A_2 \cap A_3| = 3!
+\abs{A_1 \cap A_2 \cap A_3} = 3!
 \]
 Adesso possiamo applicare il principio di inclusione/esclusione.
 \[
-|A_1 \cup A_2 \cup A_3| = 
+\abs{A_1 \cup A_2 \cup A_3} = 
 \frac{7!}{2!} + 2 \cdot \frac{8!}{2! \ 2!} - 2 \cdot 5! - 6! + 3!
 \]
 
@@ -1839,49 +1860,49 @@ Abbiamo 8 posti. Il codominio \`e $\{$A, E, R, T$\}$. Il numero di anagrammi \`e
   \item $A_2 = $ insieme degli anagrammi che contengono ATTA. 
   \item $A_3 = $ insieme degli anagrammi che contengono ARE. 
 \end{itemize}
-Con $A_1$ il codominio \`e $\{ $(TRA), A, E, R, T$\}$, ed ho 6 posti. $|E_{\text{T}}| = 2$. Ma posso ottenere l'anagramma TRATRAET in due modi: ((TRA), T, R, A, E, T) e (T, R, A, (TRA), E, T). Quindi devo togliere il numero di parole formate da $\{ $(TRA), E, T$\}$ con $|E_{\text{TRA}}| = 2$.
+Con $A_1$ il codominio \`e $\{ $(TRA), A, E, R, T$\}$, ed ho 6 posti. $\abs{E_{\text{T}}} = 2$. Ma posso ottenere l'anagramma TRATRAET in due modi: ((TRA), T, R, A, E, T) e (T, R, A, (TRA), E, T). Quindi devo togliere il numero di parole formate da $\{ $(TRA), E, T$\}$ con $\abs{E_{\text{TRA}}} = 2$.
 \[
-|A_1| = \frac{6!}{2!} - \frac{4!}{2!}
+\abs{A_1} = \frac{6!}{2!} - \frac{4!}{2!}
 \]
-Con $A_2$ il codominio \`e $\{ $(ATTA), E, R, T$\}$, ed ho 5 posti. $|E_{\text{R}}| = 2$.
+Con $A_2$ il codominio \`e $\{ $(ATTA), E, R, T$\}$, ed ho 5 posti. $\abs{E_{\text{R}}} = 2$.
 \[
-|A_2| = \frac{5!}{2!}
+\abs{A_2} = \frac{5!}{2!}
 \]
-Con $A_3$ il codominio \`e $\{ $(ARE), A, R, T$\}$, ed ho 6 posti. $|E_{\text{T}}| = 3$.
+Con $A_3$ il codominio \`e $\{ $(ARE), A, R, T$\}$, ed ho 6 posti. $\abs{E_{\text{T}}} = 3$.
 \[
-|A_3| = \frac{6!}{3!}
+\abs{A_3} = \frac{6!}{3!}
 \]
 Adesso dobbiamo procedere con le intersezioni.
 
 Nel caso dell'intersezione $A_1 \cap A_2$, non posso avere la sequenza TRA e la sequenza ATTA separate, avendo solo due A nella parola TRATTARE. Quindi devo considerare TRATTA come una sola sequenza. Il codominio quindi \`e $\{ $(TRATTA), E, R$\}$. Ho 3 posti.
 \[
-|A_1 \cap A_2| = 3!
+\abs{A_1 \cap A_2} = 3!
 \] 
-Per $A_1 \cap A_3$, il codominio \`e $\{ $(TRA), (ARE), T$\}$, con $|E_{\text{T}}| = 2$. Ho 4 posti. Ma posso anche avere la A in comune fra le due sequenze, e quindi avrei 4 posti ed un codominio $\{ $(TRARE), A, T$\}$ sempre con $|E_{\text{T}}| = 2$. Quindi:
+Per $A_1 \cap A_3$, il codominio \`e $\{ $(TRA), (ARE), T$\}$, con $\abs{E_{\text{T}}} = 2$. Ho 4 posti. Ma posso anche avere la A in comune fra le due sequenze, e quindi avrei 4 posti ed un codominio $\{ $(TRARE), A, T$\}$ sempre con $\abs{E_{\text{T}}} = 2$. Quindi:
 \[
-|A_1 \cap A_3| = \frac{4!}{2!} + \frac{4!}{2!} = 4!
+\abs{A_1 \cap A_3} = \frac{4!}{2!} + \frac{4!}{2!} = 4!
 \]
 Per $A_2 \cap A_3$, come con $A_1 \cap A_2$, ATTA e ARE devono essere considerate come una sequenza sola. Il codominio \`e $\{$(ATTARE), T, R$\}$, con 3 posti. Quindi:
 \[
-|A_2 \cap A_3| = 3!
+\abs{A_2 \cap A_3} = 3!
 \]
-L'unico modo per intersecare tutte e tre le sequenze \`e la sequenza TRATTARE. Quindi $|A_1 \cap A_2 \cap A_3| = 1$.
+L'unico modo per intersecare tutte e tre le sequenze \`e la sequenza TRATTARE. Quindi $\abs{A_1 \cap A_2 \cap A_3} = 1$.
 
 % coefficienti multinomiali
 
 Dato un insieme $E$ ed una partizione tale per cui ogni classe ha lo stesso numero di elementi:
 \[
-\frac{|E|}{\text{\# classi}} = \text{ \# elementi di ciascuna classe}
+\frac{\abs{E}}{\text{\# classi}} = \text{ \# elementi di ciascuna classe}
 \]
 Viceversa:
 \[
-\frac{|E|}{\text{\# elementi di ciascuna classe}} = \text{ \# classi}
+\frac{\abs{E}}{\text{\# elementi di ciascuna classe}} = \text{ \# classi}
 \]
 Quindi ogni divisione pu\`o essere interpretata come una divisione fra la cardinalit\`a di un insieme e o il numero delle classi di equivalenza, o il numero degli elementi di ciascuna classe. Sappiamo che il numero degli anagrammi di una parola di $n$ lettere, con ciascuna lettera ripetuta $k_i$ volte, \`e:
 \[
 \frac{n!}{k_1! \dots k_t!}
 \]
-Come possiamo interpretare questa divisione? $S_n$ \`e l'insieme delle permutazioni di $E$ con $|E| = n$, ed ha cardinalit\`a $|S_n| = n!$. Negli anagrammi $n$ \`e il numero di posti, quindi $n!$ \`e la cardinalit\`a dell'insieme delle permutazioni dei posti. 
+Come possiamo interpretare questa divisione? $S_n$ \`e l'insieme delle permutazioni di $E$ con $\abs{E} = n$, ed ha cardinalit\`a $\abs{S_n} = n!$. Negli anagrammi $n$ \`e il numero di posti, quindi $n!$ \`e la cardinalit\`a dell'insieme delle permutazioni dei posti. 
 
 Ad ogni permutazione di posti corrisponde un anagramma, ma la relazione non \`e biunivoca: a permutazioni distinte pu\`o corrispondere lo stesso anagramma. Dobbiamo prima definire una relazione di equivalenza sull'insieme delle permutazioni dei posti:
 \begin{defn}
@@ -1894,17 +1915,17 @@ Quindi $k_1! \dots k_t!$ si pu\`o interpretare come il numero di elementi in ogn
 
 \subsubsection{Permutazioni senza punti fissi}
 
-\textbf{Esercizio:} $d_n = $ numero delle permutazioni di $E$ ($|E| = n$) senza punti fissi, ossia $\forall \ x \in E $ $ f(x) \neq x$. Supponiamo $E = \{1, 2, \dots n \} = [n]$.
+$d_n = $ numero delle permutazioni di $E$ ($\abs{E} = n$) senza punti fissi, ossia $\forall x \in E $ $ f(x) \neq x$. Supponiamo $E = \{1, 2, \dots n \} = [n]$.
 
 Diciamo che $A_i$ \`e l'insieme delle permutazioni che fissano $i$ ($f(i) = i$). Quindi $A_1 \cup \dots \cup A_n$ \`e l'insieme delle permutazioni con almeno un punto fisso.
 
-Quindi $d_n = |S_n| - |A_1 \cup \dots \cup A_n|$.
+Quindi $d_n = \abs{S_n} - \abs{A_1 \cup \dots \cup A_n}$.
 
-La cardinalit\`a di ogni $A_i$ \`e $(n - 1)!$. La cardinalit\`a di $A_i \cap A_j $ \`e $(n - 2)!$. In generale, la cardinalit\`a dell'intersezione di $k$ insiemi distinti $|A_{i_1} \cap \dots \cap A_{i_k}| = (n - k)!$.
+La cardinalit\`a di ogni $A_i$ \`e $(n - 1)!$. La cardinalit\`a di $A_i \cap A_j $ \`e $(n - 2)!$. In generale, la cardinalit\`a dell'intersezione di $k$ insiemi distinti $\abs{A_{i_1} \cap \dots \cap A_{i_k}} = (n - k)!$.
 
 Sostituiamo nella formula del principio di inclusione/esclusione:
 \[
-\sum_{\emptyset \neq I \subseteq \{1, \dots n \}} (-1)^{|I| - 1} \binom{n}{|I|} \cdot (n - |I|)! =
+\sum_{\emptyset \neq I \subseteq \{1, \dots n \}} (-1)^{\abs{I} - 1} \binom{n}{\abs{I}} \cdot (n - \abs{I})! =
 \binom{n}{1} \cdot (n-1)! - \binom{n}{2} \cdot (n - 2)! \dots
 \]
 
