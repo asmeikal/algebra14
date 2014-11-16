@@ -1165,8 +1165,6 @@ a^{-1} \circ a \circ x \circ a \circ a^{-1} = a^{-1} \circ a \circ c \circ b \ci
 \vskip 5cm
 \end{esercizio}
 
-% SONO ARRIVATO QUI A CONTROLLARE (REALLY)
-
 \section{Strutture algebriche con due operazioni}
 
 \begin{description}
@@ -1481,11 +1479,11 @@ Se voglio esprimere questo intero $m p + n q - ( n p + m q) \in \naturals \times
 
 \subsection{Anello degli interi modulo $n$ intero}
 
-Fissato un interno $n \ge 2$, abbiamo definito la congruenza $\equiv_n$ (congruenza modulo $n$) come
+Fissato un interno $n \ge 2$, abbiamo definito la congruenza $\equiv_n$ (congruenza modulo $n$) come:
 \[
-a, b \in \integers, a \equiv_n b \iff n \divides (a - b)
+a, b \in \integers , \ a \equiv_n b \iff n \divides (a - b)
 \]
-\`E una congruenza rispetto a entrambe le operazioni.
+\`E una congruenza rispetto a entrambe le operazioni, + e $\cdot$.
 
 $(\integers / \equiv_n, +, \cdot)$ \`e un anello commutativo e unitario. Non \`e privo di divisori dello zero.
 \[
@@ -1493,16 +1491,20 @@ $(\integers / \equiv_n, +, \cdot)$ \`e un anello commutativo e unitario. Non \`e
 \]
 Ogni classe $[a] \in \integers / \equiv_n$ pu\`o essere rappresentato con il suo resto, ossia $[a] = [r]$ dove $r$ \`e il resto nella divisione di $a$ per $n$.
 
-Possiamo considerare $\integers_n$ come l'insieme dei resti delle possibili divisioni. $\integers_n = \{ 0, 1 \dots (n-1)\}$
-
-$\varphi_n : Z / \equiv_n \to Z_n$ che associa ad ogni classe il resto della divisione, ossia $\varphi_n [a] = r$
+Possiamo considerare $\integers_n$ come l'insieme dei resti delle possibili divisioni per $n$.
+\[
+\integers_n = \{ 0, 1 \dots (n-1)\}
+\]
+Esiste l'isomorfismo $\varphi_n : \integers / \equiv_n \to \integers_n$ che associa ad ogni classe il resto della divisione per $n$, ossia $\varphi_n [a] = r$
 
 $(\integers_n, +, \cdot )$ \`e un anello.
 \[
-\integers_3 = \{ [0], [1], [2] \} \leftrightarrow \integers_3 = \{ 0, 1, 2 \}
+\integers / \equiv_3 = \{ [0], [1], [2] \} \leftrightarrow \integers_3 = \{ 0, 1, 2 \}
 \]
 Se il gruppo \`e finito possiamo scrivere le tavole di composizione rispetto alle operazioni.
 
+\begin{figure}
+\centering
 \begin{tabular}{c|ccc}
 + & 0 & 1 & 2 \\
 \hline
@@ -1510,7 +1512,7 @@ Se il gruppo \`e finito possiamo scrivere le tavole di composizione rispetto all
 1 & 1 & 2 & 0 \\
 2 & 2 & 0 & 1
 \end{tabular}
-
+\qquad
 \begin{tabular}{c|ccc}
 $\cdot$ & 0 & 1 & 2 \\
 \hline
@@ -1518,11 +1520,15 @@ $\cdot$ & 0 & 1 & 2 \\
 1 & 0 & 1 & 2 \\
 2 & 0 & 2 & 1
 \end{tabular}
+\caption{Tavole di composizione di + e $\cdot$ in $\integers_3$}
+\end{figure}
 
-Quando l'operazione \`e commutativa, la tavola \`e uguale rispetto alla diagonale (\`e simmetrica).
+Quando l'operazione \`e commutativa, la tavola \`e uguale (\`e simmetrica) rispetto alla diagonale.
 
 $(\integers_3, +, \cdot)$ \`e sempre un anello commutativo unitario. Ha l'unit\`a rispetto al $\cdot$, ossia 1.
 
+\begin{figure}
+\centering
 \begin{tabular}{c|cccc}
 + & 0 & 1 & 2 & 3 \\
 \hline
@@ -1531,7 +1537,7 @@ $(\integers_3, +, \cdot)$ \`e sempre un anello commutativo unitario. Ha l'unit\`
 2 & 2 & 3 & 0 & 1 \\
 3 & 3 & 0 & 1 & 2
 \end{tabular}
-
+\qquad
 \begin{tabular}{c|cccc}
 $\cdot$ & 0 & 1 & 2 & 3 \\
 \hline
@@ -1540,113 +1546,115 @@ $\cdot$ & 0 & 1 & 2 & 3 \\
 2 & 0 & 2 & 0 & 2 \\
 3 & 0 & 3 & 2 & 1
 \end{tabular}
+\caption{Tavole di composizione di + e $\cdot$ in $\integers_4$}
+\end{figure}
 
-Sia $(A, +, \cdot)$ un anello unitario (monoide associativo rispetto a $\cdot$), $U(A)$ \`e il gruppo degli elementi invertibili di $A$ rispetto a $\cdot$.
-\[
-U(\integers) = \{ -1, 1 \}
-\]
-\[
-U(\integers_2) = \{ 1 \}
-\]
-\[
-U(\integers_3) = \{ 1,  2 \}
-\]
+Sia $(A, +, \cdot)$ un anello unitario (ossia monoide associativo rispetto a $\cdot$), indichiamo con $U(A)$ \`e il gruppo degli elementi invertibili di $A$ rispetto a $\cdot$. Alcuni esempi:
+\begin{align*}
+U(\integers) &= \{ -1, 1 \} \\
+U(\integers_2) &= \{ 1 \} \\
+U(\integers_3) &= \{ 1,  2 \} \\
+U(\integers_4) &= \{1, 3\}
+\end{align*}
 Vogliamo capire come \`e fatto in generale il gruppo degli elementi invertibili in $\integers_n$.
 
 \begin{prop}
-$[a] \in U(\integers / \equiv_n) \iff a, n$ sono coprimi, ossia $\mcd(a, n) = 1$
+$[a] \in U(\integers / \equiv_n) \iff a, n$ sono coprimi, ossia $\mcd(a, n) = 1$.
 \end{prop}
 
 \begin{cor}
-$U(\integers_n) = \{ x \in \naturals : 0 < x < n$ e $\mcd(n, x) = 1\}$
-\end{cor}
-
-$Z_p$ con $p$ primo $U(Z_p) = \{ 1 \dots (p-1)\}$, ossia sono tutti quanti.
 \[
-U(Z_4) = \{1, 3\}
+U(\integers_n) = \{ x \in \naturals : 0 < x < n \text{ e } \mcd(n, x) = 1\}
 \]
-Ipotesi: classe $[a]$ invertibile in $Z / \equiv_n \implies \exists [b]$ t.c. $[a] \cdot [b] = [1]$. 
+\end{cor}
+\begin{oss}
+Considerando $\integers_p$ con $p$ primo, il gruppo dei suoi elementi invertibili \`e $U(\integers_p) = \{ 1 \dots (p-1)\}$, ossia contiene tutti gli interi minori di $p$.
+\end{oss}
+\begin{proof}
+Per ipotesi, la classe $[a]$ \`e invertibile in $\integers / \equiv_n \implies \exists [b]$ t.c. $[a] \cdot [b] = [1]$. 
 
-Quindi per definizione $[a \cdot b] = [a] \cdot [b] = [1]$. Quindi $a$ e $b$ nella divisione per $n$ hanno lo stesso resto, ossia 1, quindi $a \cdot b = n \cdot q + 1$, e per il teorema di B\'ezout $a \cdot b - n \cdot q = 1$, ossia $1 \in S_{a, n}$, ossia 1 \`e combinazione lineare di $a$ e $n$. Quindi il $\mcd(a, n) = 1$, quindi $a$ e $n$ sono coprimi.
+Quindi per definizione di prodotto tra classi $[a] \cdot [b] = [a \cdot b] = [1]$. Quindi $a$ e $b$ nella divisione per $n$ hanno lo stesso resto, ossia 1, quindi $a \cdot b = n \cdot q + 1$, e per il teorema di B\'ezout $a \cdot b - n \cdot q = 1$, ossia $1 \in S_{a, n} \iff$ 1 \`e combinazione lineare di $a$ e $n$. Quindi il $\mcd(a, n) $ \`e $ 1$, e $a$ e $n$ sono coprimi.
 
-Dobbiamo dimostrare il viceversa, ossia $\mcd(a, n) = 1 \implies [a]$ \`e invertibile in $\integers / \equiv_n$.
+Dobbiamo dimostrare il viceversa, ossia che $\mcd(a, n) = 1 \implies [a]$ \`e invertibile in $\integers / \equiv_n$.
 
 Quindi 1 \`e combinazione lineare di $a$ e $n$, ossia $1 = a \cdot s + n \cdot t$. Quindi passando alle classi, $[1] = [a \cdot s + n \cdot t] = [a \cdot s] + [n \cdot t] = [a] \cdot [s] + [0] = [a] \cdot [s]$, quindi la classe rappresentata da $s$ \`e l'inverso della classe rappresentata da $a$, perch\'e $[a] \cdot [s] = [1]$.
-
+\end{proof}
 Grazie all'identit\`a di B\'ezout possiamo trovare l'inverso di una classe.
 \[
 [s] = [a]^{-1}
 \]
-Se prendiamo $Z_p$ con $p$ primo, $U(Z_p) = Z_p - \{ 0 \}$, ed \`e un gruppo, quindi $(Z_p, +, \cdot)$ \`e un campo, ossia \`e una struttura algebrica con due operazioni.
+Se prendiamo $\integers_p$ con $p$ primo, $U(\integers_p) = \integers_p - \{ 0 \}$, ed \`e un gruppo, quindi $(\integers_p, +, \cdot)$ \`e un campo, ossia \`e una struttura algebrica con due operazioni.
 
-Un campo \`e una struttura algebrica $(K, +, \cdot)$ tale che:
-\begin{itemize}
-    \item $(K, +, \cdot)$ \`e un anello commutativo unitario
-    \item $(K - \{0\}, \cdot)$ \`e un gruppo commutativo
-\end{itemize}
-Inoltre valgono le leggi distributive.
+Ricordiamo che un campo \`e una struttura algebrica $(K, +, \cdot)$ tale che:
+\begin{enumerate}
+    \item $(K, +, \cdot)$ \`e un anello commutativo unitario,
+    \item $(K - \{0\}, \cdot)$ \`e un gruppo commutativo,
+    \item valgono le leggi distributive.
+\end{enumerate}
 
-I campi non hanno divisori dello zero, ma gli anelli $(Z_n, +, \cdot)$ hanno divisori dello zero. Infatti posso scrivere $n = a \cdot b$, siccome $n$ non \`e primo, quindi la classe $[0] = [a \cdot b] = [a] \cdot [b]$ entrambi diversi da 0. Due classi moltiplicate fanno la classe $[0]$, quindi sono due divisori dello $[0]$.
+I campi non hanno divisori dello zero, ma gli anelli $(\integers_n, +, \cdot)$ hanno divisori dello zero. Infatti, siccome $n$ non \`e primo, possiamo scrivere $n = a \cdot b$, quindi la classe $[0] = [a \cdot b] = [a] \cdot [b]$ entrambi diversi da 0.
 
-Il campo $(Z_p, +, \cdot)$ non ha divisori dello 0. Sia $a \cdot  b = 0$ con $a \neq 0$ e $b \neq 0$, avendo l'inverso per ogni elemento diverso da 0 avrei che $a^{-1} \cdot a \cdot b = a^{-1} \cdot 0 = 0 \implies b = 0$ ma sarebbe un assurdo.
+Il campo $(\integers_p, +, \cdot)$ non ha divisori dello 0. Sia $a \cdot  b = 0$ con $a \neq 0$ e $b \neq 0$, avendo l'inverso per ogni elemento diverso da 0 dovrei avere che $a^{-1} \cdot a \cdot b = a^{-1} \cdot 0 \implies b = 0$ ma sarebbe un assurdo.
 
-\begin{theorem}[Teorema (fondamentale)]
-$[a] \in Z / \equiv_n$, questa classe \`e invertibile $\iff \mcd(a, n) = 1$, ossia se sono coprimi.
+% come si chiama questo teorema?
+\begin{theorem}
+La classe $[a] \in \integers / \equiv_n$ \`e invertibile $\iff \mcd(a, n) = 1$, ossia se $a$ e $n$ sono coprimi.
 \end{theorem}
 
 Da questo teorema possiamo dedurre due corollari.
 
 \begin{cor}\label{corollario_interi_primo}
-$Z_p = \{ 0, 1 \dots (p-1) \}$, ossia l'anello dei resti modulo $p$, \`e un campo $\iff p$ \`e un numero primo, ossia $p$ \`e maggiore di 1 ed \`e divisibile solamente per 1 e per $p$.
+$\integers_p = \{ 0, 1 \dots (p-1) \}$, ossia l'anello dei resti modulo $p$, \`e un campo $\iff p$ \`e un numero primo, ossia $p$ \`e maggiore di 1 ed \`e divisibile solamente per 1 e per $p$.
 
-Essere un campo significa che $(Z_p \setminus \{ 0 \}, \cdot)$ con la moltiplicazione \`e un gruppo abeliano.
+Essere un campo significa che $(\integers_p \setminus \{ 0 \}, \cdot)$ \`e un gruppo abeliano.
 \end{cor}
-
 \begin{cor}\label{corollario_interi_secondo}
-$p$ primo, $p \divides a \cdot b \implies p \divides a oppure p \divides b$
+Sia $p$ un numero primo, $p \divides a \cdot b \implies p \divides a $ oppure $ p \divides b$.
 \end{cor}
+
 \begin{proof}
-Consideriamo il campo $(Z_p, +, \cdot)$. Se $p \divides a \cdot b$, significa che $[p] = [0] = [a \cdot b] = [a] \cdot [b]$. Siamo in un campo, che non ha divisori dello zero. Quindi $[a] = [0]$ oppure $[b] = [0]$.
+Consideriamo il campo $(\integers_p, +, \cdot)$. Se $p \divides a \cdot b$, significa che $[p] = [0] = [a \cdot b] = [a] \cdot [b]$. Siamo in un campo, che non ha divisori dello zero. Quindi $[a] = [0]$ oppure $[b] = [0]$.
 \end{proof}
 
 \begin{prop}
-Ogni numero naturale $n \in N$ maggiore di 1, o \`e primo o \`e prodotto di primi.
+Ogni numero naturale $n \in \naturals$ maggiore di 1, o \`e primo o \`e prodotto di primi.
 \end{prop}
 \begin{proof}
 Si dimostra per induzione su $n$. Per $n = 2$ \`e vero.
 
-Ipotesi di induzione: $P(m)$ \`e vera $\forall m \ge 2$ con $m < n$. Dobbiamo dimostrare che $P(n)$ \`e vera. O $n$ \`e primo, e ho verificato $P(n)$, oppure $n$ non \`e primo, ossia $n = a \cdot b$ con $a < n$ e $b < n$. Per ipotesi di induzione $P(a)$ e $P(b)$ sono vere, quindi $a$ \`e prodotto di primi o \`e primo, $b$ \`e prodotto di primi o \`e primo, quindi $n$ \`e prodotto di primi.
+L'ipotesi di induzione \`e che $P(m)$ \`e vera $\forall m \ge 2$ con $m < n$. 
+
+Dobbiamo dimostrare che $P(n)$ \`e vera. O $n$ \`e primo, e ho verificato $P(n)$, oppure $n$ non \`e primo, ossia $n = a \cdot b$ con $a < n$ e $b < n$. Per ipotesi di induzione $P(a)$ e $P(b)$ sono vere, quindi $a$ \`e prodotto di primi o \`e primo, $b$ \`e prodotto di primi o \`e primo, quindi $n$ \`e prodotto di primi.
 \end{proof}
 
 \begin{theorem}[Teorema fondamentale dell'aritmetica]
 Ogni numero naturale $n \ge 2$ si esprime in un unico modo come prodotto di potenze di numeri primi, ossia $n$ ha una sola fattorizzazione.
-
-Ossia, $n = p_{1}^{h_1} \dots p_{k}^{h^k} = q_{1}^{t_1} \dots q_{s}^{t_s} \implies k = s$ e $\forall i \in [1, k] \exists j t.c. p_i^{h_i} = q_j^{t_j}$.
+\[
+n = p_{1}^{h_1} \cdot \ldots \cdot p_{k}^{h^k} = q_{1}^{t_1} \cdot \ldots \cdot q_{s}^{t_s} \implies k = s \text{ e } \forall i \in [1, k] \exists j \text{ t.c. } p_i^{h_i} = q_j^{t_j}
+\]
 \end{theorem}
 \begin{proof}
 Si dimostra per induzione. Per $n = 2$ \`e vero.
 
-Supponiamo come ipotesi induttiva che $P(m)$ sia vero per ogni $2 \le m < n$. Per induzione dimostriamo che $P(n)$ \`e vera.
+Supponiamo come ipotesi induttiva che $P(m)$ sia vero per ogni $m$ tale che $2 \le m < n$. Per induzione dimostriamo che $P(n)$ \`e vera. Sappiamo che $n$ si esprime come prodotto di primi:
 \[
-n = p_{1}^{h_1} \dots p_{k}^{h^k} = q_{1}^{t_1} \dots q_{s}^{t_s}
+n = p_{1}^{h_1} \cdot \ldots \cdot p_{k}^{h_k} = q_{1}^{t_1} \cdot \ldots \cdot q_{s}^{t_s}
 \]
-$p_1$ divide $n$, quindi divide $q_{1}^{t_1} \dots q_{s}^{t_s}$
+$p_1$ divide $n$, quindi divide anche $q_{1}^{t_1} \cdot \ldots \cdot q_{s}^{t_s}$.
 \[
-p_1 \divides n = q_{1}^{t_1} \dots q_{s}^{t_s}
+p_1 \divides n = q_{1}^{t_1} \cdot \ldots \cdot q_{s}^{t_s}
 \]
-Per il corollario \ref{corollario_interi_secondo} $\exists j = 1 \dots s$ t.c. $p_1 \divides q_j$. Ma posso ripetere lo stesso discorso per $q_j$.
+Per il corollario \ref{corollario_interi_secondo} $\exists j = 1 \ldots s$ tale che $p_1 \divides q_j$. Ma posso ripetere lo stesso discorso per $q_j$: per il corollario \ref{corollario_interi_primo} $q_j$ divide $n$, quindi $q_j \divides n = p_{1}^{h_1} \cdot \ldots \cdot p_{k}^{h^k}$. Di nuovo, per il corollaro \ref{corollario_interi_secondo}, deve esistere un indice $i_j$ tale che $q_j \divides p_{i_j}$.
 
-Per il corollario \ref{corollario_interi_primo} $q_j$ divide $n$, quindi $q_j \divides n = p_{1}^{h_1} \dots p_{k}^{h^k}$. Deve esistere un indice $i_j$ tale che $q_j \divides p_{i_j}$.
-
-$p_1 \divides q_j \divides p_{i_j} \implies p_1 = q_j = p_{i_j} $ essendo tutti primi.
+$p_1 \divides q_j \divides p_{i_j} \implies p_1 = q_j = p_{i_j} $, essendo tutti primi devono essere uguali.
 
 Essendo $p_1$ e $q_j$ uguali, se divido $n$ per $p_1$ ottengo due scomposizioni:
 \[
-\frac{n}{p_1} = p_{1}^{h_1 - 1} \dots p_{k}^{h^k} = q_{1}^{t_1} \dots q_{j}^{t_j - 1}\dots q_{s}^{t_s}
+\frac{n}{p_1} = p_{1}^{h_1 - 1} \cdot \ldots \cdot p_{k}^{h_k} = q_{1}^{t_1} \cdot \ldots \cdot q_{j}^{t_j - 1} \cdot \ldots \cdot q_{s}^{t_s}
 \]
-Sia $m = \frac{n}{p_1} < n \implies P(\frac{n}{p_1})$ \`e vera per ipotesi $\implies P(n)$ \`e vera.
+Sia $m = \frac{n}{p_1} < n \implies P \left(\frac{n}{p_1} \right)$ \`e vera per ipotesi $\implies P(n)$ \`e vera.
 
-Infatti per $P( \frac{n}{p_1}) k = s$ e $\forall i = 1 \dots k \exists r$ tale che $p_i^{h_i} = q_r^{t_r}$
+Infatti per $P \left( \frac{n}{p_1} \right)$, $ k = s$ e $\forall i = 1 \ldots k \exists r$ tale che $p_i^{h_i} = q_r^{t_r}$.
 \end{proof}
 
 Da questo segue:
@@ -1656,22 +1664,24 @@ I numeri primi sono infiniti.
 \begin{proof}
 Supponiamo per assurdo che i numeri primi siano finiti. Abbiamo la lista di numeri primi $p_1 \dots p_N$. Consideriamo $n = (p_1 \dots p_N) + 1$. Non pu\`o essere un numero primo, perch\'e non \`e nella lista. Per il teorema fondamentale deve essere il prodotto di numeri primi.
 
-$p_i \divides n = (p_1 \dots p_i \dots p_N) + 1 \implies p_i \divides (p_1 \dots p_i \dots p_N)$ e $p_i \divides 1$, che \`e l'assurdo.
+Sia $p_i$ un intero tale che $p_i \divides n = (p_1 \dots p_i \dots p_N) + 1 \implies p_i \divides (p_1 \dots p_i \dots p_N)$ e $p_i \divides 1$, che \`e l'assurdo.
 \end{proof}
 
-$(Z_n, +, \cdot)$ \`e un anello. Se $n$ \`e primo, \`e un campo, quindi non ha divisori dello zero.
+\subsection{Funzione di Eulero}
 
-Se $n = a \cdot b$ con $a < n$ e $b < n$, allora $(Z_n, +, \cdot)$ \`e un anello con divisori dello zero.
+Abbiamo visto che $(\integers_n, +, \cdot)$ \`e un anello. Se $n$ \`e primo, \`e un campo, quindi non ha divisori dello zero. Se invece $n = a \cdot b$ con $a < n$ e $b < n$, allora $(\integers_n, +, \cdot)$ \`e un anello con divisori dello zero.
 
-Sia $U(A) =$ gruppo degli elementi invertibili dell'anello $A$. Considerando il campo $(Z_p, +, \cdot)$ il gruppo degli invertibili $U(Z_p) = \{1, \dots,  p-1\}$, quindi la cardinalit\`a $\abs{U(Z_p)} = p-1$.
+Abbiamo chiamato $U(A)$ il gruppo degli elementi invertibili rispetto a $\cdot$ dell'anello $(A, +, \cdot)$. Considerando il campo $(\integers_p, +, \cdot)$ il gruppo degli invertibili $U(\integers_p) = \{1, \dots,  p-1\}$, quindi la cardinalit\`a $\abs{U(\integers_p)} = p-1$. Troviamo la cardinalit\`a di $U(\integers_n)$ nel caso generale.
 
-Vogliamo conoscere la cardinalit\`a di $U(Z_n)$ nel caso generale.
-
-Consideriamo la funzione $\Phi : N^+ \to N^+$ definita come $\Phi (n) =$ numero degli interi minori di $n$ e primi con $n$. $\abs{U(Z_n)} = \Phi(n)$. Infatti avevamo definito $U(Z_n)$ come:
+Consideriamo la funzione $\Phi : \naturals^+ \to \naturals^+$ definita come:
 \[
-U(Z_n) = \{ m \in Z_n : mcd(m, n) = 1 \}
+\Phi (n) = \text{ numero degli interi minori di $n$ e primi con $n$}
 \]
-Calcoliamo questa funzione (detta funzione di Eulero). Il suo valore si trova con il principio di inclusione ed esclusione.
+\`E verificato subito che $\abs{U(\integers_n)} = \Phi(n)$. Infatti avevamo definito $U(\integers_n)$ come:
+\[
+U(\integers_n) = \{ m \in \integers_n : \mcd(m, n) = 1 \}
+\]
+Calcoliamo questa funzione (detta funzione di Eulero).
 
 Sia $n = p_{1}^{h_1} \dots p_{k}^{h_k}$, se voglio conoscere $\Phi(n)$, so che sono $n$ meno tutti i numeri che dividono $n$. Chiamo $D$ l'insieme dei numeri $m < n$ che dividono $n$.
 \[
@@ -1679,253 +1689,270 @@ Sia $n = p_{1}^{h_1} \dots p_{k}^{h_k}$, se voglio conoscere $\Phi(n)$, so che s
 \]
 $D$ si calcola con il principio di inclusione ed esclusione. 
 
-Indichiamo con $A_{p_i} = \{ m \in [n] : p_i \divides m \}$, $D = \bigcup_{i = 1}^{k} A_{p_i}$. Quindi:
+Sia $p_i$ un fattore di $n$, indicando con $A_{p_i} $ l'insieme dei multipli di $p_i$ minori di $n$, abbiamo che:
 \[
-\abs{\bigcup_{i = 1}^{k} A_{p_i}} = \sum_{i = 1}^{k} \abs{A_{p_i}} - \sum \abs{A_{p_i} \cap A_{p_j}} + \sum \abs{A_{p_i} \cap A_{p_j} \cap A_{p_k}} \dots (-1)^{k-1} \abs{A_{p_i} \cap \dots A_{p_k}}
+A_{p_i} = \{ m \in [n] : p_i \divides m \} \implies
+D = \bigcup_{i = 1}^{k} A_{p_i}
 \]
-Sappiamo che $\abs{A_{p_i}} = \frac{n}{p_i}$. Infatti $m = k \cdot p_i \implies k = \frac{m}{p_i}$ \`e la cardinalit\`a dell'insieme dei numeri che dividono $n$.
+Quindi:
+\begin{align*}
+\abs{\bigcup_{i = 1}^{k} A_{p_i}} &= \sum_{1 \le i \le k} \abs{A_{p_i}} \\
+&- \sum_{1 \le i < j \le k} \abs{A_{p_i} \cap A_{p_j}} \\
+&+ \sum_{1 \le i < j < h \le h} \abs{A_{p_i} \cap A_{p_j} \cap A_{p_h}} + \ldots  \\
+&+ (-1)^{k-1} \abs{A_{p_i} \cap \ldots \cap A_{p_k}}
+\end{align*}
+Sappiamo che la cardinalit\`a $\abs{A_{p_i}} = \frac{n}{p_i}$. Infatti da $n = k \cdot p_i \implies k = \frac{n}{p_i}$, abbiamo che $k$ \`e la cardinalit\`a dell'insieme dei numeri multipli di $p_i$ e non coprimi con $n$.
 
-Se prendiamo l'intersezione di due insiemi? $\abs{A_{p_i} \cap A_{p_j}}$ con $i \neq j$ \`e:
+Se prendiamo l'intersezione di due insiemi? La cardinalit\`a $\abs{A_{p_i} \cap A_{p_j}}$ con $i \neq j$ \`e:
 \[
 \abs{A_{p_i} \cap A_{p_j}} = \frac{n}{p_i \cdot p_j}
 \]
-L'ultima intersezione ha cardinalit\`a 1. Quindi mettendo in evidenza:
+L'ultima intersezione ha cardinalit\`a 1. Mettendo in evidenza si ha:
 \[
-\Phi (n) = n - \abs{D} = n \cdot (1 - \frac{1}{p_1}) \dots (1 - \frac{1}{p_k})
+\Phi (n) = n - \abs{D} = n \cdot \left(1 - \frac{1}{p_1} \right) \cdot \ldots \cdot \left( 1 - \frac{1}{p_k} \right)
 \]
 \begin{theorem}[Teorema di Fermat]
-Se prendo $a \in Z$ e $n \ge 2$ tali che $\mcd(a, n) = 1$, allora $a^{\Phi(n)} \equiv_n 1$. 
+Se prendo $a \in \integers$ e $n \ge 2$ tali che $\mcd(a, n) = 1$, allora $a^{\Phi(n)} \equiv_n 1$. 
 \end{theorem}
 \begin{proof}
-L'insieme degli elementi invertibili di $Z_n$ \`e l'insieme di tutti gli $h \in Z_n$ tali che $\mcd(h, n) = 1$.
-\[
-U(Z_n) = \{ h \in Z_n : \mcd(h, n) = 1 \}
-\]
-\[
-\abs{U(Z_n)} = \Phi(n). 
-\]
-Il prodotto $\prod_{h \in U(Z_n)} [h \cdot a]$  per definizione del prodotto fra classi \`e $= \prod_{h \in U(Z_n)} [h] \cdot [a]$ e mettendo in evidenza $a = [a]^{\Phi(n)} \cdot \prod_{h \in U(Z_n)} [h]$.
-
-Siccome il $\mcd(h, n) = 1$ e il $\mcd(a, n) = 1$, allora il $\mcd(a \cdot h, n) = 1$.
-
-Quindi $\prod_{h \in U(Z_n)} [h \cdot a] = \prod_{h \in U(Z_n)} [h]$
-
-Segue che $[a]^{\Phi(n)} = 1 \implies a^{\Phi(n)} \equiv_n 1$.
+L'insieme degli elementi invertibili di $\integers_n$ \`e l'insieme di tutti gli $h \in \integers_n$ tali che $\mcd(h, n) = 1$.
+\begin{align*}
+U(\integers_n) &= \{ h \in \integers_n : \mcd(h, n) = 1 \} \\
+\abs{U(\integers_n)} &= \Phi(n). 
+\end{align*}
+Il prodotto $\prod_{h \in U(\integers_n)} [h \cdot a]$  per definizione del prodotto fra classi \`e $= \prod_{h \in U(\integers_n)} [h] \cdot [a]$ e mettendo in evidenza $a = [a]^{\Phi(n)} \cdot \prod_{h \in U(\integers_n)} [h]$.
+\begin{align*}
+\prod_{h \in U(\integers_n)} [h \cdot a] &= & \text{per definizione del prodotto fra classi} \\
+\prod_{h \in U(\integers_n)} [h] \cdot [a] &= & \text{e mettendo in evidenza $a$} \\
+[a]^{\Phi(n)} \cdot \prod_{h \in U(\integers_n)} [h] &&
+\end{align*}
+Siccome il $\mcd(h, n) = 1$ e il $\mcd(a, n) = 1$, allora il $\mcd(a \cdot h, n) = 1$. Quindi:
+\begin{align*}
+\prod_{h \in U(\integers_n)} [h \cdot a] &= \\
+\prod_{h \in U(\integers_n)} [h] &
+\end{align*}
+Deve quindi essere che $[a]^{\Phi(n)} = 1 $, e quindi che $ a^{\Phi(n)} \equiv_n 1$.
 \end{proof}
 
 \begin{cor}[Piccolo teorema di Fermat]
 Dato $p$ primo segue che $a^{p-1} \equiv_p 1$.
 \end{cor}
 
-\textbf{Esercizio:} calcolare le ultime 2 cifre di $81^{82}$. Le ultime due cifre sono il resto modulo 100, quindi passando alle classi dobbiamo calcolare $r < 100$ tale che $81^{82} \equiv_{100} r$, ossia il rappresentante della classe.
+\begin{exmp}
+Calcolare le ultime 2 cifre di $81^{82}$. Le ultime due cifre sono il resto modulo 100, quindi passando alle classi dobbiamo calcolare $r < 100$ tale che $81^{82} \equiv_{100} r$, ossia il rappresentante della classe.
 
-Usiamo il teorema di Fermat. Calcoliamo $81^{\Phi (100)} \equiv_{100} 1$. $\Phi(100) = 40$, possiamo quindi dire che $81^{40} \equiv_{100} 1$.
+Usiamo il teorema di Fermat. Per i teorema di Fermat sappiamo che $81^{\Phi (100)} \equiv_{100} 1$. Essendo $\Phi(100) = 40$, possiamo quindi dire che $81^{40} \equiv_{100} 1$.Quindi:
+\begin{align*}
+81^{82} = 81^{80 + 2} &= 81^{80} \cdot 81^{2} \\
+81^{80} \cdot 81^{2} \equiv_{100} 1 \cdot 81^{2} &\implies 6561 \equiv_{100} 61
+\end{align*}
+\end{exmp}
+\subsection{Equazioni di primo grado in $\integers_n$}
 
-Quindi: $81^{82} = 81^{80 + 2} = 81^{80} \cdot 81^{2} \equiv_{100} 1 \cdot 81^{2} = 6561 \equiv_{100} 61$
-
-\subsection{Equazioni di primo grado in $\naturals_n$}
-
-Come \`e fatta un'equazione di primo grado in $Z_n$?
+Come \`e fatta un'equazione di primo grado in $\integers_n$?
 
 \begin{enumerate}
-    \item se la vedo in $Z_n$, ho: $a \cdot x = b$ con $a, b, x \in Z_n$
-    \item se la vedo come quoziente, ho: $[a] \cdot [x] = [b]$ in $Z / \equiv_n$
-    \item se la vedo in $Z$, ho: $a \cdot x \equiv_n b$ con $a, b, x \in Z$
+    \item\label{itm:equazioni_interi_modulo} se la vedo in $\integers_n$, ho:
+    \[
+    a \cdot x = b \text{ con } a, b, x \in \integers_n
+    \]
+    \item\label{itm:equazioni_interi_quoziente} se la vedo nell'insieme quoziente $\integers / \equiv_n$, ho:
+    \[
+    [a] \cdot [x] = [b] \text{ in } \integers / \equiv_n
+    \]
+    \item\label{itm:equazioni_interi} se la vedo in $\integers$, ho:
+    \[
+    a \cdot x \equiv_n b \text{ con } a, b, x \in \integers
+    \]
 \end{enumerate}
 
 \begin{oss}
-Le soluzioni di 3, se esistono, sono infinite, perch\'e se $s \in Z$ \`e una soluzione, $a \cdot s \equiv_n b$. Quindi ogni altro $s' \in [s]$ \`e tale che $a \cdot s' \equiv_n b$.
+Le soluzioni di \ref{itm:equazioni_interi}, se esistono, sono infinite, perch\'e se $s \in \integers$ \`e una soluzione, $a \cdot s \equiv_n b$. Quindi ogni altro $s' \in [s]$ \`e tale che $a \cdot s' \equiv_n b$.
 
-Passando alle classi si legge come $[a \cdot s] = [b] \implies [a] c\dot [s] = [b]$, e prendendo $[s'] = [s]$ anche $[a] \cdot [s'] = [b]$
+Passando alle classi si legge come $[a \cdot s] = [b] \implies [a] c\dot [s] = [b]$, e prendendo un altre rappresentante $s' \in [s]$, $[s'] = [s]$ e quindi anche $[a] \cdot [s'] = [b]$
 \end{oss}
 
-In generale si distinguono due casi:
+In generale si distinguono due casi per la risoluzione delle equazioni:
 \begin{enumerate}
-    \item $\mcd(a, n) = 1 \implies [a]$ \`e invertibilie in $Z / \equiv_n$, ossia se $a < n \implies a$ \`e invertibile in $Z_n$. Come si trova la soluzione?
+    \item
+    \[
+    \mcd(a, n) = 1
+    \]
+    $[a]$ \`e invertibilie in $\integers / \equiv_n$, ossia se $a < n \implies a$ \`e invertibile in $Z_n$. Quante soluzioni ci sono?
     \begin{itemize}
-        \item Nel caso (1) $a \cdot x = b$ in $Z_n$, $x = a^{-1} \cdot b$. La soluzione \`e unica.
-        \item Nel caso (2) $[a] \cdot [x] = [b]$, allora la soluzione $[x] = [a]^{-1} \cdot [b]$. La soluzione \`e unica.
-        \item Nel caso (3) le soluzioni sono infinite e sono tutte congruenti a $x$ modulo $n$.
+        \item Nel caso \ref{itm:equazioni_interi_modulo} $a \cdot x = b$ in $Z_n$, $x = a^{-1} \cdot b$. La soluzione \`e unica.
+        \item Nel caso \ref{itm:equazioni_interi_quoziente} $[a] \cdot [x] = [b]$, allora la soluzione $[x] = [a]^{-1} \cdot [b]$. La soluzione \`e unica.
+        \item Nel caso \ref{itm:equazioni_interi} le soluzioni sono infinite e sono tutte congruenti a $x$ modulo $n$.
     \end{itemize}
-    \item $\mcd(a, n) = d > 1$
+    Sappiamo che $x = a^{-1} \cdot b$. Come si trova $a^{-1}$? Con l'identit\`a di B\'ezout. Siccome $\mcd(a,n) = 1$, possiamo scrivere l'identit\`a di B\'ezout per $a, n$.
+    \[
+    1 = a \cdot s + n \cdot t
+    \]
+    Passiamo alle classi modulo $[n]$.
+    \[
+    [1] = [a \cdot s] + [n \cdot t] = [a \cdot s] + [0] = [a] \cdot [s]
+    \implies [a^{-1}] = [s]
+    \]
+    Quindi $[a^{-1}] = [s]$, ma potendo scrivere $s$ come $n \cdot q + r$, abbiamo che $a^{-1} = r$.
+
+    \item 
+    \[
+    \mcd(a, n) = d > 1
+    \]
+    \begin{prop}
+    L'equazione $a \cdot x = b$ ha soluzione in $\integers_n$ con $\mcd(a, n) = d > 1 \iff d \divides b$, altrimenti \`e incompatibile (non ha soluzioni).
+    \end{prop}
+    \begin{proof}
+    Dimostriamo che \`e condizione necessaria.
+
+    Se $a \cdot x = b$ \`e compatibile (ammette soluzioni) in $\integers_n$, ossia $\exists s \in \integers_n$ t.c. $a \cdot s = b$, allora $a \cdot s - b = q \cdot n$, ossia \`e un multiplo di $n$. Quindi $b = a \cdot s - q \cdot n$, ossia $b \in S_{a, n}$. $S_{a,n}$ sono tutti i multipli del $\mcd(a,n) = d \implies b = k \cdot d$.
+
+    Dimostrare che la condizione \`e sufficiente segue il percorso inverso.
+    \end{proof}
+    Come troviamo le soluzioni?
+    \begin{oss}
+    \[
+    \mcd(a,n) = d \iff \mcd \left(\frac{a}{d}, \frac{n}{d} \right) = 1
+    \]
+    \end{oss}
+    Da questa osservazione segue che se prendiamo:
+    \[
+    \frac{a}{d} \cdot x = \frac{b}{d} \text{ in } \integers_{\frac{n}{d}} 
+    \]
+    questa equazione ricade nel caso 1, e quindi ha una sola soluzione $s$.
+    \begin{prop}
+    $s$ \`e soluzione di $\frac{a}{d} \cdot x \equiv \frac{b}{d} \pmod{\frac{n}{d}} \iff s$ \`e soluzione di $a \cdot x \equiv b \pmod{n}$.
+    \end{prop}
+    \begin{proof}
+    Se $s$ \`e soluzione di $\frac{a}{d} \cdot x \equiv \frac{b}{d} \pmod{\frac{n}{d}}$, allora $\frac{a}{d} \cdot s - \frac{b}{d} = q \cdot \frac{n}{d} \implies a \cdot s - b = q \cdot n \implies$ $s$ \`e soluzione di $a \cdot x \equiv b \pmod{n}$.
+
+    Viceversa basta seguire l'ordine inverso.
+    \end{proof}
+    $[s]_{\frac{n}{d}}$ \`e l'unica soluzione di $\left[\frac{a}{d} \right]_{\frac{n}{d}} [x]_{\frac{n}{d}} = \left[\frac{b}{d} \right]_{\frac{n}{d}}$, perch\'e il $\mcd \left(\frac{a}{d}, \frac{b}{d} \right) = 1$, e quindi siamo nel caso 1.
+
+    Le soluzioni di $a \cdot x = b \pmod{n}$ si ripartiscono in classi di equivalenza modulo $n$, e precisamente in:
+    \[
+    [s]_{\frac{n}{d}} = [s]_{n} \cup \left[s + \frac{n}{d} \right]_{n} \cup \ldots \cup \left[s + \frac{n}{d}(d-1) \right]_{n}
+    \]
+
+    Ci\`o significa che le soluzioni di $[a] \cdot [x] = [b]$ in $\integers / \equiv_n$ sono $d$, e sono le $d$-classi di equivalenza in cui si ripartisce l'unica soluzione $[s]_{\frac{n}{d}}$ di $[\frac{a}{d}] x = [\frac{b}{d}]$ in $Z / \equiv_{\frac{n}{d}}$.
+
+    \begin{proof}
+    Dimostriamo che:
+    \[
+    [s]_{\frac{n}{d}} = [s]_{n} \cup \left[s + \frac{n}{d} \right]_{n} \cup \ldots \cup \left[s + \frac{n}{d}(d-1) \right]_{n}
+    \]
+    Sappiamo che:
+    \[
+    t \in [s]_{\frac{n}{d}} \iff t - s = k \cdot \frac{n}{d}
+    \]
+    Quindi: $t = s + k \cdot \frac{n}{d}$
+
+    Bisogna solo dimostrare che $k < d$. Dividiamo per $d$:
+    \[
+    k = n \cdot d + r
+    \]
+    Quindi $t = s + (n \cdot d + r) \frac{n}{d}$, e quindi
+    $t = s + r \frac{n}{d}$, perch\'e $n \cdot d \equiv 0 \pmod{n}$.
+
+    Quindi $t \in \left[ s + r \frac{n}{d} \right]$ con $r < d$.
+
+    Viceversa si segue l'ordine inverso.
+
+    Dobbiamo mostrare che le classi sono disgiunte. $t \in \left[s + r \frac{n}{d} \right]_{n}$, dove $r < d$ \`e il resto della divisione di $k$ per $d$. Non possono esserci due resti distinti, quindi $\left[s + r_1 \frac{n}{d} \right] \cap \left[s + r_2 \frac{n}{d} \right] = \emptyset$, perch\'e $r_1 \neq r_2$ ed entrambi $r_1, r_2 < d$.
+    \end{proof}
+
 \end{enumerate}
 
-\begin{exmp}
-$3 x \equiv 2 \pmod{7}$. Scrivo l'identit\`a di B\'ezout:
-\[
-1 = 3 \cdot s + 7 \cdot t = 3 \cdot (-2) + t \cdot (1)
-\]
-Quindi:
-\[
-[3] [x] = [2] \implies [x] = [3]^{-1} [2]
-\]
-\[
-[1] = [3] \cdot [-2] + [7] = [3] \cdot [-2] + [0] = [3] \cdot [-2] = [3] \cdot [5]
-\]
-$[-2] = -[2]$, qual \`e un rappresentante della classe $-[2]$? $-[2]$ \`e la classe che sommata a $[2]$ mi d\`a $[7] = [0]. [5] + [2] = [7]$
+% TODO sistemare questo esempio
 
-Quindi $[x] = [5] \cdot [2] = [10] = [3]$. La soluzione \`e $[3]$
+% \begin{exmp}
+% $3 x \equiv 2 \pmod{7}$. Scrivo l'identit\`a di B\'ezout:
+% \[
+% 1 = 3 \cdot s + 7 \cdot t = 3 \cdot (-2) + t \cdot (1)
+% \]
+% Quindi:
+% \[
+% [3] [x] = [2] \implies [x] = [3]^{-1} [2]
+% \]
+% \[
+% [1] = [3] \cdot [-2] + [7] = [3] \cdot [-2] + [0] = [3] \cdot [-2] = [3] \cdot [5]
+% \]
+% $[-2] = -[2]$, qual \`e un rappresentante della classe $-[2]$? $-[2]$ \`e la classe che sommata a $[2]$ mi d\`a $[7] = [0]. [5] + [2] = [7]$
 
-Un altro modo, sempre partendo dall'identit\`a di B\'ezout, \`e:
-\[
-1 = 3 \cdot s + 7 \cdot t \implies 2 = 3 \cdot 2s + 14 \cdot t
-\]
-Passo alle classi e ho:
-\[
-[x] = [3] [2s]
-\]
-\end{exmp}
-\[
-a, b \in Z e a,b > 0
-\]
-\[
-S_{a,b} =  \{m \in N^+ : ax + by = m \text{ con } x,y \in Z \}
-\]
-Questo insieme ha un minimo $d = \inf S_{a,b} = \mcd(a,b)$
+% Quindi $[x] = [5] \cdot [2] = [10] = [3]$. La soluzione \`e $[3]$
 
-Anche $d$ si pu\`o scrivere come combinazione lineare di $a$ e $b$. $d \in S$, $d = a s + b t$ con $s, t \in Z$. Si chiama identit\`a di B\'ezout. Le coppie $s, t$ sono infinite.
+% Un altro modo, sempre partendo dall'identit\`a di B\'ezout, \`e:
+% \[
+% 1 = 3 \cdot s + 7 \cdot t \implies 2 = 3 \cdot 2s + 14 \cdot t
+% \]
+% Passo alle classi e ho:
+% \[
+% [x] = [3] [2s]
+% \]
+% \end{exmp}
+
+% SONO ARRIVATO QUI A CONTROLLARE (REALLY)
+
+Dati $a, b \in \integers $ con $ a,b > 0$, riprendiamo la definizione dell'insieme $S_{a,b}$:
 \[
-D_{a,b} = \{ (s, t) \in Z \times Z : d = a s + b t \}
+S_{a,b} =  \{m \in \naturals^+ : ax + by = m \text{ con } x,y \in \integers \}
 \]
-Data una coppia $(s,t)$, come posso trovarne un'altra? $(s + k b, t - k a) \in D_{a,b}$ al variare di $k \in Z$. Andando a sostituire ho che:
+Questo insieme ha un minimo $d = \inf S_{a,b} = \mcd(a,b)$. $d$, essendo un elemento di $S_{a,b}$ si pu\`o scrivere come combinazione lineare di $a$ e $b$, ossia $d = a \cdot s + b \cdot t$ con $s, t \in \integers$. Si chiama identit\`a di B\'ezout. Le coppie $s, t$ sono infinite. L'insieme $D_{a,b}$ contiene tutte queste coppie:
 \[
-a (s + kb) + b(t - ka) = as + kab + bt -kba = as + bt
+D_{a,b} = \{ (s, t) \in \integers \times \integers : d = a \cdot s + b \cdot t \}
+\]
+Data una coppia $(s,t)$, posso trovare ogni altra coppia $(s + k \cdot b, t - k \cdot a) \in D_{a,b}$ al variare di $k \in \integers$. Infatti andando a sostituire ho che:
+\[
+a \cdot (s + k \cdot b) + b \cdot (t - k \cdot a) = a \cdot s + k \cdot a \cdot b + b \cdot t - k \cdot b \cdot a = a \cdot s + b \cdot t
 \]
 Per calcolare una identit\`a di B\'ezout si usa l'algoritmo di Euclide delle divisioni successive.
 
 \begin{prop}
 $S_{a,b}$ \`e l'insieme di tutti i multipli di $d = \mcd(a,b)$.
 \[
-S_{a,b} = \{ k d : k \in N^+ \text{ con } d = mcd(a,b) \}
+S_{a,b} = \{ k \cdot d : k \in N^+ \text{ con } d = \mcd(a,b) \}
 \]
 \end{prop}
 \begin{proof}
-Tesi: se $m = kd \implies m \in S_{a,b}$.
+Se $m = k \cdot d \implies m \in S_{a,b}$.
 
-$m = k d = k (as + bt) = a (ks) + b (kt) \implies m \in S_{a,b}$ perch\'e possiamo prendere $x = ks$ e $y = kt$.
+$m = k \cdot d = k (a \cdot s + b \cdot t) = a (k \cdot s) + b (k \cdot t) \implies m \in S_{a,b}$ perch\'e possiamo prendere $x = k \cdot s$ e $y = k \cdot t$ e avere $m = a \cdot x + b \cdot t$.
 
 Viceversa se $m \in S_{a,b} \implies m = kd$.
 
-$m = ax + by$. Essendo $d = \mcd(a,b)$, ho che $a = hd$ e $b = h' d$. Quindi $m = hdx + h'dy = (hx + h'y) d \implies m$ \`e multiplo di $d$.
+$m = a \cdot x + b \cdot y$. Essendo $d = \mcd(a,b)$, ho che $a = h \cdot d$ e $b = h' \cdot d$. Quindi $m = h \cdot d \cdot x + h' \cdot d \cdot y = (h \cdot x + h' \cdot y) \cdot d \implies m$ \`e multiplo di $d$.
 \end{proof}
-Quindi l'insieme $S_{a,b}$ \`e l'insieme dei multipli del $\mcd$.
+Quindi l'insieme $S_{a,b}$ \`e l'insieme dei multipli del $\mcd(a,b)$.
 
-Teorema di Fermat:
-
-Se $\mcd(a, n) = 1 \implies a^{\Phi(n)} \equiv 1 \pmod{n}$
-
-Il teorema di Fermat \`e un corollario del teorema di Lagrange.
-
-Il teorema di Lagrange dice che dato un gruppo finito, l'ordine di ogni suo sottogruppo divide l'ordine del gruppo.
-
-Dato un gruppo $G$ finito e $S$ sottogruppo di $G$, $\abs{S} \divides \abs{G} $ (ossia la cardinalit\`a di $S$ divide la cardinalit\`a di $G$).
-
-Perch\'e \`e una conseguenza? 
-
-$\Phi(n) = \abs{U(Z_n)}$ ossia la cardinalit\`a del gruppo degli elementi invertibili rispetto a $\cdot$ dell'anello $(Z_n, +, \cdot)$.
+\begin{prop}
+Il teorema di Fermat:
 \[
-G = U(Z_n)
+\mcd(a, n) = 1 \implies a^{\Phi(n)} \equiv 1 \pmod{n}
 \]
-$S = \pow{a}$ \`e il sottogruppo generato da $a$, ossia tutte le potenze di $a$.
+\`e un corollario del teorema di Lagrange.
+\end{prop}
+Il teorema di Lagrange dice che dato un gruppo finito, l'ordine di ogni suo sottogruppo divide l'ordine del gruppo. Quindi, dato un gruppo $G$ finito e $S$ sottogruppo di $G$, $\abs{S} \divides \abs{G} $ (ossia la cardinalit\`a di $S$ divide la cardinalit\`a di $G$).
+
+$\Phi(n) = \abs{U(\integers_n)}$, ossia \`e la cardinalit\`a del gruppo degli elementi invertibili rispetto a $\cdot$ dell'anello $(\integers_n, +, \cdot)$.
+
+Consideriamo quindi $G = U(\integers_n)$, e $S = \pow{a}$, il sottogruppo generato da $a$, ossia tutte le potenze di $a$.
 
 $\pow{a} = \{ a^0, \dots a^t \}$. Ha $t + 1$ elementi. Quindi $a^{t+1} = 1$.
 
-Esempio:
-Consideriamo $(Z_12, +, \cdot)$ con $Z_12 = \{0,1,2,3,4,5,6,7,8,9,10,11\}$
+Consideriamo $(\integers_12, +, \cdot)$, con $\integers_12 = \{0,1,2,3,4,5,6,7,8,9,10,11\}$.
 \[
-U(Z_12) = \{ a : \mcd(a, 12) = 1\} = \{ 1, 5, 7, 11 \}
+U(\integers_12) = \{ a : \mcd(a, 12) = 1\} = \{ 1, 5, 7, 11 \}
 \]
-L'inverso di 5 \`e 5, perch\'e $5 \cdot 5 = 25 \equiv_{12} 1$. L'inverso di 7 \`e 7, l'inverso di 11 \`e 11. Abbiamo tre sottogruppi non banali di ordine 2.
+L'inverso di 5 \`e 5, perch\'e $5 \cdot 5 = 25 \equiv_{12} 1$. L'inverso di 7 \`e 7, l'inverso di 11 \`e 11. L'ordine di $U(\integers_12)$ \`e 4. Abbiamo tre sottogruppi non banali di ordine 2.
 
-Prendiamo il sottogruppo $S = \{ 1, 5 \}$. Dire che $\mcd(a, n) = 1$ significa che $a \in U(Z_n)$.
+Prendiamo il sottogruppo $S = \pow{5} = \{ 1, 5 \}$. Attenzione: dire che $\mcd(a, n) = 1$ in questo caso significa che $a \in U(\integers_n)$.
 
-L'ordine \`e il pi\`u piccolo intero positivo che mi d\`a 1. Quindi $5^2 = 1$, essendo l'ordine di $S = \{ 1, 5 \}$ pari a 2.
+L'ordine di $\pow{5}$ \`e il pi\`u piccolo intero positivo che mi d\`a 1. Quindi $5^2 = 1$, essendo l'ordine di $S = \{ 1, 5 \}$ pari a 2.
 
 Siccome l'ordine $\abs{\pow{a}} = o \divides \Phi(n)$, $\Phi(n) = k \cdot o$. Quindi $a^{\Phi(n)} = a^{o \cdot k} = 1^k = 1$.
 
-Importante: $a \in U(Z_n) \iff \mcd(a, n) = 1$
-
-\subsection{Equazioni in $Z_n$ di primo grado}
-\[
-ax = b, a, b \in Z_n, x \in Z_n
-\]
-\begin{enumerate}
-    \item $\mcd(a, n) = 1$. $a x = b$ ha una sola soluzione in $Z_n x = a^{-1} \cdot b$. Come si trova $a^{-1}$? Con l'identit\`a di B\'ezout. Siccome $\mcd(a,n) = 1 \implies$ posso scrivere l'identit\`a di B\'ezout per $a, n$. $1 = a \cdot s + n \cdot t$. Passo alle classi modulo $n$.
-
-    $[1] = [as] + [nt] = [as] + [0] = [a] [s] \implies [a^{-1}] = [s]$, ma poich\'e $s = n q + r$ ho che $r = a^{-1}$
-
-    $1 = as + bt$ \\
-    $ax = b$ \\
-    $b = asb + ntb$ \\
-    $[b] = [asb] = [a] [sb] = [a] [x]$
-
-    $x = r$, con $sb = nq + r$
-
-    \item $\mcd(a, n) = d > 1$
-
-    \begin{prop}
-    L'equazione $a x = b$ ha soluzione in $Z_n \iff d \divides b$, altrimenti \`e incompatibile (non ha soluzioni).
-    \end{prop}
-    \begin{proof}
-    Dimostriamo che \`e condizione necessaria.
-
-    Se $a x = b$ \`e compatibile (ammette soluzioni) in $Z_n$, ossia $\exists s \in Z_n$ t.c. $a \cdot s = b$, allora $a s - b = q n$, ossia \`e un multiplo di $n$. Quindi $b = a \cdot s - q \cdot n$, ossia $b \in S_{a, n}$. $S_{a,n}$ sono tutti i multipli del $\mcd(a,n) = d \implies b = k \cdot d$.
-
-    Dimostrare che la condizione \`e sufficiente segue il percorso inverso.
-    \end{proof}
-    Vediamo come si calcolano le soluzioni di $ax = b \in Z_n$ con $\mcd(a,n) = d > 1$ e $d \divides b$.
-    \begin{oss}
-    $\mcd(a,n) = d \iff \mcd(\frac{a}{d}, \frac{n}{d}) = 1$
-    \end{oss}
-    Quindi se prendo:
-    \[
-    \frac{a}{d} x = \frac{b}{d} in Z_{\frac{n}{d}} 
-    \]
-    questa equazione ricade nel caso 1 e quindi ha una sola soluzione $s$.
-
-    $s$ \`e soluzione di $\frac{a}{d} x = \frac{b}{d}$ in $Z_{\frac{n}{d}} \iff s$ \`e soluzione di $a \cdot x = b$ in $Z_n$.
-
-    Non \`e molto chiaro in questo modo. Scriviamolo come congruenza.
-
-    $\frac{a}{d} x \equiv \frac{b}{d} \pmod \frac{n}{d} \iff s$ \`e soluzione $a \cdot x \equiv b \pmod{n}$
-
-    Chiamiamo (1) la prima parte e (2) la seconda
-    \begin{proof}
-    Da (1) segue che:
-
-    $\frac{a}{d} s - \frac{b}{d} = q \frac{n}{d} \implies a s - b = q n \implies$ vale la (2).
-
-    Viceversa basta seguire l'ordine inverso.
-    \end{proof}
-    $[s]_{\frac{n}{d}}$ \`e l'unica soluzione di $[\frac{a}{d}]_{\frac{n}{d}} [x]_{\frac{n}{d}} = [\frac{b}{d}]_{\frac{n}{d}}$, perch\'e il $\mcd(\frac{a}{d}, \frac{b}{d}) = 1$
-
-    Le soluzioni di $ax = b \pmod{n}$ si ripartiscono in classi di equivalenza modulo $n$ e precisamente si ha $[s]_{\frac{n}{d}} = [s]_{n} \cup [s + \frac{n}{d}]_{n} \cup \dots \cup [s + \frac{n}{d}(d-1)]_{n}$
-
-    Ci\`o significa che le soluzioni di $[a] \cdot [x] = [b]$ in $Z / \equiv_n$ sono $d$, e sono le $d$-classi di equivalenza in cui si ripartisce l'unica soluzione $[s]_{\frac{n}{d}}$ di $[\frac{a}{d}] x = [\frac{b}{d}]$ in $Z / \equiv_{\frac{n}{d}}$
-
-    \begin{proof}
-    Dimostriamo che: $[s]_{\frac{n}{d}} = [s]_{n} \cup [s + \frac{n}{d}]_{n} \cup \dots \cup [s + \frac{n}{d}(d-1)]_{n}$
-    \[
-    t \in [s]_{\frac{n}{d}} \iff t - s = k \frac{n}{d}
-    \]
-    Quindi: $t = s + k \frac{n}{d}$
-
-    Bisogna solo dimostrare che $k < d$
-
-    Dividiamo per $d$:
-    \[
-    k = n \cdot d + r
-    \]
-    Quindi $t = s + (n d + r) \frac{n}{d}$, e quindi
-    $t = s + r \frac{n}{d}$, perch\'e $n \cdot d \equiv 0 \pmod{n}$
-
-    Quindi $t \in s + r \frac{n}{d}$ con $r < d$.
-
-    Viceversa si segue l'ordine inverso.
-
-    Dobbiamo mostrare che le classi sono disgiunte. $t \in [s + r \frac{n}{d}]_{n}$, dove $r < d$ \`e il resto della divisione di $k$ per $d$. Non possono esserci due resti distinti, quindi $[s + r_1 \frac{n}{d}] \cap [s + r_2 \frac{n}{d}] = \emptyset$, perch\'e $r_1 \neq r_2$ ed entrambi $r_1, r_2 < d$.
-    \end{proof}
-\end{enumerate}
+TODO : sistemare questo esempio
 
 \begin{exmp}[Esempio del primo caso]
 $3x \equiv 11 \pmod{25}$
@@ -1951,6 +1978,8 @@ L'unica soluzione in $Z_{25}$ \`e $x = 12$.
 Vedendola come classi, $[a] [x] = [b]$ in $Z / \equiv_{25}$ l'unica soluzione \`e la classe $[12] = [x]$.
 \end{exmp}
 
+TODO: sistemare questo esempio
+
 \begin{exmp}[Esempio del secondo caso]
 $200 x \equiv 62 \pmod{22}$
 
@@ -1973,15 +2002,15 @@ La soluzione \`e la classe $[1]_{11}$. Va ripartita in 2 classi modulo 22.
 $[1]_{22}$ e $[1 + \frac{n}{d}]_{22} = [1 + \frac{22}{2}]_{22} = [1 + 11]_{22} = [12]_{22} $
 \end{exmp}
 
-Teorema Fondamentale
+\begin{theorem}[Teorema fondamentale (non si sa bene di cosa)]
+Se prendo un $a \in \integers$ tale che $\mcd(a, n) = 1$, allora $a$ \`e invertibile in $\integers_n$, oppure equivalentemente $[a]$ \`e invertibile in $\integers / \equiv_n$.
+\end{theorem}
 
-Se prendo un $a \in Z$ tale che $\mcd(a, n) = 1$, allora a \`e invertibile in $Z_n$, oppure equivalentemente $[a]$ \`e invertibile in $Z / \equiv_n$.
-
-Data $a x = b$ con $a, b \in Z_n$ e $x \in Z$, ha soluzione se e solo se $\mcd(a, n) = d \divides b$. Se $a x = b$ \`e compatibile (ossia ammette soluzioni), allora le soluzioni sono, interpretate in $Z / \equiv_n [s]_n$, $[s + \frac{n}{d}]_n$, $\dots [s + (d - 1) \frac{n}{d}]_n$, dove $[s]_{\frac{n}{d}}$ \`e l'unica soluzione di
+Data l'equazione $a \cdot x = b$ con $a, b \in \integers_n$ e $x \in \integers$, questa ha soluzione se e solo se $\mcd(a, n) = d \divides b$. Se $a \cdot x = b$ \`e compatibile (ossia ammette soluzioni), allora le soluzioni sono, interpretate in $\integers / \equiv_n$, $ [s]_n$, $\left[s + \frac{n}{d} \right]_n$, $\dots \left[s + (d - 1) \frac{n}{d} \right]_n$, dove $[s]_{\frac{n}{d}}$ \`e l'unica soluzione di:
 \[
-[\frac{a}{d}] x = [\frac{b}{d}] \pmod{\frac{n}{d}}
+\left[\frac{a}{d} \right] \cdot x = \left[ \frac{b}{d} \right] \pmod{\frac{n}{d}}
 \]
-Bisogna far vedere una sola cosa. Le d soluzioni in $Z / \equiv_{n}$ sono le d classi di equivalenza modulo $n$ in cui si ripartisce l'unica soluzione $[s]_{\frac{n}{d}}$
+Bisogna far vedere una sola cosa. Le d soluzioni in $\integers / \equiv_{n}$ sono le d classi di equivalenza modulo $n$ in cui si ripartisce l'unica soluzione $[s]_{\frac{n}{d}}$
 \[
 [s]_{\frac{n}{d}} = [s]_n \cup s + \frac{n}{d}]_n \cup \dots \cup [s + (d - 1) \frac{n}{d}]_n, dove [s]_{\frac{n}{d}}
 \]
@@ -2010,11 +2039,13 @@ Ossia dovrebbe essere la classe 0.
 \]
 Perch\'e questo non \`e un multiplo intero di $n$, visto che $\frac{(r' - r)}{d}$ non \`e un intero.
 
+TODO : sistemare questo esempio
+
 \begin{exmp}
 \begin{equation}\label{esempio_equazione_zeta}
 12 x \equiv 44 \pmod{100}
 \end{equation}
-Deteminare le soluzioni dell'equazione in $Z$. L'insieme di queste soluzioni si esprime come unione di classi di equivalenza modulo n
+Deteminare le soluzioni dell'equazione in $\integers$. L'insieme di queste soluzioni si esprime come unione di classi di equivalenza modulo n
 
 L'equazione \ref{esempio_equazione_zeta} \`e compatibile $\iff \mcd(12, 100) \divides 44$. $\mcd(12, 100) = 4$, $4 \divides 44$, quindi l'equazione \ref{esempio_equazione_zeta} \`e compatibile.
 
@@ -2061,6 +2092,8 @@ d = \inf S_{a,b}
 S_{a,b} = \{ k \cdot d : k \in N^+ \}
 \]
 L'equazione diofantea $a x + by = c$ \`e compatibile $\iff c \in S_{a,b} \iff \mcd(a,b) \divides c$.
+
+TODO : sistemare questo esempio
 
 \begin{exmp}
 \[
@@ -2129,11 +2162,11 @@ Le strutture algebriche offrono esempi di reticoli.
 
 $(G, \cdot)$ \`e un gruppo.
 
-$S(G) =$ insieme dei sottogruppi di $G$.
+$\subgroupset(G) =$ insieme dei sottogruppi di $G$.
 
-$(S(G), \subseteq)$ \`e un insieme parzialmente ordinato. \`E anche un reticolo.
+$(\subgroupset(G), \subseteq)$ \`e un insieme parzialmente ordinato. \`E anche un reticolo.
 
-Dati due sottogruppi $S$ e $H \in S(G)$, $S \infop H = S \cap H$. L'intersezione di due sottogruppi \`e sempre un sottogruppo.
+Dati due sottogruppi $S$ e $H \in \subgroupset(G)$, $S \infop H = S \cap H$. L'intersezione di due sottogruppi \`e sempre un sottogruppo.
 
 \`E non vuoto: $1_G \in S \cap H$
 \[
@@ -2194,21 +2227,6 @@ Prendiamo tutti i sottogruppi di $(Z, +)$, $S((Z, +))$
 \[
 (m Z) \supop (n Z) = \mcd(m, n) Z
 \]
-Esercizi esonero:
-\begin{itemize}
-    \item Anagramma
-    \item Permutazioni
-        \begin{itemize}
-            \item Determinare permutazione tale che $\dots$, trovare cicli, ordine e parit\`a
-        \end{itemize}
-    \item Soluzioni di un'equazione diofantea
-    \item Risoluzione di equazioni in $Z_n$
-    \item Dato un gruppo $(G, \cdot)$, dimostrare che un sottoinsieme \`e un sottogruppo
-    \item Date due strutture algebriche $(A, \cdot)$ e $(A', \ast)$, ed un'applicazione $f : A \to A'$, dimostrare che \`e un morfismo
-    \item Sottogruppi di $Z$ e $Z_n$
-\end{itemize}
-
-% SONO ARRIVATO QUI A SISTEMARE
 
 I sottogruppi di $(Z, +)$ sono tutti del tipo $m \cdot Z$. Allo stesso modo, i sottogruppi di $(Z_n, +)$ sono tutti del tipo $k \cdot Z_n$ dove $k$ \`e un divisore di $n$, e $\abs{k \cdot Z_n} = h$ con $k \cdot h = n$.
 
@@ -2239,8 +2257,11 @@ Per $Z_n$ \`e vero che per ogni divisore di $n$ esiste un sottogruppo che ha que
 
 Per ogni divisore $h$ di $n$ esiste un sottogruppo di $(Z_n, +)$ di ordine $h$ che \`e $k Z_n$ dove $k h = n$.
 
-Possiamo fare un reticolo con la divisione.
+Possiamo fare un reticolo con la relazione di sottogruppo.
 
+TODO: sistemare questo esempio
+
+\begin{exmp}
 Prendiamo $(Z_6, +)$. I divisori di 6 sono 2 e 3.
 \[
 Z_6 = \{ 0, 1, 2, 3, 4, 5 \}
@@ -2337,12 +2358,11 @@ Abbiamo un sottogruppo di ordine 6, $2 \cdot Z_12 = \{ 0, 2, 4, 6, 8, 10 \} \con
 
 Reticolo dei sottogruppi di $Z_n$
 
-$(\subgroupset(Z_n), \subseteq)$ % fare la fancy S
+$(\subgroupset(Z_n), \subseteq)$
+\end{exmp}
 
 \begin{esercizio}
-Creare il reticolo dei sottogruppi di $Z_16$.
-
-\vskip 5cm
+Creare il reticolo dei sottogruppi di $Z_{16}$.
 \end{esercizio}
 
 \begin{defn}
@@ -2398,7 +2418,9 @@ $f(t) = f(s) \implies a^t = a^s \implies a^{t-s} = 1_G \implies a^{t-s} = a^{qn 
 Quindi essendo $r = 0, (t - s) = qn$, quindi $t - s \equiv 0 \pmod{n}$, ossia che $t - s = 0$ in $Z_n$.
 \end{proof}
 
-\begin{esercizio}
+TODO : sistemare questo esempio
+
+\begin{exmp}
 Scrivere le tavole moltiplicative dei tre gruppi $U(Z_5)$, $U(Z_8)$ e $U(Z_10)$. Calcolare la cardinalit\`a dei suddetti gruppi, e di $U(Z_12)$.
 
 Determinare quali sono isomorfi, esplicitando l'isomorfismo.
@@ -2499,12 +2521,12 @@ o(5) &= 2 \iff 5^2 = 25 \equiv 1 \pmod{8} \\
 o(7) &= 2 \iff 7^2 = 49 \equiv 1 \pmod{8}
 \end{align*}
 Quindi $Z_8$ e $Z_12$ sono isomorfi.
-\end{esercizio}
+\end{exmp}
 
 \begin{esercizio}
 Risolvere la congruenza:
 \[
-511 x \equiv 111 \pmod{842}
+511 \cdot x \equiv 111 \pmod{842}
 \]
 Scrivere le soluzioni modulo 842.
 \end{esercizio}
@@ -2513,6 +2535,19 @@ Scrivere le soluzioni modulo 842.
 Calcolare $2^{2341} \pmod{37}$.
 \end{esercizio}
 
+\subsubsection{Esercizi presenti al primo esonero}
+\begin{itemize}
+    \item Anagramma
+    \item Permutazioni
+        \begin{itemize}
+            \item Determinare permutazione tale che ``$\dots$'', trovare cicli, ordine e parit\`a
+        \end{itemize}
+    \item Soluzioni di un'equazione diofantea
+    \item Risoluzione di equazioni in $\integers_n$
+    \item Dato un gruppo $(G, \cdot)$, dimostrare che un sottoinsieme \`e un sottogruppo
+    \item Date due strutture algebriche $(A, \cdot)$ e $(A', \ast)$, ed un'applicazione $f : A \to A'$, dimostrare che \`e un morfismo
+    \item Sottogruppi di $\integers$ e $\integers_n$
+\end{itemize}
 
 
 
