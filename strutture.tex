@@ -1270,7 +1270,7 @@ Supponiamo per assurdo che $n \le r \implies r = n + x$ con $x \le r$. Siccome $
 \end{proof}
 Possiamo enunciare il teorema generale di divisione:
 \begin{theorem}[Teorema di divisione generale]
-Dati $a, b \in Z$, con $b \neq 0$, $\exists q, r \in Z$ tali che $a = q \cdot b + r$ e $0 \le r < \abs{b}$. La coppia $q, r$ \`e unica anche in questo caso. Segue come conseguenza dal teorema precedente.
+Dati $a, b \in \integers$, con $b \neq 0$, $\exists q, r \in \integers$ tali che $a = q \cdot b + r$ e $0 \le r < \abs{b}$. La coppia $q, r$ \`e unica anche in questo caso. Segue come conseguenza dal teorema precedente.
 \end{theorem}
 
 \subsection{Minimo comune multiplo e massimo comun divisore}
@@ -1315,7 +1315,7 @@ Il $\mcd(a,b)$ \`e un $d \in \naturals$ tale che:
 \begin{proof}
 Il minimo comune multiplo esiste per il principio del buon ordinamento.
 
-Definiamo l'insieme $M = \{ t \in N : t = k \cdot a \text{ e } t = h \cdot b \}$, $M$ \`e non vuoto, infatti $a \cdot b \in M$. Ha un primo elemento, quindi $\mcm(a,b)$ \`e il pi\`u piccolo elemento di $M$.
+Definiamo l'insieme $M = \{ t \in \naturals : t = k \cdot a \text{ e } t = h \cdot b \}$, $M$ \`e non vuoto, infatti $a \cdot b \in M$. Ha un primo elemento, quindi $\mcm(a,b)$ \`e il pi\`u piccolo elemento di $M$.
 \end{proof}
 La dimostrazione per il $\mcd$ \`e pi\`u lunga.
 
@@ -1395,15 +1395,15 @@ Per calcolare una identit\`a di B\'ezout si usa l'algoritmo di Euclide delle div
 \begin{prop}
 $S_{a,b}$ \`e l'insieme di tutti i multipli di $d = \mcd(a,b)$.
 \[
-S_{a,b} = \{ k \cdot d : k \in N^+ \text{ con } d = \mcd(a,b) \}
+S_{a,b} = \{ k \cdot d : k \in \naturals^+ \text{ con } d = \mcd(a,b) \}
 \]
 \end{prop}
 \begin{proof}
 Se $m = k \cdot d \implies m \in S_{a,b}$.
 
-$m = k \cdot d = k (a \cdot s + b \cdot t) = a (k \cdot s) + b (k \cdot t) \implies m \in S_{a,b}$ perch\'e possiamo prendere $x = k \cdot s$ e $y = k \cdot t$ e avere $m = a \cdot x + b \cdot t$.
+$m = k \cdot d = k \cdot (a \cdot s + b \cdot t) = a \cdot (k \cdot s) + b \cdot (k \cdot t) \implies m \in S_{a,b}$ perch\'e possiamo prendere $x = k \cdot s$ e $y = k \cdot t$ e avere $m = a \cdot x + b \cdot t$.
 
-Viceversa se $m \in S_{a,b} \implies m = kd$.
+Viceversa se $m \in S_{a,b} \implies m = k \cdot d$.
 
 $m = a \cdot x + b \cdot y$. Essendo $d = \mcd(a,b)$, ho che $a = h \cdot d$ e $b = h' \cdot d$. Quindi $m = h \cdot d \cdot x + h' \cdot d \cdot y = (h \cdot x + h' \cdot y) \cdot d \implies m$ \`e multiplo di $d$.
 \end{proof}
@@ -1421,9 +1421,10 @@ Troviamo il $\mcd(159, 42) = d$, scrivendo ogni volta il resto $r$ come combinaz
 4 & $9 = 6 + 3$             & $3 = 9 - 6$ \\
 5 & $6 = 3 \cdot (2)$ & \
 \end{tabular}
+\caption{\label{itm:esempio_algoritmo_euclide}L'algoritmo di Euclide per trovare il $\mcd(159, 42)$, con il resto di ogni passaggio scritto come identit\`a di B\'ezout}
 \end{figure}
 
-Quindi il $\mcd(159, 42) $ \`e $ 3$.
+Il $\mcd(159, 42) $ \`e $ 3$.
 
 Dobbiamo trovare l'identit\`a di B\'ezout per 3. Possiamo iniziare scrivendo $3 = 9 - 6$, per poi sostituire i resti.
 \begin{align*}
@@ -1604,7 +1605,7 @@ Se prendiamo $\integers_p$ con $p$ primo, $U(\integers_p) = \integers_p - \{ 0 \
 Ricordiamo che un campo \`e una struttura algebrica $(K, +, \cdot)$ tale che:
 \begin{enumerate}
     \item $(K, +, \cdot)$ \`e un anello commutativo unitario,
-    \item $(K - \{0\}, \cdot)$ \`e un gruppo commutativo,
+    \item $(K \setminus \{0\}, \cdot)$ \`e un gruppo commutativo,
     \item valgono le leggi distributive.
 \end{enumerate}
 
@@ -1781,11 +1782,11 @@ Consideriamo quindi $G = U(\integers_n)$, e $S = \pow{a}$, il sottogruppo genera
 
 $\pow{a} = \{ a^0, \dots a^t \}$. Ha $t + 1$ elementi. Quindi $a^{t+1} = 1$.
 
-Consideriamo $(\integers_12, +, \cdot)$, con $\integers_12 = \{0,1,2,3,4,5,6,7,8,9,10,11\}$.
+Consideriamo $(\integers_{12}, +, \cdot)$, con $\integers_{12} = \{0,1,2,3,4,5,6,7,8,9,10,11\}$.
 \[
-U(\integers_12) = \{ a : \mcd(a, 12) = 1\} = \{ 1, 5, 7, 11 \}
+U(\integers_{12}) = \{ a : \mcd(a, 12) = 1\} = \{ 1, 5, 7, 11 \}
 \]
-L'inverso di 5 \`e 5, perch\'e $5 \cdot 5 = 25 \equiv_{12} 1$. L'inverso di 7 \`e 7, l'inverso di 11 \`e 11. L'ordine di $U(\integers_12)$ \`e 4. Abbiamo tre sottogruppi non banali di ordine 2.
+L'inverso di 5 \`e 5, perch\'e $5 \cdot 5 = 25 \equiv_{12} 1$. L'inverso di 7 \`e 7, l'inverso di 11 \`e 11. L'ordine di $U(\integers_{12})$ \`e 4. Abbiamo tre sottogruppi non banali di ordine 2.
 
 Prendiamo il sottogruppo $S = \pow{5} = \{ 1, 5 \}$. Attenzione: dire che $\mcd(a, n) = 1$ in questo caso significa che $a \in U(\integers_n)$.
 
@@ -1824,7 +1825,7 @@ In generale si distinguono due casi per la risoluzione delle equazioni:
     \[
     \mcd(a, n) = 1
     \]
-    $[a]$ \`e invertibilie in $\integers / \equiv_n$, ossia se $a < n \implies a$ \`e invertibile in $Z_n$. Quante soluzioni ci sono?
+    $[a]$ \`e invertibilie in $\integers / \equiv_n$, ossia se $a < n \implies a$ \`e invertibile in $\integers_n$. Quante soluzioni ci sono?
     \begin{itemize}
         \item Nel caso \ref{itm:equazioni_interi_modulo} $a \cdot x = b$ in $Z_n$, $x = a^{-1} \cdot b$. La soluzione \`e unica.
         \item Nel caso \ref{itm:equazioni_interi_quoziente} $[a] \cdot [x] = [b]$, allora la soluzione $[x] = [a]^{-1} \cdot [b]$. La soluzione \`e unica.
@@ -1881,7 +1882,7 @@ In generale si distinguono due casi per la risoluzione delle equazioni:
     [s]_{\frac{n}{d}} = [s]_{n} \cup \left[s + \frac{n}{d} \right]_{n} \cup \ldots \cup \left[s + \frac{n}{d}(d-1) \right]_{n}
     \]
 
-    Ci\`o significa che le soluzioni di $[a] \cdot [x] = [b]$ in $\integers / \equiv_n$ sono $d$, e sono le $d$-classi di equivalenza in cui si ripartisce l'unica soluzione $[s]_{\frac{n}{d}}$ di $[\frac{a}{d}] x = [\frac{b}{d}]$ in $Z / \equiv_{\frac{n}{d}}$.
+    Ci\`o significa che le soluzioni di $[a] \cdot [x] = [b]$ in $\integers / \equiv_n$ sono $d$, e sono le $d$-classi di equivalenza in cui si ripartisce l'unica soluzione $[s]_{\frac{n}{d}}$ di $[\frac{a}{d}] x = [\frac{b}{d}]$ in $\integers / \equiv_{\frac{n}{d}}$.
 
     \begin{proof}
     Dimostriamo che:
@@ -1940,37 +1941,35 @@ In generale si distinguono due casi per la risoluzione delle equazioni:
 
 % SONO ARRIVATO QUI A CONTROLLARE (REALLY)
 
-TODO : sistemare questo esempio
-
 \begin{exmp}[Esempio del primo caso]
-$3x \equiv 11 \pmod{25}$
-
-$\mcd(3, 25) = 1 \implies$ ha una sola soluzione
-
-Scrivo l'identit\`a di B\'ezout
 \[
-1 = 3 (-8) + 25 (1)
+3 \cdot x \equiv 11 \pmod{25}
+\]
+$\mcd(3, 25) = 1 \implies$ l'equazione ha una sola soluzione.
+
+Scrivo l'identit\`a di B\'ezout:
+\[
+1 = 3 \cdot (-8) + 25 \cdot (1)
 \]
 Moltiplico entrambi i lati per 11:
 \[
-11 = 3 (-8) (11) + 25 (11)
+11 = 3 \cdot (-8) \cdot (11) + 25 \cdot (11)
 \]
 Passo alle classi:
 \[
-[11] = [3] [-8 \cdot 11] = [3] [17] [11] \implies [x] = [17] [11] = [11 \cdot 17] = [12]
+[11] = [3] \cdot [-8 \cdot 11] = [3] \cdot [17] \cdot [11] \implies [x] = [17] \cdot [11] = [11 \cdot 17] = [12]
 \]
-In $Z$ ha infinite soluzioni, tutti gli interi nella classe $[12]$.
+In $\integers$ ha infinite soluzioni, tutti gli interi nella classe $[12]$.
 
-L'unica soluzione in $Z_{25}$ \`e $x = 12$.
+L'unica soluzione in $\integers_{25}$ \`e $x = 12$.
 
-Vedendola come classi, $[a] [x] = [b]$ in $Z / \equiv_{25}$ l'unica soluzione \`e la classe $[12] = [x]$.
+Vedendola come classi, $[a] \cdot [x] = [b]$ in $\integers / \equiv_{25}$. L'unica soluzione \`e la classe $[12] = [x]$.
 \end{exmp}
 
-TODO: sistemare questo esempio
-
 \begin{exmp}[Esempio del secondo caso]
-$200 x \equiv 62 \pmod{22}$
-
+\[
+200 \cdot x \equiv 62 \pmod{22}
+\]
 Dobbiamo anzitutto verificare la compatibilit\`a dell'equazione.
 \[
 \mcd(200, 22) = 2
@@ -1979,15 +1978,16 @@ Ha soluzioni, poich\'e $2 \divides 62$.
 
 Consideriamo l'equazione ottenuta dividendo tutto per 2.
 \[
-\frac{200}{2} x \equiv \frac{62}{2} \pmod{22} \implies 100 x \equiv 31 \pmod{11}
+\frac{200}{2} \cdot x \equiv \frac{62}{2} \pmod{22} \implies 100 \cdot x \equiv 31 \pmod{11}
 \]
-$100 x \equiv 31 \pmod{11}$ ha un'unica soluzione, essendo che $\mcd(100, 11) = 1$. Troviamo l'identit\`a di B\'ezout $1 = 100 \cdot s + 11 \cdot t$.
+$100 \cdot x \equiv 31 \pmod{11}$ ha un'unica soluzione, essendo che $\mcd(100, 11) = 1$. Troviamo l'identit\`a di B\'ezout:
 \[
-1 = 100 (s) + 11 (t) \implies 1 = 100 (1) + 11 (-9)
+1 = 100 \cdot (s) + 11 \cdot (t) \implies 1 = 100 \cdot (1) + 11 \cdot (-9)
 \]
 La soluzione \`e la classe $[1]_{11}$. Va ripartita in 2 classi modulo 22.
-
-$[1]_{22}$ e $[1 + \frac{n}{d}]_{22} = [1 + \frac{22}{2}]_{22} = [1 + 11]_{22} = [12]_{22} $
+\[
+[1]_{22} \text{ e } \left[1 + \frac{n}{d} \right]_{22} = \left[1 + \frac{22}{2} \right]_{22} = [1 + 11]_{22} = [12]_{22}
+\]
 \end{exmp}
 
 % Data l'equazione $a \cdot x = b$ con $a, b \in \integers_n$ e $x \in \integers$, questa ha soluzione se e solo se $\mcd(a, n) = d \divides b$. Se $a \cdot x = b$ \`e compatibile (ossia ammette soluzioni), allora le soluzioni sono, interpretate in $\integers / \equiv_n$, $ [s]_n$, $\left[s + \frac{n}{d} \right]_n$, $\dots \left[s + (d - 1) \frac{n}{d} \right]_n$, dove $[s]_{\frac{n}{d}}$ \`e l'unica soluzione di:
@@ -2023,40 +2023,38 @@ $[1]_{22}$ e $[1 + \frac{n}{d}]_{22} = [1 + \frac{22}{2}]_{22} = [1 + 11]_{22} =
 % \]
 % Perch\'e questo non \`e un multiplo intero di $n$, visto che $\frac{(r' - r)}{d}$ non \`e un intero.
 
-TODO : sistemare questo esempio
-
 \begin{exmp}
 \begin{equation}\label{esempio_equazione_zeta}
 12 x \equiv 44 \pmod{100}
 \end{equation}
-Deteminare le soluzioni dell'equazione in $\integers$. L'insieme di queste soluzioni si esprime come unione di classi di equivalenza modulo n
+Deteminare le soluzioni dell'equazione in $\integers$. L'insieme di queste soluzioni si esprime come unione di classi di equivalenza modulo $n$.
 
-L'equazione \ref{esempio_equazione_zeta} \`e compatibile $\iff \mcd(12, 100) \divides 44$. $\mcd(12, 100) = 4$, $4 \divides 44$, quindi l'equazione \ref{esempio_equazione_zeta} \`e compatibile.
+L'equazione \ref{esempio_equazione_zeta} \`e compatibile $\iff \mcd(12, 100) \divides 44$. \`E verificato che $\mcd(12, 100) = 4$ e che $4 \divides 44$, quindi l'equazione \ref{esempio_equazione_zeta} \`e compatibile.
 
-Per calcolare le soluzoni, per il teorema precedente, $12 x \equiv 44 \pmod{100}$ \`e equivalente a $\frac{12}{4} x \equiv \frac{44}{4} \pmod{\frac{100}{4}}$.
-
-Il $\mcd(\frac{12}{4}, \frac{100}{4}) = 1$ dunque $3 x \equiv 11 \pmod{25}$ ammette una sola soluzione modulo 25.
-
-Quindi $x = 3^{-1} \cdot 11$ in $\integers_{25}$. Per trovare l'inverso di 3 dobbiamo usare B\'ezout per 3 e 25:
+Per calcolare le soluzoni, per il teorema precedente, $12 \cdot x \equiv 44 \pmod{100}$ \`e equivalente a:
 \[
-1 = 3 s + 25 t \implies 1 = 3 \cdot (-8) + 25 \cdot (1) \implies
+\frac{12}{4} \cdot x \equiv \frac{44}{4} \pmod{\frac{100}{4}}
+\]
+Essendo il $\mcd \left( \frac{12}{4}, \frac{100}{4} \right) = 1$, $3 \cdot x \equiv 11 \pmod{25}$ ammette una sola soluzione modulo 25.
+
+Quindi $x = 3^{-1} \cdot 11$ in $\integers_{25}$. Per trovare l'inverso di 3 dobbiamo usare l'identit\`a di B\'ezout con 3 e 25:
+\[
+1 = 3 \cdot s + 25 \cdot t \implies 1 = 3 \cdot (-8) + 25 \cdot (1) \implies
 1 = 3 \cdot (-8) \pmod{25}.
 \]
 Quindi $3^{-1} = - 8 = 17 \pmod{25}$.
 
-Quindi $x = [17 \cdot 11]_{25} = [187]_{25} = [12]_{25}$
+Quindi $x = [17 \cdot 11]_{25} = [187]_{25} = [12]_{25}$.
 
-$[12]_{25}$ \`e l'unica soluzione di $[3]_{25} [x]_{25} = [11]_{25}$. Equivale a dire che tutte le (infinite) soluzioni di $3 x \equiv 11 \pmod{25}$ sono gli interi di questa classe.
+$[12]_{25}$ \`e l'unica soluzione di $[3]_{25} \cdot [x]_{25} = [11]_{25}$. Equivale a dire che tutte le (infinite) soluzioni di $3 \cdot x \equiv 11 \pmod{25}$ sono gli interi di questa classe.
 
-Le soluzioni intere di $12 x \equiv 44 \pmod{100}$ sono gli interi di $[12]_{25}$.
+Le soluzioni intere di $12 \cdot x \equiv 44 \pmod{100}$ sono gli interi di $[12]_{25}$.
 
-L'equazione \ref{esempio_equazione_zeta} possiamo vederla come $[12]_{100} x = [44]_{100}$. In $Z / \equiv_{100}$ l'equazione ha 4 soluzioni date dalle classi di equivalenza in cui si ripartisce la soluzione $[12]_{25}$:
-\[
-[12]_{100} + [12 + 25]_{100} + [12 + 50]_{100} + [12 + 75]_{100}
-\]
-\[
+L'equazione \ref{esempio_equazione_zeta} possiamo vederla come $[12]_{100} x = [44]_{100}$. In $\integers / \equiv_{100}$ l'equazione ha 4 soluzioni date dalle classi di equivalenza in cui si ripartisce la soluzione $[12]_{25}$:
+\begin{gather*}
+[12]_{100} + [12 + 25]_{100} + [12 + 50]_{100} + [12 + 75]_{100} \\
 [12]_{25} = \bigsqcup_{r = 0}^{3} [12 + 25 \cdot r]_{100}
-\]
+\end{gather*}
 \end{exmp}
 
 \subsection{Equazioni diofantee}
@@ -2076,25 +2074,23 @@ S_{a,b} = \{ k \cdot d : k \in \naturals^+ \}
 \]
 Quindi l'equazione diofantea $a \cdot x + b \cdot y = c$ \`e compatibile $\iff c \in S_{a,b} \iff \mcd(a,b) \divides c$.
 
-TODO : sistemare questo esempio
-
 \begin{exmp}
 \[
-33 = 28 x + 24 y
+33 = 28 \cdot x + 24 \cdot y
 \]
 $\mcd(28, 24) = 4$ non divide $ 33 \implies$ \`e incompatibile
 \[
-6 = 15 x + 21 y
+6 = 15 \cdot x + 21 \cdot y
 \]
 $\mcd(21, 15) = 3 \divides 6 \implies$ \`e compatibile.
 
 Troviamo l'identit\`a di B\'ezout per $15$, $21$.
 \[
-3 = 15 (3) + 21 (-2)
+3 = 15 \cdot (3) + 21 \cdot (-2)
 \]
 Per trovare la soluzione moltiplichiamo per 2:
 \[
-2 \cdot 3 = 6 = 15 (3 \cdot 2) + 21 (-2 \cdot 2)
+2 \cdot 3 = 6 = 15 \cdot (3 \cdot 2) + 21 \cdot (-2 \cdot 2)
 \]
 Quindi una soluzione dell'equazione diofantea \`e $(6, -4)$.
 
@@ -2102,13 +2098,13 @@ Come sono fatte tutte le altre?
 
 L'insieme $S$ delle soluzioni dell'equazione diofantea \`e:
 \[
-S = \{ (6 + k \cdot 21, - 4 - k \cdot 15) : k \in Z \}
+S = \{ (6 + k \cdot 21, - 4 - k \cdot 15) : k \in \integers \}
 \]
 \end{exmp}
 \begin{prop}
 Data l'equazione diofantea $a \cdot x + b \cdot y = c$ compatibile, l'insieme delle soluzioni $S$ \`e dato da:
 \[
-S = \{ (s + k \cdot b, t - k \cdot a) : k \in Z \}
+S = \{ (s + k \cdot b, t - k \cdot a) : k \in \integers \}
 \]
 dove $(s, t)$ \`e una soluzione, che si determina dall'identit\`a di B\'ezout.
 \end{prop}
@@ -2148,14 +2144,14 @@ Consideriamo un gruppo $(G, \cdot)$ e l'insieme $\subgroupset(G)$ dei sottogrupp
 
 Dati due sottogruppi $S, H \in \subgroupset(G)$, $S \infop H = S \cap H$. L'intersezione di due sottogruppi \`e sempre un sottogruppo. Vediamo che \`e non vuoto: $1_G \in S \cap H$. Inoltre \`e chiuso:
 \[
-\begin{cases}
-a, b \in S \implies a^{-1} \cdot b \in S
+\begin{rcases*}
+a, b \in S \implies a^{-1} \cdot b \in S \\
 c, d \in H \implies c^{-1} \cdot d \in H
-\end{cases}
+\end{rcases*}
 \implies
 a, b \in S \cap H \implies 
 \begin{cases}
-a^{-1} \cdot b \in S 
+a^{-1} \cdot b \in S  \\
 a^{-1} \cdot b \in H
 \end{cases}
 \implies
@@ -2179,17 +2175,17 @@ Quali sono i sottogruppi di $\integers$?
 I sottogruppi di $(\integers, +)$ sono tutti del tipo $m \cdot \integers$. I sottogruppi propri si ottengono con $m \neq 0, 1$.
 \end{prop}
 \begin{proof}
-Dimostriamo anzitutto che $m \cdot Z$ \`e un sottogruppo di $(Z, +)$.
+Dimostriamo anzitutto che $m \cdot \integers$ \`e un sottogruppo di $(\integers, +)$.
 
-$\forall S$ sottogruppo di $(Z, +) \implies S = m \cdot Z$.
+$\forall S$ sottogruppo di $(\integers, +) \implies S = m \cdot \integers$.
 
-Dato un sottogruppo $S$, devo trovare un $m$. $m$ \`e il pi\`u piccolo intero positivo, ossia  l'$\inf (S \cap N^+)$. $S \cap N^+ \neq \emptyset$, visto che $S \neq \{ 0 \}$. Quindi, per il principio del buon ordinamento, $m$ \`e il primo elemento positivo.
+Dato un sottogruppo $S$, devo trovare un $m$. $m$ \`e il pi\`u piccolo intero positivo, ossia  l'$\inf (S \cap \naturals^+)$. $S \cap \naturals^+ \neq \emptyset$, visto che $S \neq \{ 0 \}$. Quindi, per il principio del buon ordinamento, $m$ \`e il primo elemento positivo.
 
-Sia $m = inf (S \cap N^+)$. Dobbiamo dimostrare che $m Z \subseteq S$ e $S \subseteq m Z$.
+Sia $m = \inf (S \cap \naturals^+)$. Dobbiamo dimostrare che $m \integers \subseteq S$ e $S \subseteq m \integers$.
 
-$m Z$ \`e il gruppo delle potenze rispetto all'addizione. Quindi $m Z \subseteq S$ \`e banale, visto che deve contenere tutte le potenze di $m$.
+$m \integers$ \`e il gruppo delle potenze rispetto all'addizione. Quindi $m \integers \subseteq S$ \`e banale, visto che deve contenere tutte le potenze di $m$.
 
-$S \subseteq m Z$. Prendiamo $h \in S$, dimostriamo che $h \in m Z$, ossia $h = k m$.
+$S \subseteq m \integers$. Prendiamo $h \in S$, dimostriamo che $h \in m \integers$, ossia $h = k m$.
 
 Applichiamo il teorema di divisione: $h = k m + r$, con $0 \le r < m$.
 
@@ -2203,44 +2199,42 @@ Prendiamo tutti i sottogruppi di $(\integers, +)$, $\subgroupset((\integers, +))
 (m \integers) \supop (n \integers) = \mcd(m, n) \integers
 \]
 
-I sottogruppi di $(Z, +)$ sono tutti del tipo $m \cdot Z$. Allo stesso modo, i sottogruppi di $(Z_n, +)$ sono tutti del tipo $k \cdot Z_n$ dove $k$ \`e un divisore di $n$, e $\abs{k \cdot Z_n} = h$ con $k \cdot h = n$.
+I sottogruppi di $(\integers, +)$ sono tutti del tipo $m \cdot \integers$. Allo stesso modo, i sottogruppi di $(\integers_n, +)$ sono tutti del tipo $k \cdot \integers_n$ dove $k$ \`e un divisore di $n$, e $\abs{k \cdot \integers_n} = h$ con $k \cdot h = n$.
 
-Quindi, per ogni divisore $h$ di $n$ esiste un sottogruppo di $Z_n$ di ordine $h$ che \`e $k \cdot Z_n$ dove $k \cdot h = n$.
+Quindi, per ogni divisore $h$ di $n$ esiste un sottogruppo di $\integers_n$ di ordine $h$ che \`e $k \cdot \integers_n$ dove $k \cdot h = n$.
 
 \begin{proof}
-$k \cdot Z_n$ \`e un sottogruppo di $Z_n$ per lo stesso motivo per cui $k \cdot Z$ \`e un sottogruppo di $Z$.
+$k \cdot \integers_n$ \`e un sottogruppo di $\integers_n$ per lo stesso motivo per cui $k \cdot \integers$ \`e un sottogruppo di $\integers$.
 
-$k \cdot Z_n = \{ 0, k \ldots , (h - 1) \cdot k \}$. L'ultimo elemento \`e $(h - 1) \cdot k$ perch\'e $h \cdot k = n$, quindi $h \cdot k \equiv 0 \pmod{n}$.
+$k \cdot \integers_n = \{ 0, k \ldots , (h - 1) \cdot k \}$. L'ultimo elemento \`e $(h - 1) \cdot k$ perch\'e $h \cdot k = n$, ossia $h \cdot k \equiv 0 \pmod{n}$.
 
 $h$ \`e l'ordine del gruppo: il minimo intero positivo per cui $k$ elevato all'ordine fa l'elemento neutro.
 \[
-h = o (k \cdot Z_n) = o(k) = \inf \{t : t \cdot k = 0 \text{ con } t \neq 0\}
+h = o (k \cdot \integers_n) = o(k) = \inf \{t : t \cdot k = 0 \text{ con } t \neq 0\}
 \]
-Viceversa dobbiamo dimostrare che un sottogruppo qualunque $S$ di $Z_n$ \`e del tipo $k \cdot Z_n$. $k$ \`e il primo elemento positivo di $S$.
+Viceversa dobbiamo dimostrare che un sottogruppo qualunque $S$ di $\integers_n$ \`e del tipo $k \cdot \integers_n$. $k$ \`e il primo elemento positivo di $S$.
 \[
 k = \inf( S \setminus \{0\})
 \]
-Quindi, essendo $k \in S$, $k \cdot Z_n \subseteq S$. Inoltre, dato $a \in S$, dividiamo $a$ per $k$, quindi $a = k \cdot q + r$, dove $0 \le r < k$. Quindi $r = a - q \cdot k \implies a \in S$ e $q \cdot k \in S$, quindi $r \in S \implies r = 0$, poich\'e $k$ \`e $l'inf(S \setminus \{0\})$.
+Quindi, essendo $k \in S$, $k \cdot \integers_n \subseteq S$. Inoltre, dato $a \in S$, dividiamo $a$ per $k$, quindi $a = k \cdot q + r$, dove $0 \le r < k$. Quindi $r = a - q \cdot k \implies a \in S$ e $q \cdot k \in S$, quindi $r \in S \implies r = 0$, poich\'e $k$ \`e l'$\inf(S \setminus \{0\})$.
 
-Quindi $S = k \cdot Z_n$.
+Quindi $S = k \cdot \integers_n$.
 \end{proof}
-$\abs{S} = h = \abs{k \cdot Z_n}$. $h$ \`e l'elemento tale che $h \cdot k = n$.
+$\abs{S} = h = \abs{k \cdot \integers_n}$. $h$ \`e l'elemento tale che $h \cdot k = n$.
 
-Per ogni divisore $h$ di $n$ esiste un sottogruppo di ordine $h$ che \`e $k \cdot Z_n$, con $h \cdot k = n$.
+Per ogni divisore $h$ di $n$ esiste un sottogruppo di ordine $h$ che \`e $k \cdot \integers_n$, con $h \cdot k = n$.
 
-Per $Z_n$ \`e vero che per ogni divisore di $n$ esiste un sottogruppo che ha quell'ordine. Prima sapevamo solo che l'ordine di un sottogruppo deve dividere $n$, con $Z_n$ vale anche il contrario.
+Per $\integers_n$ \`e vero che per ogni divisore di $n$ esiste un sottogruppo che ha quell'ordine. Prima sapevamo solo che l'ordine di un sottogruppo deve dividere $n$, con $\integers_n$ vale anche il contrario.
 
-Per ogni divisore $h$ di $n$ esiste un sottogruppo di $(Z_n, +)$ di ordine $h$ che \`e $k Z_n$ dove $k h = n$.
-
-Possiamo fare un reticolo con la relazione di sottogruppo.
-
-TODO: sistemare questo esempio
+Per ogni divisore $h$ di $n$ esiste un sottogruppo di $(\integers_n, +)$ di ordine $h$ che \`e $k \integers_n$ dove $k h = n$.
 
 \begin{exmp}
-Prendiamo $(Z_6, +)$. I divisori di 6 sono 2 e 3.
+Prendiamo $(\integers_6, +)$. I divisori di 6 sono 2 e 3.
 \[
-Z_6 = \{ 0, 1, 2, 3, 4, 5 \}
+\integers_6 = \{ 0, 1, 2, 3, 4, 5 \}
 \]
+\begin{table}[ht]
+\centering
 \begin{tabular}{c|*{6}{c}}
 + & 0 & 1 & 2 & 3 & 4 & 5 \\
 \hline
@@ -2251,29 +2245,33 @@ Z_6 = \{ 0, 1, 2, 3, 4, 5 \}
 4 & 4 & 5 & 0 & 1 & 2 & 3 \\
 5 & 5 & 0 & 1 & 2 & 3 & 4
 \end{tabular}
+\end{table}
 
-Il sottogruppo di ordine 2 \`e $3 \cdot Z_6$
+Il sottogruppo di ordine 2 \`e $3 \cdot \integers_6$
 \[
-3 \cdot Z_6 = \{ 0, 3 \} \cong Z_2
+3 \cdot \integers_6 = \{ 0, 3 \} \cong \integers_2
 \]
-$3 \cdot Z_6$ \`e isomorfo a $Z_2$.
+$3 \cdot \integers_6$ \`e isomorfo a $\integers_2$.
+\begin{table}[ht]
+\centering
 \begin{tabular}{c|cc}
 + & 0 & 3 \\
 \hline
 0 & 0 & 3 \\
 3 & 3 & 0
 \end{tabular}
-
+\qquad
 \begin{tabular}{c|cc}
 + & 0 & 1 \\
 \hline
 0 & 0 & 1 \\
 1 & 1 & 0
 \end{tabular}
+\end{table}
 
-$2 \cdot Z_6 = \{ 0, 2, 4 \} \cong Z_3, 2 \cdot Z_6$ \`e isomorfo a $Z_3$
+$2 \cdot \integers_6 = \{ 0, 2, 4 \} \cong \integers_3, 2 \cdot \integers_6$ \`e isomorfo a $\integers_3$
 
-Come \`e fatto il reticolo dei sottogruppi in $Z_6$?
+Come \`e fatto il reticolo dei sottogruppi in $\integers_6$?
 
 \begin{figure}
 \centering
@@ -2288,35 +2286,35 @@ Come \`e fatto il reticolo dei sottogruppi in $Z_6$?
             (Z3) edge node {} (0)
             ;
 \end{tikzpicture}
-\caption{Reticolo dei sottogruppi di $Z_6$}
+\caption{Reticolo dei sottogruppi di $\integers_6$}
 \end{figure}
 
 \begin{oss}
-Se prendo $k \cdot Z_n$, ha ordine $h$ ed \`e isomorfo a $Z_h$, dove $h \cdot k = n$.
+Se prendo $k \cdot \integers_n$, ha ordine $h$ ed \`e isomorfo a $\integers_h$, dove $h \cdot k = n$.
 
-L'isomorfismo \`e proprio: $\phi : Z_h \to k \cdot Z_n$ definito da, dato $t \in Z_h$, $\phi(t) = t \cdot k$.
+L'isomorfismo \`e proprio: $\phi : \integers_h \to k \cdot \integers_n$ definito da, dato $t \in \integers_h$, $\phi(t) = t \cdot k$.
 \end{oss}
 
-Facciamo un altro reticolo dei sottogruppi con $Z_12$.
+Facciamo un altro reticolo dei sottogruppi con $\integers_{12}$.
 
 I divisori di 12 sono 2, 3, 4 e 6. Abbiamo 4 sottogruppi non banali.
 
-Abbiamo un sottogruppo di ordine $2, 6 \cdot Z_12 = \{ 0, 6 \} \cong Z_2$. L'ordine di 6 \`e 2, perch\'e $6 + 6 \equiv 0 \pmod{12}$.
+Abbiamo un sottogruppo di ordine $2, 6 \cdot \integers_{12} = \{ 0, 6 \} \cong \integers_2$. L'ordine di 6 \`e 2, perch\'e $6 + 6 \equiv 0 \pmod{12}$.
 
-Abbiamo un sottogruppo di ordine 3, $4 \cdot Z_12 = \{ 0, 4, 8 \} \cong Z_3$.
+Abbiamo un sottogruppo di ordine 3, $4 \cdot \integers_{12} = \{ 0, 4, 8 \} \cong \integers_3$.
 
-Abbiamo un sottogruppo di ordine 4, $3 \cdot Z_12 = \{ 0, 3, 6, 9 \} \cong Z_4$.
+Abbiamo un sottogruppo di ordine 4, $3 \cdot \integers_{12} = \{ 0, 3, 6, 9 \} \cong \integers_4$.
 
-Abbiamo un sottogruppo di ordine 6, $2 \cdot Z_12 = \{ 0, 2, 4, 6, 8, 10 \} \cong Z_6$.
+Abbiamo un sottogruppo di ordine 6, $2 \cdot \integers_{12} = \{ 0, 2, 4, 6, 8, 10 \} \cong \integers_6$.
 
 \begin{figure}
 \centering
 \begin{tikzpicture}
   \node (Z12) {$\integers_{12}$};
-  \node (Z6) [below left of=Z12, node distance=2cm] {$2 \integers_6$};
-  \node (Z4) [below right of=Z12, node distance=2cm] {$3 \integers_6$};
-  \node (Z3) [below of=Z6, node distance=2cm] {$4 \integers_6$};
-  \node (Z2) [below of=Z4, node distance=2cm] {$6 \integers_6$};
+  \node (Z6) [below left of=Z12, node distance=2cm] {$2 \integers_{12}$};
+  \node (Z4) [below right of=Z12, node distance=2cm] {$3 \integers_{12}$};
+  \node (Z3) [below of=Z6, node distance=2cm] {$4 \integers_{12}$};
+  \node (Z2) [below of=Z4, node distance=2cm] {$6 \integers_{12}$};
   \node (0) [below left of=Z2, node distance=2cm] {0};
   \path[-]  (Z12) edge node {} (Z6)
             (Z12) edge node {} (Z4)
@@ -2327,26 +2325,25 @@ Abbiamo un sottogruppo di ordine 6, $2 \cdot Z_12 = \{ 0, 2, 4, 6, 8, 10 \} \con
             (Z3) edge node {} (0)
             ;
 \end{tikzpicture}
-\caption{Reticolo dei sottogruppi di $Z_{12}$}
+\caption{Reticolo dei sottogruppi di $\integers_{12}$}
 \end{figure}
 
-
-Reticolo dei sottogruppi di $Z_n$
-
-$(\subgroupset(Z_n), \subseteq)$
+Il reticolo dei sottogruppi di $\integers_n$ si indica con $(\subgroupset(\integers_n), \subseteq)$.
 \end{exmp}
 
 \begin{esercizio}
-Creare il reticolo dei sottogruppi di $Z_{16}$.
+Creare il reticolo dei sottogruppi di $\integers_{16}$.
 \end{esercizio}
 
-\begin{defn}
-Un gruppo $(G, \cdot)$ si dice ciclico, se $G = \pow{a}$, ossia $G = \{ a^{t} : t \in Z \}$, ossia $G$ \`e generato da un elemento $a \in G$ detto generatore.
+\subsection{Gruppi ciclici}
 
-L'ordine di $G$ \`e l'ordine di $a$, ossia il minimo intero tale per cui $a$ elevato all'ordine fa $1_G$, ossia $\inf \{ t > 0 e a^t = 1_G \}$
+\begin{defn}
+Un gruppo $(G, \cdot)$ si dice ciclico, se $G = \pow{a}$, ossia $G = \{ a^{t} : t \in \integers \}$, ossia $G$ \`e generato da un elemento $a \in G$ detto generatore.
+
+L'ordine di $G$ \`e l'ordine di $a$, ossia il minimo intero tale per cui $a$ elevato all'ordine fa $1_G$, ossia $\inf \{ t : t > 0 \text{ e } a^t = 1_G \}$
 \end{defn}
 
-$(Z, +)$ \`e ciclico, generato da $\pow{1}$. Anche $(Z_n, +)$ \`e generato da $\{ 1 \}$.
+$(\integers, +)$ \`e ciclico, generato da $\pow{1}$. Anche $(\integers_n, +)$ \`e generato da $\{ 1 \}$.
 
 \begin{theorem}
 Sia $(G, \cdot)$ un gruppo ciclico generato da $a \in G$, allora ci sono due casi:
@@ -2354,13 +2351,13 @@ Sia $(G, \cdot)$ un gruppo ciclico generato da $a \in G$, allora ci sono due cas
     \item\label{itm:gruppo_ciclico_infinito} $\abs{G} = \infty$
     \item\label{itm:gruppo_ciclico_finito} $\abs{G} = n$, ossia la sua cardinalit\`a \`e finita
 \end{enumerate}
-Nel caso \ref{itm:gruppo_ciclico_infinito} $(G,+)$ \`e isomorfo a $(Z,+)$. Nel caso \ref{itm:gruppo_ciclico_finito}, $(G, +)$ \`e isomorfo a $(Z_n, +)$.
+Nel caso \ref{itm:gruppo_ciclico_infinito} $(G,+)$ \`e isomorfo a $(\integers,+)$. Nel caso \ref{itm:gruppo_ciclico_finito}, $(G, +)$ \`e isomorfo a $(\integers_n, +)$.
 \end{theorem}
 
 \begin{proof}
 Dimostrazione dei due casi.
 
-Caso \ref{itm:gruppo_ciclico_infinito}. Troviamo $f : (Z, +) \to (G, \cdot)$. $G = \pow{a}$. L'isomorfismo \`e l'unico che esiste tale per cui $f(1) = a$. Ossia $f(t) = a^{t}$.
+Caso \ref{itm:gruppo_ciclico_infinito}. Troviamo $f : (\integers, +) \to (G, \cdot)$. $G = \pow{a}$. L'isomorfismo \`e l'unico che esiste tale per cui $f(1) = a$. Ossia $f(t) = a^{t}$.
 \[
 f(-t) = a^{-t} = (a^t)^{-1}
 \]
@@ -2374,13 +2371,13 @@ Siamo nel caso in cui $\abs{G} = \infty$, quindi $a^t \neq 0 \forall t \neq 0$. 
 \[
 t - s = 0 \implies t = s
 \]
-Caso \ref{itm:gruppo_ciclico_finito}. $\abs{G} = n, G = \{a^t : t \in Z\} = \pow{a}$
+Caso \ref{itm:gruppo_ciclico_finito}. $\abs{G} = n, G = \{a^t : t \in \integers\} = \pow{a}$
 
-Dobbiamo trovare il morfismo $f : (Z_n, +) \to (G, \cdot)$, l'unico per cui $f(1) = a$ e $f(t) = a^t$ con $t \in Z_n$.
+Dobbiamo trovare il morfismo $f : (\integers_n, +) \to (G, \cdot)$, l'unico per cui $f(1) = a$ e $f(t) = a^t$ con $t \in \integers_n$.
 
-\`E suriettivo perch\'e $Z_n$ contiene tutte le potenze. Bisogna dimostrare che \`e iniettivo.
+\`E suriettivo perch\'e $\integers_n$ contiene tutte le potenze. Bisogna dimostrare che \`e iniettivo.
 
-$f(t) = f(s)$, con $t, s \in Z_n$. Quindi $a^t = a^s$, quindi $a^{t-s} = 1_G$. Sappiamo che:
+$f(t) = f(s)$, con $t, s \in \integers_n$. Quindi $a^t = a^s$, quindi $a^{t-s} = 1_G$. Sappiamo che:
 \[
 a^n = 1_G
 \]
@@ -2390,18 +2387,18 @@ Quindi deve essere che $(t - s) \equiv 0 \pmod{n}$.
 
 $f(t) = f(s) \implies a^t = a^s \implies a^{t-s} = 1_G \implies a^{t-s} = a^{qn + r} = 1_G$. Ho che $0 \le r < n$. Quindi$ 1_G = a^{qn} \cdot a^r$, ma $a^{qn} = 1_G$, quindi $1_G = 1_G \cdot a^r \implies a^r = a^0$, essendo $r < n$.
 
-Quindi essendo $r = 0, (t - s) = qn$, quindi $t - s \equiv 0 \pmod{n}$, ossia che $t - s = 0$ in $Z_n$.
+Quindi essendo $r = 0, (t - s) = qn$, quindi $t - s \equiv 0 \pmod{n}$, ossia che $t - s = 0$ in $\integers_n$.
 \end{proof}
 
-TODO : sistemare questo esempio
-
 \begin{exmp}
-Scrivere le tavole moltiplicative dei tre gruppi $U(Z_5)$, $U(Z_8)$ e $U(Z_10)$. Calcolare la cardinalit\`a dei suddetti gruppi, e di $U(Z_12)$.
+Scrivere le tavole moltiplicative dei tre gruppi $U(\integers_5)$, $U(\integers_8)$ e $U(\integers_{10})$. Calcolare la cardinalit\`a dei suddetti gruppi, e di $U(\integers_{12})$.
 
 Determinare quali sono isomorfi, esplicitando l'isomorfismo.
 \[
-U(Z_5) = \{ 1, 2, 3, 4 \}
+U(\integers_5) = \{ 1, 2, 3, 4 \}
 \]
+\begin{table}[ht]
+\centering
 \begin{tabular}{c|*{4}{c}}
 $\cdot$ & 1 & 2 & 3 & 4 \\
 \hline
@@ -2410,17 +2407,20 @@ $\cdot$ & 1 & 2 & 3 & 4 \\
 3 & 3 & 1 & 4 & 2 \\
 4 & 4 & 3 & 2 & 1
 \end{tabular}
+\end{table}
 \begin{align*}
 o(2) &= 4 \iff 2^4 = 16 \equiv 1 \pmod{5} \\
 o(3) &= 2 \iff 3^2 = 6 \equiv 1 \pmod{5} \\
 o(4) &= 2 \iff 4^2 = 16 \equiv 1 \pmod{5}
 \end{align*}
 \[
-U(Z_5) = \pow{2} \cong Z_4
+U(\integers_5) = \pow{2} \cong \integers_4
 \]
 \[
-U(Z_8) = \{ 1, 3, 5, 7 \}
+U(\integers_8) = \{ 1, 3, 5, 7 \}
 \]
+\begin{table}[ht]
+\centering
 \begin{tabular}{c|*{4}{c}}
 $\cdot$ & 1 & 3 & 5 & 7 \\
 \hline
@@ -2429,9 +2429,12 @@ $\cdot$ & 1 & 3 & 5 & 7 \\
 5 & 5 & 7 & 1 & 3 \\
 7 & 7 & 5 & 3 & 1
 \end{tabular}
+\end{table}
 \[
-U(Z_10) = \{ 1, 3, 7, 9 \}
+U(\integers_{10}) = \{ 1, 3, 7, 9 \}
 \]
+\begin{table}[ht]
+\centering
 \begin{tabular}{c|*{4}{c}}
 $\cdot$ & 1 & 3 & 7 & 9 \\
 \hline
@@ -2440,16 +2443,17 @@ $\cdot$ & 1 & 3 & 7 & 9 \\
 7 & 7 & 1 & 9 & 3 \\
 9 & 9 & 7 & 3 & 1
 \end{tabular}
+\end{table}
 \[
-U(Z_12) = \{ 1, 5, 7, 11 \}
+U(\integers_{12}) = \{ 1, 5, 7, 11 \}
 \]
 \[
 o(3) = 4 \iff 3^4 = 81 \equiv 1 \pmod{10}
 \]
 \[
-U(Z_10) = \pow{3} \cong Z_4
+U(\integers_{10}) = \pow{3} \cong \integers_4
 \]
-C'\`e un isomorfismo fra $U(Z_5)$ e $U(Z_10)$. Il generatore deve andare nel generatore, il quadrato del generatore nel quadrato del generatore, etc.
+C'\`e un isomorfismo fra $U(\integers_5)$ e $U(\integers_{10})$. Il generatore deve andare nel generatore, il quadrato del generatore nel quadrato del generatore, etc.
 
 \begin{figure}
 \centering
@@ -2474,6 +2478,8 @@ C'\`e un isomorfismo fra $U(Z_5)$ e $U(Z_10)$. Il generatore deve andare nel gen
 \caption{L'isomorfismo tra $U(\integers_5)$ e $U(\integers_{10})$}
 \end{figure}
 
+\begin{table}[ht]
+\centering
 \begin{tabular}{c|*{4}{c}}
 $\cdot$ & 1 & 5 & 7 & 11 \\
 \hline
@@ -2482,20 +2488,21 @@ $\cdot$ & 1 & 5 & 7 & 11 \\
 7 & 7 & 11 & 1 & 5 \\
 11 & 11 & 7 & 5 & 1
 \end{tabular}
+\end{table}
 \begin{align*}
 o(5) &= 2 \iff 5^2 = 25 \equiv 1 \pmod{12} \\
 o(7) &= 2 \iff 7^2 = 49 \equiv 1 \pmod{12} \\
 o(11) &= 2 \iff 11^2 = 121 \equiv 1 \pmod{12}
 \end{align*}
-Quindi $U(Z_12)$ non \`e un gruppo ciclico. Vediamo se \`e isomorfo a $Z_8$.
+Quindi $U(\integers_{12})$ non \`e un gruppo ciclico. Vediamo se \`e isomorfo a $\integers_8$.
 
-$Z_8$ deve avere tre elementi di ordine 2.
+$\integers_8$ deve avere tre elementi di ordine 2.
 \begin{align*}
 o(3) &= 2 \iff 3^2 = 9 \equiv 1 \pmod{8} \\
 o(5) &= 2 \iff 5^2 = 25 \equiv 1 \pmod{8} \\
 o(7) &= 2 \iff 7^2 = 49 \equiv 1 \pmod{8}
 \end{align*}
-Quindi $Z_8$ e $Z_12$ sono isomorfi.
+Quindi $\integers_8$ e $\integers_{12}$ sono isomorfi.
 \end{exmp}
 
 \begin{esercizio}
