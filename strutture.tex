@@ -1378,24 +1378,40 @@ Per il lemma \ref{lemma_euclide} segue che $\mcd(a,b) = \mcd \left( r_{(n-1)}, r
 
 Dall'algoritmo di Euclide possiamo ricavere l'identit\`a di B\'ezout.
 
-Abbiamo che $d = \mcd(a,b)$, quindi possiamo scriverlo come:
+Dati $a, b \in \integers $ con $ a,b > 0$, riprendiamo la definizione dell'insieme $S_{a,b}$:
 \[
-d = a \cdot s + b \cdot t
+S_{a,b} =  \{m \in \naturals^+ : ax + by = m \text{ con } x,y \in \integers \}
 \]
-con $s, t \in \integers$. Questa cosa strana si chiama ``identit\`a di B\'ezout''. Le identit\`a di B\'ezout sono infinite.
+Questo insieme ha un minimo $d = \inf S_{a,b} = \mcd(a,b)$. $d$, essendo un elemento di $S_{a,b}$ si pu\`o scrivere come combinazione lineare di $a$ e $b$, ossia $d = a \cdot s + b \cdot t$ con $s, t \in \integers$. Si chiama identit\`a di B\'ezout. Le coppie $s, t$ sono infinite (e quindi anche le identit\`a di B\'ezout lo sono). L'insieme $D_{a,b}$ contiene tutte queste coppie:
+\[
+D_{a,b} = \{ (s, t) \in \integers \times \integers : d = a \cdot s + b \cdot t \}
+\]
+Data una coppia $(s,t)$, posso trovare ogni altra coppia $(s + k \cdot b, t - k \cdot a) \in D_{a,b}$ al variare di $k \in \integers$. Infatti andando a sostituire ho che:
+\[
+a \cdot (s + k \cdot b) + b \cdot (t - k \cdot a) = a \cdot s + k \cdot a \cdot b + b \cdot t - k \cdot b \cdot a = a \cdot s + b \cdot t
+\]
+Per calcolare una identit\`a di B\'ezout si usa l'algoritmo di Euclide delle divisioni successive.
 
-Possiamo scrivere $d = a \cdot s + b \cdot t$ prendendo $(s + k \cdot b, t - k \cdot a)$ e facendo la combinazione lineare con questi coefficienti:
+\begin{prop}
+$S_{a,b}$ \`e l'insieme di tutti i multipli di $d = \mcd(a,b)$.
 \[
-a (s + k \cdot b) + b \cdot (t - k \cdot a) = a \cdot s + k \cdot b \cdot a + b \cdot t - k \cdot a \cdot b = d
+S_{a,b} = \{ k \cdot d : k \in N^+ \text{ con } d = \mcd(a,b) \}
 \]
-\begin{esercizio}
-Dimostrarlo.
-\end{esercizio}
+\end{prop}
+\begin{proof}
+Se $m = k \cdot d \implies m \in S_{a,b}$.
+
+$m = k \cdot d = k (a \cdot s + b \cdot t) = a (k \cdot s) + b (k \cdot t) \implies m \in S_{a,b}$ perch\'e possiamo prendere $x = k \cdot s$ e $y = k \cdot t$ e avere $m = a \cdot x + b \cdot t$.
+
+Viceversa se $m \in S_{a,b} \implies m = kd$.
+
+$m = a \cdot x + b \cdot y$. Essendo $d = \mcd(a,b)$, ho che $a = h \cdot d$ e $b = h' \cdot d$. Quindi $m = h \cdot d \cdot x + h' \cdot d \cdot y = (h \cdot x + h' \cdot y) \cdot d \implies m$ \`e multiplo di $d$.
+\end{proof}
 
 \begin{exmp}
 Troviamo il $\mcd(159, 42) = d$, scrivendo ogni volta il resto $r$ come combinazione di $a$ e $b$, dopodich\'e scriviamo $d$ come identit\`a di B\'ezout.
 
-\begin{figure}
+\begin{figure}[ht]
 \centering
 \begin{tabular}{*{3}{l}}
 \multicolumn{3}{c}{$159 > 42$} \\
@@ -1747,6 +1763,36 @@ Usiamo il teorema di Fermat. Per i teorema di Fermat sappiamo che $81^{\Phi (100
 81^{80} \cdot 81^{2} \equiv_{100} 1 \cdot 81^{2} &\implies 6561 \equiv_{100} 61
 \end{align*}
 \end{exmp}
+
+
+\begin{prop}
+Il teorema di Fermat:
+\[
+\mcd(a, n) = 1 \implies a^{\Phi(n)} \equiv 1 \pmod{n}
+\]
+\`e un corollario del teorema di Lagrange.
+\end{prop}
+\begin{proof}
+Il teorema di Lagrange dice che dato un gruppo finito, l'ordine di ogni suo sottogruppo divide l'ordine del gruppo. Quindi, dato un gruppo $G$ finito e $S$ sottogruppo di $G$, $\abs{S} \divides \abs{G} $ (ossia la cardinalit\`a di $S$ divide la cardinalit\`a di $G$).
+
+$\Phi(n) = \abs{U(\integers_n)}$, ossia \`e la cardinalit\`a del gruppo degli elementi invertibili rispetto a $\cdot$ dell'anello $(\integers_n, +, \cdot)$.
+
+Consideriamo quindi $G = U(\integers_n)$, e $S = \pow{a}$, il sottogruppo generato da $a$, ossia tutte le potenze di $a$.
+
+$\pow{a} = \{ a^0, \dots a^t \}$. Ha $t + 1$ elementi. Quindi $a^{t+1} = 1$.
+
+Consideriamo $(\integers_12, +, \cdot)$, con $\integers_12 = \{0,1,2,3,4,5,6,7,8,9,10,11\}$.
+\[
+U(\integers_12) = \{ a : \mcd(a, 12) = 1\} = \{ 1, 5, 7, 11 \}
+\]
+L'inverso di 5 \`e 5, perch\'e $5 \cdot 5 = 25 \equiv_{12} 1$. L'inverso di 7 \`e 7, l'inverso di 11 \`e 11. L'ordine di $U(\integers_12)$ \`e 4. Abbiamo tre sottogruppi non banali di ordine 2.
+
+Prendiamo il sottogruppo $S = \pow{5} = \{ 1, 5 \}$. Attenzione: dire che $\mcd(a, n) = 1$ in questo caso significa che $a \in U(\integers_n)$.
+
+L'ordine di $\pow{5}$ \`e il pi\`u piccolo intero positivo che mi d\`a 1. Quindi $5^2 = 1$, essendo l'ordine di $S = \{ 1, 5 \}$ pari a 2.
+
+Siccome l'ordine $\abs{\pow{a}} = o \divides \Phi(n)$, $\Phi(n) = k \cdot o$. Quindi $a^{\Phi(n)} = a^{o \cdot k} = 1^k = 1$.
+\end{proof}
 \subsection{Equazioni di primo grado in $\integers_n$}
 
 Come \`e fatta un'equazione di primo grado in $\integers_n$?
@@ -1894,64 +1940,6 @@ In generale si distinguono due casi per la risoluzione delle equazioni:
 
 % SONO ARRIVATO QUI A CONTROLLARE (REALLY)
 
-Dati $a, b \in \integers $ con $ a,b > 0$, riprendiamo la definizione dell'insieme $S_{a,b}$:
-\[
-S_{a,b} =  \{m \in \naturals^+ : ax + by = m \text{ con } x,y \in \integers \}
-\]
-Questo insieme ha un minimo $d = \inf S_{a,b} = \mcd(a,b)$. $d$, essendo un elemento di $S_{a,b}$ si pu\`o scrivere come combinazione lineare di $a$ e $b$, ossia $d = a \cdot s + b \cdot t$ con $s, t \in \integers$. Si chiama identit\`a di B\'ezout. Le coppie $s, t$ sono infinite. L'insieme $D_{a,b}$ contiene tutte queste coppie:
-\[
-D_{a,b} = \{ (s, t) \in \integers \times \integers : d = a \cdot s + b \cdot t \}
-\]
-Data una coppia $(s,t)$, posso trovare ogni altra coppia $(s + k \cdot b, t - k \cdot a) \in D_{a,b}$ al variare di $k \in \integers$. Infatti andando a sostituire ho che:
-\[
-a \cdot (s + k \cdot b) + b \cdot (t - k \cdot a) = a \cdot s + k \cdot a \cdot b + b \cdot t - k \cdot b \cdot a = a \cdot s + b \cdot t
-\]
-Per calcolare una identit\`a di B\'ezout si usa l'algoritmo di Euclide delle divisioni successive.
-
-\begin{prop}
-$S_{a,b}$ \`e l'insieme di tutti i multipli di $d = \mcd(a,b)$.
-\[
-S_{a,b} = \{ k \cdot d : k \in N^+ \text{ con } d = \mcd(a,b) \}
-\]
-\end{prop}
-\begin{proof}
-Se $m = k \cdot d \implies m \in S_{a,b}$.
-
-$m = k \cdot d = k (a \cdot s + b \cdot t) = a (k \cdot s) + b (k \cdot t) \implies m \in S_{a,b}$ perch\'e possiamo prendere $x = k \cdot s$ e $y = k \cdot t$ e avere $m = a \cdot x + b \cdot t$.
-
-Viceversa se $m \in S_{a,b} \implies m = kd$.
-
-$m = a \cdot x + b \cdot y$. Essendo $d = \mcd(a,b)$, ho che $a = h \cdot d$ e $b = h' \cdot d$. Quindi $m = h \cdot d \cdot x + h' \cdot d \cdot y = (h \cdot x + h' \cdot y) \cdot d \implies m$ \`e multiplo di $d$.
-\end{proof}
-Quindi l'insieme $S_{a,b}$ \`e l'insieme dei multipli del $\mcd(a,b)$.
-
-\begin{prop}
-Il teorema di Fermat:
-\[
-\mcd(a, n) = 1 \implies a^{\Phi(n)} \equiv 1 \pmod{n}
-\]
-\`e un corollario del teorema di Lagrange.
-\end{prop}
-Il teorema di Lagrange dice che dato un gruppo finito, l'ordine di ogni suo sottogruppo divide l'ordine del gruppo. Quindi, dato un gruppo $G$ finito e $S$ sottogruppo di $G$, $\abs{S} \divides \abs{G} $ (ossia la cardinalit\`a di $S$ divide la cardinalit\`a di $G$).
-
-$\Phi(n) = \abs{U(\integers_n)}$, ossia \`e la cardinalit\`a del gruppo degli elementi invertibili rispetto a $\cdot$ dell'anello $(\integers_n, +, \cdot)$.
-
-Consideriamo quindi $G = U(\integers_n)$, e $S = \pow{a}$, il sottogruppo generato da $a$, ossia tutte le potenze di $a$.
-
-$\pow{a} = \{ a^0, \dots a^t \}$. Ha $t + 1$ elementi. Quindi $a^{t+1} = 1$.
-
-Consideriamo $(\integers_12, +, \cdot)$, con $\integers_12 = \{0,1,2,3,4,5,6,7,8,9,10,11\}$.
-\[
-U(\integers_12) = \{ a : \mcd(a, 12) = 1\} = \{ 1, 5, 7, 11 \}
-\]
-L'inverso di 5 \`e 5, perch\'e $5 \cdot 5 = 25 \equiv_{12} 1$. L'inverso di 7 \`e 7, l'inverso di 11 \`e 11. L'ordine di $U(\integers_12)$ \`e 4. Abbiamo tre sottogruppi non banali di ordine 2.
-
-Prendiamo il sottogruppo $S = \pow{5} = \{ 1, 5 \}$. Attenzione: dire che $\mcd(a, n) = 1$ in questo caso significa che $a \in U(\integers_n)$.
-
-L'ordine di $\pow{5}$ \`e il pi\`u piccolo intero positivo che mi d\`a 1. Quindi $5^2 = 1$, essendo l'ordine di $S = \{ 1, 5 \}$ pari a 2.
-
-Siccome l'ordine $\abs{\pow{a}} = o \divides \Phi(n)$, $\Phi(n) = k \cdot o$. Quindi $a^{\Phi(n)} = a^{o \cdot k} = 1^k = 1$.
-
 TODO : sistemare questo esempio
 
 \begin{exmp}[Esempio del primo caso]
@@ -2002,42 +1990,38 @@ La soluzione \`e la classe $[1]_{11}$. Va ripartita in 2 classi modulo 22.
 $[1]_{22}$ e $[1 + \frac{n}{d}]_{22} = [1 + \frac{22}{2}]_{22} = [1 + 11]_{22} = [12]_{22} $
 \end{exmp}
 
-\begin{theorem}[Teorema fondamentale (non si sa bene di cosa)]
-Se prendo un $a \in \integers$ tale che $\mcd(a, n) = 1$, allora $a$ \`e invertibile in $\integers_n$, oppure equivalentemente $[a]$ \`e invertibile in $\integers / \equiv_n$.
-\end{theorem}
+% Data l'equazione $a \cdot x = b$ con $a, b \in \integers_n$ e $x \in \integers$, questa ha soluzione se e solo se $\mcd(a, n) = d \divides b$. Se $a \cdot x = b$ \`e compatibile (ossia ammette soluzioni), allora le soluzioni sono, interpretate in $\integers / \equiv_n$, $ [s]_n$, $\left[s + \frac{n}{d} \right]_n$, $\dots \left[s + (d - 1) \frac{n}{d} \right]_n$, dove $[s]_{\frac{n}{d}}$ \`e l'unica soluzione di:
+% \[
+% \left[\frac{a}{d} \right] \cdot x = \left[ \frac{b}{d} \right] \pmod{\frac{n}{d}}
+% \]
+% Bisogna far vedere una sola cosa. Le d soluzioni in $\integers / \equiv_{n}$ sono le d classi di equivalenza modulo $n$ in cui si ripartisce l'unica soluzione $[s]_{\frac{n}{d}}$
+% \[
+% [s]_{\frac{n}{d}} = [s]_n \cup s + \frac{n}{d}]_n \cup \dots \cup [s + (d - 1) \frac{n}{d}]_n, dove [s]_{\frac{n}{d}}
+% \]
+% Quel che dobbiamo dimostrare \`e che
+% \[
+% [s]_{\frac{n}{d}} = \bigcup_{r = 0}^{d-1} [s + r \cdot \frac{n}{d}]_n
+% \]
 
-Data l'equazione $a \cdot x = b$ con $a, b \in \integers_n$ e $x \in \integers$, questa ha soluzione se e solo se $\mcd(a, n) = d \divides b$. Se $a \cdot x = b$ \`e compatibile (ossia ammette soluzioni), allora le soluzioni sono, interpretate in $\integers / \equiv_n$, $ [s]_n$, $\left[s + \frac{n}{d} \right]_n$, $\dots \left[s + (d - 1) \frac{n}{d} \right]_n$, dove $[s]_{\frac{n}{d}}$ \`e l'unica soluzione di:
-\[
-\left[\frac{a}{d} \right] \cdot x = \left[ \frac{b}{d} \right] \pmod{\frac{n}{d}}
-\]
-Bisogna far vedere una sola cosa. Le d soluzioni in $\integers / \equiv_{n}$ sono le d classi di equivalenza modulo $n$ in cui si ripartisce l'unica soluzione $[s]_{\frac{n}{d}}$
-\[
-[s]_{\frac{n}{d}} = [s]_n \cup s + \frac{n}{d}]_n \cup \dots \cup [s + (d - 1) \frac{n}{d}]_n, dove [s]_{\frac{n}{d}}
-\]
-Quel che dobbiamo dimostrare \`e che
-\[
-[s]_{\frac{n}{d}} = \bigcup_{r = 0}^{d-1} [s + r \cdot \frac{n}{d}]_n
-\]
+% Se prendiamo $t \in [s]_{\frac{n}{d}} \implies t - s = q \cdot \frac{n}{d}$.
 
-Se prendiamo $t \in [s]_{\frac{n}{d}} \implies t - s = q \cdot \frac{n}{d}$.
+% Possiamo scrivere $q$ dividendolo per $d$, quindi $q = k \cdot d + r$ con $0 \le r < d$. 
+% \[
+% t - s = (k d + r) \frac{n}{d} = k n + r \frac{n}{d} = t - (s + r \frac{n}{d}) = k \cdot n
+% \]
+% Quindi $t$ \`e un multiplo di $n$, e appartiene alla classe $[s + r \frac{n}{d}]_n$
 
-Possiamo scrivere $q$ dividendolo per $d$, quindi $q = k \cdot d + r$ con $0 \le r < d$. 
-\[
-t - s = (k d + r) \frac{n}{d} = k n + r \frac{n}{d} = t - (s + r \frac{n}{d}) = k \cdot n
-\]
-Quindi $t$ \`e un multiplo di $n$, e appartiene alla classe $[s + r \frac{n}{d}]_n$
+% Bisogna far vedere che le classi sono a due a due distinte.
 
-Bisogna far vedere che le classi sono a due a due distinte.
-
-Se due classi $[s + r \frac{n}{d}]_n = [s + r' \frac{n}{d}]_n$. Supponiamo $r, r' < d$ e $r' > r$. Se fossero uguali dovremmo avere che:
-\[
-[s + r' \frac{n}{d} - s - r \frac{n}{d}]_n = [0] 
-\]
-Ossia dovrebbe essere la classe 0.
-\[
-[s + r' \frac{n}{d} - s - r \frac{n}{d}]_n = [(r' - r) \frac{n}{d}]_n \neq 0
-\]
-Perch\'e questo non \`e un multiplo intero di $n$, visto che $\frac{(r' - r)}{d}$ non \`e un intero.
+% Se due classi $[s + r \frac{n}{d}]_n = [s + r' \frac{n}{d}]_n$. Supponiamo $r, r' < d$ e $r' > r$. Se fossero uguali dovremmo avere che:
+% \[
+% [s + r' \frac{n}{d} - s - r \frac{n}{d}]_n = [0] 
+% \]
+% Ossia dovrebbe essere la classe 0.
+% \[
+% [s + r' \frac{n}{d} - s - r \frac{n}{d}]_n = [(r' - r) \frac{n}{d}]_n \neq 0
+% \]
+% Perch\'e questo non \`e un multiplo intero di $n$, visto che $\frac{(r' - r)}{d}$ non \`e un intero.
 
 TODO : sistemare questo esempio
 
@@ -2080,18 +2064,17 @@ L'equazione \ref{esempio_equazione_zeta} possiamo vederla come $[12]_{100} x = [
 \begin{defn}
 Un'equazione diofantea \`e un'equazione lineare in due incognite a coefficienti in $\naturals^+$. \`E quindi un'equazione del tipo:
 \[
-a x + b y = c
+a \cdot x + b \cdot y = c
 \]
-Dove $a, b \in \naturals^+$. Di quest'equazione si cercano le soluzioni intere $(x, y) \in \integers \times \integers$.
+Dove $a, b, c \in \naturals^+$. Di quest'equazione si cercano le soluzioni intere $(x, y) \in \integers \times \integers$.
 \end{defn}
-$c$ \`e combinazione lineare di $a$ e $b$. $d = \mcd(a,b)$ $S_{a,b} = \{ m \in N^+ : m = a x + b y con x, y \in Z\}$
+$c$ \`e combinazione lineare di $a$ e $b$. Quindi $c$ deve essere nell'insieme $S_{a,b} = \{ m \in \naturals^+ : m = a \cdot x + b \cdot y \text{ con } x, y \in \integers\}$.
+
+Sappiam che $d = \mcd(a,b) = \inf S_{a,b}$, e che quindi $S_{a,b}$ \`e interpretabile come l'insieme dei multipli di $d$.
 \[
-d = \inf S_{a,b}
+S_{a,b} = \{ k \cdot d : k \in \naturals^+ \}
 \]
-\[
-S_{a,b} = \{ k \cdot d : k \in N^+ \}
-\]
-L'equazione diofantea $a x + by = c$ \`e compatibile $\iff c \in S_{a,b} \iff \mcd(a,b) \divides c$.
+Quindi l'equazione diofantea $a \cdot x + b \cdot y = c$ \`e compatibile $\iff c \in S_{a,b} \iff \mcd(a,b) \divides c$.
 
 TODO : sistemare questo esempio
 
@@ -2099,7 +2082,7 @@ TODO : sistemare questo esempio
 \[
 33 = 28 x + 24 y
 \]
-$\mcd(28, 24) = 4 \not\divides 33 \implies$ \`e incompatibile
+$\mcd(28, 24) = 4$ non divide $ 33 \implies$ \`e incompatibile
 \[
 6 = 15 x + 21 y
 \]
@@ -2122,86 +2105,78 @@ L'insieme $S$ delle soluzioni dell'equazione diofantea \`e:
 S = \{ (6 + k \cdot 21, - 4 - k \cdot 15) : k \in Z \}
 \]
 \end{exmp}
-
-Data l'equazione diofantea $a x + b y = c$ compatibile, l'insieme delle soluzioni $S$ \`e dato da:
+\begin{prop}
+Data l'equazione diofantea $a \cdot x + b \cdot y = c$ compatibile, l'insieme delle soluzioni $S$ \`e dato da:
 \[
-S = \{ (s + k b, t - k a) : k \in Z \}
+S = \{ (s + k \cdot b, t - k \cdot a) : k \in Z \}
 \]
 dove $(s, t)$ \`e una soluzione, che si determina dall'identit\`a di B\'ezout.
+\end{prop}
+\begin{proof}
 \[
-c = h d = h (a s' + b t') \implies s = h s' e t = h t'
+c = h \cdot d = h (a \cdot s' + b \cdot t') \implies s = h \cdot s' \text{ e } t = h \cdot t'
 \]
-$(s + kb, t - ka)$ \`e soluzione.
+$(s + k \cdot b, t - k \cdot a)$ \`e soluzione.
 \[
-c = s a + t b = = a ( s + k b) + (t - k a) b = 
-a s + k a b + t b - k a b = a s + t b = c
+c = s \cdot a + t \cdot b = a \cdot (s + k \cdot b) + (t - k \cdot a) \cdot b = 
+a \cdot s + k \cdot a \cdot b + t \cdot b - k \cdot a \cdot b = a \cdot s + t \cdot b = c
 \]
 Abbiamo dimostrato che tutte le coppie in questa forma sono soluzioni.
 
-Ora facciamo vedere che tutte le soluzioni hanno questa forma.
+Ora facciamo vedere che tutte le soluzioni hanno questa forma, quindi che ogni soluzione dell'equazione diofantea $(s', t')$ \`e tale che $s' = s + k \cdot b$ e $t' = t - k \cdot a $.
 
-Dimostriamo che ogni soluzione dell'equazione diofantea $(s', t')$ \`e tale che $s' = s + k b$ e $t' = t - k a $
-
-\begin{proof}
-Per ipotesi 
+Per ipotesi abbiamo che:
 \[
 \begin{cases}
-c = a s + b t
-c = a s' + b t'
+c = a \cdot s + b \cdot t
+c = a \cdot s' + b \cdot t'
 \end{cases}
 \]
-Quindi $a s + b t - a s' - b t' = 0 \implies
-a s' - a s = b t - b t' \implies
-a (s' - s) = (t - t') b \implies
-(s - s') = k b$
+Quindi $a \cdot s + b \cdot t - a \cdot s' - b \cdot t' = 0 \implies
+a \cdot s - a \cdot s' = b \cdot t' - b \cdot t \implies
+a \cdot (s - s') = (t' - t) \cdot b \implies
+(s - s') = k \cdot b$, e quindi $a \cdot k \cdot b = (t - t') \cdot b \implies (t - t') = k \cdot a$.
 
-$a k b = (t - t') b \implies (t - t') = k a$
+\textit{Non mi \`e molto chiara questa dimostrazione.}
 \end{proof}
+
+\subsection{Strutture algebriche e reticoli}
 
 Le strutture algebriche offrono esempi di reticoli.
 
-$(G, \cdot)$ \`e un gruppo.
+Consideriamo un gruppo $(G, \cdot)$ e l'insieme $\subgroupset(G)$ dei sottogruppi di $G$. $(\subgroupset(G), \subseteq)$ con la relazione di ``essere sottogruppo di'' \`e un insieme parzialmente ordinato, ed \`e anche un reticolo.
 
-$\subgroupset(G) =$ insieme dei sottogruppi di $G$.
-
-$(\subgroupset(G), \subseteq)$ \`e un insieme parzialmente ordinato. \`E anche un reticolo.
-
-Dati due sottogruppi $S$ e $H \in \subgroupset(G)$, $S \infop H = S \cap H$. L'intersezione di due sottogruppi \`e sempre un sottogruppo.
-
-\`E non vuoto: $1_G \in S \cap H$
+Dati due sottogruppi $S, H \in \subgroupset(G)$, $S \infop H = S \cap H$. L'intersezione di due sottogruppi \`e sempre un sottogruppo. Vediamo che \`e non vuoto: $1_G \in S \cap H$. Inoltre \`e chiuso:
 \[
 \begin{cases}
-a, b \in S \implies a^{-1} b \in S
-c, d \in H \implies c^{-1} d \in H
+a, b \in S \implies a^{-1} \cdot b \in S
+c, d \in H \implies c^{-1} \cdot d \in H
 \end{cases}
 \implies
 a, b \in S \cap H \implies 
 \begin{cases}
-a^{-1} b \in S 
-a^{-1} b \in H
+a^{-1} \cdot b \in S 
+a^{-1} \cdot b \in H
 \end{cases}
 \implies
-a^{-1} b \in S \cap H
+a^{-1} \cdot b \in S \cap H
 \]
 L'unione, invece, in genere non \`e un sottogruppo.
 
-$n Z$ \`e un sottogruppo di $(Z, +)$.
-
-$3 Z \cup 2 Z$ non genera un sottogruppo. Non \`e chiuso rispetto alla somma: $3 + 2 = 5 \notin 3 Z \cup 2 Z$.
+$(n \integers, +)$ \`e un sottogruppo di $(\integers, +)$. $3 \integers \cup 2 \integers$ non genera un sottogruppo, infatti non \`e chiuso rispetto alla somma: $3 + 2 = 5 \notin 3 \integers \cup 2 \integers$.
 
 Il $\sup$ di due sottogruppi non \`e quindi l'unione.
 
-$S \supop H = \pow{S \cup H}$, il sottogruppo generato dall'unione.
-
-\`E il pi\`u piccolo dei sottogruppi che contengono sia $S$ che $H$.
-
-$\pow{S \cup H} = \bigcap T$ tali che $S, H \le T$.
+$S \supop H = \pow{S \cup H}$, ossia \`e il sottogruppo generato dall'unione. \`E il pi\`u piccolo dei sottogruppi che contengono sia $S$ che $H$. Quindi possiamo scrivere equivalentemente:
 \[
-\pow{m Z \cup n Z} = \mcd(m, n) Z
+\pow{S \cup H} = \bigcap T \text{ tali che } S, H \subseteq T
 \]
-Quali sono i sottogruppi di $Z$?
+
+\subsubsection{Sottogruppi di $(\integers, +)$}
+
+Quali sono i sottogruppi di $\integers$?
 \begin{prop}
-I sottogruppi di $(Z, +)$ sono del tipo $m \cdot Z$. I sottogruppi propri si ottengono con $m \neq 0, 1$.
+I sottogruppi di $(\integers, +)$ sono tutti del tipo $m \cdot \integers$. I sottogruppi propri si ottengono con $m \neq 0, 1$.
 \end{prop}
 \begin{proof}
 Dimostriamo anzitutto che $m \cdot Z$ \`e un sottogruppo di $(Z, +)$.
@@ -2220,12 +2195,12 @@ Applichiamo il teorema di divisione: $h = k m + r$, con $0 \le r < m$.
 
 $r$ \`e necessariamente 0. Infatti $r = h - km$. Sia $h$ che $k m \in S$, visto che $m \in S$ tutti i suoi multipli sono in $S$. Quindi anche $r \in S$, e necessariamente $r = 0$, essendo $m$ il pi\`u piccolo intero positivo di $S$.
 \end{proof}
-Prendiamo tutti i sottogruppi di $(Z, +)$, $S((Z, +))$
+Prendiamo tutti i sottogruppi di $(\integers, +)$, $\subgroupset((\integers, +))$
 \[
-(m Z) \infop (n Z) = \mcm(m, n) Z
+(m \integers) \infop (n \integers) = \mcm(m, n) \integers
 \]
 \[
-(m Z) \supop (n Z) = \mcd(m, n) Z
+(m \integers) \supop (n \integers) = \mcd(m, n) \integers
 \]
 
 I sottogruppi di $(Z, +)$ sono tutti del tipo $m \cdot Z$. Allo stesso modo, i sottogruppi di $(Z_n, +)$ sono tutti del tipo $k \cdot Z_n$ dove $k$ \`e un divisore di $n$, e $\abs{k \cdot Z_n} = h$ con $k \cdot h = n$.
