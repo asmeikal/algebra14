@@ -295,16 +295,17 @@ Dati $a, b \in G$, voglio conoscere l'inverso del prodotto $a \cdot b$, ossia $(
 
 Consideriamo il gruppo simmetrico (sezione \ref{subsec:gruppo_simmetrico}) $(S_n, \circ)$, definito sull'insieme delle funzioni iniettive da un insieme con $n$ elementi in s\'e stesso con l'operazione di composizione. Non \`e un gruppo commutativo.
 
-Prendiamo le due funzioni $\sigma$ e $\tau$ dal punto di vista dell'occupazione in figura \ref{fig:gruppo_simmetrico}. Se voglio trovare l'inverso $\pi$ di $\sigma \circ \tau$ tale che $(\sigma \circ \tau) \circ \pi = i$ (l'identit\`a) devo usare $\pi = (\tau^{-1} \circ \sigma^{-1})$.
+Prendiamo le due funzioni $\sigma$ e $\tau$ dal punto di vista dell'occupazione in figura \ref{tab:gruppo_simmetrico}. Se voglio trovare l'inverso $\pi$ di $\sigma \circ \tau$ tale che $(\sigma \circ \tau) \circ \pi = i$ (l'identit\`a) devo usare $\pi = (\tau^{-1} \circ \sigma^{-1})$.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{cccc}
 \multicolumn{4}{c}{$\sigma$} \\
 \hline
 1 & 2 & 3 & 4 \\
 2 & 3 & 1 & 4
-\end{tabular} \qquad
+\end{tabular}
+\qquad
 \begin{tabular}{cccc}
 \multicolumn{4}{c}{$\tau$} \\
 \hline
@@ -318,7 +319,8 @@ Prendiamo le due funzioni $\sigma$ e $\tau$ dal punto di vista dell'occupazione 
 1 & 2 & 3 & 4 \\
 1 & 2 & 4 & 3 \\
 2 & 3 & 4 & 1
-\end{tabular} \qquad
+\end{tabular}
+\qquad
 \begin{tabular}{cccc}
 \multicolumn{4}{c}{$\tau \circ \sigma$} \\
 \hline
@@ -326,8 +328,8 @@ Prendiamo le due funzioni $\sigma$ e $\tau$ dal punto di vista dell'occupazione 
 2 & 3 & 1 & 4 \\
 2 & 4 & 1 & 3
 \end{tabular}
-\caption{\label{fig:gruppo_simmetrico}Il gruppo simmetrico non \`e commutativo}
-\end{figure}
+\caption{\label{tab:gruppo_simmetrico}Il gruppo simmetrico non \`e commutativo}
+\end{table}
 
 Quindi, l'inverso del prodotto \`e il prodotto degli inversi scambiati di posto:
 \[
@@ -520,7 +522,7 @@ Per creare i polinomi bisogna avere un campo.
 
 Prendiamo $\integers_2 = \{ 0, 1 \}$, ossia i resti della divisione per 2, costruiti partendo dalla congruenza modulo 2 ($\integers / \equiv_2$). Possiamo definire due operazioni, di somma e di prodotto.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{c|cc}
 + & 0 & 1 \\
@@ -536,7 +538,7 @@ $\cdot$ & 0 & 1 \\
 1 & 0 & 1
 \end{tabular}
 \caption{Somma e prodotto in $\integers_2$}
-\end{figure}
+\end{table}
 
 Un campo \`e un gruppo rispetto a $+$ e un gruppo rispetto a $\cdot$ togliendo l'elemento neutro (lo 0). $\integers_2$ \`e quindi un campo.
 
@@ -701,10 +703,9 @@ Contiene anche l'inverso di $a^{n}$, ossia $a^{-n}$.
 \end{defn}
 
 \begin{exmp}
-Consideriamo il gruppo simmetrico $S_4$ e una permutazione $\sigma \in S_4$. Prendiamo il sottogruppo generato da questa permutazione, ossia tutte le potenze generate da $\sigma$. $\sigma^{0} = id$, ossia \`e l'identit\`a. $\sigma^{1} = \sigma$. $\sigma^{2}$ cosa \`e? Si trova componendo $\sigma$ con s\'e stessa, come in figura \ref{fig:potenze_sigma}. Facendo $\sigma^{3}$ riotteniamo l'identit\`a.
+Consideriamo il gruppo simmetrico $S_4$ e una permutazione $\sigma \in S_4$. Prendiamo il sottogruppo generato da questa permutazione, ossia tutte le potenze generate da $\sigma$. $\sigma^{0} = id$, ossia \`e l'identit\`a. $\sigma^{1} = \sigma$. $\sigma^{2}$ cosa \`e? Si trova componendo $\sigma$ con s\'e stessa, come fatto di seguito. In questo caso, facendo $\sigma^{3}$ riotteniamo l'identit\`a.
 
-\begin{figure}[ht]
-\centering
+\begin{center}
 \begin{tabular}{cccc}
 \multicolumn{4}{c}{$\sigma$} \\
 \hline
@@ -728,8 +729,7 @@ Consideriamo il gruppo simmetrico $S_4$ e una permutazione $\sigma \in S_4$. Pre
 3 & 1 & 2 & 4 \\
 1 & 2 & 3 & 4 
 \end{tabular}
-\caption{\label{fig:potenze_sigma}Le potenze di $\sigma$}
-\end{figure}
+\end{center}
 
 Quindi il gruppo $H = \pow{\sigma} = \{ 1 , \sigma, \sigma^{2} \}$. L'inversa di $\sigma$ \`e $\sigma^{2}$. $H$ \`e un gruppo finito di ordine 3 (per il significato di ordine, vedere il teorema \ref{teorema_lagrange_ordine}).
 
@@ -737,10 +737,9 @@ Vediamo la relazione di equivalenza e la classe laterale definite da $H$.
 
 Dati due elementi $\mu$  e $\tau$, questi sono equivalenti $ \iff \mu \circ \tau^{-1} \in H$. Quindi $\mu \circ \tau^{-1} = \rho \in H$, ossia una qualche permutazione in $H$, quindi o l'identit\`a, o $\sigma$, o $\sigma^{2}$.
 
-Se ad esempio $\mu \circ \tau^{-1} = \sigma$, segue che $\mu \circ \tau^{-1} \circ \tau = \sigma \circ \tau \implies \mu = \sigma \circ \tau$. Il gruppo $S_4$ non \`e commutativo!
+Se ad esempio consideriamo due permutazioni $\tau$ e $\mu$ tali che $\mu \circ \tau^{-1} = \sigma$, segue che $\mu \circ \tau^{-1} \circ \tau = \sigma \circ \tau \implies \mu = \sigma \circ \tau$, come si vede nella tabella di seguito. Attenzione: il gruppo $S_4$ non \`e commutativo!
 
-\begin{figure}[ht]
-\centering
+\begin{center}
 \begin{tabular}{cccc}
 \multicolumn{4}{c}{$\tau$} \\
 \hline
@@ -755,20 +754,18 @@ Se ad esempio $\mu \circ \tau^{-1} = \sigma$, segue che $\mu \circ \tau^{-1} \ci
 2 & 1 & 4 & 3 \\
 3 & 2 & 4 & 1
 \end{tabular}
-\qquad
+$\implies$
 \begin{tabular}{cccc}
 \multicolumn{4}{c}{$\mu$} \\
 \hline
 1 & 2 & 3 & 4 \\
 3 & 2 & 4 & 1
 \end{tabular}
-\caption{$\tau$ e $\sigma \circ \tau = \mu$}
-\end{figure}
+\end{center}
 
-Prendiamo poi $\tau'$, e componiamola con $\sigma$.
+Prendiamo poi una permutazione $\tau'$, e componiamola con $\sigma$ come nella tabella di seguito: otteniamo una permutazione $\mu'$ equivalente a $\tau'$.
 
-\begin{figure}[ht]
-\centering
+\begin{center}
 \begin{tabular}{cccc}
 \multicolumn{4}{c}{$\tau'$} \\
 \hline
@@ -783,17 +780,14 @@ Prendiamo poi $\tau'$, e componiamola con $\sigma$.
 4 & 3 & 2 & 1 \\
 4 & 1 & 3 & 2
 \end{tabular}
-\qquad
+$\implies$
 \begin{tabular}{cccc}
 \multicolumn{4}{c}{$\mu'$} \\
 \hline
 1 & 2 & 3 & 4 \\
 4 & 1 & 3 & 2
 \end{tabular}
-\caption{$\tau'$ e $\sigma \circ \tau' = \mu'$}
-\end{figure}
-
-Abbiamo quindi $\mu'$ equivalente a $\tau'$:
+\end{center}
 
 Siamo nella classe destra, avendo composto $\sigma \circ \tau$.
 
@@ -805,11 +799,7 @@ Avere una congruenza mi d\`a modo di definire il prodotto fra classi. Ossia, dat
 \begin{theorem}[Teorema di Lagrange\label{teorema_lagrange_ordine}]
 Sia $(G, \cdot)$ un gruppo finito, la cardinalit\`a di $G$ si dice ordine.
 
-Se $H$ \`e un sottogruppo di $G$, l'ordine di $G$ \`e diviso dall'ordine di $H$. Ossia:
-\[
-\frac{\abs{G}}{\abs{H}}
-\]
-\`e un intero, ed \`e detto ``indice di $H$''.
+Se $H$ \`e un sottogruppo di $G$, l'ordine di $G$ \`e diviso dall'ordine di $H$. Ossia $\frac{\abs{G}}{\abs{H}}$ \`e un intero, ed \`e detto ``indice di $H$''.
 \end{theorem}
 \begin{oss}
 Un gruppo di ordine un numero primo ha due sottogruppi.
@@ -830,11 +820,11 @@ Condizione necessaria e sufficiente affinch\'e $N$ sia normale \`e che la relazi
 
 Ogni permutazione \`e una biezione che pu\`o essere indicata sia dal punto di vista dell'occupazione sia dal punto di vista della distribuzione (ossia, come parola).
 
-Consideriamo una permutazione $\sigma \in S_8$. Possiamo vederla dal punto di vista dell'occupazione, come in figura \ref{fig:cicli_sigma_occupazione}, o come parola:
+Consideriamo una permutazione $\sigma \in S_8$. Possiamo vederla dal punto di vista dell'occupazione, come in figura \ref{tab:cicli_sigma_occupazione}, o come parola:
 \[
 17465238
 \]
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{*{8}{c}}
 \multicolumn{8}{c}{$\sigma$} \\
@@ -842,17 +832,17 @@ Consideriamo una permutazione $\sigma \in S_8$. Possiamo vederla dal punto di vi
 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
 1 & 7 & 4 & 6 & 5 & 2 & 3 & 8
 \end{tabular}
-\caption{$\sigma$ dal punto di vista dell'occupazione\label{fig:cicli_sigma_occupazione}}
-\end{figure}
+\caption{$\sigma$ dal punto di vista dell'occupazione\label{tab:cicli_sigma_occupazione}}
+\end{table}
 Possiamo anche rappresentare le permutazioni come composte di cicli:
 \[
 \sigma = (1) (2 7 3 4 6) (5) (8)
 \]
 $(2 7 3 4 6)$ significa che il 2 va nel 7, il 7 nel 3, il 3 nel 4, il 4 nel 6, e il 6 torna nel 2.
 
-$\mu = (3 1) (5 4 2) (8 7 6)$ \`e un prodotto di cicli. Corrisponde alla permutazione in figura \ref{fig:cicli_mu_occupazione}.
+$\mu = (3 1) (5 4 2) (8 7 6)$ \`e un prodotto di cicli. Corrisponde alla permutazione in figura \ref{tab:cicli_mu_occupazione}.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{*{8}{c}}
 \multicolumn{8}{c}{$\mu$} \\
@@ -860,8 +850,8 @@ $\mu = (3 1) (5 4 2) (8 7 6)$ \`e un prodotto di cicli. Corrisponde alla permuta
 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
 3 & 5 & 1 & 2 & 4 & 8 & 6 & 7
 \end{tabular}
-\caption{$\mu$ dal punto di vista dell'occupazione\label{fig:cicli_mu_occupazione}}
-\end{figure}
+\caption{$\mu$ dal punto di vista dell'occupazione\label{tab:cicli_mu_occupazione}}
+\end{table}
 
 Le permutazioni vengono rappresentate come prodotti di cicli. I cicli di lunghezza 1 non vengono scritti, visto che ogni elemento va a finire in s\'e stesso. Quindi $\sigma = (1) (2 7 3 4 6) (5) (8)$ posso scriverla come $\sigma = (2 7 3 4 6)$.
 
@@ -881,9 +871,9 @@ y \text{ se } y \notin [x] \\
 \]
 Quindi $\mu_x$ \`e una permutazione, e si comporta come $\mu$ nella classe individuata da $x$, lasciando fissi tutti gli altri elementi.
 
-Tornando alla permutazione $\mu$ in figura \ref{fig:cicli_mu_occupazione}, possiamo trovare $\mu_3 = \mu_1$, $\mu_5 = \mu_4 = \mu_2$, e $\mu_6 = \mu_7 = \mu_8$, in figura \ref{fig:cicli_mu_scomposizioni}.
+Tornando alla permutazione $\mu$ in figura \ref{tab:cicli_mu_occupazione}, possiamo trovare $\mu_3 = \mu_1$, $\mu_5 = \mu_4 = \mu_2$, e $\mu_6 = \mu_7 = \mu_8$, in figura \ref{tab:cicli_mu_scomposizioni}.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{*{8}{c}}
 \multicolumn{8}{c}{$\mu_3$} \\
@@ -905,11 +895,11 @@ Tornando alla permutazione $\mu$ in figura \ref{fig:cicli_mu_occupazione}, possi
 1 & 2 & 3 & 4 & 5 & \cellcolor{green!20} 6 & \cellcolor{green!20} 7 & \cellcolor{green!20} 8 \\
 1 & 2 & 3 & 4 & 5 & \cellcolor{green!20} 8 & \cellcolor{green!20} 6 & \cellcolor{green!20} 7
 \end{tabular}
-\caption{Le tre permutazioni $\mu_3$, $\mu_5$ e $\mu_6$ individuate da $\mu$\label{fig:cicli_mu_scomposizioni}}
-\end{figure}
+\caption{Le tre permutazioni $\mu_3$, $\mu_5$ e $\mu_6$ individuate da $\mu$\label{tab:cicli_mu_scomposizioni}}
+\end{table}
 
-Possiamo trovare $\mu$ come composizione di $\mu_3$, $\mu_5$ e $\mu_6$, come in figura \ref{fig:cicli_mu_composizione}.
-\begin{figure}[ht]
+Possiamo trovare $\mu$ come composizione di $\mu_3$, $\mu_5$ e $\mu_6$, come in figura \ref{tab:cicli_mu_composizione}.
+\begin{table}[ht]
 \centering
 \begin{tabular}{*{9}{c}}
 \multicolumn{9}{c}{$\mu = \mu_3 \circ \mu_5 \circ \mu_6$} \\
@@ -919,8 +909,8 @@ Possiamo trovare $\mu$ come composizione di $\mu_3$, $\mu_5$ e $\mu_6$, come in 
 3 & \cellcolor{green!20} 5 & 1 & \cellcolor{green!20} 2 & \cellcolor{green!20} 4 & 6 & 7 & 8 & $\mu_5$ \\
 3 & 5 & 1 & 2 & 4 & \cellcolor{green!20} 8 & \cellcolor{green!20} 6 & \cellcolor{green!20} 7 & $\mu_6$
 \end{tabular}
-\caption{Composizione di $\mu_3 \circ \mu_5 \circ \mu_6$\label{fig:cicli_mu_composizione}}
-\end{figure}
+\caption{Composizione di $\mu_3 \circ \mu_5 \circ \mu_6$\label{tab:cicli_mu_composizione}}
+\end{table}
 Questa composizione si chiama ``rappresentazione di una permutazione come cicli disgiunti''.
 
 \subsubsection{Rappresentazione canonica (o standard) di una permutazione di $[n]$}
@@ -968,7 +958,7 @@ $(A_n, \circ)$ \`e quindi un sottogruppo di $(S_n, \circ)$ e si chiama \label{gr
 
 L'insieme delle permutazioni dispari non \`e un sottogruppo di $S_n$ perch\'e il prodotto di due permutazioni dispari \`e una permutazione pari.
 
-\begin{prop}
+\begin{prop}\label{numero_permutazioni_pari}
 Il numero delle permutazioni dispari \`e uguale al numero delle permutazioni pari.
 \end{prop}
 \begin{proof}
@@ -989,7 +979,7 @@ Poich\'e l'inverso di una trasposizione \`e la trasposizione stessa:
 \end{gather*}
 \end{proof}
 \begin{oss}[Ordine del gruppo alterno]
-Come conseguenza di quanto appena dimostrato, siccome la cardinalit\`a dell'insieme delle permutazioni \`e $n!$, la cardinalit\`a di $A_n$ \`e $\frac{n!}{2}$
+Come conseguenza della proposizione \ref{numero_permutazioni_pari}, siccome la cardinalit\`a dell'insieme delle permutazioni \`e $n!$, la cardinalit\`a di $A_n$ \`e $\frac{n!}{2}$
 \end{oss}
 \begin{oss}[Indice del gruppo alterno]
 L'indice di $A_n$ quindi \`e:
@@ -1018,7 +1008,7 @@ Prendiamo una permutazione $\sigma$. Abbiamo dimostrato che le permutazioni si p
 \sigma = \mu_1 \circ \mu_2 \ldots \mu_t
 \]
 $\sigma$ \`e il prodotto di $t$ permutazioni. Ciascuna $\mu_i$ \`e una permutazione $k_i$-ciclica, ossia $\mu_i$ ha un solo ciclo di lunghezza $k_i$ e tutti gli altri cicli sono di lunghezza 1.
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{*{7}{c}}
 \multicolumn{7}{c}{$\sigma = \mu_1 \circ \mu_2$} \\
@@ -1026,7 +1016,7 @@ $\sigma$ \`e il prodotto di $t$ permutazioni. Ciascuna $\mu_i$ \`e una permutazi
 \cellcolor{green!20} 1 & \cellcolor{green!20} 2 & \cellcolor{green!20} 3 & \cellcolor{green!20} 4 & \cellcolor{blue!20} 5 & \cellcolor{blue!20} 6 & 7 \\
 \cellcolor{green!20} 2 & \cellcolor{green!20} 4 & \cellcolor{green!20} 1 & \cellcolor{green!20} 3 & \cellcolor{blue!20} 6 & \cellcolor{blue!20} 5 & 7
 \end{tabular}
-\end{figure}
+\end{table}
 \[
 (1 2 4 3) (5 6) = \mu_1 \circ \mu_2 \text{ con } \mu_1 = (1 2 4 3) \text{ e } \mu_2 = (5 6)
 \]
@@ -1036,7 +1026,7 @@ Per scrivere una permutazione $k$-ciclica come prodotto di trasposizioni, accopp
 \[
 (1 2 4 3) = (1 2) (2 4) (4 3)
 \]
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{*{8}{c}}
 \multicolumn{8}{c}{$(1 2) (2 4) (4 3)$} \\
@@ -1053,7 +1043,7 @@ Per scrivere una permutazione $k$-ciclica come prodotto di trasposizioni, accopp
 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
 \cellcolor{green!20} 2 & \cellcolor{green!20} 4 & \cellcolor{green!20} 1 & \cellcolor{green!20} 3 & 5 & 6 & 7 
 \end{tabular}
-\end{figure}
+\end{table}
 L'ordine \`e l'ordine di composizione delle funzioni.
 
 Quindi, dato un ciclo $\mu_i = (a_1 a_2 \dots a_{t-1} a_t)$, lo scrivo come prodotto di trasposizioni nel seguente modo:
@@ -1072,7 +1062,7 @@ Una trasposizione ha ordine 2. Ad esempio, $\pow{(5 6)} = \{ 1, (5 6) \}$.
 
 Il sottogruppo generato da $\pow{(1 2 4 3)}$ \`e $ \{ 1, (1 2 4 3), (1 4) (2 3), (1 3 4 2) \}$.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \begin{tabular}{*{4}{c}}
 \multicolumn{4}{c}{$(1 2 4 3)^2$} \\
@@ -1090,7 +1080,7 @@ Il sottogruppo generato da $\pow{(1 2 4 3)}$ \`e $ \{ 1, (1 2 4 3), (1 4) (2 3),
 4 & 3 & 2 & 1 \\
 3 & 1 & 4 & 2
 \end{tabular}
-\end{figure}
+\end{table}
 
 Con una permutazione, l'ordine \`e l'$\inf$ di $ \{ t : \sigma^t = 1 \text{ con } t \neq 0 \}$, ossia \`e il pi\`u piccolo intero $t$ diverso da 0 per cui $\sigma^t$ \`e l'identit\`a. Se in generale $\sigma$ \`e il prodotto di $\mu_1 \dots \mu_t$ cicli disgiunti, l'ordine di $\sigma$ \`e il $\mcm$ dell'ordine dei suoi cicli.
 \begin{gather*}
@@ -1117,7 +1107,7 @@ Questa bella propriet\`a si chiama idempotenza.
 \sigma_2 \circ \sigma_3 = \sigma_2 = \sigma_3 \circ \sigma_2
 \end{gather*}
 Vediamolo con $\sigma_1 \circ \sigma_2$:
-\begin{figure}
+\begin{table}[ht]
 \centering
 \begin{tabular}{*{4}{c}}
 \multicolumn{4}{c}{$\sigma_1 \circ \sigma_2$} \\
@@ -1126,7 +1116,7 @@ Vediamolo con $\sigma_1 \circ \sigma_2$:
 3 & 4 & 1 & 2 \\
 4 & 3 & 2 & 1
 \end{tabular}
-\end{figure}
+\end{table}
 \[
 \sigma_1 \circ \sigma_2 = (1 4) (2 3) = \sigma_3
 \]
@@ -1143,16 +1133,7 @@ Se esprimo una permutazione come prodotto di cicli, il prodotto dei cicli \`e co
 \begin{esercizio}
 Determinare un elemento $x$ di $S_8$ tale che $a \circ x \circ a = a \circ c \circ b \circ a \circ b$
 
-Dove $a = (1 2 3) (2 3 4) (4 5 6)$ (non \`e un prodotto di cicli). b \`e rappresentata dal punto di vista dell'occupazione in figura \ref{fig:esercizio_b}, e $c = (2 8)$ \`e una trasposizione.
-
-\begin{figure}[ht]
-\centering
-\begin{tabular}{*{8}{c}}
-1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
-2 & 1 & 5 & 4 & 3 & 7 & 6 & 8
-\end{tabular}
-\caption{\label{fig:esercizio_b}La permutazione $b$}
-\end{figure}
+Dove $a = (1 2 3) (2 3 4) (4 5 6)$ (occhio: non \`e un prodotto di cicli disgiunti). b \`e rappresentata dal punto di vista dell'occupazione nella tabella \ref{tab:esercizio_b}, e $c = (2 8)$ \`e una trasposizione.
 
 Determinare l'ordine di $x$, la sua parit\`a e una decomposizione in cicli disgiunti.
 
@@ -1160,10 +1141,16 @@ Un suggerimento:
 \[
 a^{-1} \circ a \circ x \circ a \circ a^{-1} = a^{-1} \circ a \circ c \circ b \circ a \circ b \circ a^{-1} \implies x = c \circ b \circ a \circ b \circ a^{-1}
 \]
-
-% \vspace*{5cm}
-\vskip 5cm
 \end{esercizio}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{*{8}{c}}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+2 & 1 & 5 & 4 & 3 & 7 & 6 & 8
+\end{tabular}
+\caption{\label{tab:esercizio_b}La permutazione $b$}
+\end{table}
 
 \section{Strutture algebriche con due operazioni}
 
@@ -1330,7 +1317,7 @@ $S_{a,b}$ ha un minimo $d$, che \`e proprio il $\mcd(a,b)$. Bisogna dimostrare c
     \item\label{itm:dimostrazione_esistenza_mcd_1} $d \divides a$ e $d \divides b$
     \item\label{itm:dimostrazione_esistenza_mcd_2} $z \divides a$ e $z \divides b \implies z \divides d$, ossia $d$ \`e il $\sup(a,b)$ nel reticolo $(\naturals, \divides)$
 \end{enumerate}
-\begin{proof}[Dimostrazione del punto \ref{itm:dimostrazione_esistenza_mcd_1}]
+\begin{proof}[del punto \ref{itm:dimostrazione_esistenza_mcd_1}]
 Per ipotesi, $d$ \`e il minimo di $S_{a,b}$ e $d = s \cdot a + t \cdot b$. Dobbiamo dimostrare che $d \divides a$, quindi che $a = q \cdot d + r$ con $r = 0$.
 \begin{align*}
 r &= a - q \cdot d \implies \\
@@ -1340,7 +1327,7 @@ r &= a - q \cdot (s \cdot a + t \cdot b) = \\
 \end{align*}
 $r$ \`e una combinazione lineare di $a$ e $b$, quindi dovremmo avere che $r \in S_{a,b}$, se $r$ fosse diverso da 0. Ma per il teorema di divisione su $\integers$ sappiamo che $0 \le r < d$. Essendo $d$ il minimo di $S_{a,b}$, $r$ non pu\`o appartenere a $S_{a,b}$, quindi \`e necessariamente 0.
 \end{proof}
-\begin{proof}[Dimostrazione del punto \ref{itm:dimostrazione_esistenza_mcd_2}]
+\begin{proof}[del punto \ref{itm:dimostrazione_esistenza_mcd_2}]
 Per ipotesi, $z \divides a$ e $z \divides b$. Dobbiamo dimostrare che se $z < d$ allora $z \divides d$.
 
 Sappiamo che $a = z \cdot k$ e $b = z \cdot h$. Sapendo che $d = s \cdot a + b \cdot t$, possiamo sostituire e ottenere $d = s \cdot z \cdot k + t \cdot z \cdot h$, quindi $d = z \cdot ( s \cdot k + t \cdot h)$, quindi $d$ \`e un multiplo di $z$.
@@ -1411,20 +1398,7 @@ $m = a \cdot x + b \cdot y$. Essendo $d = \mcd(a,b)$, ho che $a = h \cdot d$ e $
 \begin{exmp}
 Troviamo il $\mcd(159, 42) = d$, scrivendo ogni volta il resto $r$ come combinazione di $a$ e $b$, dopodich\'e scriviamo $d$ come identit\`a di B\'ezout.
 
-\begin{figure}[ht]
-\centering
-\begin{tabular}{*{3}{l}}
-\multicolumn{3}{c}{$159 > 42$} \\
-1 & $159 = 42 \cdot (3) + 33$     & $33 = 159 - 42 \cdot (3)$ \\ 
-2 & $42 = 33 \cdot (1) + 9$       & $9 = 42 - 33$ \\
-3 & $33 = 9 \cdot (3) + 6$        & $6 = 33 - 9 \cdot (3)$ \\
-4 & $9 = 6 + 3$             & $3 = 9 - 6$ \\
-5 & $6 = 3 \cdot (2)$ & \
-\end{tabular}
-\caption{\label{itm:esempio_algoritmo_euclide}L'algoritmo di Euclide per trovare il $\mcd(159, 42)$, con il resto di ogni passaggio scritto come identit\`a di B\'ezout}
-\end{figure}
-
-Il $\mcd(159, 42) $ \`e $ 3$.
+Come si vede dalla tabella \ref{tab:esempio_algoritmo_euclide}, il $\mcd(159, 42) $ \`e $ 3$.
 
 Dobbiamo trovare l'identit\`a di B\'ezout per 3. Possiamo iniziare scrivendo $3 = 9 - 6$, per poi sostituire i resti.
 \begin{align*}
@@ -1435,6 +1409,19 @@ Dobbiamo trovare l'identit\`a di B\'ezout per 3. Possiamo iniziare scrivendo $3 
 &= 42 \cdot 19 - 159 \cdot 5
 \end{align*}
 \end{exmp}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{*{3}{l}}
+\multicolumn{3}{c}{$159 > 42$} \\
+1 & $159 = 42 \cdot (3) + 33$     & $33 = 159 - 42 \cdot (3)$ \\ 
+2 & $42 = 33 \cdot (1) + 9$       & $9 = 42 - 33$ \\
+3 & $33 = 9 \cdot (3) + 6$        & $6 = 33 - 9 \cdot (3)$ \\
+4 & $9 = 6 + 3$             & $3 = 9 - 6$ \\
+5 & $6 = 3 \cdot (2)$ & \
+\end{tabular}
+\caption{\label{tab:esempio_algoritmo_euclide}L'algoritmo di Euclide per trovare il $\mcd(159, 42)$, con il resto di ogni passaggio scritto come identit\`a di B\'ezout}
+\end{table}
 
 \subsection{Anello degli interi}
 
@@ -1520,7 +1507,7 @@ $(\integers_n, +, \cdot )$ \`e un anello.
 \]
 Se il gruppo \`e finito possiamo scrivere le tavole di composizione rispetto alle operazioni.
 
-\begin{figure}
+\begin{table}[ht]
 \centering
 \begin{tabular}{c|ccc}
 + & 0 & 1 & 2 \\
@@ -1538,13 +1525,13 @@ $\cdot$ & 0 & 1 & 2 \\
 2 & 0 & 2 & 1
 \end{tabular}
 \caption{Tavole di composizione di + e $\cdot$ in $\integers_3$}
-\end{figure}
+\end{table}
 
 Quando l'operazione \`e commutativa, la tavola \`e uguale (\`e simmetrica) rispetto alla diagonale.
 
 $(\integers_3, +, \cdot)$ \`e sempre un anello commutativo unitario. Ha l'unit\`a rispetto al $\cdot$, ossia 1.
 
-\begin{figure}
+\begin{table}[ht]
 \centering
 \begin{tabular}{c|cccc}
 + & 0 & 1 & 2 & 3 \\
@@ -1564,7 +1551,7 @@ $\cdot$ & 0 & 1 & 2 & 3 \\
 3 & 0 & 3 & 2 & 1
 \end{tabular}
 \caption{Tavole di composizione di + e $\cdot$ in $\integers_4$}
-\end{figure}
+\end{table}
 
 Sia $(A, +, \cdot)$ un anello unitario (ossia monoide associativo rispetto a $\cdot$), indichiamo con $U(A)$ \`e il gruppo degli elementi invertibili di $A$ rispetto a $\cdot$. Alcuni esempi:
 \begin{align*}
@@ -1816,7 +1803,7 @@ Come \`e fatta un'equazione di primo grado in $\integers_n$?
 \begin{oss}
 Le soluzioni di \ref{itm:equazioni_interi}, se esistono, sono infinite, perch\'e se $s \in \integers$ \`e una soluzione, $a \cdot s \equiv_n b$. Quindi ogni altro $s' \in [s]$ \`e tale che $a \cdot s' \equiv_n b$.
 
-Passando alle classi si legge come $[a \cdot s] = [b] \implies [a] c\dot [s] = [b]$, e prendendo un altre rappresentante $s' \in [s]$, $[s'] = [s]$ e quindi anche $[a] \cdot [s'] = [b]$
+Passando alle classi si legge come $[a \cdot s] = [b] \implies [a] \cdot [s] = [b]$, e prendendo un altre rappresentante $s' \in [s]$, $[s'] = [s]$ e quindi anche $[a] \cdot [s'] = [b]$
 \end{oss}
 
 In generale si distinguono due casi per la risoluzione delle equazioni:
@@ -2068,7 +2055,7 @@ Dove $a, b, c \in \naturals^+$. Di quest'equazione si cercano le soluzioni inter
 \end{defn}
 $c$ \`e combinazione lineare di $a$ e $b$. Quindi $c$ deve essere nell'insieme $S_{a,b} = \{ m \in \naturals^+ : m = a \cdot x + b \cdot y \text{ con } x, y \in \integers\}$.
 
-Sappiam che $d = \mcd(a,b) = \inf S_{a,b}$, e che quindi $S_{a,b}$ \`e interpretabile come l'insieme dei multipli di $d$.
+Sappiamo che $d = \mcd(a,b) = \inf S_{a,b}$, e che quindi $S_{a,b}$ \`e interpretabile come l'insieme dei multipli di $d$.
 \[
 S_{a,b} = \{ k \cdot d : k \in \naturals^+ \}
 \]
@@ -2252,8 +2239,7 @@ Il sottogruppo di ordine 2 \`e $3 \cdot \integers_6$
 3 \cdot \integers_6 = \{ 0, 3 \} \cong \integers_2
 \]
 $3 \cdot \integers_6$ \`e isomorfo a $\integers_2$.
-\begin{table}[ht]
-\centering
+\begin{center}
 \begin{tabular}{c|cc}
 + & 0 & 3 \\
 \hline
@@ -2267,11 +2253,12 @@ $3 \cdot \integers_6$ \`e isomorfo a $\integers_2$.
 0 & 0 & 1 \\
 1 & 1 & 0
 \end{tabular}
-\end{table}
+\end{center}
 
 $2 \cdot \integers_6 = \{ 0, 2, 4 \} \cong \integers_3, 2 \cdot \integers_6$ \`e isomorfo a $\integers_3$
 
-Come \`e fatto il reticolo dei sottogruppi in $\integers_6$?
+Come \`e fatto il reticolo dei sottogruppi in $\integers_6$? Lo vediamo in figura \ref{fig:reticolo_sottogruppi_z6}.
+In generale, il reticolo dei sottogruppi di $\integers_n$ si indica con $(\subgroupset(\integers_n), \subseteq)$.
 
 \begin{figure}
 \centering
@@ -2286,7 +2273,7 @@ Come \`e fatto il reticolo dei sottogruppi in $\integers_6$?
             (Z3) edge node {} (0)
             ;
 \end{tikzpicture}
-\caption{Reticolo dei sottogruppi di $\integers_6$}
+\caption{Reticolo dei sottogruppi di $\integers_6$\label{fig:reticolo_sottogruppi_z6}}
 \end{figure}
 
 \begin{oss}
@@ -2295,17 +2282,7 @@ Se prendo $k \cdot \integers_n$, ha ordine $h$ ed \`e isomorfo a $\integers_h$, 
 L'isomorfismo \`e proprio: $\phi : \integers_h \to k \cdot \integers_n$ definito da, dato $t \in \integers_h$, $\phi(t) = t \cdot k$.
 \end{oss}
 
-Facciamo un altro reticolo dei sottogruppi con $\integers_{12}$.
-
-I divisori di 12 sono 2, 3, 4 e 6. Abbiamo 4 sottogruppi non banali.
-
-Abbiamo un sottogruppo di ordine $2, 6 \cdot \integers_{12} = \{ 0, 6 \} \cong \integers_2$. L'ordine di 6 \`e 2, perch\'e $6 + 6 \equiv 0 \pmod{12}$.
-
-Abbiamo un sottogruppo di ordine 3, $4 \cdot \integers_{12} = \{ 0, 4, 8 \} \cong \integers_3$.
-
-Abbiamo un sottogruppo di ordine 4, $3 \cdot \integers_{12} = \{ 0, 3, 6, 9 \} \cong \integers_4$.
-
-Abbiamo un sottogruppo di ordine 6, $2 \cdot \integers_{12} = \{ 0, 2, 4, 6, 8, 10 \} \cong \integers_6$.
+Facciamo un altro reticolo dei sottogruppi con $\integers_{12}$. Il risultato \`e in figura \ref{fig:reticolo_sottogruppi_z12}.
 
 \begin{figure}
 \centering
@@ -2325,10 +2302,18 @@ Abbiamo un sottogruppo di ordine 6, $2 \cdot \integers_{12} = \{ 0, 2, 4, 6, 8, 
             (Z3) edge node {} (0)
             ;
 \end{tikzpicture}
-\caption{Reticolo dei sottogruppi di $\integers_{12}$}
+\caption{Reticolo dei sottogruppi di $\integers_{12}$\label{fig:reticolo_sottogruppi_z12}}
 \end{figure}
 
-Il reticolo dei sottogruppi di $\integers_n$ si indica con $(\subgroupset(\integers_n), \subseteq)$.
+I divisori di 12 sono 2, 3, 4 e 6. Abbiamo 4 sottogruppi non banali.
+
+Abbiamo un sottogruppo di ordine $2, 6 \cdot \integers_{12} = \{ 0, 6 \} \cong \integers_2$. L'ordine di 6 \`e 2, perch\'e $6 + 6 \equiv 0 \pmod{12}$.
+
+Abbiamo un sottogruppo di ordine 3, $4 \cdot \integers_{12} = \{ 0, 4, 8 \} \cong \integers_3$.
+
+Abbiamo un sottogruppo di ordine 4, $3 \cdot \integers_{12} = \{ 0, 3, 6, 9 \} \cong \integers_4$.
+
+Abbiamo un sottogruppo di ordine 6, $2 \cdot \integers_{12} = \{ 0, 2, 4, 6, 8, 10 \} \cong \integers_6$.
 \end{exmp}
 
 \begin{esercizio}
@@ -2397,8 +2382,7 @@ Determinare quali sono isomorfi, esplicitando l'isomorfismo.
 \[
 U(\integers_5) = \{ 1, 2, 3, 4 \}
 \]
-\begin{table}[ht]
-\centering
+\begin{center}
 \begin{tabular}{c|*{4}{c}}
 $\cdot$ & 1 & 2 & 3 & 4 \\
 \hline
@@ -2407,7 +2391,7 @@ $\cdot$ & 1 & 2 & 3 & 4 \\
 3 & 3 & 1 & 4 & 2 \\
 4 & 4 & 3 & 2 & 1
 \end{tabular}
-\end{table}
+\end{center}
 \begin{align*}
 o(2) &= 4 \iff 2^4 = 16 \equiv 1 \pmod{5} \\
 o(3) &= 2 \iff 3^2 = 6 \equiv 1 \pmod{5} \\
@@ -2419,8 +2403,7 @@ U(\integers_5) = \pow{2} \cong \integers_4
 \[
 U(\integers_8) = \{ 1, 3, 5, 7 \}
 \]
-\begin{table}[ht]
-\centering
+\begin{center}
 \begin{tabular}{c|*{4}{c}}
 $\cdot$ & 1 & 3 & 5 & 7 \\
 \hline
@@ -2429,12 +2412,11 @@ $\cdot$ & 1 & 3 & 5 & 7 \\
 5 & 5 & 7 & 1 & 3 \\
 7 & 7 & 5 & 3 & 1
 \end{tabular}
-\end{table}
+\end{center}
 \[
 U(\integers_{10}) = \{ 1, 3, 7, 9 \}
 \]
-\begin{table}[ht]
-\centering
+\begin{center}
 \begin{tabular}{c|*{4}{c}}
 $\cdot$ & 1 & 3 & 7 & 9 \\
 \hline
@@ -2443,7 +2425,7 @@ $\cdot$ & 1 & 3 & 7 & 9 \\
 7 & 7 & 1 & 9 & 3 \\
 9 & 9 & 7 & 3 & 1
 \end{tabular}
-\end{table}
+\end{center}
 \[
 U(\integers_{12}) = \{ 1, 5, 7, 11 \}
 \]
@@ -2478,8 +2460,7 @@ C'\`e un isomorfismo fra $U(\integers_5)$ e $U(\integers_{10})$. Il generatore d
 \caption{L'isomorfismo tra $U(\integers_5)$ e $U(\integers_{10})$}
 \end{figure}
 
-\begin{table}[ht]
-\centering
+\begin{center}
 \begin{tabular}{c|*{4}{c}}
 $\cdot$ & 1 & 5 & 7 & 11 \\
 \hline
@@ -2488,7 +2469,7 @@ $\cdot$ & 1 & 5 & 7 & 11 \\
 7 & 7 & 11 & 1 & 5 \\
 11 & 11 & 7 & 5 & 1
 \end{tabular}
-\end{table}
+\end{center}
 \begin{align*}
 o(5) &= 2 \iff 5^2 = 25 \equiv 1 \pmod{12} \\
 o(7) &= 2 \iff 7^2 = 49 \equiv 1 \pmod{12} \\
@@ -2517,27 +2498,757 @@ Scrivere le soluzioni modulo 842.
 Calcolare $2^{2341} \pmod{37}$.
 \end{esercizio}
 
-\subsubsection{Esercizi presenti al primo esonero}
+% \subsubsection{Esercizi presenti al primo esonero}
+% \begin{itemize}
+%     \item Anagramma
+%     \item Permutazioni
+%         \begin{itemize}
+%             \item Determinare permutazione tale che ``$\dots$'', trovare cicli, ordine e parit\`a
+%         \end{itemize}
+%     \item Soluzioni di un'equazione diofantea
+%     \item Risoluzione di equazioni in $\integers_n$
+%     \item Dato un gruppo $(G, \cdot)$, dimostrare che un sottoinsieme \`e un sottogruppo
+%     \item Date due strutture algebriche $(A, \cdot)$ e $(A', \ast)$, ed un'applicazione $f : A \to A'$, dimostrare che \`e un morfismo
+%     \item Sottogruppi di $\integers$ e $\integers_n$
+% \end{itemize}
+
+\subsection{Morfismo di anelli}
+
+Un morfismo di anelli \`e un'applicazione $f : A \to A'$ tale che conserva la struttura di anello. Deve essere un morfismo di gruppi abeliani per il +, e deve mantenere l'operazione $\cdot$. Quindi $f : (A, +) \to (A', +)$ \`e un morfismo di gruppi, e $f$ mantiene l'operazione $\cdot$, ossia $f(a \cdot b) = f(a) \cdot f(b)$.
+
+\subsection{Morfismo di campi}
+
+Un morfismo di campi \`e un morfismo di gruppi rispetto al +, e un morfismo di gruppi rispetto al $\cdot$.
+
+$f : G \to G'$ \`e un morfismo di gruppi $f : (G, \cdot) \to (G', \ast) \iff f(a \cdot b) = f(a) \ast f(b)$, ossia se conserva le operazioni.
+
+Quindi:
+
+$f : A \to A'$ \`e un morfismo di campi se $f(a + b) = f(a) + f(b)$ (quindi \`e un morfismo rispetto al pi\`u) e $f(a \cdot b) = f(a) \cdot f(b)$.
+
+Se $A$ e $A'$ sono anelli unitari, un morfismo di anelli unitari $f : A \to A'$ deve mandare $f(1_A) = 1_{A'}$.
+
+\subsection{Teorema di omomorfismo per gli anelli}
+
+Abbiamo due anelli, $(A, +, \cdot)$ e $(A', +, \cdot)$.
+
+$f : (A, +, \cdot) \to (A', +, \cdot)$ \`e un morfismo di anelli.
+
+\begin{enumerate}
+    \item L'immagine di $f$, $Im_f$ \`e un sottoanello di $A'$
+    \item $A / \varepsilon_f = A / \ker f$ (inteso come morfismo di gruppi) \`e un anello isomorfo all'immagine $Im_f$. L'isomorfismo $F : A / \ker f \to Im_f$ \`e quello che manda una classe nell'immagine di tutti gli elementi. $[a]$ \`e la classe di tutti gli elementi che hanno immagine $f(a)$ uguale.
+    \[
+    F[a] = f(a) \forall [a] \in A / \ker f
+    \]
+    \item $\ker f$ \`e un sottogruppo normale di $(A, +)$. Rispetto alla struttura di anello, $\ker f$ \`e un ideale di $(A, +, \cdot)$.
+\end{enumerate}
+
+\begin{defn}[Ideale di un anello]
+$I \subseteq A$ \`e un ideale se:
+\begin{enumerate}
+    \item $(I, +)$ \`e un sottogruppo di $(A, +)$
+    \item $\forall a \in A$ e $\forall u \in I \implies a \cdot u \in I$ e $u \cdot a \in I$, ossia comunque prendo un elemento nell'anello e un elemento nell'ideale, il loro prodotto \`e nell'ideale.
+\end{enumerate}
+\end{defn}
+
+\begin{prop}
+Il nucleo di un morfismo di anelli \`e un ideale del dominio.
+\end{prop}
+\begin{proof}
+Siano $a \in A$, $u \in \ker f$, dobbiamo far vedere che $a \cdot u \in \ker f$. Sia $0_{A'}$ l'elemento neutro rispetto a + di $A'$:
+\[
+\ker f = \{ u \in A : f(u) = 0_{A'} \}
+\]
+\[
+f(a \cdot u) = f(a) \cdot f(u) = f(a) \cdot 0_{A'} = 0_{A'} \implies f(a \cdot u) \in \ker f
+\]
+Analogamente commutando si ha che $f(u \cdot a) = 0_{A'}$.
+\end{proof}
+
+Alcuni esempi di anelli:
 \begin{itemize}
-    \item Anagramma
-    \item Permutazioni
-        \begin{itemize}
-            \item Determinare permutazione tale che ``$\dots$'', trovare cicli, ordine e parit\`a
-        \end{itemize}
-    \item Soluzioni di un'equazione diofantea
-    \item Risoluzione di equazioni in $\integers_n$
-    \item Dato un gruppo $(G, \cdot)$, dimostrare che un sottoinsieme \`e un sottogruppo
-    \item Date due strutture algebriche $(A, \cdot)$ e $(A', \ast)$, ed un'applicazione $f : A \to A'$, dimostrare che \`e un morfismo
-    \item Sottogruppi di $\integers$ e $\integers_n$
+    \item $(\integers, +, \cdot)$ e $ (\integers_n, +, \cdot)$. Se $n$ \`e primo, $(\integers_n, +, \cdot)$ \`e un campo.
+    \item Sia $\field$ un campo generico, con $(\field[x], +, \cdot) $ \`e l'anello dei polinomi a coefficienti in $\field $.
+    \item anello delle matrici quadrate di ordine $n$, indicato cos\`i:
+    \[
+    (\matrices_n(\field), +, \cdot)
+    \]
 \end{itemize}
 
+\subsection{Anello dei polinomi}
 
+Un polinomio $p(x)$ \`e una espressione formale del tipo $a_0 + a_1 \cdot x + \dots + a_n \cdot x^n$, con $a_n \neq 0$. Diciamo che il grado di $p(x)$ indicato con $\delta(p(x))$ \`e $n$. $x$ \`e l'indeterminata. $x$ \`e un puro simbolo, non varia da nessuna parte. 
 
+Il polinomio nullo $\underline{0}$ tale che $\forall n \in \naturals a_n = 0$, ha grado $-1$.
 
+La somma $p(x) + q(x)$ \`e definita coefficiente per coefficiente. Consideriamo i seguenti due polinomi:
+\begin{align*}
+p(x) &= a_0 + a_1 \cdot x + \dots + a_n \cdot x^n \\
+q(x) &= b_0 + b_1 \cdot x + \dots + b_m \cdot x^m \\
+p(x) + q(x) &= a_0 + b_0 + (a_1 + b_1) \cdot x + \dots + (a_n + b_n) \cdot x^n
+\end{align*}
 
+Il grado $\delta(p(x) + q(x)) = \sup( \delta(p(x)) , \delta(q(x)))$.
 
+$(\field[x], +)$ \`e un gruppo abeliano. L'elemento neutro \`e $\underline{0}$.
 
+Per fare un anello, dobbiamo definire una moltiplicazione $\cdot : \field[x] \times \field[x] \to \field[x]$.
+\[
+p(x) \cdot q(x) \definition c(x) = c_0 + c_1 \cdot x + \dots
+\]
+dove:
+\[
+c_n = \sum_{i = 0}^{n} a_i \cdot b_{n - i}
+\]
+\`e il termine $n$-esimo.
 
+Il grado del prodotto $\delta(p(x) \cdot q(x)) = \delta(p(x)) + \delta(q(x))$.
+
+$(\field[x], +, \cdot)$ \`e un anello commutativo unitario privo di divisori dello 0. L'unit\`a \`e la costante 1. Non \`e un campo: non tutti i polinomi sono invertibili.
+
+$p(x)$ \`e invertibile $\iff \exists p(x)$ tale che $p(x) \cdot q(x) = 1 \iff \delta(p(x)) = 0 \iff p(x)$ \`e una costante non nulla. Sono tutti e soli i polinomi invertibili.
+
+\begin{proof}
+$p(x) \cdot q(x) = 1$, e supponiamo che il grado $\delta(p(x)) = n > 0$. Il grado $\delta(p(x) \cdot q(x))$ dovrebbe essere 0, ma sapendo che \`e $n + m$, per essere vero dovrebbe essere che $m = -n$, che \`e l'assurdo.
+\end{proof}
+
+\`E privo di divisori dello zero.
+\begin{proof}
+$p(x) \cdot q(x) = 0$, supponendo che $p(x)$ ha grado $n \ge 0$ e $q(x)$ ha grado $m \ge 0$, dovrei avere che la somma dei gradi $m + n = -1$, il grado del polinomio nullo. Assurdo.
+\end{proof}
+
+\subsection{Teorema di divisione in $\field[x]$}
+
+Nell'anello dei polinomi c'\`e il teorema di divisione, come in $\integers$. Gli anelli con il teorema di divisione si chiamano anelli Euclidei.
+
+Siano $f(x)$ e $g(x)$ polinomi con $f(x) \neq 0$. Esistono allora due polinomi $q(x)$ e $r(x)$ tali che:
+\begin{itemize}
+    \item $g(x) = q(x) \cdot f(x) + r(x)$
+    \item $\delta(r(x)) < \delta(f(x))$
+\end{itemize}
+
+La coppia $(q(x), r(x))$ che soddisfa le due propriet\`a \`e unica.
+
+Un elemento $r \in \field$ si dice ``radice del polinomio $p(x)$'' se sostituendo $r$ a $x$, ossia facendo $p(r) = a_0 + a_1 \cdot r + \dots a_n \cdot r^n$, ho che $p(r) = 0$.
+
+\begin{cor}[Primo corollario del teorema di divisione\label{primo_corollario_divisione_polinomi}]
+$r$ \`e radice di $p(x) \iff p(x) = q(x) \cdot (x - r)$.
+
+Occhio: $(x - r)$ \`e un polinomio.
+\end{cor}
+\begin{proof}
+Condizione sufficiente: se prendo $p(x) = q(x) \cdot (x - r) \implies r$ \`e radice di $p(x)$.
+
+Condizione necessaria: $r$ \`e radice di $p(x) \iff p(r) = 0$. Per il teorema di divisione abbiamo che $p(x) = q(x) \cdot (x - r) + r(x)$, con $\delta(r(x)) \le 0$, essendo minore del grado di $(x - r)$ (che \`e pari a 1).
+
+Abbiamo che $p(r) = q(r) (0) + r(r) = 0$, quindi il grado di $r$ non pu\`o essere 0, ossia non pu\`o essere una costante (le costanti non si annullano per nessun $x$), quindi $r(r) = 0$.
+\end{proof}
+\begin{cor}[Secondo corollario del teorema di divisione]
+Ogni polinomio a coefficienti in $\field$ ($p(x) \in \field[x]$) di grado $n \ge 0$ ha al pi\`u $n$ radici.
+
+L'unico polinomio con infinite radici \`e il polinomio nullo.
+\end{cor}
+\begin{proof}
+Per il corollario \ref{primo_corollario_divisione_polinomi}, se $r_1 \dots r_{n+1}$ fossero le radici, si potrebbe scrivere $p(x)$ come:
+\[
+p(x) = \prod (x - r_i) \implies \delta(p(x)) = n + 1
+\]
+\end{proof}
+
+\begin{theorem}
+$p(x), q(x) \in \reals[x]$ (o un qualsiasi altro campo infinito).
+\[
+\forall n \in \naturals , \, p(n) = q(n) \implies p(x) = q(x)
+\]
+\end{theorem}
+\begin{proof}
+$\forall n \in \naturals$, $ p(n) - q(n) = 0 \implies \forall n$, $n$ \`e radice, quindi $p(x) = q(x)$.
+\end{proof}
+
+\subsection{Anello delle matrici quadrate}
+
+\begin{defn}[Matrice con $m$ righe e $n$ colonne]
+Una matrice $M$ di $m$ righe e $n$ colonne, a valori ad esempio in $\reals$, \`e una applicazione:
+\[
+M : [m] \times [n] \to \reals
+\]
+Ossia associa ad una coppia $(i, j)$ il valore $a_{i, j}$:
+\[
+M(i, j) = a_{i, j}
+\]
+Le matrici si possono rappresentare con una tabella.
+\end{defn}
+
+L'insieme delle matrici con $m$ righe e $n$ colonne si indica con il simbolo $\matrices_\reals(m,n)$.
+
+Date due matrici $M$ e $N$, la loro somma \`e:
+\[
+(M + N) (i, j) = M(i, j) + N(i, j)
+\]
+Possiamo indicare una matrice anche come $M = a_{i, j}$. Quindi:
+\[
+M + N = (a_{i, j}) + (b_{i, j}) \definition (a_{i, j} + b_{i, j})
+\]
+$(\matrices_\reals(m,n), +)$ \`e un gruppo abeliano. L'elemento neutro \`e la matrice contenente tutti 0, ossia l'applicazione costante con solo 0.
+
+Per fare il campo dobbiamo avere matrici con uguale numero di righe e colonne.
+
+Consideriamo un'equazione lineare in $n$ incognite.
+\[
+a_1 \cdot x_1 + \dots + a_n \cdot x_n = b
+\]
+Possiamo costruire un sistema di equazioni lineari in $n$ incognite e $m$ equazioni:
+\[
+\begin{cases}
+a_{1,1} x_1 + \dots + a_{1,n} x_n = b_1 \\
+\dots \\
+a_{m,1} x_1 + \dots + a_{m,n} x_n = b_m
+\end{cases}
+\]
+Vogliamo rappresentarlo come matrice.
+
+Scriviamo la matrice dei coefficienti:
+\[
+A =
+\begin{pmatrix}
+a_{1,1} & \dots & a_{1,n} \\
+\vdots & \ddots & \vdots \\
+a_{m,1} & \dots & a_{m,n}
+\end{pmatrix}
+\]
+Poi scrivo la matrice delle incognite (\`e una matrice colonna):
+\[
+X =
+\begin{pmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{pmatrix}
+\]
+Poi scrivo la matrice dei termini noti (anche questa \`e una matrice colonna):
+\[
+B =
+\begin{pmatrix}
+b_1 \\
+\vdots \\
+b_n
+\end{pmatrix}
+\]
+Abbiamo poi la matrice completa associata al sistema. Scrivo la matrice dei coefficienti e alla fine aggiungo, come ultima colonna, la matrice dei termini noti. \`E la matrice dei coefficienti con aggiunta la colonna dei termini noti.
+\[
+A | B =
+\begin{pmatrix}
+a_{1,1} & \dots & a_{1,n} & b_1 \\
+\vdots & \ddots & \vdots & \vdots \\
+a_{m,1} & \dots & a_{m,n} & b_n \\
+\end{pmatrix}
+\]
+Consideriamo il seguente sistema lineare con 4 incognite e 3 equazioni.
+\[
+\begin{cases}
+2 x_1 + 3 x_2 - x_4 = 1 \\
+3 x_1 - x_3 + 2 x_4 = -2 \\
+x_1 + x_2 = 0
+\end{cases}
+\]
+Le sue matrici sono:
+\[
+A =
+\begin{pmatrix}
+2 & 3 & 0 & -1 \\
+3 & 0 & -1 & 2 \\
+1 & 1 & 0 & 0
+\end{pmatrix}
+\qquad
+X = 
+\begin{pmatrix}
+x_1 \\
+x_2 \\
+x_3 \\
+x_4
+\end{pmatrix}
+\qquad
+B = 
+\begin{pmatrix}
+1 \\
+-2 \\
+0
+\end{pmatrix}
+\]
+Possiamo scrivere il sistema come:
+\[
+A \cdot X = B
+\]
+Come deve essere fatto il prodotto in modo che $A \cdot X$ sia proprio $B$?
+
+Facciamo il caso pi\`u semplice in cui abbiamo una sola riga.
+\[
+a_{1,1} \cdot x_1 + \dots a_{1,n} \cdot x_n = b_1
+\]
+\[
+A = 
+\begin{pmatrix}
+a_{1,1} & \dots & a_{1,n}
+\end{pmatrix}
+\]
+\[
+X = 
+\begin{pmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{pmatrix}
+\]
+\[
+B = 
+\begin{pmatrix}
+b_1
+\end{pmatrix}
+\]
+Dobbiamo avere che $A \cdot X = B$. Quindi se moltiplichiamo una riga per una colonna otteniamo $b_1$.
+\[
+\begin{pmatrix}
+a_{1,1} & \dots & a_{1,n}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{pmatrix} 
+=
+\begin{pmatrix}
+b_1
+\end{pmatrix}
+=
+a_{1,1} \cdot x_1 + \dots + a_{1,n} \cdot x_n
+\]
+In generale deve valere la stessa cosa. Prendiamo una matrice con 1 riga e $m$ colonne, la possiamo moltiplicare per un'altra matrice con $m$ righe e 1 colonna. Il prodotto mi d\`a una matrice con un solo elemento $b$.
+\[
+M_{1, n} \cdot N_{n, 1} = b
+\]
+Quindi:
+\begin{gather*}
+M_{1, n} = 
+\begin{pmatrix}
+a_1 & \dots & a_n
+\end{pmatrix}
+\qquad
+N_{n, 1} = 
+\begin{pmatrix}
+c_1 \\
+\vdots \\
+c_n
+\end{pmatrix}
+\\
+M_{1, n} \cdot N_{n, 1} = 
+\begin{pmatrix}
+b
+\end{pmatrix}
+= a_1 \cdot c_1 + \ldots + a_n \cdot a_n
+\end{gather*}
+Posso moltiplicare una matrice con un certo numero di colonne per una matrice con lo stesso numero di righe. L'ordine \`e importante.
+\[
+\begin{pmatrix}
+1 & 2 & 5 & 6 
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+- 1 \\
+0 \\
+2 \\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+15
+\end{pmatrix}
+\]
+In generale una matrice con $m$ righe e $n$ colonne $M_{m,n}$ si pu\`o moltiplicare per una matrice $N_{n,t}$ con $n$ righe e $t$ colonne. Il risultato \`e una matrice $C_{m,t}$ con $m$ righe e $t$ colonne.
+\[
+C_{m, t} =
+\begin{pmatrix}
+M_{1, n} \cdot N_{n, 1} & \dots & M_{1, n} \cdot N_{n, t} \\
+\vdots & \ddots & \vdots \\
+M_{m, n} \cdot N_{n, 1} & \dots & M_{m, n} \cdot N_{n, t}
+\end{pmatrix}
+\]
+Prendiamo la prima riga di $M$ e la moltiplichiamo per la prima colonna di $N$.
+
+$M_{1,n}$ indica la prima riga di $M$, $N_{n,1}$ indica la prima colonna di $N$.
+\[
+C_{i,j} = M_{i,n} \cdot N_{n,j}
+\]
+Esempio:
+\[
+\begin{pmatrix}
+3 & 2 & 1 & 0 \\
+-1 & -1 & 1 & 2 \\
+0 & 1 & 0 & 1
+\end{pmatrix}
+\]
+Ha 3 righe e 4 colonne. Possiamo moltiplicarla per una matrice con 4 righe. Ad esempio, per una matrice con 4 righe e 2 colonne.
+\[
+\begin{pmatrix}
+1 & 2 \\
+0 & 1 \\
+-1 & 0 \\
+1 & 1
+\end{pmatrix}
+\]
+Avremo una matrice con 3 righe e 2 colonne:
+\[
+\begin{pmatrix}
+c_{1,1} & c_{1,2} \\
+c_{2,1} & c_{2,2} \\
+c_{3,1} & c_{3,2}
+\end{pmatrix}
+\]
+Famo i calcoli:
+\begin{gather*}
+c_{1,1} = M_{1,n} \cdot N_{n,1} =
+\begin{smallpmatrix}
+3 & 2 & 1 & 0 
+\end{smallpmatrix}
+\cdot 
+\begin{smallpmatrix}
+1 \\
+0 \\
+-1 \\
+1
+\end{smallpmatrix}
+=
+3 + 0 - 1 + 0 = 2 \\
+c_{1,2} = M_{1,n} \cdot N_{n,2} =
+\begin{smallpmatrix}
+3 & 2 & 1 & 0 
+\end{smallpmatrix}
+\cdot
+\begin{smallpmatrix}
+2 \\
+1 \\
+0 \\
+1
+\end{smallpmatrix}
+=
+6 + 2 + 0 + 0 = 8 \\
+c_{2,1} = M_{2,n} \cdot N_{n,1} =
+\begin{smallpmatrix}
+-1 & -1 & 1 & 2 
+\end{smallpmatrix}
+\cdot 
+\begin{smallpmatrix}
+1 \\
+0 \\
+-1 \\
+1
+\end{smallpmatrix}
+=
+-1 + 0 -1 + 2 = 0 \\
+c_{2,2} = M_{2,n} \cdot N_{n,2} =
+\begin{smallpmatrix}
+-1 & -1 & 1 & 2 
+\end{smallpmatrix}
+\cdot 
+\begin{smallpmatrix}
+2 \\
+1 \\
+0 \\
+1
+\end{smallpmatrix}
+=
+-2 -1 + 0 + 2 = -1 \\
+c_{3,1} = M_{3,n} \cdot N_{n,1} = 
+\begin{smallpmatrix}
+0 & 1 & 0 & 1 
+\end{smallpmatrix}
+\cdot 
+\begin{smallpmatrix}
+1 \\
+0 \\
+-1 \\
+1
+\end{smallpmatrix}
+=
+0 + 0 + 0 + 1 = 1 \\
+c_{3,2} = M_{3,n} \cdot N_{n,2} = 
+\begin{smallpmatrix}
+0 & 1 & 0 & 1 
+\end{smallpmatrix}
+\cdot 
+\begin{smallpmatrix}
+2 \\
+1 \\
+0 \\
+1
+\end{smallpmatrix}
+=
+0 + 1 + 0 + 1 = 2
+\end{gather*}
+Il risultato quindi \`e:
+\[
+\begin{pmatrix}
+2 & 8 \\
+0 & -1 \\
+1 & 2
+\end{pmatrix}
+\]
+Il prodotto si pu\`o definire su un insieme di matrici solo se le matrici sono quadrate.
+
+$\matrices_n (\reals)$ \`e l'insieme delle matrici quadrate con coefficienti in $\reals$.
+
+$(\matrices_n (\reals), +, \cdot)$ \`e un anello non commutativo (il prodotto non commuta) unitario.
+
+L'unit\`a rispetto al prodotto \`e la matrice con tutti 1 sulla diagonale, e 0 altrimenti. Si indica con $\delta$. Il termine $\delta_{i, j}$ \`e:
+\[
+\delta_{i, j} = 
+\begin{cases}
+0 \text{ se } i \neq j \\
+1 \text{ se } i = j
+\end{cases}
+\]
+L'anello ha divisori dello zero. Prendiamo ad esempio le matrici:
+\[
+\begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix}
+\qquad
+\begin{pmatrix}
+0 & 1 \\
+0 & 0
+\end{pmatrix}
+\]
+il loro prodotto \`e 0.
+
+\begin{exmp}
+Prendiamo l'anello delle matrici quadrate di ordine 2, $(\matrices_2 (\reals), +, \cdot)$.
+\[
+S = \left\{ 
+\begin{smallpmatrix}
+x & y \\
+0 & 0
+\end{smallpmatrix}
+ : x, y \in \reals \right\}
+\]
+$S$ \`e un sottoanello di $(\matrices_2 (\reals), +, \cdot)$?
+
+Vediamo se \`e un sottogruppo. Prese due matrici in $S$, la differenza deve rimanere in $S$.
+\[
+\begin{pmatrix}
+x & y \\
+0 & 0
+\end{pmatrix}
+-
+\begin{pmatrix}
+z & t \\
+0 & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+x - z & y - t \\
+0 & 0
+\end{pmatrix}
+\in S
+\]
+Quindi $(S,+)$ \`e un sottogruppo.
+
+Deve conservare il prodotto e l'unit\`a.
+\[
+\begin{pmatrix}
+x \cdot z & y \cdot t \\
+0 & 0
+\end{pmatrix}
+\]
+Conserva il prodotto, ma $S$ non ha l'unit\`a! L'unit\`a \`e:
+\[
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+\notin S
+\]
+$S$ non contiene l'unit\`a dell'anello, ma ha un'unit\`a? No. Non \`e un anello unitario.
+
+Consideriamo l'applicazione $f : S \to \reals$ definita come segue:
+\[
+f \left(
+\begin{smallpmatrix}
+x & y \\
+0 & 0
+\end{smallpmatrix}
+\right) = x
+\]
+$f$ \`e un morfismo? Deve conservare le operazioni, e mandare l'unit\`a di $S$ nell'unit\`a di $\reals$.
+\[
+f \left(
+\begin{smallpmatrix}
+x & y \\
+0 & 0
+\end{smallpmatrix}
++
+\begin{smallpmatrix}
+z & t \\
+0 & 0
+\end{smallpmatrix}
+\right) 
+= 
+f \left(
+\begin{smallpmatrix}
+x+z & y+t \\
+0 & 0
+\end{smallpmatrix}
+\right) 
+= 
+x + z = 
+f \left(
+\begin{smallpmatrix}
+x & y \\
+0 & 0
+\end{smallpmatrix}
+\right) 
++
+f \left(
+\begin{smallpmatrix}
+z & t \\
+0 & 0
+\end{smallpmatrix}
+\right) 
+\]
+\`E un morfismo rispetto alla somma, quindi \`e un morfismo di gruppi abeliani.
+\[
+f \left(
+\begin{smallpmatrix}
+x & y \\
+0 & 0
+\end{smallpmatrix}
+\cdot
+\begin{smallpmatrix}
+z & t \\
+0 & 0
+\end{smallpmatrix}
+\right) 
+= 
+f \left(
+\begin{smallpmatrix}
+x\cdot z & y\cdot t \\
+0 & 0
+\end{smallpmatrix}
+\right) 
+= 
+x \cdot z = 
+f \left(
+\begin{smallpmatrix}
+x & y \\
+0 & 0
+\end{smallpmatrix}
+\right) 
+\cdot
+f \left(
+\begin{smallpmatrix}
+z & t \\
+0 & 0
+\end{smallpmatrix}
+\right) 
+\]
+
+Troviamo nucleo e immagine di questo morfismo.
+\[
+\ker f = \left\{
+\begin{smallpmatrix}
+x & y \\
+0 & 0
+\end{smallpmatrix}
+\in S :
+f \left(
+\begin{smallpmatrix}
+x & y \\
+0 & 0
+\end{smallpmatrix}
+\right)
+= 0
+\right\} =
+\left\{
+\begin{smallpmatrix}
+0 & y \\
+0 & 0
+\end{smallpmatrix}
+\in S : y \in \reals \right\}
+\]
+\`E un ideale: un qualunque elemento dell'anello moltiplicato per un elemento del $\ker f$ \`e ancora nel nucleo.
+\[
+\begin{pmatrix}
+x & y \\
+0 & 0
+\end{pmatrix}
+\cdot 
+\begin{pmatrix}
+0 & z \\
+0 & 0
+\end{pmatrix} 
+= 
+\begin{pmatrix}
+0 & x \cdot z \\
+0 & 0
+\end{pmatrix} 
+\]
+\[
+\begin{pmatrix}
+0 & z \\
+0 & 0
+\end{pmatrix} 
+\cdot 
+\begin{pmatrix}
+x & y \\
+0 & 0
+\end{pmatrix}
+= 
+\begin{pmatrix}
+0 & y \cdot z \\
+0 & 0
+\end{pmatrix} 
+\]
+Il prodotto non \`e commutativo!
+
+L'immagine \`e tutto $\reals$.
+
+L'insieme quoziente \`e isomorfo a $\reals$. Come \`e fatto il quoziente?
+\[
+\begin{pmatrix}
+x & y \\
+0 & 0
+\end{pmatrix}
++ \ker f
+\]
+\[
+\left[
+\begin{pmatrix}
+x & y \\
+0 & 0
+\end{pmatrix}
+\right] =  
+\begin{pmatrix}
+x & y \\
+0 & 0
+\end{pmatrix}
++
+\begin{pmatrix}
+0 & z \\
+0 & 0
+\end{pmatrix}
+\]
+Un rappresentante pi\`u intuitivo \`e:
+\[
+\left[
+\begin{pmatrix}
+x & 0 \\
+0 & 0
+\end{pmatrix}
+\right]
+\]
+\end{exmp}
+
+\clearpage
 
 
 
