@@ -159,8 +159,6 @@ Le tre propriet\`a di una relazione d'ordine (riflessiva, antisimmetrica e trans
 
 \begin{esercizio}
 Trovare altri esempi.
-
-\vspace{5cm}
 \end{esercizio}
 
 Anche le propriet\`a delle relazioni d'equivalenza sono indipendenti. Potrebbe sembrare che la propriet\`a riflessiva sia conseguenza della propriet\`a simmetrica e della propriet\`a transitiva.
@@ -287,8 +285,6 @@ Ogni insieme \`e suscettibile di un ordine totale, ossia si pu\`o totalmente ord
 
 \begin{esercizio}
 Determinare due ordini diversi su $\rationals$.
-
-\vspace{5cm}
 \end{esercizio}
 
 \subsection{INF e SUP}
@@ -337,7 +333,7 @@ Ho definito quindi la struttura algebrica $(L, \infop, \supop)$. Le due operazio
 \end{description}
 Sono le propriet\`a classiche dell'unione e dell'intersezione.
 
-\begin{proof}[Dimostrazione della propriet\`a \ref{itm:r3}]
+\begin{proof}[della propriet\`a \ref{itm:r3}]
 Equivale a dimostrare, per doppia inclusione, che $x \infop ( y \infop z) \leq (x \infop y) \infop z$ e che $(x \infop y) \infop z \leq x \infop ( y \infop z)$. La prima parte equivale a dire che
 \[
 x \infop (y \infop z) \leq 
@@ -373,7 +369,7 @@ Rimane da dimostrare che $x \infop y = \inf(x,y)$. Devo dimostrare due cose:
 \begin{lem}\label{dual}
 $ x \le y \iff x \supop y = y $
 \end{lem}
-\begin{proof}[Dimostrazione del lemma \ref{dual}]
+\begin{proof}[del lemma \ref{dual}]
 Sostituendo in $x \infop y = x$ in $ x \supop y $ otteniamo $ (x \infop y) \supop y = y $, per la propriet\`a \ref{itm:r4}.
 \end{proof}
 Per dimostrare $x \supop y = \sup(x,y)$ basta sfruttare il lemma \ref{dual}, ripercorrendo le stesse tappe e sostituendo $\sup$ al posto di $\inf$.
@@ -396,7 +392,7 @@ Ci sono altre due propriet\`a dei reticoli:
   \]
 \end{description}
 
-\begin{proof}[Dimostrazione di \ref{itm:isotoniche}]
+\begin{proof}[di \ref{itm:isotoniche}]
 Devo dimostrare che $ (x \infop z) \infop (y \infop z) = x \infop z $.
 Per ipotesi $x \le y \implies x \infop y = x$.
 \begin{multline*}
@@ -408,7 +404,7 @@ x \infop (z \infop z) \infop y = \\
  x \infop z
 \end{multline*}
 \end{proof}
-\begin{proof}[Dimostrazione di \ref{itm:disuguaglianza_distributiva}]
+\begin{proof}[di \ref{itm:disuguaglianza_distributiva}]
 Per definizione di $\inf$ bisogna dimostrare:
 \[
 x \supop (y \infop z) \le 
@@ -446,8 +442,6 @@ Che \`e anche la propriet\`a di disuguaglianza distributiva in $(L^{\ast}, \ge)$
 
 \begin{esercizio}
 $\xi$: in un reticolo $(L, \le)$ si ha che $x \le z, y \in L \implies x \supop (y \infop z) \le (x \supop y) \infop z$ (disuguaglianza modulare). Dimostrarlo.
-
-\vspace{5cm}
 \end{esercizio}
 
 \begin{defn}[Reticolo distributivo]
@@ -480,14 +474,10 @@ Mentre \`e modulare: prendiamo la coppia $0 \le x$ in relazione e $y \in L$ non 
 
 \begin{esercizio}
 L'insieme delle parti \`e un reticolo distributivo, e quindi anche modulare. Dimostrarlo.
-
-\vspace{5cm}
 \end{esercizio}
 
 \begin{esercizio}
 $(\naturals, \divides)$ \`e un reticolo distributivo?
-
-\vspace{5cm}
 \end{esercizio}
 
 
@@ -509,8 +499,6 @@ Prendiamo $A = \reals^2$. Posso pensare due partizioni banali: $\pi_0 = \left\{ 
 
 \begin{esercizio}
 Indicare altre partizioni su $\reals^2$.
-
-\vspace{5cm}
 \end{esercizio}
 
 \subsection{Classi di equivalenza}
@@ -527,8 +515,8 @@ Se considero l'insieme delle classi di equivalenza $A / \varepsilon$, chiamato `
 A/\varepsilon = \left\{ [a] \subseteq \mathbb{P}(A) : [a] \text{ \`e una classe di equivalenza} \right\}
 \]
 \end{prop}
-\begin{proof}[Dimostrazione della proposizione \ref{insieme_quoziente}]
-Bisogna dimostrare le tre propriet\`a specificate in \ref{partizione}.
+\begin{proof}[della proposizione \ref{insieme_quoziente}]
+Bisogna dimostrare le tre propriet\`a specificate nella definizione \ref{partizione}.
 \begin{itemize}
   \item $[a] \neq \emptyset$ \`e vero perch\'e la relazione \`e riflessiva, ed $a$ \`e in relazione almeno con s\'e stesso.
   \item $[a] \cap [b] \neq \emptyset \implies [a] = [b]$. Supponiamo esista $z \in [a] \cap [b] \implies a \varepsilon z$ e $b \varepsilon z$. Essendo la relazione simmetrica e transitiva, $z \varepsilon b \implies a \varepsilon b$. Per la propriet\`a simmetrica, di nuovo, $b \varepsilon a$. Quindi $ \forall x \in [a] \implies a \varepsilon x $ e per transitivit\`a $ b \varepsilon x$.
@@ -575,14 +563,11 @@ Definisco $F$ come $\forall \varepsilon \in \mathcal{E}(A) \ F(\varepsilon) = A 
 \varepsilon \xrightarrow{F} A / \varepsilon \xrightarrow{G} \varepsilon \\
 \pi \xrightarrow{G} \varepsilon_{\pi} \xrightarrow{F} \pi = A / \varepsilon_{\pi} 
 \end{gather*}
+\end{proof}
 
 \begin{esercizio}
 Dimostrare che $F$ \`e iniettiva e suriettiva.
-
-\vspace{5cm}
 \end{esercizio}
-
-\end{proof}
 
 Una semplice biezione non implica l'equivalenza. Prendo un insieme $E = \{e_1, e_2, \dots e_n\}$ di cardinalit\`a $\abs{E} = n$, l'insieme delle relazioni d'ordine $L(E)$, e l'insieme delle sue permutazioni $S(E)$ di cardinalit\`a $n!$. Una permutazione \`e una biezione di un insieme finito. I due insiemi sono in corrispondenza biunivoca. Ho un'applicazione $F : S(E) \to L(E)$ che data un'occupazione $\sigma$ associa ad ogni elemento di $E$ il suo ordine associato $\sigma(e_1), \sigma(e_2), \dots \sigma(e_n)$. 
 
@@ -606,8 +591,6 @@ $\naturals \times \naturals / \rho$ \`e in corrispondenza biunivoca con $\intege
 
 \begin{esercizio}
 $(\naturals \times \naturals, \rho)$ con $(a,b) \rho (c,d) \iff a + d = b + c$. Dimostrare che $\rho$ \`e una relazione di equivalenza.
-
-\vspace{5cm}
 \end{esercizio}
 
 \subsubsection{Proiezione di $A$ sul suo insieme quoziente, e sezione}
@@ -696,7 +679,7 @@ Consideriamo la funzione $f : \reals^2 \to \reals^3$ definita da $f(x,y) = (x,x,
 Le classi di equivalenza individuate in $\ker f$ saranno $[(x,y)] = \{ (z,t) \in \reals^2 \divides z = x\}$. Per ogni classe possiamo individuare un rappresentante canonico del tipo $[(x,0)]$ con $x \in \reals$.
 
 Ad ogni classe devo associare la sua immagine, quindi a $[(x,y)]$ \`e associato $(x,x,0)$.
-
+\end{exmp}
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}
@@ -711,9 +694,8 @@ Ad ogni classe devo associare la sua immagine, quindi a $[(x,y)]$ \`e associato 
             (ker) edge [above left] node {$i \circ F$} (B)
             ;
 \end{tikzpicture}
-\caption{$f(x,y) = (x,x,0)$ come composizione di due funzioni}
+\caption{$f(x,y) = (x,x,0)$ come composizione di una funzione suriettiva con una iniettiva}
 \end{figure}
-\end{exmp}
 
 \subsection{Teorema di omomorfismo per gli insiemi}
 \begin{prop}[Corrispondenza biunivoca fra immagine e nucleo]
@@ -797,8 +779,9 @@ Poich\'e $(\pi \supop \sigma) = \sup (\pi, \sigma)$, allora:
   \item $\pi, \sigma \le \tau \implies (\pi \supop \sigma) \le \tau$, ossia $x \ \varepsilon_{\pi} \ y \implies x \ \varepsilon_{\tau} \ y$ e $x \ \varepsilon_{\sigma} \ y \implies x \ \varepsilon_{\tau} \ y$. Quando dico $x \ \varepsilon_{(\pi \supop \sigma)} \ y$, allora $x \ \varepsilon \ a_2 \ \varepsilon \dots \varepsilon \ y$, in cui ogni $\varepsilon$ \`e o $\varepsilon_{\pi}$ o $\varepsilon_{\sigma}$, quindi in ogni caso $a_i \ \varepsilon_{\pi} \ a_j$ o $a_i \ \varepsilon_{\sigma} \ a_j$ per cui necessariamente $a_i \ \varepsilon_{\tau} \ a_j$. Segue per transitivit\`a che $x \ \varepsilon_{\tau} \ y$.
 \end{itemize}
 
-\textbf{Esercizio:} $(\Pi(A), \subseteq)$ \`e un reticolo e $\subseteq$ \`e una relazione d'ordine. Dimostrare che non \`e modulare.
-\vspace{5cm}
+\begin{esercizio}
+$(\Pi(A), \subseteq)$ \`e un reticolo e $\subseteq$ \`e una relazione d'ordine. Dimostrare che non \`e modulare.
+\end{esercizio}
 
 \section{Morfismi}
 
@@ -865,7 +848,7 @@ Stessa dimostrazione vale per il $\sup$. Abbiamo dimostrato gi\`a che il contrar
 \subsection{Isomorfismi}
 Un isomorfismo \`e un morfismo biunivoco.
 
-Dato l'insieme delle parti di $\Gamma$, $(\mathbb{P}(\Gamma), \subseteq)$, e l'insieme $2 = \{ 0, 1 \}$, $2^{\Gamma}$ \`e l'insieme delle funzioni $\Gamma \to \{0,1\}$. Date due funzioni $f, g \in 2^{\Gamma}$, $f \le g \iff \forall x \in 2 $ ho che $ f(x) \le g(x)$ (come da  definizione \ref{ordine_funzioni}). 
+Dato l'insieme delle parti di $\Gamma$, $(\mathbb{P}(\Gamma), \subseteq)$, e l'insieme $2 = \{ 0, 1 \}$, $2^{\Gamma}$ \`e l'insieme delle funzioni $\Gamma \to \{0,1\}$. Date due funzioni $f, g \in 2^{\Gamma}$, $f \le g \iff \forall x \in \Gamma $ ho che $ f(x) \le g(x)$ (come da  definizione \ref{ordine_funzioni}). 
 
 $(2^{\Gamma}, \le)$ \`e un reticolo. Infatti $\inf(f,g) : \Gamma \to 2$ \`e:
 \[
@@ -1009,9 +992,9 @@ L'insieme delle parti di un insieme $\Gamma$ \`e in corrispondenza biunivoca con
 \caption{\label{fig:strutture_isomorfe}Esempio di strutture isomorfe}
 \end{figure}
 
-\textbf{Esercizio:} trovare tutti i reticoli (a meno di isomorfismi) con 4 elementi.
-
-\vspace{5cm}
+\begin{esercizio}
+Trovare tutti i reticoli (a meno di isomorfismi) con 4 elementi.
+\end{esercizio}
 
 \section{Numeri Naturali}
 
@@ -1102,7 +1085,9 @@ Possiamo definire il monoide $(\naturals, +)$. L'operazione di somma $+ : \natur
 \[
 m + n = \sigma^{n}(m)
 \]
-\textbf{Esercizio:} dimostare che \`e commutativa, e che quindi $\sigma^n(m) = \sigma^m(n)$. \vspace{5cm}
+\begin{esercizio}
+Dimostare che \`e commutativa, e che quindi $\sigma^n(m) = \sigma^m(n)$.
+\end{esercizio}
 
 L'elemento neutro \`e lo 0, infatti: $ m + 0 = \sigma^0 (m) = id_{\naturals} (m) = m $ e $ 0 + m = \sigma^m (0) = m $ per la proposizione \ref{iterazione_nesima}.
 
@@ -1161,7 +1146,7 @@ $m \le n \iff \exists k \in \naturals : m + k = n$
 \`E una relazione d'ordine totale (ossia l'insieme $\naturals$ \`e linearmente ordinato), ossia $\forall m, n \in \naturals$ si ha che $ m \le n$ oppure $n \le m$.
 
 L'ordine naturale su $\naturals$ \`e un ``ordine buono'', ossia $(\naturals, \le)$ si dice ``bene ordinato''. Il ``buon ordinamento'' \`e equivalente all'assioma della scelta. Vuol dire che ogni suo sottoinsieme non vuoto ha un primo elemento. $\reals$, ad esempio, non \`e bene ordinato.
-\begin{proof}[Dimostrazione del buon ordinamento]
+\begin{proof}[del buon ordinamento]
 Dimostriamolo per assurdo. Suppongo esista un sottoinsieme $V \neq \emptyset$ che non ha un primo elemento. Ossia, $\forall v \in V \exists w \in V$ t.c. $w \le v$.
 
 Consideriamo la proposizione $P_n$: ``$\forall n \in \naturals \land \forall v \in V, \ n \le v$'' e dimostriamo che \`e vera $\forall n \in \naturals$.
@@ -1320,8 +1305,9 @@ Dati due insiemi $R$, $S$ ed un insieme $A$:
 \[
 \abs{(R^A)^B} = \abs{R^{A \cdot B}}
 \]
-\textbf{Esercizio:} definire la biezione che dimostra le due propriet\`a precedenti.
-\vspace{5cm}
+\begin{esercizio}
+Definire la biezione che dimostra le due propriet\`a precedenti.
+\end{esercizio}
 
 La maggior parte dei numeri positivi che compaiono in combinatoria hanno un'interpretazione in teoria degli insiemi.
 
@@ -1778,13 +1764,14 @@ Dal punto di vista della distribuzione, il dominio \`e un insieme di posti $P$ d
 \abs{f^{-1}(T)} = 2
 \end{align*}
 Sappiamo che ogni funzione individua un nucleo, ossia, in questo caso, una $6$-scomposizione $E_1, \dots E_6$ dell'insieme dei posti. Quale $6$-scomposizione dell'insieme dei posti \`e individuata dal nucleo della funzione che individua la parola ``MATEMATICA''?
-
+\begin{table}[ht]
+\centering
 \begin{tabular}{c|c|c|c|c|c}
 A & C & E & I & M & T \\
 $E_1$ & $E_2$ & $E_3$ & $E_4$ & $E_5$ & $E_6$ \\
 $\{2, 6, 10\}$ & $\{9\}$ & $\{4\}$ & $\{8\}$ & $\{1,5\}$ & $\{3,7\}$ 
 \end{tabular}
-
+\end{table}
 Quindi per trovare gli anagrammi devo trovare le $6$-scomposizioni tali che $\abs{E_1} = 3$, $\abs{E_2} = 1$, $\abs{E_3} = 1$, $\abs{E_4} = 1$, $\abs{E_5} = 2$, $\abs{E_6} = 2$. La scomposizione $( \{ 7, 1, 2\}, \{ 10\}, \{3\}, \{ 6\}, \{4, 5\}, \{8,9\})$, ad esempio, individua l'anagramma AAEMMIATTC. Per la proposizione \ref{coeff_mult_valore} \`e:
 \[
 \frac{10!}{3! \ 2! \ 2!}
@@ -1806,11 +1793,11 @@ Con $A_1$ il codominio \`e $\{ $(MATE), A, C, I, M, T$\}$, con la A ripetuta due
 \[
 \abs{A_1} = \frac{7!}{2!}
 \]
-Con $A_2$ il codominio \`e $\{ $(ATI), A, C, I, M, T$\}$, con la A e la M ripetute due volte ciascuna ($\abs{E_{\text{A}}} = 2$ e $\abs{E_{\text{M}}} = 2$), e il dominio ha 8 posti.
+Con $A_2$ il codominio \`e $\{ $(ATI), A, C, E, M, T$\}$, con la A e la M ripetute due volte ciascuna ($\abs{E_{\text{A}}} = 2$ e $\abs{E_{\text{M}}} = 2$), e il dominio ha 8 posti.
 \[
 \abs{A_1} = \frac{8!}{2! \ 2!}
 \]
-Con $A_3$ il codominio \`e $\{ $(MAC), A, C, I, M, T$\}$, con la A e la T ripetute due volte ciascuna ($\abs{E_{\text{A}}} = 2$ e $\abs{E_{\text{T}}} = 2$), e il dominio ha 8 posti.
+Con $A_3$ il codominio \`e $\{ $(MAC), A, E, I, M, T$\}$, con la A e la T ripetute due volte ciascuna ($\abs{E_{\text{A}}} = 2$ e $\abs{E_{\text{T}}} = 2$), e il dominio ha 8 posti.
 \[
 \abs{A_1} = \frac{8!}{2! \ 2!}
 \]
