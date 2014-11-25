@@ -75,8 +75,7 @@ Anche i polinomi $(\field[x], +, \cdot)$ sono uno spazio vettoriale. Moltiplicar
 
 Abbiamo poi visto lo spazio vettoriale delle matrici. L'insieme delle matrici $(\matrices_{m \times n} (\field), +, \cdot)$ \`e uno spazio vettoriale. Date due matrici $A = (a_{i,j})$ e $B = (b_{i,j})$, la loro somma \`e $A + B = (a_{i,j} + b_{i,j})$, mentre la moltiplicazione per uno scalare $k$ \`e $k \cdot A = (k \cdot a_{i,j})$.
 
-Dato un sottocampo di un campo $\subfield \subseteq \field$, ad esempio $\rationals \subseteq \reals \subseteq \complexes$, possiamo vedere $\field$ come spazio vettoriale su $\subfield$. % diceva: possiamo vedere $\subfield$ come sottocampo di $\field$. ma credo intendesse questo che ho scritto
-$(\field, +, \cdot)$ ha l'operazione $\cdot : \subfield \times \field \to \field$, che dati $h \in \subfield$ e $ k \in \field \mapsto h \cdot k$.
+Dato un sottocampo di un campo $\subfield \subseteq \field$, ad esempio $\rationals \subseteq \reals \subseteq \complexes$, possiamo vedere $\field$ come spazio vettoriale su $\subfield$ (o anche su $\field$). $(\field, +, \cdot)$ ha l'operazione $\cdot : \subfield \times \field \to \field$, che dati $h \in \subfield$ e $ k \in \field \mapsto h \cdot k$.
 
 \subsection{Sottospazi vettoriali}
 
@@ -93,7 +92,7 @@ Condizione necessaria e sufficiente affinch\'e un insieme $W \subseteq V$ sia un
 Nello spazio dei vettori geometrici, quali sono i sottospazi? Deve contenere il vettore nullo. Quindi $W_0 = \{ \nullelement \}$ \`e un sottospazio banale. Se il sottospazio $W_1$ contiene un vettore $v \neq \nullelement$, deve contenere anche:
 \begin{itemize}
     \item $0_{\field} \cdot v = \nullelement \in W_1$. Infatti $0_{\field} \cdot v = (0_{\field} + 0_{\field}) \cdot v = 0_{\field} \cdot v + 0_{\field} \cdot v \implies 0_{\field} \cdot v = \nullelement$
-    \item $-1 \cdot v = - \cdot v$. Infatti $v + (-1) \cdot v = (1 - 1) \cdot v = 0_{\field} \cdot v = \nullelement$. Se moltiplico un vettore per $-1$ ottengo il suo opposto.
+    \item $-1 \cdot v = -v$. Infatti $v + (-1) \cdot v = (1 - 1) \cdot v = 0_{\field} \cdot v = \nullelement$. Se moltiplico un vettore per $-1$ ottengo il suo opposto.
     \item deve contenere tutti i multipli $k \cdot v$, con $k \in \reals$.
 \end{itemize}
 Questo \`e un sottospazio, infatti verifica che $\forall v, w \in W_1 \implies v - w \in W_1$, e abbiamo visto che $\forall k \in \reals$, $k \cdot v \in W_1$.
@@ -126,7 +125,7 @@ Questo \`e invece un sottospazio.
 \[
 W_3 = \{ p(x) : \delta (p(x)) \le 3 \text{ e } a_1 = a_2 = 0 \}
 \]
-Anche questo \`e un sottospazio. $\nullelement \in W_3$. La differenza fra due polinomi $a_0 + a_3 \cdot \cdot x^3 - b_0 - b_3 \cdot x^3 = a_0 - b_0 + (a_3 - b_3) \cdot x^3$ \`e ancora dentro $W_3$, quindi \`e un sottogruppo. Inoltre $k \cdot (a_0 + a_3 \cdot x^3)$ \`e $k \cdot a_0 + k \cdot a_3 \cdot x^3$, che \`e sempre in $W_3$.
+Anche questo \`e un sottospazio. $\nullelement \in W_3$. La differenza fra due polinomi $a_0 + a_3 \cdot x^3 - b_0 - b_3 \cdot x^3 = a_0 - b_0 + (a_3 - b_3) \cdot x^3$ \`e ancora dentro $W_3$, quindi \`e un sottogruppo. Inoltre $k \cdot (a_0 + a_3 \cdot x^3)$ \`e $k \cdot a_0 + k \cdot a_3 \cdot x^3$, che \`e sempre in $W_3$.
 
 Consideriamo ora $(\reals^4, +, \cdot)$, e il sottoinsieme:
 \[
@@ -185,7 +184,7 @@ Questo vale per tutte le strutture algebriche.
 \begin{proof}
 Vediamo che $\nullelement \in U \cap W$, essendo contenuto in entrambi.
 
-Sia $v, w \in U \cap W \implies v - w \in U \cap W$, essendo $v - w \in U e v - w \in W$.
+Sia $v, w \in U \cap W \implies v - w \in U \cap W$, essendo $v - w \in U$ e $v - w \in W$.
 
 Analogamente se $v \in U \cap W$ e $k \in \field \implies k \cdot v \in U \cap W$, essendo $U$ e $W$ sottospazi e quindi essendo ogni multiplo di $v$ in entrambi.
 \end{proof}
@@ -194,7 +193,7 @@ Analogamente se $v \in U \cap W$ e $k \in \field \implies k \cdot v \in U \cap W
 
 Con i sottospazi vettoriali abbiamo un altro esempio di reticolo.
 
-$\subgroupset(V)$ \`e l'insieme dei sottospazi dello spazio vettoriale $(V, +. \cdot)$. $(\subgroupset(V), \subseteq)$ \`e un reticolo, e $\subseteq$ indica la relazione di sottospazio. Siano $U, W \subseteq V$, l'$\inf$ di $U$ e $W$ \`e $U \cap W = U \infop W$. Verifica le propriet\`a dell'$\inf$, infatti se $T \subseteq U, W \implies T \subseteq U \cap W$.
+$\subgroupset(V)$ \`e l'insieme dei sottospazi dello spazio vettoriale $(V, +, \cdot)$. $(\subgroupset(V), \subseteq)$ \`e un reticolo, e $\subseteq$ indica la relazione di sottospazio. Siano $U, W \subseteq V$, l'$\inf$ di $U$ e $W$ \`e $U \cap W = U \infop W$. Verifica le propriet\`a dell'$\inf$, infatti se $T \subseteq U, W \implies T \subseteq U \cap W$.
 
 Abbiamo gi\`a visto con i sottogruppi che l'unione di due sottogruppi in generale non \`e un sottogruppo. Anche qui, l'unione di due sottospazi non \`e, in generale, un sottospazio.
 
@@ -236,12 +235,16 @@ Prendendo $v \in V_O$, il sottospazio generato da $v$ \`e:
 Negli spazi vettoriali ci sono due concetti fondamentali da capire se si vuole capire qualcosa. Fissateli bene a mente, coglione.
 
 \begin{description}
-    \item[Combinazione lineare] Dati n vettori $v_1, \dots v_n$ vettori in $V$, e $n$ scalari $k_1, \dots k_2 \in \field$, la combinazione lineare dei vettori $v_1 \dots v_n$ \`e un vettore:
+    \item[Combinazione lineare] Dati $n$ vettori $v_1, \dots v_n$ vettori di $V$, e $n$ scalari $k_1, \dots k_2 \in \field$, la combinazione lineare dei vettori $v_1 \dots v_n$ \`e un vettore:
     \[
     v = k_1 \cdot v_1 + \dots + k_n \cdot v_n
     \]
     Le combinazioni lineari di un solo vettore $v$ sono tutti i multipli del vettore $v$.
-    \item[Indipendenza lineare] \textit{DA DEFINIRE!}
+    \item[Indipendenza lineare] Si dice che un vettore $v$ dipende dai vettori $v_1, \dots v_t$ se $v \in \pow{\{v_1 \dots v_t\}}$, ossia se $v$ appartiene allo spazio generato da questi vettori, ossia $v$ si pu\`o scrivere come combinazione lineare dei vettori.
+    \[
+    v = a_1 \cdot v_1 + \dots + a_t \cdot v_t
+    \]
+    In caso contrario si dice che il vettore \`e indipendente linearmente, ossia non appartiene allo spazio generato.
 \end{description}
 
 \subsection{Esempi di combinazioni lineari}
@@ -301,6 +304,8 @@ Ritroviamo le combinazioni lineari negli spazi generati da sottoinsiemi di uno s
 
 \begin{prop}
 $\pow{S}$, ossia lo spazio generato da $S$, \`e proprio $\Sigma(S)$.
+
+$S$ \`e un sistema di generaotri di $\Sigma(S)$.
 \end{prop}
 \begin{proof}
 Si dimostra per doppia inclusione. Banalmente $S \subseteq \Sigma(S)$, e $\Sigma(S)$ \`e un sottospazio di $V$. Infatti la differenza di due combinazioni lineari \`e in $\Sigma (S)$, cos\`i come il prodotto scalare di una combinazione lineare. Quindi $\pow{S} \subseteq \Sigma (S)$.
@@ -314,7 +319,7 @@ $S$ \`e sottoinsieme di $T$, con $T$ sottospazio di $V$. $s_i \in T \forall i$, 
 
 Abbiamo quindi un'altra definizione del $\sup$ di due sottospazi.
 \[
-U \supop W = \pow{U \cup W} = \Sigma(U \cup W) = \bigcap{U \cup W \subseteq T} T
+U \supop W = \pow{U \cup W} = \Sigma(U \cup W) = \bigcap_{U \cup W \subseteq T} T
 \]
 \begin{prop}
 \[
@@ -358,6 +363,173 @@ $v = \nullelement + v$ con $v \in W$, e $v = v + \nullelement$ con $v \in U$. Co
 \end{proof}
 
 % SONO ARRIVATO QUI A CONTROLLARE
+
+Se $W \oplus U = V$, i sottospazi $W$ e $U$ sono detti sottospazi supplementari.
+
+Consideriamo lo spazio vettoriale delle matrici quadrate di ordine $n$, $(\matrices_n (\field), +, \cdot)$. $A$ \`e simmetrica se $A = A^t$, ossia se la matrice $A$ \`e uguale alla sua trasposta.
+\[
+A =
+\begin{pmatrix}
+1 & -1 & 2 \\
+0 & 3 & 1 \\
+3 & - & 10
+\end{pmatrix}
+\qquad
+A^t =
+\begin{pmatrix}
+1 & 0 & 4 \\
+-1 & 3 & -1 \\
+2 & 1 & 0
+\end{pmatrix}
+\]
+Se un elemento generico della matrice $A$ lo indico con $a_{i,j}$, un elemento generico della matrice trasposta si indica con $a_{j,i}$.
+
+Una matrice $A$ si dice antisimmetrica se $A = -A^t$. Quindi l'elemento generico della matrice trasposta \`e $-a_{j,i}$, rispetto all'elemento generico della matrice antisimmetrica $A$ indicato con $a_{i,j}$.
+
+Se prendiamo l'insieme di tutte le matrici quadrate simmetriche, $\matrices_{s}$, e l'insieme delle matrici quadrate antisimmetrice $\matrices_{a}$, questi sono due sottospazi dello spazio vettoriale delle matrici quadrate di ordine $n$, $ \matrices_n$.
+\[
+\matrices_s, \matrices_n \in \subgroupset \left( (\matrices_n (\field), +, \cdot) \right)
+\]
+Inoltre hanno somma diretta, e sono sottospazi supplementari.
+\[
+\matrices_{s} \oplus \matrices_{a} = \matrices_n (\field)
+\]
+Hanno intersezione contenente solo il vettore nullo: $\matrices_s \cap \matrices_a = \{ \nullelement \}$.
+
+Come possiamo scrivere una matrice qualsiasi come somma di una matrice simmetrica e di una antisimmetrica? $A \in \matrices_n (\field)$ si scrive come:
+\[
+A = \frac{2 A}{2} = \frac{2 A - A^t + A^t}{2} = \frac{A + A^t}{2} - \frac{A - A^t}{2}
+\]
+La prima \`e simmetrica, la seconda \`e antisimmetrica.
+
+Studieremo solo gli spazi vettoriali finitamente generati, cio\`e quelli per cui esiste un sottoinsieme finito $S$ tale che $\pow{S} = V$, ossia lo spazio generato da $S$ \`e uguale a tutto lo spazio vettoriale.
+
+Ad esempio, lo spazio vettoriale di un campo $\field$ \`e generato da un solo elemento (l'unit\`a).
+
+$\reals$ su $\reals$, $\complexes$ su $\complexes$, sono generati da un solo elemento. $\complexes$ su $\reals$ \`e generato da due elementi, un reale e un complesso. I due elementi sono $1$ e $i$.
+\[
+c = \{ x + y \cdot i : x, y \in \reals \} \in \complexes
+\]
+Le $n$-uple di elementi di un campo sono generate da $n$ vettori, ossia hanno un sistema di generatori di $n$ elementi. $\pow{\{e_1, \dots e_n\}} = \field^n$, dove:
+\[
+e_i = (x_1, \dots x_n) : x_j =
+\begin{cases}
+1 \text{ se } j = i \\
+0 \text{ se } j \neq i
+\end{cases}
+\]
+Lo spazio dei polinomi a valori in un campo non \`e finitamente generato.
+
+Lo spazio delle matrici $m \times n$, $\matrices_{m \times n} (\field)$, \`e finitamente generato. Abbiamo gi\`a visto come si scrivono i suoi elementi.
+
+\subsection{Indipendenza lineare}
+
+\begin{defn}[Dipendenza dei sottospazi]
+Un sottoinsieme di uno spazio vettoriale \`e dipendente se $\exists v \in S$ t.c. $v \in \pow{S \setminus \{v\}}$. Ossia lo spazio generato da $S \setminus \{v\}$ rimane uguale allo spazio generato da $S$.
+
+Quindi un sottoinsieme $S$ \`e indipendente se $\forall v \in S, v \notin \pow{S \setminus \{v\}}$. Ossia $\pow{S} \neq \pow{S \setminus \{v\}}$.
+\end{defn}
+
+$S = \{ \nullelement \}$ \`e un sottoinsieme dipendente. $\pow{S \setminus \{ \nullelement \}} = \pow{\emptyset} = \pow{S} = \{ \nullelement \}$. In generale, ogni sottoinsieme contenente il vettore nullo \`e un sottoinsieme dipendente.
+
+$S = \{ v \}$ con $v \neq \nullelement$ \`e sempre indipendente.
+
+Se invece $S = \{ v_1, v_2 \}$, $S$ \`e dipendente se $v_1  = a \cdot v_2$, ossia se $v_1 \in \pow{v_2}$, altrimenti $S$ \`e indipendente.
+
+La dipendenza dipende anche dal campo degli scalari.
+
+Consideriamo lo spazio vettoriale di $\complexes$ su $\complexes$. $S = \{ 1, i \}$ \`e dipendente, perch\'e $i \cdot 1 = i$.
+
+In $\complexes$ su $\reals$, invece, $S = \{1,i\}$ \`e indipendente (e genera pure tutto lo spazio).
+
+Quindi lo stesso insieme di vettori, su spazi diversi, pu\`o avere una dipendeza o una indipendenza differente.
+
+Consideriamo $(\field[x], +, \cdot)$ su $\field$, e l'insieme $S = \{ (1 - x), (1 + x^2), (1 + x - x^3) \}$.
+
+Verifichiamo se $(1 - x) \in \pow{(1 + x^2), (1 + x - x^3)}$. Dobbiamo vedere se $(1 - x)$ si pu\`o scrivere come:
+\[
+a \cdot (1 + x^2) + b \cdot (1 + x + x^3) = ((a+b) + b \cdot x + a \cdot x^2 - b \cdot x^3) = (1 - x)
+\]
+Dovremmo risolvere il sistema in cui $a + b = 1$, $b = -1$, $a = 0$, $b = 0$. Questo sistema non ha soluzioni. Un giorno impareremo a risolvere questi sistemi.
+
+Si vede subito che $(1 + x^2)$ non pu\`o essere dentro $\pow{(1 - x), (1 + x + x^3)}$, siccome il coefficiente di secondo grado di questi polinomi sar\`a sempre 0. Anche $(1 + x + x^3)$ non appartiene a $\pow{(1 - x), (1 + x^2)}$. Quindi l'insieme $S$ \`e indipendente.
+
+Dobbiamo trovare un modo efficace ed efficiente per controllare se un insieme \`e dipendente o indipendente.
+\[
+S = \{ (1,1,1), (0,1,1), (5, -7, -7)\}
+\implies
+\pow{S \setminus \{(5, -7, -7)\}} = \{ (a, a+b, a+b) : a, b \in \reals \}
+\]
+Possiamo ritrovare $(5, -7, -7)$ in questo spazio? S\`i. Dobbiamo avere $a = 5$ e $a + b = -7$, quindi $b = -7 - 5 = -12$. Questo sottoinsieme \`e dipendente.
+
+\subsection{Caratterizzazione degli insiemi indipendenti}
+
+$S$ \`e indipendente $\iff \forall s_1, \dots, s_t \in S , \, a_1 \cdot s_1 + \dots + a_t \cdot s_t = \nullelement \implies a_1 = \dots = a_t = 0$, ossia l'unica combinazione lineare di vettori di $S$ uguale al vettore nullo \`e quella banale.
+
+$S$ \`e dipendente $\iff \exists s_1, \dots s_t \in S$ tali che $a_1 s_1 + \dots + a_t s_t = \nullelement$ e $a_i \neq 0$ per qualche $i$, ossia esiste una combinazione lineare non banale di vettori di $S$ uguale al vettore nullo.
+
+\begin{proof}
+Vediamo che \`e condizione necessaria. Se $S$ \`e dipendente, $\exists v \in S$ tale che $v \in \pow{S \setminus \{v\}}$. Quindi $v = a_1 s_1 + \dots + a_t s_t$ dove $s_i \neq v$, essendo $s_i \in S \setminus \{v\}$. Quale combinazione lineare di vettori di $S$ \`e uguale al vettore nullo?
+\[
+a_1 s_1 + \dots + a_t s_t - v = \nullelement
+\]
+Vediamo che \`e condizione sufficiente, ossia se esiste una combinazione lineare non banale uguale al vettore nullo, allora $S$ \`e dipendente.
+\[
+\exists a_1 s_1 + \dots + a_t s_t = \nullelement
+\]
+Essendo non banale, possiamo supporre $a_1 \neq 0$. Prendiamo $v = a_1 s_1 = -(a_2 s_2 + \dots + a_t s_t)$. Quindi:
+\[
+v \in \pow{S \setminus \{v\}}
+\]
+Ossia, $S$ \`e dipendente.
+\end{proof}
+\[
+S = \{ (1, 2, 2) , (1, -2, -1), (0, 4, 3) \}
+\]
+Per vedere se $S$ \`e dipendente, usiamo la caratterizzazione vista. Facciamo una combinazione lineare dei suoi elementi e vediamo se \`e uguale al vettore nullo.
+\[
+a \cdot (1, 2, 2) + b \cdot (1, -2, -1) + c \cdot (0, 4, 3) = \nullelement \implies
+(a + b, 2a - 2b + 4c, 2a - b + 3c) = \nullelement
+\]
+Dobbiamo risolvere il seguente sistema lineare:
+\[
+\begin{cases}
+a + b = 0 \\
+2a - 2b + 4c = 0 \\
+2a - b + 3c = 0
+\end{cases}
+\]
+Risolvendo il sistema lineare abbiamo che le soluzioni sono $(a, -a, -a) \forall a \in \reals$. Quindi il sistema \`e dipendente.
+
+\begin{fact}[Fatto fondamentale]
+Sia $S$ un insieme indipendente, e $v$ un vettore non in $S$. Possiamo avere due casi:
+\begin{itemize}
+    \item $S \cup \{ v \}$ \`e dipendente $\iff v \in \pow{S}$
+    \item $S \cup \{ v \}$ \`e indipendente $\iff v \notin \pow{S}$
+\end{itemize}
+Questa osservazione permette di costruire insieme indipendenti.
+\end{fact}
+
+Costruiamo un insieme $S$ indipendente in $\reals^3$. Partiamo da un insieme indipendente, contenente quindi un vettore diverso dal vettore nullo.
+\[
+v_1 = (1, -1, 2) \implies \pow{v_1} = \{ (a, -a, 2a) : a \in \reals \}
+\]
+Dobbiamo prendere $v_2 \notin \pow{v_1}$. Per farlo, assegnamo un valore ad $a$ e cambiamo una coordinata. Prendiamo, fissando $a = 2$, il vettore $(2, -2, 4)$. Sicuramente il vettore $(2, -2, 0)$ non \`e nello spazio generato da $v_1$.
+\[
+v_2 = (2, -2, 0)
+\]
+Quindi $S = \{ v_1, v_2 \}$ \`e ancora indipendente. Il suo spazio generato \`e:
+\[
+\pow{v_1, v_2} = \{ a \cdot v_1 + b \cdot v_2 : a, b \in \reals \} = 
+\{ (a + 2b, -a -2b, 2a) : a, b \in \reals \}
+\]
+Possiamo trovare un vettore non in questo spazio, dando dei valori ad $a$ e $b$. Ad esempio $a = 1$ e $b = -1$, abbiamo il vettore $(-1, -3, 2)$. Il vettore $(-1, -3, 1)$ non \`e nell'insieme $S$. Quindi $S = \{(1, -1, 2), (2, -2, 0), (-1, -3, 1) \}$ \`e ancora indipendente.
+
+Lo spazio generato da $S$ adesso \`e tutto $\reals^3$. Possiamo infatti vedere che ogni vettore generico $(a,b,c)$ si pu\`o scrivere come combinazione lineare dei tre vettori di $S$.
+\[
+\pow{S} = \{ (a + 2b - c, -a -2b -3c, 2a + c) : a, b, c \in \reals \}
+\]
+$S$ \`e un sistema di generatori minimale. Minimale vuol dire che non esiste un sistema di generatori pi\`u piccolo di $S$, ossia un $G \subseteq S$, tale che $\pow{G} = \reals^3$.
 
 % SONO ARRIVATO QUI A SCRIVERE
 
