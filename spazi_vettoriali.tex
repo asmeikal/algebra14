@@ -531,6 +531,135 @@ Lo spazio generato da $S$ adesso \`e tutto $\reals^3$. Possiamo infatti vedere c
 \]
 $S$ \`e un sistema di generatori minimale. Minimale vuol dire che non esiste un sistema di generatori pi\`u piccolo di $S$, ossia un $G \subseteq S$, tale che $\pow{G} = \reals^3$.
 
+\subsection{Base di uno spazio vettoriale}
+
+Il concetto di base di uno spazio vettoriale (V, +, \cdot) su uno spazio \field unisce i concetti di combinazione e indipendenza lineare.
+
+\begin{defn}
+Una base di V \`e un sottoinsieme B di V tale che:
+\begin{description}
+    \item B \`e indipendente
+    \item \pow{B} = V, ossia B \`e un sistema di generatori di V
+\end{description}
+\end{defn}
+
+\begin{theorem}
+Ogni spazio vettoriale (V, +, \cdot) su un campo \field ha una base B, e tutte le basi hanno la stessa cardinalit\`a.
+\end{theorem}
+Se \abs{B} = \infty, si dice che V ha dimensione infinita. Se invece \abs{B} = n, si dice che V ha dimensione n. Si indica tipicamente con \dim V = n.
+
+\begin{exmp}
+(\reals[x], +, \cdot) ha dimensione infinita. Infatti la base B = \{ x^i : i \in \naturals \} ha cardinalit\`a infinita. Ogni polinomio p(x) si scrive come combinazione lineare degli elementi di B, ossia:
+p(x) = a_0 + a_1 x + \dots a_n x^n con n = \delta(p(x))
+
+Gli elementi di B sono indipendenti, infatti l'unica combinazione lineare degli elementi di B che mi d\`a il vettore nullo \nullelement \`e quella banale, ossia \sum_{i = 0}^{\infty} a_i x^i = \nullelement \iff a_i = 0 \forall i.
+
+Consideriamo \complexes su \complexes, o in generale lo spazio vettoriale di \field su \field, abbiamo che \dim_{\field} \field = 1. Se invece consideriamo \complexes su \reals, \dim_{\reals} \complexes = 2, infatti la sua base \`e B = \{ 1, i \}.
+
+Considerando le matrici m \times n, (\matrices_{m \times n}( \reals), +, \cdot), la sua dimensione \`e \dim \matrices_{m \times n} (\reals) = m \times n. La sua base \`e B = \{ E_{i,j} : (i,j) \in [m] \times [n] \}, dove la matrice generica 
+
+E_{i,j} = (e_{h,k}) = 
+\begin{cases}
+1 se (h,k) = (i,j)
+0 altrimenti
+\end{cases}
+
+I polinomi di grado minore o uguale a n, ossia (\reals_n [x], +, \cdot), hanno dimensione \dim \reals_n[x] = (n+1).
+
+Tutte le basi viste fino ad ora si chiamano \textbf{basi canoniche}.
+\end{exmp}
+
+\subsection{Caratterizzazione delle basi}
+
+Le seguenti proposizioni sono equivalenti:
+\begin{enumerate}
+    \item B \`e una base di V, ossia \pow{B} = V e B \`e indipendente
+    \item B \`e un sistema di generazione minimale, ossia preso S \subsetneqq B \implies \pow{S} \neq \pow{B} = V
+    \item B \`e un insieme indipendente massimale, ossia dato S \supsetneqq B \implies S \`e dipendente, ossia non posso trovare un insieme pi\`u grande di B che sia indipendente
+\end{enumerate}
+
+\begin{proof}
+Dimostriamo che 1 implica 2.
+
+La tesi \`e che B \`e minimale. Prendiamo un S \subsetneqq B \implies \exists w \in B tale che w \notin S. Abbiamo quindi che:
+
+\pow{S} \subseteq \pow{B \setminus \{w\}} \subsetneqq \pow{B} = V
+
+Segue quindi che \pow{S} \neq V. B \`e un sistema di generatori minimale (ossia ha il minimo numero di elementi).
+
+Dimostriamo che 2 implica 3.
+
+Partendo dal fatto che B \`e un sistema di generatori minimale, dobbiamo dimostrare che B \`e un insieme indipendente massimale. B \`e indipendente, perch\'e \forall w \in B, \pow{B \setminus \{ w \}} \neq V essendo B un sistema di generatori minimale.
+
+Dobbiamo far vedere ora che dato un S \supsetneqq B \implies S \`e dipendente. Infatti \exists w \in S tale che w \notin B. Quindi \pow{B} \subseteq \pow{S \setminus \{w\}} \subseteq \pow{S} = V. S \`e dipendente.
+
+Dimostriamo che 3 implica 1.
+
+La tesi \`e che \pow{B} = V. Prendiamo un vettore qualunque v \in V tale che v \notin B. B \cup \{ v \} \`e dipendente, quindi esiste una combinazione lineare non banale di vettori di B \cup \{ v \} che d\`a il vettore nullo. In particolare, questa combinazione lineare ha il coefficiente di v diverso da 0. Quindi v si pu\`o scrivere come combinazione lineare di vettori di B.
+
+a_1 v + a_2 v_2 + \dots + a_n v_n = \nullelement \implies
+v = - \frac{a_2 v_2 + \dots + a_n v_n}{a_1}
+\end{proof}
+
+\begin{prop}
+Consideriamo lo spazio vettoriale (V, +, \cdot) su \field. B \`e una base se e solo se ogni vettore di V si esprime in un solo modo come combinazione lineare di vettori di B.
+\end{prop}
+\begin{proof}
+Vediamo che \`e condizione necessaria. L'ipotesi \`e che B \`e una base. Supponiamo per assurdo che un vettore v \in V si possa esprimere in due modi come combinazione lineare di elementi e_i \in B:
+
+v = a_1 e_1 + \dots + a_n e_n = b_1 e_1 + \dots + b_n e_n \implies
+\nullelement = (a_1 - b_1) e_1 + \dots + (a_n - b_n) e_n
+
+Essendo B indipendente, abbiamo che l'unica combinazione lineare che d\`a il vettore nullo \`e quella banale, quindi a_i = b_i \forall i.
+
+Dimostrare che \`e condizione sufficiente \`e molto pi\`u veloce. Sappiamo che ogni vettore di V si esprime in un solo modo come combinazione lineare di elementi di B. Quindi banalmente \pow{B} = V. Inoltre, il vettore nullo si esprime in un solo modo:
+
+\nullelement = 0 \cdot e_1 + \dots + 0 \cdot e_n
+\end{proof}
+
+\begin{oss}
+Sia (V, +, \cdot) uno spazio vettoriale sul campo \field di dimensione \dim_{\field} V = n.
+\begin{enumerate}
+    \item n vettori indipendenti sono una base
+    \item n generatori di V costituiscono una base
+    \item (n+1) vettori costituiscono sempre un insieme dipendente
+\end{enumerate}
+\end{oss}
+
+\begin{theorem}[Teorema del completamento]
+Uno spazio vettoriale (V, +, \cdot) sul campo \field di dimensione \dim_{\field} V = n e un insieme S indipendente. Segue che \abs{S} = t \le n. Esistono v_1 \dots v_h vettori di V tali che S \cup \{ v_1 \dots v_k \} \`e una base, con t + h = n.
+\end{theorem}
+\begin{proof}
+Se \pow{S} = V \implies t = n. Altrimenti, se \pow{S} \neq V, possiamo trovare un vettore v_1 \notin \pow{S} tale che S \cup \{ v_1 \} \`e indipendente. Si pu\`o ripetere il procedimento fino ad ottenere tutto V.
+
+Prendiamo una base B di V. Se \pow{S} \neq V = \pow{B}, allora \exists v_1 \in B tale che v_n \in \pow{S}.
+\end{proof}
+
+\begin{theorem}[Teorema dell'estrazione]
+Consideriamo un sottoinsieme G \subseteq V tale che \pow{G} = V, ossia G \`e un sistema di generatori di V. Possiamo trovare un sistema S \subseteq G con S = \{ v_1, \dots v_n \} tale che G \setminus S \`e una base di V.
+\end{theorem}
+\begin{proof}
+\pow{G} = V, ma G non \`e una base. Quindi \exists v_1 \in G tale che \pow{G \setminus \{v_1\}} = V, ossia G \setminus \{ v_1 \} \`e sempre un sistema di generatori di V. Si pu\`o ripetere il procedimento fino ad ottenere una base, ossia finch\'e G \setminus S \`e indipendente.
+
+Se \abs{G} = t, dobbiamo togliere h vettori con h = t - n e \dim V = n.
+
+Alternativamente, prendiamo un vettore v_1 \neq \nullelement. \{v_1\} \`e indipendente. Se \pow{v_1} \neq V = \pow{G}, allora \exists v_2 \in G tale che v_2 \notin \pow{v_1}. Si ripete il ragionamento fino a trovare la base.
+\end{proof}
+
+\begin{exmp}
+Nello spazio vettoriale \reals^3, prendiamo l'insieme G = \{ (1, 0, 2), (-1, 1, 0), (1, 1, 4), (0, 1, 1) \}. Il teorema dice che \exists S \subseteq G tale che G \setminus S \`e una base. La dimensione di \reals^3 \`e 3, quindi dobbiamo togliere un solo vettore.
+
+(1,0,2) \neq \underline. Quindi L'insieme \{ (1, 0, 2) \} \`e indipendente. (-1, 1, 0) \`e indipendente da (1, 0, 2), quindi anche l'insieme \{ (1, 0, 2), (-1, 1, 0)\} \`e indipendente. I vettori nell'insieme generato da questi due vettori sono tutti nella forma (a - b, b, 2a). Poniamo a = 2 e b = 1, e vediamo che il vettore (1, 1, 4) \`e nello spazio generato da questi due. L'altro vettore (0, 1, 1) non \`e generato dai due presi prima, quindi lo spazio S = \{ (1, 0, 2), (-1, 1, 0), (0, 1, 1)\} \`e una base.
+
+Consideriamo ora l'insieme S = \{ (2, 1, 1), (2, -1, 1) \}. Troviamo un vettore che aggiunto a S faccia una base. Lo spazio generato da S \`e:
+
+\pow{S} = \{ a (2, 1, 1) + b (2, -1, 1) : a, b \in \reals \} = \{ (2a + 2b, a - b, a + b) : a, b \in \reals \}
+
+Prima e terza coordinata sono ``dipendenti'', infatti 2a + 2b = 2 (a + b). Se fissiamo a = 1 e b = 1, ottenendo (4, 0, 2), e cambiamo la seconda coordinata (che non \`e dipendente dalle altre due), otteniamo una (4, 1, 2) che \`e nello spazio generato. L'equazione del nuovo vettore deve essere incompatibile.
+
+La  coordinata da cambiare quindi non va scelta a caso, ma fra quelle dipendenti (se ce ne sono). 
+\end{exmp}
+
 % SONO ARRIVATO QUI A SCRIVERE
 
 \section{Sistemi lineari}
