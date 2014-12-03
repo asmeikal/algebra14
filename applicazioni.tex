@@ -3,13 +3,906 @@
 \textit{Rappresentazione con matrici, diagonalizzazione.}
 \end{center}
 
-\section{Applicazione lineari: rappresentazione e diagonalizzazione}
+\section{Applicazione lineari}
 
-Un'applicazione lineare \`e un'applicazione fra due spazi vettoriali $L : V \to W$ ($V$ e $W$ spazi vettoriali in $\mathbb{R}$) che conserva le operazioni:
-
+\begin{defn}[Applicazione lineare]
+Le applicazioni lineari sono morfismi tra spazi vettoriali sullo stesso campo $\field$. Un'applicazione $L : V \to V'$ \`e lineare se conserva tutte le propriet\`a degli spazi vettoriali. Deve quindi conservare le operazioni:
 \begin{enumerate}
-    \item conserva la somma: $L (v + v') = L(v) + L(v')$. L'immagine della somma di due vettori \`e uguale alla somma delle immagini dei vettori.
-    \item conserva i prodotti scalari: $L(r \cdot v) = r \cdot L(v)$. L'immagine del prodotto di un vettore per uno scalare \`e uguale al prodotto delo scalare per l'immagine del vettore.
+    \item $L(v + w) = L(v) + L(w)$
+    \item $ \forall a \in \field$ e $\forall v \in V$, $L(a \cdot v) = a \cdot L(v)$
+\end{enumerate}
+Equivalentemente possiamo dire che:
+\[
+\forall a, b \in \field , \, \forall v, w \in V \, L(a \cdot v + b \cdot w) = a \cdot L(v) + b \cdot L(w)
+\]
+Conserva la linearit\`a: manda una combinazione lineare nella combinazione lineare delle immagini con gli stessi coefficienti.
+\end{defn}
+\begin{proof}
+Vediamolo da sinistra verso destra, $L(a \cdot v + b \cdot w) = L(a \cdot v) + L(b \cdot w) = a \cdot L(v) + b \cdot L(w)$, per le due propriet\`a delle applicazioni lineari.
+
+Viceversa, $L(a \cdot v + 0 \cdot w) = L(a \cdot v) = a \cdot L(v)$, e $L(1 \cdot v + 1 \cdot w) = 1 \cdot L(v) + 1 \cdot L(w) = L(v) + L(w)$.
+\end{proof}
+
+Un morfismo di strutture algebriche individua un nucleo e un'immagine. Un'applicazione lineare $L: V \to V'$ quindi individua due sottospazi:
+\begin{enumerate}
+    \item $\image{L} = \{ v' \in V' : \exists v \in V \text{ t.c. } L(v) = v' \} \le V'$
+    \item $\ker L = \{ v \in V : L(v) = \nullelement_{V'} \} \le V$
 \end{enumerate}
 
-\textbf{Esercizio:} Trovare un esempio di applicazione lineare in uno spazio vettoriale visto.
+\subsection{Teorema di omomorfismo per gli spazi vettoriali}
+
+\begin{theorem}
+Data un'applicazione lineare $L : (V, +, \cdot) \to (V', +, \cdot)$ sul campo $\field$, si ha che:
+\begin{enumerate}
+    \item $\ker L \le V$
+    \item $\image{L} \le V'$
+    \item $V / \ker L \cong \image{L}$, ossia i due insiemi sono isomorfi
+\end{enumerate}
+\end{theorem}
+Alcune propriet\`a delle applicazioni lineari:
+\begin{enumerate}
+    \item $L(\nullelement_V) = \nullelement_{V'}$
+    \item $L(-v) = - L(v)$
+    \item $L(a \cdot v + b \cdot w) = a \cdot L(v) + b \cdot L(w)$
+    \item $L^{-1} (v') = v + \ker L$, ossia tutti i vettori $v$ tali per cui $L(v) = v'$ si ottengono sommando $v$ con gli elementi del nucleo
+    \item\label{itm:morfismo_dipendenza} $L$ manda insiemi dipendenti in insiemi dipendenti. Ossia, dato $S \le V$, se \`e dipendente in $V$, $L(S)$ \`e dipendente in $V'$
+\end{enumerate}
+\begin{proof}[della propriet\`a \ref{itm:morfismo_dipendenza}]
+$S \le V$ \`e dipendente, ossia $\nullelement_V = a_1 \cdot s_1 + \dots + a_n \cdot s_n$ dove $s_i \in S$ e almeno un $a_i \neq 0$. Quindi:
+\[
+L(\nullelement_V) = L(a_1 \cdot s_1 + \dots + a_n \cdot s_n) = a_1 \cdot L(s_1) + \dots + a_n \cdot L(s_n) = \nullelement_{V'}
+\]
+Quindi anche $L(S)$ \`e dipendente.
+\end{proof}
+Prendendo un insieme indipendente, non sappiamo con certezza cosa succede, ma possiamo dire quanto segue:
+\begin{prop}
+Un'applicazione lineare iniettiva $L : V \to V'$, ossia tale che $\ker L = \{ \nullelement_{V} \}$, manda insiemi indipendenti in insiemi indipendenti, e viceversa un'applicazione che manda insiemi indipendenti in insiemi indipendenti \`e un'applicazione iniettiva.
+\end{prop}
+\begin{proof}
+Vediamo che \`e condizione necessaria. L'applicazione $L$ \`e iniettiva. Prendiamo $S$ indipendente, come tesi abbiamo che $L(S)$ \`e a sua volta indipendente. Prendiamo la combinazione lineare $\nullelement_V = a_1 \cdot s_1 + \dots + a_n \cdot s_n$, sappiamo che ogni $a_i = 0$, abbiamo che $L(\nullelement_V) = \nullelement_{V'} = L \left( a_1 \cdot s_1 + \dots + a_n \cdot s_n \right) = a_1 \cdot L(s_1) + \dots + a_n \cdot L(s_n)$, e tutti i coefficienti $a_i$ sono uguali a 0.
+
+Vediamo che \`e condizione sufficiente. Se $S$ \`e indipendente, la sua immagine $L(S)$ \`e indipendente. Se prendiamo $v \in \ker L$ e supponiamo per assurdo che $v \neq \nullelement_V$, ma che, essendo nel $\ker L$, $L(v) = \nullelement_{V'}$, abbiamo che l'immagine dello spazio indipendente $S = \{ v \}$ \`e $L(S) = \{ \nullelement_{V'} \}$ che non \`e indipendente. Quindi $v$ deve essere il vettore nullo.
+
+Possiamo anche vedere che $L(v) = L(w) \implies v = w$. Sempre sotto l'ipotesi che insiemi indipendenti vanno in insiemi indipendenti, $L(v - w) = \nullelement_{V'}$, quindi il vettore $v - w$ \`e nel $\ker L$. $v - w$ deve essere uguale al vettore nullo, e quindi $v$ deve  essere uguale a $w$, per lo stesso motivo di sopra.
+\end{proof}
+
+\begin{exmp}
+$L : \reals^3 \to \reals^2$, definita come $L(a,b,c) = (a+1, b+c)$ non \`e un'applicazione lineare. Infatti il vettore nullo $(0,0,0)$ va in $(1,0)$.
+
+$L: \reals^3 \to \reals^2$ definita come $L(a,b,c) = (a + b, a + c)$. Vediamo se \`e un'applicazione lineare.
+\begin{align*}
+L \left( (a,b,c) + (a',b',c') \right) = (a+b,a+c) + (a' + b', a' + c') = \\ = (a + a' + b + b', a + a' + c + c') = L \left( a + a', b + b', c + c' \right)
+\end{align*}
+Controlliamo se conserva anche il prodotto scalare. Prendiamo un $k \in \reals$.
+\[
+L \left( k \cdot (a,b,c) \right) = L \left( k \cdot a, k \cdot b, k \cdot c \right) = (k \cdot a + k \cdot b, k \cdot a + k \cdot c) = k \cdot (a + b, a + c) = k \cdot L(a, b, c)
+\]
+Quindi questa \`e un'applicazione lineare. Qual \`e il nucleo?
+\begin{align*}
+\ker L &= \{ (a,b,c) \in \reals^3 : L(a,b,c) = (a + b, a +c) = (0, 0)\} = \\
+&= \{ (a, b, c) \in \reals^3 : a + b = 0 \text{ e } a + c = 0 \} = \\ 
+&= \{ (a,b,c) \in \reals^3 : a = -b = -c \} = \\
+&= \{ (a, -a, -a) \in \reals^3 : a \in \reals \}
+\end{align*}
+Il nucleo ha dimensione 1. Il nucleo infatti \`e isomorfo a $\reals$, o equivalentemente \`e ottenuto da tutti i multipli di $(1, -1, -1)$. Quindi l'applicazione non \`e iniettiva.
+
+Come \`e fatta l'immagine?
+\[
+\image{L} = \{ (x, y) : L(a,b,c) = (x,y) \} = \reals^2
+\]
+Infatti posso prendere la terna $(0, x, y)$, ho che la sua immagine \`e $(x,y)$. Quindi l'immagine ha dimensione 2.
+
+Possiamo notare che $\dim R^3 = \dim \ker L + \dim \image{L}$. La dimensione del dominio \`e data dalla dimensione del nucleo pi\`u la dimensione dell'immagine.
+
+L'applicazione $L(a,b,c) = (a^2, b+c)$ non \`e lineare. Si vede subito, perch\'e c'\`e un quadrato che causa rogne.
+
+$a,b,c$ sono le coordinate del vettore rispetto alla base canonica $\{ (1, 0, 0), (0, 1, 0), (0, 0, 1) \}$. Per avere un'applicazione lineare, le coordinate dell'immagine devono essere date da equazioni lineari.
+
+Cambiamo dominio. $L : \matrices_2 (\reals) \to \reals^3$.
+\[
+L \left( 
+\begin{smallpmatrix}
+a & b \\
+c & d
+\end{smallpmatrix}
+\right) = ( a + 2b, d, a +d)
+\]
+Il suo nucleo \`e:
+\[
+\ker L = \{ 
+\begin{smallpmatrix}
+a & b \\
+c & d
+\end{smallpmatrix}
+: L \left(
+\begin{smallpmatrix}
+a & b \\
+c & d
+\end{smallpmatrix}
+\right) = (0, 0, 0) \}
+\]
+Ossia tutte le matrici tali che $a + 2b = 0$, $d = 0$, $a + d = 0$. Quindi $a, b, d$ sono tutti 0.
+\[
+\ker L = \left\{ 
+\begin{smallpmatrix}
+a & b \\
+c & d
+\end{smallpmatrix}
+: d = a = b = 0 \right\} = \left\{ 
+\begin{smallpmatrix}
+0 & 0 \\
+c & 0
+\end{smallpmatrix}
+: c \in \reals \right\}
+\]
+Il $\ker L$ ha dimensione 1, essendo ottenuto interamente da $\begin{smallpmatrix} 0 & 0 \\ 1 & 0 \end{smallpmatrix}$. Quindi l'immagine \`e tutto $\reals^3$, dovendo avere dimensione 3.
+
+Consideriamo l'applicazione $L( \begin{smallpmatrix} a & b \\ c & d \end{smallpmatrix} ) = (a + d, d, a +d)$, abbiamo che il nucleo \`e:
+\[
+\ker L = \left\{
+\begin{smallpmatrix}
+0 & b \\
+c & 0
+\end{smallpmatrix}
+: b, c \in \reals \right\}
+\]
+In questo caso il nucleo ha dimensione 2, e si pu\`o ottenere a partire dai vettori $\begin{smallpmatrix} 0 & 1 \\ 0 & 0 \end{smallpmatrix}$ e $\begin{smallpmatrix} 0 & 0 \\ 1 & 0 \end{smallpmatrix}$. Ora l'immagine ha dimensione 2. Come \`e fatta l'immagine?
+\[
+\image{L} = \{ (x, y, z) \in \reals^3 : x = a + d, y = d, z = a + d \} = 
+\{ (x, y, x) \in \reals^3 : x = a + d, y = d \}
+\]
+L'immagine \`e generata dai vettori $(1,0,1)$ e $(0,1,0)$.
+\end{exmp}
+\begin{prop}
+Dati $v_1', \ldots v_n'$ vettori di $V'$ e una base $B = \{ b_1, \dots b_n \}$ di $V$, esiste una sola applicazione lineare $L : V \to V'$ tale che $L(b_i) = v_i'$. Non sapppiamo niente sulle dimensioni di $V$ e di $V'$, ossia non sono necessariamente uguali.
+\end{prop}
+\begin{proof}
+Consideriamo il vettore $v = a_1 \cdot b_1 + \ldots + a_n \cdot v_n$. La sua immagine \`e:
+\[
+L(v) = L(a_1 \cdot b_1 + \ldots + a_n \cdot v_n) = a_1 \cdot v_1' + \ldots + a_n \cdot v_n'
+\]
+$L$ \`e l'applicazione lineare cercata, ed \`e unica. Sia $L'$ tale che $L'(b_i) = v_i'$, allora $L = L'$.
+\[
+L(V) = a_1 \cdot v_1' + \ldots + a_n \cdot v_n' = a_1 \cdot L'(b_1) + \ldots + a_n \cdot L'(b_n) =  L' (a_1 \cdot b_1 + \ldots + a_n \cdot b_n)
+\]
+Le applicazioni quindi sono uguali, perch\'e assumono gli stessi valori su ogni vettore.
+\end{proof}
+\subsection{Basi e applicazioni lineari}
+Per definire un'applicazione lineare basta fornire i valori che l'applicazione fornisce per la base. Consideriamo ad esempio $L : \matrices_2 (\reals) \to \reals^5$.
+\begin{gather*}
+\begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix}
+\to (2, 0, 0, 1, 0) \\
+\begin{pmatrix}
+0 & 1 \\
+0 & 0
+\end{pmatrix}
+\to (0, 0, 0, 0, 0) \\
+\begin{pmatrix}
+0 & 0 \\
+1 & 0
+\end{pmatrix}
+\to (1, 1, 1, 1, 1) \\
+\begin{pmatrix}
+0 & 0 \\
+0 & 1
+\end{pmatrix}
+\to (0, 1, 0, 1, 0)
+\end{gather*}
+Come si trova l'immagine di un vettore qualsiasi?
+\begin{align*}
+L \left(
+\begin{smallpmatrix}
+a & b \\
+c & d
+\end{smallpmatrix}
+\right) &= L \left( a \cdot 
+\begin{smallpmatrix}
+1 & 0 \\
+0 & 0
+\end{smallpmatrix}
++ b \cdot 
+\begin{smallpmatrix}
+0 & 1 \\
+0 & 0
+\end{smallpmatrix}
++ c \cdot 
+\begin{smallpmatrix}
+0 & 0 \\
+1 & 0
+\end{smallpmatrix}
++ d \cdot 
+\begin{smallpmatrix}
+0 & 0 \\
+0 & 1
+\end{smallpmatrix}
+\right) = \\
+&= a \cdot L \left(
+\begin{smallpmatrix}
+1 & 0 \\
+0 & 0
+\end{smallpmatrix}
+\right) + b \cdot L \left(
+\begin{smallpmatrix}
+0 & 1 \\
+0 & 0
+\end{smallpmatrix}
+\right) + c \cdot L \left(
+\begin{smallpmatrix}
+0 & 0 \\
+1 & 0
+\end{smallpmatrix}
+\right) + d \cdot L \left(
+\begin{smallpmatrix}
+0 & 0 \\
+0 & 1
+\end{smallpmatrix}
+\right) = \\
+&= a \cdot (2, 0, 0, 1, 0) + b \cdot (0, 0, 0, 0, 0) + c \cdot (1, 1, 1, 1, 1) + d \cdot (0, 1, 0, 1, 0) = \\
+&=(2a + c, c + d, c, a + c + d, c)
+\end{align*}
+\subsection{Isomorfismi fra spazi vettoriali}
+Un'applicazione lineare biunivoca si dice ``isomorfismo''. Gli spazi vettoriali si dicono isomorfi. Spazi vettoriali isomorfi hanno la stessa dimensione. Vuol dire che esiste un'applicazione lineare $L : V \to V'$ isomorfa fra i due spazi vettoriali, e che quindi ogni base di $V$ ha per immagine una base di $V'$.
+\begin{theorem}[Teorema di isomorfismo]
+$V$ \`e uno spazio vettoriale su $\field$ con $\dim V = n$, allora $V$ \`e isomorfo a $\field^n$, e viceversa, se $V$ \`e isomorfo a $\field^n$, allora $\dim V = n$.
+\end{theorem}
+\begin{proof}
+Per ipotesi, $V$ \`e uno spazio vettoriale su $\field$ di dimensione $\dim V = n$. Qual \`e l'isomorfismo con $\field^n$?
+\[
+L_B : \field^n \to V 
+\]
+Abbiamo tante applicazioni isomorfe $L_B$, a seconda della base $B$ di $V$ che fissiamo. Siccome $\dim V = n$, $\abs{B} = n$. Sia $B$ una base $\{ \seq{e}{1}{n} \}$:
+\[
+L_B (\seq{a}{1}{n}) = v = a_1 \cdot e_1 + \dots + a_n \cdot e_n
+\]
+$L_B$ associa ad ogni $n$-upla ($\seq{a}{1}{n}$) il vettore di coordinate $\seq{a}{1}{n}$ rispetto alla base $B$. Infatti:
+\begin{align*}
+L_B \left( (\seq{a}{1}{n}) + (\seq{b}{1}{n}) \right) = \\
+= L_B \left( a_1 + b_1, \ldots,  a_n + b_n \right) = \\
+= (a_1 + b_1) \cdot e_1 + \ldots + (a_n + b_n) \cdot e_n = \\
+= (a_1 \cdot e_1 + \ldots + a_n \cdot e_n) + (b_1 \cdot e_1 + \ldots + b_n \cdot e_n) = \\
+= L_B (\seq{a}{1}{n}) + L_B(\seq{b}{1}{n})
+\end{align*}
+Banalmente conserva anche il prodotto per uno scalare
+\[
+L_B(k \cdot (\seq{a}{1}{n})) = k \cdot L_B(\seq{a}{1}{n})
+\]
+$\ker L_B = \{ \nullelement \}$, poich\'e se $L_B(\seq{a}{1}{n}) = \nullelement$, allora $a_1 \cdot e_1 + \ldots + a_n \cdot e_n = \nullelement$, ma essendo $B$ una base l'unica combinazione lineare che d\`a il vettore nullo \`e quella banale, quindi $a_i = 0$.
+\end{proof}
+
+Un esempio tipico sono i vettori geometrici del piano. Ad un vettore nel piano corrisponde una coppia di punti, che non sono altro che le coordinate del vettore rispetto alla base $B = \{ i, j \}$ con $\abs{i} = 1$ e $\abs{j} = 1$.
+
+Possiamo studiare solo le $n$-uple di elementi di un campo $\field$ come spazi vettoriali, e da quelle passare a tutti gli altri spazi.
+
+Vediamo un'ultima propriet\`a delle applicazioni lineari. Sia $L : V \to V'$ un'applicazione lineare, e sia $\dim V = n$ (finito):
+\[
+\dim V = \dim \ker L + \dim \image{L}
+\]
+\begin{proof}
+\[
+\ker L 
+\begin{cases}
+= \{ \nullelement \} \implies L \text{ \`e iniettiva, e } \bar L : V \to \image{L} \text{ \`e suriettiva} \implies \dim V = \dim \image{L} \\
+\neq \{ \nullelement \}
+\end{cases}
+\]
+Nel secondo caso, $B_k = \{ \seq{u}{1}{t} \}$ \`e una base del $\ker L$, quindi $\dim \ker L = t \implies$ per il teorema del complemento esiste $H$ sottoinsieme di $V$, $H = \{ \seq{w}{t+1}{n} \}$ tale che $B_k \cup H$ \`e una base di $V \implies L(H)$ \`e una base di $\image{L}$, quindi $\dim \image{L} = n - t$.
+
+Bisogna dimostrare che $\pow{L(H)} = \image{L}$, e che $L(H)$ \`e indipendente.
+
+Prendiamo un vettore $v' \in \image{L} $ tale che $ L(v) = v'$. 
+\begin{align*}
+v' = L(v) &= L(a_1 \cdot u_1 + \ldots + a_t \cdot u_t + a_{t+1} \cdot w_{t+1} + \ldots + a_{n} \cdot w_{n}) = \\
+&= \underbrace{a_1 \cdot L(u_1) + \ldots + a_t \cdot L(u_t)}_{\nullelement} + a_{t+1} \cdot L(w_{t+1}) + \ldots + a_n \cdot L(w_n)
+\end{align*}
+Quindi qualsiasi elemento di $\image{L}$ si pu\`o scrivere come combinazione di vettori di $\pow{L(H)}$. Vediamo ora che \`e indipendente. Prendiamo una combinazione lineare che d\`a il vettore nullo, e mostriamo che \`e banale:
+\begin{align*}
+\nullelement &= a_{t+1} \cdot L(w_{t+1}) + \ldots + a_n \cdot L(w_n) = \tag{essendo $L$ lineare} \\ 
+&= L \left( a_{t+1} \cdot w_{t+1} + \ldots + a_n \cdot w_n \right)
+\end{align*}
+Quindi il vettore $v = a_{t+1} \cdot w_{t+1} + \ldots + a_n \cdot w_n \in \ker L$, quindi $v = b_1 \cdot u_1 + \dots b_t \cdot u_t$. Quindi, ancora, $\nullelement = a_{t+1} \cdot w_{t+1} + \ldots + a_n \cdot w_n - (b_1 \cdot u_1 + \ldots b_t \cdot u_t)$, ossia una combinazione lineare di vettori di $B_k \cup H$, che \`e una base di $V$, quindi tutti i coefficienti $a_i$ sono uguali a 0.
+\end{proof}
+
+\subsection{Analogia tra cardinalit\`a e dimensione}
+
+Sia $\Gamma$ un insieme di cardinalit\`a $\abs{\Gamma} = n$, e sia $V$ uno spazio vettoriale su $\field$ di dimensione $\dim V = n$. $(\parts(\Gamma), \subseteq)$ \`e un reticolo. Anche $(\subgroupset(V), \subseteq)$ \`e un reticolo. L'$\inf$ nel primo \`e l'intersezione, il $\sup$ \`e l'unione.
+
+Nel secondo caso l'$\inf$ di due sottospazio \`e $W \cap U = W \infop U$, mentre il $\sup$ \`e $W + U = W \supop U$.
+
+La cardinalit\`a di un sottoinsieme $A \subseteq \Gamma$ \`e $\abs{\emptyset} = 0 \le \abs{A} \le n = \abs{\Gamma}$.
+
+Negli spazi vettoriali, $\dim \{ \nullelement\} = 0 \le \dim W \le n = \dim V$.
+
+L'unico sottospazio di dimensione $n$ \`e lo spazio stesso.
+
+Un'applicazione qualunque, ossia un morfismo di insiemi, abbiamo la stessa analogia con gli spazi vettoriali. Consideriamo un altro insieme $\Gamma'$ con cardinalit\`a $\abs{\Gamma} = \abs{\Gamma'}$. Consideriamo l'applicazione $f : \Gamma \to \Gamma'$. In questo caso $f$ \`e iniettiva $\iff f$ \`e suriettiva. Stessa cosa vale con le applicazioni lineari fra spazi vettoriali con la stessa dimensione, ossia $L : V \to V'$ con $\dim V = \dim V'$. $L$ \`e iniettiva $\iff L$ \`e suriettiva, per la formula vista prima. 
+
+Nel primo caso $\dim V = \dim \ker L + \dim \image{L}$, essendo iniettiva $\dim \ker L = 0$, quindi $\dim \image{L} = \dim V = \dim V'$. Viceversa, se \`e suriettiva $\dim \image{L} = \dim V' = n$, quindi $\dim \ker L$ necessariamente \`e 0.
+
+Se $\abs{\Gamma'} > \abs{\Gamma}$, non esistono funzioni suriettive, e al contrario se $\abs{\Gamma'} < \abs{\Gamma}$ non esistono funzioni iniettive. Vale lo stesso con gli spazi vettoriali: se $\dim V < \dim V'$, non esistono applicazioni lineari iniettive $L : V \to V'$, e se invece $\dim V > \dim V'$ non esistono applicazioni lineari suriettive $L : V \to V'$.
+
+Nel primo caso $n = \dim V < \dim \ker L + \dim \image{L}$, con $\dim \image{L} = m > n$. La dimensione \`e sempre un numero positivo. Nel secondo caso:
+\[
+n = \dim V > \underbrace{\dim \ker L}_{0} + \dim \image{L}, \text{ con } \dim \image{L} = m < n
+\]
+La cardinalit\`a del $\sup$ di due insiemi \`e $\abs{A \cup B} = \abs{A} + \abs{B} - \abs{A \cap B}$, che vista dal punto di vista del reticolo \`e $\abs{A \supop B} = \abs{A} + \abs{B} - \abs{A \infop B}$. Negli spazi vettoriali, invece vediamo che:
+\[
+\dim (W + U) = \dim U + \dim W - \dim (U \cap W)
+\]
+Questa sopra \`e detta formula di Grassmann.
+
+L'applicazione che a un sottoinsieme $A$ di $\Gamma$ associa la sua cardinalit\`a, $A \mapsto \abs{A}$, \`e un'applicazione $\parts(\Gamma) \to \naturals$, \`e analoga all'applicazione che a un sottospazio $W$ di $V$ associa la sua dimensione, $W \mapsto \dim W$, ossia $\subgroupset(V) \to \naturals$.
+
+Nell'insieme delle parti, l'applicazione conta il numero di elementi massimale che va da $\emptyset$ a $A$ diminuito di $1$, ossia parte dall'insieme vuoto e aggiunge un elemento:
+\[
+\emptyset \subset \{ 1 \} \subset \{ 1, 2 \} \subset \{ 1, 2, 3 \} \subset A
+\]
+Con $A = \{ 1, 2, 3, 4 \}$.
+
+Allo stesso modo si pu\`o costruire una catena massimale che aggiunge un vettore alla volta fino ad ottenere la base di un sottospazio.
+\[
+\{ \nullelement \} \subset \{ e_1 \} \subset \dots \subset \dim W
+\]
+Questi sono reticoli dotati di funzioni ``rango'', che vanno dal reticolo in $\naturals$, e che contano le catene. Ossia associano a ogni elemento del reticolo la cardinalit\`a della catena massimale diminuita di 1.
+
+\begin{proof}[della formula di Grassmann]
+\[
+\dim(U + W) = \dim U + \dim W - \dim (U \cap W)
+\]
+$U + W$ \`e definito come:
+\[
+U + W = \sum (U \cup W) = \{ v = u + w : u \in U, w \in W \}
+\]
+Se $U \cap W = \nullelement \implies (B_U \cup B_W)$ \`e una base di $U + W$.
+
+Altrimenti, se $U \cap W \neq \nullelement$, con $\dim U = h$ e $\dim W = k$, sia $B = \{ \seq{e}{1}{t} \}$ una base di $U \cap W$. Prendiamo una base di $U$, $B_U \supset B$, $B_U = \{ \seq{e}{1}{t} , \seq{u}{t+1}{h} \}$, e allo stesso modo prendiamo una base di $W$, $B_W \supset B$, $B_W = \{ \seq{e}{1}{t}, \seq{w}{t+1}{k} \}$. Come \`e la base della somma? Deve avere dimensione $h + k - t$. Dimostriamo quindi che $B_U \cup \{ \seq{w}{t+1}{k} \}$ \`e una base di $U + W$.
+
+Che sia un sistema di generatori \`e banale: ogni vettore di $U$ si scrive come combinazione lineare di vettori di $B_U$, e ogni vettore di $W$ si scrive come combinazione lineare di vettori di $B_U \cup \{ \seq{w}{t+1}{k} \}$, essendo gli elementi di $B$ contenuti in $B_U$.
+
+Vediamo che \`e proprio una base, quindi \`e indipendente.
+\[
+\nullelement = \underbrace{a_1 \cdot e_1 + \ldots + a_t \cdot e_t + a_{t+1} \cdot u_{t+1} + \ldots + a_h \cdot u_h}_{\in U} + \underbrace{b_{t+1} \cdot w_{t+1} + \ldots + b_k \cdot w_k}_{\in W}
+\]
+Quindi:
+\[
+v = a_1 \cdot e_1 + \ldots + a_t \cdot e_t + a_{t+1} \cdot u_{t+1} + \ldots a_h \cdot u_h = -(b_{t+1} \cdot w_{t+1} + \ldots + b_k \cdot w_k) \in U \cap W
+\]
+Appartenendo all'intersezione, possiamo scriverlo come combinazione lineare di elementi della base dell'intersezione:
+\[
+v = c_1 \cdot e_1 + \ldots + c_t \cdot e_t =  - (b_{t+1} \cdot w_{t+1} + \ldots + b_k \cdot w_k)
+\]
+Quindi:
+\[
+\nullelement = c_1 \cdot e_1 + \ldots + c_t \cdot e_t + b_{t+1} \cdot w_{t+1} + \ldots + b_k \cdot w_k
+\]
+Tutti i coeficienti quindi sono 0 e tutti i vettori sono indipendenti.
+\end{proof}
+
+\section{Rappresentazione di applicazioni lineari (con matrici)}
+Consideriamo la matrice seguente.
+\[
+A =
+\begin{pmatrix}
+1 & 0 & 2 & 1 \\
+1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 1
+\end{pmatrix}
+\in \matrices_{3,4} (\reals)
+\]
+La matrice $A$ individua un'applicazione lineare $L_A : \reals^4 \to \reals^3$.
+\[
+L_A \left(
+\begin{smallpmatrix}
+x \\
+y \\ 
+z \\
+t
+\end{smallpmatrix}
+\right) = A \times 
+\begin{pmatrix}
+x \\
+y \\ 
+z \\
+t
+\end{pmatrix}
+\]
+Per il prodotto fra matrici, $A_{3,4} \times X_{4,1} = B_{3,1}$.
+\[
+\begin{pmatrix}
+1 & 0 & 2 & 1 \\
+1 & 1 & 0 & 0 \\
+0 & 1 & 1 & 1
+\end{pmatrix}
+\times 
+\begin{pmatrix}
+x \\
+y \\ 
+z \\
+t
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 \cdot x + 0 \cdot y + 2 \cdot z + 1 \cdot t \\
+1 \cdot x + 1 \cdot y + 0 \cdot z + 0 \cdot t \\
+0 \cdot x + 1 \cdot y + 1 \cdot z + 1 \cdot t
+\end{pmatrix}
+\]
+Quindi, ad esempio:
+\[
+L \left(
+\begin{smallpmatrix}
+1 \\
+1 \\
+0 \\
+0
+\end{smallpmatrix}
+\right) = 
+\begin{pmatrix}
+1 \\
+2 \\
+1
+\end{pmatrix}
+\]
+Si vede subito che questa applicazione \`e un'applicazione lineare, per le propriet\`a del prodotto tra matrici.
+\begin{align*}
+L_A(X+Y) = A \times (X + Y) = A \times X + A \times Y \\
+L_A(k \cdot X) = A \times (k \cdot X) = k \cdot A \times X = k \cdot L_A (X)
+\end{align*}
+Dove vanno a finire i vettori della base canonica?
+\begin{align*}
+L_A \left(
+\begin{smallpmatrix}
+1 \\ 0 \\ 0 \\ 0
+\end{smallpmatrix}
+\right) &= 
+\begin{pmatrix}
+1 \\ 1 \\ 0
+\end{pmatrix} = A^1 \tag{la prima colonna di $A$} \\
+L_A \left(
+\begin{smallpmatrix}
+0 \\ 1 \\ 0 \\ 0
+\end{smallpmatrix}
+\right) &= 
+\begin{pmatrix}
+0 \\ 1 \\ 1
+\end{pmatrix} = A^2 \tag{la seconda colonna di $A$} \\
+L_A \left(
+\begin{smallpmatrix}
+0 \\ 0 \\ 1 \\ 0
+\end{smallpmatrix}
+\right) &= 
+\begin{pmatrix}
+2 \\ 0 \\ 1
+\end{pmatrix} = A^3 \tag{la terza colonna di $A$} \\
+L_A \left(
+\begin{smallpmatrix}
+0 \\ 0 \\ 0 \\ 1
+\end{smallpmatrix}
+\right) &= 
+\begin{pmatrix}
+1 \\ 0 \\ 1
+\end{pmatrix} = A^4 \tag{la quarta colonna di $A$}
+\end{align*}
+In generale $L_A (e_n) = A^n$, ossia l'$n$-esimo vettore della base canonica mi d\`a la colonna $n$-esima. Quindi:
+\[
+L_A(X) = A \times X = A^1 \cdot x + A^2 \cdot y + A^3 \cdot z + A^4 \cdot t
+\]
+Se in generale moltiplico per una matrice colonna con $n$ elementi ($\seq{x}{1}{n}$):
+\[
+L_A(X) = A \times X = A^1 \cdot x_1 + \dots + A^n \cdot x_n
+\]
+Funziona anche al contrario, ossia \`e possibile passare da un'applicazione lineare ad una matrice. Consideriamo la seguente applicazione lineare $L : \reals^3 \to \reals^2$:
+\[
+L \left(
+\begin{smallpmatrix}
+x \\ y \\ z
+\end{smallpmatrix}
+\right) = 
+\begin{pmatrix}
+2x+y \\ z
+\end{pmatrix}
+\]
+Quest'applicazione \`e un'applicazione $L_A$ individuata da una matrice:
+\[
+A = 
+\begin{pmatrix}
+2 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\]
+Le colonne sono i valori che la matrice assume nei vettori della base canonica.
+\begin{align*}
+L \left(
+\begin{smallpmatrix}
+1 \\ 0 \\ 0
+\end{smallpmatrix}
+\right) = 
+\begin{pmatrix}
+2 \\ 0
+\end{pmatrix} \\
+L \left(
+\begin{smallpmatrix}
+0 \\ 1 \\ 0
+\end{smallpmatrix}
+\right) = 
+\begin{pmatrix}
+1 \\ 0
+\end{pmatrix} \\
+L \left(
+\begin{smallpmatrix}
+0 \\ 0 \\ 1
+\end{smallpmatrix}
+\right) = 
+\begin{pmatrix}
+0 \\ 1
+\end{pmatrix}
+\end{align*}
+Quindi ogni matrice $A_{m \times n} \in \matrices_{m \times n} (\field)$ individua un'applicazione lineare $L_A : \field^n \to \field^m$, definita come:
+\[
+X = 
+\begin{pmatrix}
+x_1 \\ \vdots \\ x_n
+\end{pmatrix}
+\qquad
+L_A (X) = A \times X = A^1 \cdot x_1 + \ldots + A^n \cdot x_n
+\]
+E viceversa ogni applicazione lineare $L : \field^n \to \field^m$ individua una matrice $A$ in cui l'$i$-esima colonna $A^i = L(e_i)$, con $e_i$ l'$i$-esimo elemento della base canonica di $\field^n$.
+
+Una matrice $A_{m \times n}$ individua $m$ righe $A_1 \dots A_m$, e ciascuna riga \`e un elemento di $\field^n$. Identicamente ciascuna delle $n$ colonne $A^1 \dots A^n$ \`e un elemento di $\field^m$.
+
+Lo spazio generato dalle colonne, $\pow{A^1 \dots A^n}$ \`e un sottospazio di $\field^m$, mentre lo spazio generato dalle righe $\pow{A_1 \dots A_m}$ \`e un sottospazio di $\field^n$.
+
+Lo spazio generato dalle colonne della matrice \`e l'immagine dell'applicazione $L_A$.
+\[
+\pow{A^1 \dots A^n} = \image{L_A}
+\]
+Si pu\`o prendere anche una base qualunque $B$, non obbligatoriamente una base canonica.
+
+Riprendiamo l'applicazione $L : \reals^3 \to \reals^2$ di prima.
+\[
+L \left(
+\begin{smallpmatrix}
+x \\ y \\ z
+\end{smallpmatrix}
+\right) = 
+\begin{pmatrix}
+2x+y \\ z
+\end{pmatrix}
+\]
+La matrice associata alla base canonica \`e:
+\[
+A = 
+\begin{pmatrix}
+2 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\]
+Possiamo associarci un'altra matrice cambiando base. Ad esempio, prendiamo la base di $\reals^3$ $B = \{ (1,1,0), (0,0,1), (0,1,1) \}$. Possiamo calcolare $L$ nei vettori della base, e ottenere una nuova matrice:
+\begin{align*}
+L \left(
+\begin{smallpmatrix}
+1 \\ 1 \\ 0
+\end{smallpmatrix}
+\right) = 
+\begin{pmatrix}
+3 \\ 0
+\end{pmatrix} \\
+L \left(
+\begin{smallpmatrix}
+0 \\ 0 \\ 1
+\end{smallpmatrix}
+\right) = 
+\begin{pmatrix}
+0 \\ 1
+\end{pmatrix} \\
+L \left(
+\begin{smallpmatrix}
+0 \\ 1 \\ 1
+\end{smallpmatrix}
+\right) = 
+\begin{pmatrix}
+1 \\ 1
+\end{pmatrix}
+\end{align*}
+\[
+A_B = 
+\begin{pmatrix}
+3 & 0 & 1 \\
+0 & 1 & 1
+\end{pmatrix}
+\]
+\begin{prop}
+Data una base $B$ di $V$, con $\dim B = n$, ossia $B = \{ \seq{e}{1}{n} \}$, e un altro spazio vettoriale $V'$, e $n$ vettori $\seq{v'}{1}{n} \in V'$, esiste una sola applicazione lineare $L : V \to V'$ tale che $L(e_i) = v_i'$.
+\end{prop}
+
+\begin{exmp}
+Consideriamo gli spazi vettoriali $V = \reals_3[x]$ e $V' = \matrices_2 (\reals)$, e la base canonica $B_c = \{ 1, x, x^2, x^3 \}$ di $V$. L'applicazione \`e definita come:
+\begin{gather*}
+L(1) = 
+\begin{smallpmatrix}
+1 & 1 \\ 0 & 0
+\end{smallpmatrix} \\
+L(x) = 
+\begin{smallpmatrix}
+0 & 0 \\ 1 & 1
+\end{smallpmatrix} \\
+L(x^2) = 
+\begin{smallpmatrix}
+0 & 0 \\ 0 & 0
+\end{smallpmatrix} \\
+L(X^3) = 
+\begin{smallpmatrix}
+1 & 1 \\ 1 & 1
+\end{smallpmatrix}
+\end{gather*}
+L'immagine di un generico polinomio $p(x)$ \`e:
+\begin{align*}
+L(p(x)) &= L(a_0 + a_1 \cdot x + a_2 \cdot x^2 + a_3 \cdot x^3) = \\
+&= a_0 \cdot L(1) + a_1 \cdot L(x) + a_2 \cdot L(x^2) + a_3 \cdot L(x^3) = \\
+&= a_0 \cdot 
+\begin{smallpmatrix}
+1 & 1 \\ 0 & 0
+\end{smallpmatrix}
++ a_1 \cdot 
+\begin{smallpmatrix}
+0 & 0 \\ 1 & 1
+\end{smallpmatrix}
++ a_2 \cdot 
+\begin{smallpmatrix}
+0 & 0 \\ 0 & 0
+\end{smallpmatrix} 
++ a^3 \cdot 
+\begin{smallpmatrix}
+1 & 1 \\ 1 & 1
+\end{smallpmatrix} = \\
+&=
+\begin{pmatrix}
+a_0+a_3 & a_0+a_3 \\
+a_1+a_3 & a_1+a_3
+\end{pmatrix}
+\end{align*}
+Cambiamo base. Possiamo prendere un'altra base semplicemente cambiando l'ordine, ossia considerare $B = \{ x, x^3, 1, x^2 \}$. Le coordinate di un generico vettore rispetto alla base canonica sono $(a_0, a_1, a_2, a_3)$. Rispetto alla nuova base, le coordinate sono $(a_1, a_3, a_0, a_2)$. L'applicazione \`e identica, ma stavolta va scritta come:
+\[
+L(a_1, a_3, a_0, a_2) = a_1 \cdot L(x) + a_3 \cdot L(x^3) + a_0 \cdot L(1) + a_2 \cdot L(x^2)
+\]
+\end{exmp}
+Le basi sono insiemi ordinati. Alle $n$ coordinate $(\seq{x}{1}{n})$ devo sapere quale elemento della base associare.
+
+Ad una matrice $A_{m \times n} \in \matrices_{m \times n} ( \field )$, con in genere $\field = \reals$, possiamo associare un'applicazione lineare $L_A : \field^n \to \field^m$ tale che:
+\[
+L_A(X) = A_{m \times n} \times X_{n \times 1} = B_{m \times 1} \in \field^n \text{ con } X = 
+\begin{pmatrix}
+x_1 \\ \vdots \\ x_n
+\end{pmatrix}
+\]
+$L_A$ \`e lineare per le propriet\`a del prodotto tra matrici.
+
+Abbiamo visto che:
+\[
+L_A(X) = A \times X = A^1 \cdot x_1 + \ldots + A^n \cdot x_n
+\]
+Data una base canonica $B_c = \{ e_1, \ldots, e_n \}$, l'immagine dell'$i$-esimo elemento $L(e_i) = A^i$ \`e l'$i$-esima colonna.
+
+Viceversa data un'applicazione lineare $L : \field^n \to \field^m$, esiste un'unica matrice $A$ tale che $L = L_A$, ed \`e l'unica matrice le cui colonne sono le coordinate delle immagini dei vettori della base canonica di $\field^n$.
+\[
+A^i = L(e_i)
+\]
+Vediamo come funziona su campi $\field$ qualsiasi. Consideriamo un'applicazione lineare $L : V \to V'$, e due basi $B$ e $B'$, rispettivamente di $V$ e di $V'$. $B = \{ \seq{e}{1}{n} \} \implies \dim V = n$, e $B' = \{ \seq{e'}{1}{m} \} \implies \dim V' = m$. L'immagine di un generico $v \in V$ \`e:
+\[
+L(v) = L(x_1 \cdot e_1 + \ldots + x_n \cdot e_n)
+\]
+$(\seq{x}{1}{n})$ \`e la $n$-upla delle coordinate rispetto a $B$. Il vettore $v$ si pu\`o anche scrivere come prodotto $B \times X$:
+\[
+v = 
+\begin{pmatrix}
+e_1 & \dots & e_n
+\end{pmatrix} 
+\times 
+\begin{pmatrix}
+x_1 \\ \vdots \\ x_n 
+\end{pmatrix}
+= x_1 \cdot e_1 + \ldots + x_n \cdot e_n
+\]
+Anche un vettore $v' \in V'$ si pu\`o scrivere come la sua base per le sue coordinate, ossia $v' = B' \times X'$.
+
+Le immagini degli elementi della base canonica saranno:
+\begin{align*}
+L(e_1) &= a_{1,1} \cdot {e'}_{1} + \ldots + a_{m,1} \cdot {e'}_{m} = B' \times A^1 \\
+\vdots & \\
+L(e_n) &= a_{1,n} \cdot {e'}_{1} + \ldots + a_{m,n} \cdot {e'}_{m} = B' \times A^n
+\end{align*}
+La matrice associata a $L$ \`e la matrice $A$ che ha per colonne le coordinate delle immagini dei vettori della base $B$ di $V$ rispetto alla base $B'$ di $V'$. Tornando all'esempio di prima:
+\begin{align*}
+L(v) &= x_1 \cdot L(e_1) + \ldots + x_n \cdot L(e_n) = \\
+&= x_1 \cdot B' \times A^1 + \ldots + x_n \cdot B' \times a^n = \\
+&= B' \times (x_1 \cdot A^1 + \ldots + x_n \cdot A^n) = \\
+&= B' \times A \times X = B' \times X' \tag{$A \times X = X'$}
+\end{align*}
+
+\begin{exmp}
+$V = \reals_2[x]$, $V' = \reals^4$. Come base di $\reals_2[x]$ prendiamo $B = \{ 1, 1-x, 1-x^2\}$, mentre come base di $V'$ prendiamo la base canonica. Troviamo la matrice $A$ associata ad un'applicazione lineare $L : V \to V'$ e alle basi $B$ e $B_c'$.
+\[
+A_{4 \times 3} = M_{B_c'}^{B} (L) = (A^1 A^2 A^3)
+\]
+Dove $A^1$ sono le coordinate di $L(1)$, $A^2$ sono le coordinate di $L(1 - x)$, e $A^3$ sono le coordinate di $L(1 - x^2)$.
+\begin{align*}
+L(1) &= (0, 1, 0, 0) \\
+L(1 - x) &= (0, 1, 0, -1) \\
+L(1 - x^2) &= (-1, 0, -1, -1)
+\end{align*}
+L'immagine di un polinomio generico rispetto alla base $B$ scelta \`e:
+\[
+L(a_0 + a_1 \cdot x + a_2 \cdot x^2) = (a_2, a_2 + a_0, a_2, a_2 + a_1)
+\]
+La matrice associata all'applicazione quindi \`e:
+\[
+A = 
+\begin{pmatrix}
+0 & 0 & -1 \\
+1 & 1 & 0 \\
+0 & 0 & -1 \\
+0 & -1 & -1
+\end{pmatrix}
+\]
+L'immagine di un generico vettore $p(x)$ \`e:
+\[
+L \left( p(x) \right) = B' \times A \times X
+\]
+$B'$ \`e la base di arrivo, $X$ sono le coordinate del vettore rispetto alla base di partenza, e $A$ \`e la matrice che esprime l'applicazione lineare. Bisogna esprimere il vettore $p(x)$ rispetto alla base scelta. Prendiamo il vettore $p(x) = 2 - 2x + x^2 = 1(1) + 2(1-x) - 1(1 - x^2)$. Le sue coordinate sono quindi:
+\[
+\begin{pmatrix}
+1 \\ 2 \\ -1
+\end{pmatrix}
+\]
+E la sua immagine \`e:
+\[
+L \left( 
+\begin{smallpmatrix}
+1 \\ 2 \\ -1
+\end{smallpmatrix}
+\right) =
+\begin{pmatrix}
+0 & 0 & -1 \\
+1 & 1 & 0 \\
+0 & 0 & -1 \\
+0 & -1 & -1
+\end{pmatrix}
+\times 
+\begin{pmatrix}
+1 \\ 2 \\ -1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 \\ 3 \\ 1 \\ -1
+\end{pmatrix}
+\]
+Proviamo a cambiare anche la base di $V'$. $B' = \{ (1,1,1,0), (1,1,0,0), (1,0,0,0), (0,0,0,1)\}$. Dobbiamo trovare la matrice associata a queste due basi, adesso.
+\[
+\bar A = M_{B'}^{B} (L)
+\]
+Sempre lo stesso discorso: le colonne della matrice sono le coordinate delle immagini dei vettori della base $B$ rispetto ai vettori della base $B'$. Sappiamo le immagini degli elementi di $B$ rispetto alla base canonica $B_c'$. Le immagini vanno ora espresse rispetto alla nuova base $B'$. Si vede a occhio che le immagini rispetto a $B'$ sono le seguenti:
+\begin{align*}
+L(1) &= (0,1,0,0) = B' \times 
+\begin{smallpmatrix}
+0 \\ 1 \\ -1 \\ 0 
+\end{smallpmatrix} \\
+L(1 - x) &= (0, 1, 0, -1) = B' \times 
+\begin{smallpmatrix}
+0 \\ 1 \\ -1 \\ -1 
+\end{smallpmatrix}\\
+L(1 - x^2) &= (-1, 0, -1, -1) = B' \times 
+\begin{smallpmatrix}
+-1 \\ 1 \\ -1 \\ -1
+\end{smallpmatrix}
+\end{align*}
+Quindi:
+\[
+\bar A = 
+\begin{pmatrix}
+0 & 0 & -1 \\
+1 & 1 & 1 \\
+-1 & -1 & -1 \\
+0 & -1 & -1
+\end{pmatrix}
+\]
+Riprendiamo il polinomio $p(x) = 2 - 2x + x^2 = 1(1) + 2(1-x) - 1(1 - x^2)$ e troviamo il suo trasformato. Le sue coordinate per la matrice $\bar A$ mi danno le coordinate del suo trasformato \emph{rispetto alla nuova base di $V'$}, non rispetto alla base canonica di $V'$.
+\[
+\bar A \times 
+\begin{pmatrix}
+1 \\ 2 \\ -1 
+\end{pmatrix}
+= 
+\begin{pmatrix}
+1 \\ 2 \\ -2 \\ -1
+\end{pmatrix}
+\]
+Quindi l'immagine del nostro $p(x)$ \`e:
+\[
+L(p(x)) = 1 \cdot (1,1,1,0) + 2 \cdot (1,1,0,0) - 2 \cdot (1,0,0,0) + 1 \cdot (0,0,0,1) =
+(1, 3, 1, -1)
+\]
+Che \`e l'immagine di prima.
+\end{exmp}
+
+\subsection{Spazio vettoriale delle applicazioni lineari}
+
+Indichiamo con $\hom(V, V')$ lo spazio vettoriale delle applicazioni lineari da $V$ in $V'$, descriviamo un'applicazione $\varphi_{B'}^{B} : \hom(V, V') \to \matrices_{m \times n} (\field)$ dallo spazio vettoriale delle applicazioni lineari allo spazio vettoriale delle matrici:
+\[
+{L : V \to V'} \mapsto {\varphi_{B'}^{B} (L) = M_{B'}^{B}}
+\]
+La dimensione $\dim \hom(V,V')$ \`e $m \times n$, dove le dimensioni degli spazi sono $\dim V = n$ e $\dim V' = m$.
+
+Invece di fare calcoli con le $n$-uple facciamo calcoli con le matrici.
+
+Il nucleo $\ker L$ \`e l'insieme dei vettori $v$ tali che $L(v) = \nullelement$, quindi:
+\[
+\ker L = \{ v = B \times X : A \times X = 0\}
+\]
+Dato un vettore $v' \in \image{L}$, per controllare se c'\`e abbiamo un $X'$ tale per cui $v' = B' \times X'$, dobbiamo solo controllare se $X'$ \`e uguale a $A \times X$.
+
+$\varphi$ \`e un isomorfismo. Il suo $\ker \varphi = \{ \nullelement \}$, e l'$\image{\varphi} = \matrices_{m \times n} (\field)$ \`e tutto lo spazio delle matrici.
+
+\section{Matrici a scala}
+
+\begin{defn}[Matrice a scala]
+Indichiamo con $p_{i,j}$ il primo elemento non nullo della $i$-esima riga della matrice, detto anche \emph{pivot}. Una matrice si dice ``a scala'' (per righe) se prendo due pivot $p_{i,j}$ e $p_{h,k}$ con $i < h \implies j < k$. Ossia, il numero di zeri in ogni riga aumenta di riga in riga.
+\end{defn}
+Data una matrice $A_{m \times n}$, le sue $m$ righe $\seq{A}{1}{m}$ si possono vedere come elementi di $\field^n$, e le sue $n$ colonne $A^1, \ldots, A^n$ si possono vedere come elementi di $\field^m$.
+
+Il rango per righe di $A$, $r_r(A)$ \`e la dimensione dello spazio generato dalle righe. Il rango per colonne $r_c(A)$ \`e la dimensione dello spazio generato dalle colonne.
+\begin{align*}
+r_r (A) &= \dim \pow{A_1, \ldots, A_m} \le \field^n \\
+r_c (A) &= \dim \pow{A^1, \ldots, A^n} \le \field^m \\
+\end{align*}
+Il rango per righe di una matrice a scala per righe \`e il numero di righe non nulle, perch\'e le righe non nulle di una matrice a scala per righe sono indipendenti, quindi costituiscono una base dello spazio generato.
+
+\begin{prop}
+Data una matrice $S$ a scala per righe, il rango per riga di $S$ \`e il numero di righe non zero, ossia le righe non zero di $S$ costituiscono un insieme indipendente. 
+\end{prop}
+\begin{proof}
+Supponiamo per assurdo che esista una combinazione lineare non banale delle righe non nulle di $S$ che d\`a il vettore nullo. Consideriamo il primo coefficiente diverso da zero, ossia un certo $x_i$. Tutti i coefficienti prima di $i$ sono a zero, e il coefficiente con $i$ \`e il pivot $p_{i,j}$ per $x_i$, quindi $x_i$ deve essere zero. Assurdo.
+\end{proof}
+
+Consideriamo un sistema $S \times X = B$. Il rango per righe $r_r (S)$ \`e sempre minore del rango per righe $r_r (S | B)$ della matrice completa del sistema. Se il rango per righe di una matrice \`e minore del rango per righe della matrice completa, il sistema non ha soluzione. Inoltre il sistema ha soluzione se la matrice dei termini noti appartiene allo spazio generato dalle colonne della matrice dei coefficienti. Ossia, il rango per colonne della matrice $S$ \`e uguale al rango per colonna della matrice completa $S | B$. Equivalentemente, $B$ appartiene all'immagine $\image{L_A}$.
+
+Per trovare le soluzioni, si parte dall'ultima riga non nulla.
+
+Il numero delle incognite meno il rango per righe dei coefficienti mi d\`a il numero di parametri da cui dipende la soluzione. 
+
+Un sistema a scala si dice che ha $\infty^{n - t}$ soluzioni, dove $t$ \`e il rango per riga della matrice, e $n$ \`e il numero di parametri. L'insieme delle soluzioni \`e in corrispondenza biunivoca con $\reals^{n - t}$.
+
+Le variabili che hanno per coefficiente i pivot si dicono legate, le altre si dicono libere. Un sistema con il rango per righe pari a $t$, ha $n - t$ variabili libere.
+
+In un sistema omogeneo $S \times X = 0$, le soluzioni sono il $\ker L_S$. Inoltre la dimensione $\ker L_S = n - t = r_r (S)$. Siccome il rango per colonne $r_c (S) = \dim \image{L_S}$, e sapendo che $L_S : \reals^n \to \reals^m$, sappiamo che $n = \dim \image{L_S} - \dim \ker L_S$. $n - r_r(S) = \dim \ker L_S$. Quindi in definitiva il rango per righe e il rango per colonne sono uguali, in una matrice a scala.
+\[
+S \times X = B 
+\begin{cases}
+L_S (X) = S \times X , L_S : \reals^n \to \reals^m \\
+B \in \image{L_S} \iff \text{ il sistema ha soluzioni } \iff r_c(S) = r_c(S | B) \\
+S \times X = 0 \iff \dim \ker L_S = n - r_r(S) \\
+X \in \ker L_S
+\end{cases}
+\]
+Il numero delle incognite $n = r_c (L_S) + \dim \ker L$, quindi $n = r_c(L_S) + n - r_r (S)$, quindi i due ranghi sono uguali.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

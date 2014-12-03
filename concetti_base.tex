@@ -56,9 +56,9 @@ Due funzioni sono uguali solo se coincidono come terne.
 
 Per definire una funzione bisogna definire l'insieme del Dominio, definire l'insieme del Codominio, e una relazione che gode della propriet\`a che ogni elemento del dominio ha una sola immagine.
 
-Sia $f : A \to B$ una funzione, $Im_f =$ immagine di $f$.
+Sia $f : A \to B$ una funzione, $\image{f} =$ immagine di $f$.
 \[
-Im_f = \left\{ b \in B : \exists a \in A \text{ t.c. } f(a) = b \right\}
+\image{f} = \left\{ b \in B : \exists a \in A \text{ t.c. } f(a) = b \right\}
 \]
 
 \[
@@ -82,7 +82,7 @@ Non \`e una funzione perch\'e lo zero ha due immagini.
 \subsection{Propriet\`a delle funzioni}
 
 \begin{description}
-\item[Suriettiva\label{itm:suriettiva}] Ogni elemento di $B$ \`e immagine di un elemento di $A$, ossia $Im_f = B$.
+\item[Suriettiva\label{itm:suriettiva}] Ogni elemento di $B$ \`e immagine di un elemento di $A$, ossia $\image{f} = B$.
 \item[Iniettiva\label{itm:inettiva}] Due elementi diversi di $A$ non hanno la stessa immagine.
 \end{description}
 
@@ -199,7 +199,7 @@ Se $\forall x, y \in P$ e si ha che $x \leq y \lor y \leq x$, $(P, \leq)$ si dic
 
 L'insieme dei numeri naturali $\naturals$ con la relazione d'ordine naturale $(\naturals, \leq)$ \`e totalmente ordinato. Ma possiamo prendere anche l'insieme dei numeri naturali con la relazione di divisibilit\`a $(\naturals, \divides)$, ossia $m \divides n \iff m \text{ divide } n \iff \exists k \in \naturals$ t.c. $n = k \ m$. Rispetto a questa relazione d'ordine, $\naturals$ non \`e totalmente ordinato.
 
-L'insieme delle parti di un insieme $\Gamma$ qualunque con la relazione ``\`e sottoinsieme di'' $\left(\mathbb{P}(\Gamma), \subseteq \right)$ \`e un insieme parzialmente ordinato. 
+L'insieme delle parti di un insieme $\Gamma$ qualunque con la relazione ``\`e sottoinsieme di'' $\left(\parts(\Gamma), \subseteq \right)$ \`e un insieme parzialmente ordinato. 
 
 Come si costruisce in modo naturale una relazione su un prodotto cartesiano? Ad esempio, prendo la relazione d'ordine naturale sui reali $(\reals, \leq)$ e $(\reals^2, \leq)$, ho $(a,b) \leq (c,d) \iff a \leq c \land b \leq d$.
 
@@ -250,7 +250,7 @@ Dato un insieme e una relazione di ordine parziale su di esso $(A, \leq)$, rappr
             (23) edge node {} (A)
             ;
 \end{tikzpicture}
-\caption{Diagramma di Hasse della relazione $(\mathbb{P}(A), \subseteq)$ sull'insieme $A = \{1, 2, 3\}$}
+\caption{Diagramma di Hasse della relazione $(\parts(A), \subseteq)$ sull'insieme $A = \{1, 2, 3\}$}
 \end{figure}
 
 \begin{figure}[ht]
@@ -512,7 +512,7 @@ $[a]$ si chiama ``classe di equivalenza rappresentata da $a$''.
 \begin{prop}[Insieme quoziente\label{insieme_quoziente}]
 Se considero l'insieme delle classi di equivalenza $A / \varepsilon$, chiamato ``insieme quoziente'', questo insieme \`e una partizione di $A$.
 \[
-A/\varepsilon = \left\{ [a] \subseteq \mathbb{P}(A) : [a] \text{ \`e una classe di equivalenza} \right\}
+A/\varepsilon = \left\{ [a] \subseteq \parts(A) : [a] \text{ \`e una classe di equivalenza} \right\}
 \]
 \end{prop}
 \begin{proof}[della proposizione \ref{insieme_quoziente}]
@@ -520,7 +520,7 @@ Bisogna dimostrare le tre propriet\`a specificate nella definizione \ref{partizi
 \begin{itemize}
   \item $[a] \neq \emptyset$ \`e vero perch\'e la relazione \`e riflessiva, ed $a$ \`e in relazione almeno con s\'e stesso.
   \item $[a] \cap [b] \neq \emptyset \implies [a] = [b]$. Supponiamo esista $z \in [a] \cap [b] \implies a \varepsilon z$ e $b \varepsilon z$. Essendo la relazione simmetrica e transitiva, $z \varepsilon b \implies a \varepsilon b$. Per la propriet\`a simmetrica, di nuovo, $b \varepsilon a$. Quindi $ \forall x \in [a] \implies a \varepsilon x $ e per transitivit\`a $ b \varepsilon x$.
-  \item $\forall a \in A \exists B \in \pi : a \in B$. Banalmente, ogni $\forall a \in A : a \in [a]$ con $[a] \in \mathbb{P}(A)$ per la propriet\`a riflessiva.
+  \item $\forall a \in A \exists B \in \pi : a \in B$. Banalmente, ogni $\forall a \in A : a \in [a]$ con $[a] \in \parts(A)$ per la propriet\`a riflessiva.
 \end{itemize}
 \end{proof}
 
@@ -645,13 +645,13 @@ Ogni funzione $f : A \to B$ si pu\`o esprimere come composta di una funzione sur
 \end{prop}
 
 \begin{proof}
-Considero la funzione $F : \ker f \to Im_f$, che ad un elemento del nucleo di $f$ associa l'immagine del rappresentante di quell'elemento, ossia $b = F([a]) = f(c) \forall c \in [a] = f(a)$.
+Considero la funzione $F : \ker f \to \image{f}$, che ad un elemento del nucleo di $f$ associa l'immagine del rappresentante di quell'elemento, ossia $b = F([a]) = f(c) \forall c \in [a] = f(a)$.
 
-La funzione $F$ viene poi composta con $i : Im_f \to B $, detta ``immersione''. Da wikipedia:
+La funzione $F$ viene poi composta con $i : \image{f} \to B $, detta ``immersione''. Da wikipedia:
 \begin{defn}[Immersione]
 Una struttura $A$  si dice immersa nella struttura $B$ se esiste una funzione iniettiva $f: A \to B$ tale che l'immagine $f(A)$ conserva tutte o parte delle strutture matematiche presenti in $A$, ereditandole da quelle di $B$. La funzione prende anch'essa il nome di \textit{immersione}.
 \end{defn} 
-In questo caso la funzione di immersione $i$ \`e la funzione identit\`a $ \forall b \in Im_f \ i(b) = b$, poich\'e $Im_f \subseteq B$.
+In questo caso la funzione di immersione $i$ \`e la funzione identit\`a $ \forall b \in \image{f} \ i(b) = b$, poich\'e $\image{f} \subseteq B$.
 
 La funzione identit\`a composta $F$, composta con la proiezione $p$ di $f$, d\`a proprio $f$.
 
@@ -661,7 +661,7 @@ La funzione identit\`a composta $F$, composta con la proiezione $p$ di $f$, d\`a
   \node (A) {$A$};
   \node (B) [right of=A, node distance=4cm] {$B$};
   \node (ker) [below of=A, node distance=4cm] {$\ker f$};
-  \node (Im) [right of=ker, node distance=4cm] {$Im_f$};
+  \node (Im) [right of=ker, node distance=4cm] {$\image{f}$};
   \path[->]  (A) edge [left] node {$p$} (ker)
             (A) edge [above] node {$f$} (B)
             (ker) edge [below] node {$F$} (Im)
@@ -699,17 +699,17 @@ Ad ogni classe devo associare la sua immagine, quindi a $[(x,y)]$ \`e associato 
 
 \subsection{Teorema di omomorfismo per gli insiemi}
 \begin{prop}[Corrispondenza biunivoca fra immagine e nucleo]
-Per ogni $f : A \to B$ si ha $\abs{Im_f} = \abs{\ker f}$, ossia esiste una biezione $F : \ker f \to Im_f$.
+Per ogni $f : A \to B$ si ha $\abs{\image{f}} = \abs{\ker f}$, ossia esiste una biezione $F : \ker f \to \image{f}$.
 \end{prop}
 \begin{proof}
 Per le definizioni di immagine di una funzione e nucleo di una funzione:
 \[
-Im_f = \{ b \in B : \exists a \in A \text{ t.c. } f(a) = b \}\subseteq B
+\image{f} = \{ b \in B : \exists a \in A \text{ t.c. } f(a) = b \}\subseteq B
 \]
 \[
 \ker f = \{ [a] : \forall x \in [a] \ f(x) = f(a) \}
 \]
-$ \forall $ classe di $ \ker f \ F([a]) = f(a) = F([b]) \implies [a] = [b]$ e $\forall b \in Im_f \ b = f(a) \implies F([a]) = b$. $F$ \`e una funzione suriettiva e iniettiva, quindi gli elementi del $\ker f$ sono tanti quanti gli elementi di $Im_f$.
+$ \forall $ classe di $ \ker f \ F([a]) = f(a) = F([b]) \implies [a] = [b]$ e $\forall b \in \image{f} \ b = f(a) \implies F([a]) = b$. $F$ \`e una funzione suriettiva e iniettiva, quindi gli elementi del $\ker f$ sono tanti quanti gli elementi di $\image{f}$.
 \end{proof}
 
 \begin{figure}[ht]
@@ -740,7 +740,7 @@ $ \forall $ classe di $ \ker f \ F([a]) = f(a) = F([b]) \implies [a] = [b]$ e $\
             (7) edge node {} (d)
             ;
 \end{tikzpicture}
-\caption{$\ker f = \{ [1], [2], [5]\}$, $Im_f = \{a, b, d\}$ }
+\caption{$\ker f = \{ [1], [2], [5]\}$, $\image{f} = \{a, b, d\}$ }
 \end{figure}
 
 \subsubsection{Partizioni come reticoli}
@@ -798,14 +798,14 @@ Quindi un morfismo va da un'insieme con una struttura ad un altro insieme con la
 f : (P_1, \le_{1}) \to (P_2, \le_{2})
 \]
 \begin{exmp}
-Dati $P_1 = P_2 = \mathbb{P}(\Gamma)$ e la relazione $(\mathbb{P}(\Gamma), \subseteq)$, definisco $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ come, fissato $A$ sottoinsieme finito di $\Gamma$, $\forall X \in \mathbb{P}(\Gamma) f(X) = A \cap X$.
+Dati $P_1 = P_2 = \parts(\Gamma)$ e la relazione $(\parts(\Gamma), \subseteq)$, definisco $f : \parts(\Gamma) \to \parts(\Gamma)$ come, fissato $A$ sottoinsieme finito di $\Gamma$, $\forall X \in \parts(\Gamma) f(X) = A \cap X$.
 
-$f$ \`e un morfismo $f : (\mathbb{P}(\Gamma), \subseteq) \to (\mathbb{P}(\Gamma), \subseteq)$ poich\'e $\forall X, Y \in \mathbb{P}(\Gamma) \ X \subseteq Y \implies f(X) \subseteq f(Y)$ visto che $X \cap A \subseteq Y \cap A$.
+$f$ \`e un morfismo $f : (\parts(\Gamma), \subseteq) \to (\parts(\Gamma), \subseteq)$ poich\'e $\forall X, Y \in \parts(\Gamma) \ X \subseteq Y \implies f(X) \subseteq f(Y)$ visto che $X \cap A \subseteq Y \cap A$.
 \end{exmp}
-Questa propriet\`a si chiama \textbf{isotonia} di $\subseteq$. Anche l'unione ha questa propriet\`a: $g : (\mathbb{P}(\Gamma), \subseteq) \to (\mathbb{P}(\Gamma), \subseteq)$ con $g(X) = A \cup X$
+Questa propriet\`a si chiama \textbf{isotonia} di $\subseteq$. Anche l'unione ha questa propriet\`a: $g : (\parts(\Gamma), \subseteq) \to (\parts(\Gamma), \subseteq)$ con $g(X) = A \cup X$
 
 \begin{exmp}
-Sia $\Gamma$ un insieme finito, definisco una funzione su $\mathbb{P}(\Gamma)$ e $(\naturals, \le)$ $f : \mathbb{P}(\Gamma) \to \naturals$ come $\forall X \in \mathbb{P}(\Gamma) \ f(X) = \abs{X}$. Anche questa \`e una funzione monotona.
+Sia $\Gamma$ un insieme finito, definisco una funzione su $\parts(\Gamma)$ e $(\naturals, \le)$ $f : \parts(\Gamma) \to \naturals$ come $\forall X \in \parts(\Gamma) \ f(X) = \abs{X}$. Anche questa \`e una funzione monotona.
 \end{exmp}
 
 \subsection{Morfismi di reticoli}
@@ -821,7 +821,7 @@ Dati due reticoli $(L_1, \le_1)$ e $(L_2, \le_2)$, un morfismo di reticoli \`e u
 \end{defn}
 
 \begin{exmp}
-Riprendendo l'esempio precedente, $P_1 = P_2 = \mathbb{P}(\Gamma)$ e la relazione $(\mathbb{P}(\Gamma), \subseteq)$, definisco $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ come, fissato $A$ sottoinsieme finito di $\Gamma$, $\forall X \in \mathbb{P}(\Gamma) \ f(X) = A \cap X$.
+Riprendendo l'esempio precedente, $P_1 = P_2 = \parts(\Gamma)$ e la relazione $(\parts(\Gamma), \subseteq)$, definisco $f : \parts(\Gamma) \to \parts(\Gamma)$ come, fissato $A$ sottoinsieme finito di $\Gamma$, $\forall X \in \parts(\Gamma) \ f(X) = A \cap X$.
 
 In questo reticolo, $\inf(X,Y) = X \cap Y$, quindi $f(\inf(X,Y)) = f(X \cap Y) = (X \cap Y) \cap A$. Per verificare \ref{itm:M1}, $(X \cap Y) \cap A = \inf(f(X,Y)) = \inf(X \cap A, Y \cap A) = (X \cap A) \cap (Y \cap A)$, vero per la propriet\`a commutativa, la propriet\`a associativa e l'idempotenza degli insiemi.
 \[
@@ -830,7 +830,7 @@ In questo reticolo, $\inf(X,Y) = X \cap Y$, quindi $f(\inf(X,Y)) = f(X \cap Y) =
 \end{exmp}
 
 \begin{exmp}\label{morfismo_no_reticoli}
-Sia $\Gamma$ un insieme finito, definisco una funzione su $\mathbb{P}(\Gamma)$ e $(\naturals, \le)$ $f : \mathbb{P}(\Gamma) \to \naturals$ come $\forall X \in \mathbb{P}(\Gamma) f(X) = \abs{X}$.
+Sia $\Gamma$ un insieme finito, definisco una funzione su $\parts(\Gamma)$ e $(\naturals, \le)$ $f : \parts(\Gamma) \to \naturals$ come $\forall X \in \parts(\Gamma) f(X) = \abs{X}$.
 
 Devo verificare \ref{itm:M1}, ossia che $f(\inf(X,Y)) = \inf(f(X),f(Y))$. $f(X \cap Y) = \abs{X \cap Y}$, mentre $\inf(f(X),f(Y)) = \inf(\abs{X},\abs{Y})$, ossia il minore fra i due numeri. Non \`e vero in generale, quindi questa funzione non \`e un morfismo di reticoli.
 \end{exmp}
@@ -848,7 +848,7 @@ Stessa dimostrazione vale per il $\sup$. Abbiamo dimostrato gi\`a che il contrar
 \subsection{Isomorfismi}
 Un isomorfismo \`e un morfismo biunivoco.
 
-Dato l'insieme delle parti di $\Gamma$, $(\mathbb{P}(\Gamma), \subseteq)$, e l'insieme $2 = \{ 0, 1 \}$, $2^{\Gamma}$ \`e l'insieme delle funzioni $\Gamma \to \{0,1\}$. Date due funzioni $f, g \in 2^{\Gamma}$, $f \le g \iff \forall x \in \Gamma $ ho che $ f(x) \le g(x)$ (come da  definizione \ref{ordine_funzioni}). 
+Dato l'insieme delle parti di $\Gamma$, $(\parts(\Gamma), \subseteq)$, e l'insieme $2 = \{ 0, 1 \}$, $2^{\Gamma}$ \`e l'insieme delle funzioni $\Gamma \to \{0,1\}$. Date due funzioni $f, g \in 2^{\Gamma}$, $f \le g \iff \forall x \in \Gamma $ ho che $ f(x) \le g(x)$ (come da  definizione \ref{ordine_funzioni}). 
 
 $(2^{\Gamma}, \le)$ \`e un reticolo. Infatti $\inf(f,g) : \Gamma \to 2$ \`e:
 \[
@@ -867,7 +867,7 @@ f(x) & \text{ altrimenti}
 \end{cases}
 \]
 
-Un esempio di isomorfismo \`e quindi $F : \mathbb{P}(\Gamma) \to 2^{\Gamma}$. Prendo un sottoinsieme $A \subseteq \Gamma$ (ossia un elemento $A \in \mathbb{P}(\Gamma)$) e definisco la ``funzione caratteristica di $A$'' che indicher\`o con $\varphi_{A} : \Gamma \to 2$ che dice se un elemento di $\Gamma$ \`e o non \`e in $\Gamma$, ossia:
+Un esempio di isomorfismo \`e quindi $F : \parts(\Gamma) \to 2^{\Gamma}$. Prendo un sottoinsieme $A \subseteq \Gamma$ (ossia un elemento $A \in \parts(\Gamma)$) e definisco la ``funzione caratteristica di $A$'' che indicher\`o con $\varphi_{A} : \Gamma \to 2$ che dice se un elemento di $\Gamma$ \`e o non \`e in $\Gamma$, ossia:
 \[
 \forall x \in \Gamma \ \varphi_A (x) = 
 \begin{cases}
@@ -877,13 +877,13 @@ Un esempio di isomorfismo \`e quindi $F : \mathbb{P}(\Gamma) \to 2^{\Gamma}$. Pr
 \]
 $F$ \`e biunivoca. Dimostriamo che \`e iniettiva e suriettiva.
 \begin{prop}
-Se $A, B \in \mathbb{P}(\Gamma)$ e $\varphi_A = \varphi_B \implies A = B$, ossia per doppia inclusione $A \le B$ e $B \le A$.
+Se $A, B \in \parts(\Gamma)$ e $\varphi_A = \varphi_B \implies A = B$, ossia per doppia inclusione $A \le B$ e $B \le A$.
 \end{prop}
 \begin{proof}
 Per definizione di funzione caratteristica, $\forall x \in A \implies \varphi_A(x) = 1 = \varphi_B(x) \implies x \in B$.
 \end{proof}
 \begin{prop}
-$\forall f \in 2^{\Gamma} \exists A \in \mathbb{P}(\Gamma)$ t.c. $\varphi_A = f$.
+$\forall f \in 2^{\Gamma} \exists A \in \parts(\Gamma)$ t.c. $\varphi_A = f$.
 \end{prop}
 \begin{proof}
 Prendo $\Gamma = \{ 1, 2, 3, 4, 5, 6, 7\}$, e rappresento $f$ dal punto di vista dell'occupazione.
@@ -1003,7 +1003,7 @@ $\naturals$ \`e l'insieme dei numeri naturali. Seguiamo la definizione di Peano.
 L'insieme dei numeri naturali \`e un insieme non vuoto tale che:
 \begin{description}
   \item[N1\label{itm:N1}] Esiste una funzione $\sigma : \naturals \to \naturals$ (una endofunzione) iniettiva detta ``successore'';
-  \item[N2\label{itm:N2}] Esiste un elemento di $\naturals$ chiamato ``zero'' ed indicato con 0 tale che $0 \notin Im_{\sigma}$, ossia che non \`e il successore di nessun numero naturale;
+  \item[N2\label{itm:N2}] Esiste un elemento di $\naturals$ chiamato ``zero'' ed indicato con 0 tale che $0 \notin \image{\sigma}$, ossia che non \`e il successore di nessun numero naturale;
   \item[N3\label{itm:N3}] Principio di induzione: se $U \subseteq \naturals$ tale che:
   \begin{itemize}
     \item $0 \in U$;
@@ -1014,10 +1014,10 @@ L'insieme dei numeri naturali \`e un insieme non vuoto tale che:
 \end{defn}
 Dire che un insieme \`e finito vuol dire che ogni iniezione sull'insieme \`e pure una suriezione. Quindi da \ref{itm:N1} e \ref{itm:N2} segue che $\naturals$ \`e infinito, poich\'e esiste una funzione iniettiva che non \`e suriettiva.
 \begin{prop}
-L'immagine di $\sigma$ \`e tutto $\naturals$ escluso lo 0. $Im_{\sigma} = \naturals \setminus \{ 0 \}$
+L'immagine di $\sigma$ \`e tutto $\naturals$ escluso lo 0. $\image{\sigma} = \naturals \setminus \{ 0 \}$
 \end{prop}
 \begin{proof}
-Sia $U = Im_{\sigma} \cup 0$. $U$ coincide con $\naturals$ per \ref{itm:N3}. Infatti:
+Sia $U = \image{\sigma} \cup 0$. $U$ coincide con $\naturals$ per \ref{itm:N3}. Infatti:
 \begin{itemize}
   \item $0 \in U$ per definizione di $U$;
   \item $\forall n \in U, \ \sigma(n) \in U$.
@@ -1072,10 +1072,10 @@ Ho un monoide $(M, \cdot)$. $\cdot : M \times M \to M $ associativa e con unit\`
 \end{defn}
 
 \begin{prop}
-$\forall n \in \naturals \setminus \{ 0 \}$, $0 \notin Im_{\sigma^n}$, ossia lo 0 non \`e nell'immagine di nessuna iterazione di $\sigma$, ossia comunque itero $\sigma$ non ottengo mai lo 0.
+$\forall n \in \naturals \setminus \{ 0 \}$, $0 \notin \image{\sigma^n}$, ossia lo 0 non \`e nell'immagine di nessuna iterazione di $\sigma$, ossia comunque itero $\sigma$ non ottengo mai lo 0.
 \end{prop}
 \begin{proof}
-Lo dimostriamo per assurdo. Supponiamo che $\exists n \in \naturals$ t.c. $0 \in Im_{\sigma^n} \implies \exists x \in \naturals$ t.c. $\sigma^n (x) = 0$. Poich\'e $n \neq 0 \implies n \in Im_{\sigma} = \naturals \setminus \{ 0 \} \implies n = \sigma(t)$. Quindi $0 = \sigma^n(x) = \sigma^{\sigma(t)}(x) = (\sigma \circ \sigma^t)(x) = \sigma(\sigma^t(x)) \implies 0 \in Im_{\sigma}$. Ho ottenuto l'assurdo con \ref{itm:N2}.
+Lo dimostriamo per assurdo. Supponiamo che $\exists n \in \naturals$ t.c. $0 \in \image{\sigma^n} \implies \exists x \in \naturals$ t.c. $\sigma^n (x) = 0$. Poich\'e $n \neq 0 \implies n \in \image{\sigma} = \naturals \setminus \{ 0 \} \implies n = \sigma(t)$. Quindi $0 = \sigma^n(x) = \sigma^{\sigma(t)}(x) = (\sigma \circ \sigma^t)(x) = \sigma(\sigma^t(x)) \implies 0 \in \image{\sigma}$. Ho ottenuto l'assurdo con \ref{itm:N2}.
 \end{proof}
 Attraverso le tre propriet\`a che definiscono $\naturals$ si possono ritrovare tutte le altre propriet\`a di $\naturals$. 
 
@@ -1338,7 +1338,7 @@ Dato $In(A,R)$, l'insieme delle funzioni iniettive da $A$ in $R$, se $\abs{A} = 
 In altre parole, il fattoriale decrescente $[r]_n$ corrisponde all'insieme delle funzioni iniettive da $A$ in $R$ $In(A,R)$.
 
 \[
-\abs{In(A,R)} = \abs{In (A- \{x\},R)} \cdot \abs{R - Im_f}
+\abs{In(A,R)} = \abs{In (A- \{x\},R)} \cdot \abs{R - \image{f}}
 \]
 
 \end{prop}
@@ -1353,16 +1353,16 @@ Se $\abs{A} = (n+1)$, sapendo che tutti gli elementi di $A$ sono distinti, prend
 
 Data una funzione $f : A \to R$, questa individua una coppia $(f(x), f^{-} : A \setminus \{ x \} \to R)$ dove $f^{-}$ \`e definita come $f$ ossia $f^{-} (a) = f(a)$.
 
-In quanti modi si pu\`o scegliere $f(x)$? In $\abs{R \setminus Im_{f^-}}$ modi (ossia, $r - n$). Le funzioni iniettive da $A \setminus \{ x \}$ in $R$ sono $[r]_n$ per definizione, quindi per il principio del prodotto il numero di coppie che posso creare sono $[r]_{n+1} = [r]_n \cdot (r - n)$.
+In quanti modi si pu\`o scegliere $f(x)$? In $\abs{R \setminus \image{f^-}}$ modi (ossia, $r - n$). Le funzioni iniettive da $A \setminus \{ x \}$ in $R$ sono $[r]_n$ per definizione, quindi per il principio del prodotto il numero di coppie che posso creare sono $[r]_{n+1} = [r]_n \cdot (r - n)$.
 \end{proof}
 
 \begin{prop}
-Sappiamo che $\abs{\mathbb{P}(A)} = \abs{2^A} = 2^n$ con $\abs{A} = n$. Quanti sono i sottoinsiemi pari di $A$, ossia $S \subseteq A $ t.c. $\abs{S} = 2k$?
+Sappiamo che $\abs{\parts(A)} = \abs{2^A} = 2^n$ con $\abs{A} = n$. Quanti sono i sottoinsiemi pari di $A$, ossia $S \subseteq A $ t.c. $\abs{S} = 2k$?
 
 Gli insiemi di cardinalit\`a pari sono tanti quanti quelli di cardinalit\`a dispari, quindi sono $2^{n-1}$.
 \end{prop}
 \begin{proof}
-So che $2^{n-1} = \abs{\mathbb{P}(A \setminus \{x\})}$, quindi l'insieme dei sottoinsiemi pari di $A$ \`e in biezione con l'insieme delle parti di $A$ a cui ho tolto un elemento. Indicando con $P$ l'insieme dei sottoinsiemi pari di $A$, ho una biezione $F : \mathbb{P}(A \setminus \{x\}) \to P$:
+So che $2^{n-1} = \abs{\parts(A \setminus \{x\})}$, quindi l'insieme dei sottoinsiemi pari di $A$ \`e in biezione con l'insieme delle parti di $A$ a cui ho tolto un elemento. Indicando con $P$ l'insieme dei sottoinsiemi pari di $A$, ho una biezione $F : \parts(A \setminus \{x\}) \to P$:
 \[
 F(S) = 
 \begin{cases}
@@ -1378,12 +1378,12 @@ Indichiamo con $\binom{n}{k}$ il numero di sottoinsiemi con $k$ elementi di un i
 \begin{equation}
 \binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}
 \end{equation}
-$\binom{n}{k}$ \`e il numero di sottoinsiemi con $k$ elementi, indicato con $\mathbb{P}_{k}(A)$. Lo divido in due sottoinsiemi disgiunti, con cardinalit\`a rispettivamente $\binom{n-1}{k}$ e $\binom{n-1}{k-1}$.
+$\binom{n}{k}$ \`e il numero di sottoinsiemi con $k$ elementi, indicato con $\parts_{k}(A)$. Lo divido in due sottoinsiemi disgiunti, con cardinalit\`a rispettivamente $\binom{n-1}{k}$ e $\binom{n-1}{k-1}$.
 
 Fissato un $x \in A$, $\binom{n-1}{k}$ \`e l'insieme di tutti i sottoinsiemi con $k$ elementi di $A \setminus \{ x \}$, $\binom{n-1}{k-1}$ \`e l'insieme di tutti i sottoinsiemi con $k - 1$ elementi di $A \setminus \{x \}$.
 \end{prop}
 \begin{proof}
-$\forall S \subseteq A$ con $\abs{S} = k$ e $x \in A$ ho due casi: $x \in S$ o $x \notin S$. Definisco la biezione $F : \mathbb{P}_k (A) \to \mathbb{P}_k (A \setminus \{ x \}) \cup \mathbb{P}_{k - 1} (A \setminus \{ x \})$ come:
+$\forall S \subseteq A$ con $\abs{S} = k$ e $x \in A$ ho due casi: $x \in S$ o $x \notin S$. Definisco la biezione $F : \parts_k (A) \to \parts_k (A \setminus \{ x \}) \cup \parts_{k - 1} (A \setminus \{ x \})$ come:
 \[
 F (S) =
 \begin{cases}
@@ -1391,7 +1391,7 @@ S \text{ se } x \notin S \\
 S \setminus \{ x \} \text{ se } x \in S
 \end{cases}
 \]
-Ho quindi che $\mathbb{P}_k (A) = X \cup Y$ con $X = \{ S \subseteq A : \abs{S} = k \land x \in S \}$ e $Y = \{ S \subseteq A : \abs{S} = k \land x \notin S\}$. Se tolgo $x$ da $A$, le cardinalit\`a dei due insiemi diventano $\abs{X} = \binom{n - 1}{k - 1}$ e $\abs{Y} = \binom{n - 1}{k}$.
+Ho quindi che $\parts_k (A) = X \cup Y$ con $X = \{ S \subseteq A : \abs{S} = k \land x \in S \}$ e $Y = \{ S \subseteq A : \abs{S} = k \land x \notin S\}$. Se tolgo $x$ da $A$, le cardinalit\`a dei due insiemi diventano $\abs{X} = \binom{n - 1}{k - 1}$ e $\abs{Y} = \binom{n - 1}{k}$.
 \end{proof}
 
 % TODO che vuol dire questo
@@ -1413,9 +1413,9 @@ $\binom{r}{n}$ \`e il numero di sottoinsiemi con $n$ elementi di un insieme con 
 \[
 E = \{ (S, ?) \text{ con } \abs{S} = n \land S \subseteq R \}
 \]
-Abbiamo visto che ogni funzione $f : A \to R$ individua un'insieme immagine $Im_f \subseteq R$ e una partizione $\ker f \in \Pi(A)$, e che questi due insiemi sono in corrispondenza biunivoca $\abs{Im_f} = \abs{\ker f}$.
+Abbiamo visto che ogni funzione $f : A \to R$ individua un'insieme immagine $\image{f} \subseteq R$ e una partizione $\ker f \in \Pi(A)$, e che questi due insiemi sono in corrispondenza biunivoca $\abs{\image{f}} = \abs{\ker f}$.
 
-Se prendo una funzione iniettiva, il nucleo della funzione \`e la partizione pi\`u piccola, avendo per elementi le classi rappresentate dai singoli elementi del dominio. Quante sono le iniezioni $In(A, S)$ con $S = Im_f$? $[n]_n = n!$
+Se prendo una funzione iniettiva, il nucleo della funzione \`e la partizione pi\`u piccola, avendo per elementi le classi rappresentate dai singoli elementi del dominio. Quante sono le iniezioni $In(A, S)$ con $S = \image{f}$? $[n]_n = n!$
 
 Quindi, $ E = \{ (S, \bar f : A \to S) $, con $ \abs{S} = n \land S \subseteq R $ e $\bar f : A \to S$ insieme delle biezioni da $A$ in $S$ $\}$
 \end{proof}
@@ -1681,7 +1681,7 @@ Quindi:
 
 % Qualunque funzione $f : A \to R$ individua una relazione di equivalenza, e quindi una partizione $\ker f$ chiamata ``nucleo di $f$''. Dati $x, y \in A$, ho che $x \ \varepsilon_f \ y \iff f(x) = f(y)$.
 
-% Sappiamo che nucleo e immagine di $f$ sono in corrispondenza biunivoca. $\abs{\ker f} = \abs{Im_f}$.
+% Sappiamo che nucleo e immagine di $f$ sono in corrispondenza biunivoca. $\abs{\ker f} = \abs{\image{f}}$.
 
 Se indico con $S(n, k)$ (numero di Stirling di II specie) il numero delle partizioni in $k$-blocchi \textit{non vuoti} di un insieme con $n$ elementi, indicando con $Sur(A, R)$ l'insieme delle funzioni suriettive da $A$ in $R$, posso esprimere il numero delle funzioni suriettive $\abs{Sur(A,R)} $ come $S(n,r) \cdot r!$, con $\abs{A} = n$ e $\abs{R} = r$.
 
@@ -1691,7 +1691,7 @@ Ora troviamo $\abs{Sur(A,R)}$ usando il principio di inclusione/esclusione.
 
 Possiamo trovare il numero delle funzioni suriettive dall'insieme di tutte le funzioni $R^A$ togliendo le funzioni non suriettive.
 
-Supponiamo per semplicit\`a che $R = \{ 1, \ldots , r\} = [r]$. $f$ non \`e suriettiva $\iff \exists i = 1, \ldots, r$ tale che $i \notin Im_f$. Se indico con $A_i = \{ f : A \to R : i \notin Im_f \}$, l'unione $A_1 \cup \ldots \cup A_r$ \`e l'insieme delle funzioni non suriettive.
+Supponiamo per semplicit\`a che $R = \{ 1, \ldots , r\} = [r]$. $f$ non \`e suriettiva $\iff \exists i = 1, \ldots, r$ tale che $i \notin \image{f}$. Se indico con $A_i = \{ f : A \to R : i \notin \image{f} \}$, l'unione $A_1 \cup \ldots \cup A_r$ \`e l'insieme delle funzioni non suriettive.
 \[
 Sur(A,R) = \abs{R^A} - \abs{A_1 \cup \dots \cup A_r}
 \]
@@ -1722,7 +1722,7 @@ Quindi il numero di Stirling di II specie \`e:
 S(n,r) = \frac{\abs{Sur(A,R)}}{r!} = \frac{1}{r!} \sum_{k = 0}^{n} (-1)^{k} \binom{r}{k} (r - k)^n
 \end{equation}
 
-Per il teorema di omomorfismo, data una funzione $f : A \to R$, ho che $\abs{\ker f} = \abs{Im_f}$. Consideriamo la funzione $F : \ker f \to Im_f$ che ad ogni blocco associa l'immagine degli elementi del dominio nel bocco ($F[x] = f(x)$), e definiamo la funzione $\bar F : \ker f \to R$ costruita a partire da $F$ tale che $\bar F [x] = f(x)$ in genere non \`e biunivoca, a meno che la funzione $f$ sia suriettiva. Di norma \`e solo iniettiva.
+Per il teorema di omomorfismo, data una funzione $f : A \to R$, ho che $\abs{\ker f} = \abs{\image{f}}$. Consideriamo la funzione $F : \ker f \to \image{f}$ che ad ogni blocco associa l'immagine degli elementi del dominio nel bocco ($F[x] = f(x)$), e definiamo la funzione $\bar F : \ker f \to R$ costruita a partire da $F$ tale che $\bar F [x] = f(x)$ in genere non \`e biunivoca, a meno che la funzione $f$ sia suriettiva. Di norma \`e solo iniettiva.
 
 Diciamo questo:
 \begin{equation}
