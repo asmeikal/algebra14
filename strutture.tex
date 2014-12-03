@@ -117,18 +117,18 @@ Inoltre, $f(1_M) = 1_A$.
 \subsection{Teorema di omomorfismo per i monoidi\label{omomorfismo_monoidi}}
 
 \begin{prop}
-Sia $f : (M, \cdot) \to (A, \ast)$ un morfismo di monoidi, $f$ definisce una relazione di equivalenza $\varepsilon_f$ tale che $\ker f = M / \varepsilon_f \cong Im_f$, ossia il quoziente \`e isomorfo all'immagine. Inoltre il quoziente ha una struttura di monoide:
+Sia $f : (M, \cdot) \to (A, \ast)$ un morfismo di monoidi, $f$ definisce una relazione di equivalenza $\varepsilon_f$ tale che $\ker f = M / \varepsilon_f \cong \image{f}$, ossia il quoziente \`e isomorfo all'immagine. Inoltre il quoziente ha una struttura di monoide:
 \[
-(M / \varepsilon_f , \cdot) \cong (Im_f, \ast)
+(M / \varepsilon_f , \cdot) \cong (\image{f}, \ast)
 \]
-con $(Im_f, \ast)$ sottomonoide di $(A, \ast)$.
+con $(\image{f}, \ast)$ sottomonoide di $(A, \ast)$.
 \end{prop}
 \begin{proof}
-Ogni morfismo di monoidi $f : (M, \cdot) \to (A, \ast)$ individua un sottomonoide di $(A, \ast)$, che \`e $(Im_f, \ast)$. 
+Ogni morfismo di monoidi $f : (M, \cdot) \to (A, \ast)$ individua un sottomonoide di $(A, \ast)$, che \`e $(\image{f}, \ast)$. 
 
-Essendo $f$ un morfismo di monoidi, $\forall f(x), f(y) \in Im_f$, $f(x) \ast f(y) = f(x \cdot y) \in Im_f$, quindi $Im_f $ \`e chiuso rispetto a $\ast$. Devo poi verificare che $1_A \in Im_f \Leftarrow f(1_M) = 1_A$.
+Essendo $f$ un morfismo di monoidi, $\forall f(x), f(y) \in \image{f}$, $f(x) \ast f(y) = f(x \cdot y) \in \image{f}$, quindi $\image{f} $ \`e chiuso rispetto a $\ast$. Devo poi verificare che $1_A \in \image{f} \Leftarrow f(1_M) = 1_A$.
 
-Anche $(\ker f, \cdot)$ \`e un monoide. Dobbiamo dimostrare l'esistenza dell'isomorfismo con $Im_f$.
+Anche $(\ker f, \cdot)$ \`e un monoide. Dobbiamo dimostrare l'esistenza dell'isomorfismo con $\image{f}$.
 
 $\ker f$ \`e l'insieme delle classi di equivalenza $[x] = \{ y \in M : x \ \varepsilon_f \ y \iff f(x) = f(y) \} \in \ker f$.
 
@@ -136,7 +136,7 @@ Definiamo l'operazione di prodotto fra classi come la classe del prodotto di due
 
 L'operazione fra classi \`e associativa, perch\'e \`e associativa l'operazione fra rappresentanti. Inoltre ho l'unit\`a $[1_M]$ in $\ker f$.
 
-L'isomorfismo fra $(Im_f, \ast)$ e $(\ker f, \cdot)$ segue naturalmente dal fatto che $\ker f $ e $Im_f$ sono in biezione. Inoltre, essendo entrambi dei monoidi, la funzione $f$ \`e un isomorfismo di monoidi.
+L'isomorfismo fra $(\image{f}, \ast)$ e $(\ker f, \cdot)$ segue naturalmente dal fatto che $\ker f $ e $\image{f}$ sono in biezione. Inoltre, essendo entrambi dei monoidi, la funzione $f$ \`e un isomorfismo di monoidi.
 \end{proof}
 
 \subsection{Potenze (iterazioni sui monoidi)}
@@ -188,23 +188,23 @@ Supponiamo che $g(n) = f(n)$, per definizione di morfismo di monoidi $g(n+1) = g
 \end{proof}
 
 \begin{exmp}
-Sia $\Gamma$ un insieme, la struttura algebrica $\left( \mathbb{P}(\Gamma), \cup \right)$ \`e in particolare un monoide. L'unione \`e associativa ($(A \cup B) \cup C = A \cup (B \cup C)$), ed esiste l'elemento neutro $\emptyset$.
+Sia $\Gamma$ un insieme, la struttura algebrica $\left( \parts(\Gamma), \cup \right)$ \`e in particolare un monoide. L'unione \`e associativa ($(A \cup B) \cup C = A \cup (B \cup C)$), ed esiste l'elemento neutro $\emptyset$.
 
-Anche $\left( \mathbb{P}(\Gamma), \cap \right)$ \`e un monoide, con $\Gamma$ come elemento neutro, poich\'e $\forall A$, $\Gamma \cap A = A$. Abbiamo quindi due esempi di monoidi commutativi.
+Anche $\left( \parts(\Gamma), \cap \right)$ \`e un monoide, con $\Gamma$ come elemento neutro, poich\'e $\forall A$, $\Gamma \cap A = A$. Abbiamo quindi due esempi di monoidi commutativi.
 
-Fissato un insieme $S \subseteq \Gamma$ diverso da $\emptyset$, possiamo considerare il suo insieme delle parti $\mathbb{P}(S)$ e definire l'applicazione $f : \mathbb{P}(\Gamma) \to \mathbb{P}(S)$ tale che $f(A) = A \cap S$. 
+Fissato un insieme $S \subseteq \Gamma$ diverso da $\emptyset$, possiamo considerare il suo insieme delle parti $\parts(S)$ e definire l'applicazione $f : \parts(\Gamma) \to \parts(S)$ tale che $f(A) = A \cap S$. 
 
-Verifichiamo che questa applicazione \`e un morfismo di monoidi rispetto a $\left( \mathbb{P}(\Gamma), \cup \right)$ e $\left( \mathbb{P}(S), \cup \right)$. Dobbiamo dimostrare che $f( A \cup B) = f(A) \cup f(B)$. Infatti $f(A \cup B) = (A \cup B) \cap S = (A \cap S) \cup (B \cap S)$ per la propriet\`a distributiva, che \`e proprio $f(A) \cup f(B)$.
+Verifichiamo che questa applicazione \`e un morfismo di monoidi rispetto a $\left( \parts(\Gamma), \cup \right)$ e $\left( \parts(S), \cup \right)$. Dobbiamo dimostrare che $f( A \cup B) = f(A) \cup f(B)$. Infatti $f(A \cup B) = (A \cup B) \cap S = (A \cap S) \cup (B \cap S)$ per la propriet\`a distributiva, che \`e proprio $f(A) \cup f(B)$.
 
 Inoltre l'applicazione conserva l'elemento neutro, poich\'e $f(\emptyset) = \emptyset \cap S = \emptyset$.
 
-Verifichiamo che \`e un morfismo di monoidi anche rispetto $\left( \mathbb{P}(\Gamma), \cap \right)$ e $\left( \mathbb{P}(S), \cap \right)$. $f(A \cap B) = f(A) \cap f(B)$, infatti $(A \cap B) \cap S = (A \cap S) \cap (B \cap S)$ sempre per la propriet\`a distributiva. E anche in questo caso l'applicazione conserva l'elemento neutro, poich\'e $f(\Gamma) = \Gamma \cap S = S$, ed $S$ \`e proprio l'elemento neutro di $\left( \mathbb{P}(S), \cap \right)$.
+Verifichiamo che \`e un morfismo di monoidi anche rispetto $\left( \parts(\Gamma), \cap \right)$ e $\left( \parts(S), \cap \right)$. $f(A \cap B) = f(A) \cap f(B)$, infatti $(A \cap B) \cap S = (A \cap S) \cap (B \cap S)$ sempre per la propriet\`a distributiva. E anche in questo caso l'applicazione conserva l'elemento neutro, poich\'e $f(\Gamma) = \Gamma \cap S = S$, ed $S$ \`e proprio l'elemento neutro di $\left( \parts(S), \cap \right)$.
 \end{exmp}
 
 \begin{exmp}
-Sia $f : \mathbb{P}(\Gamma) \to \mathbb{P}(\Gamma)$ un'applicazione tale che $f(A) = \bar{A} = \{ x \in \Gamma : x \notin A\}$, ossia che associa ad $A$ il suo complementare $\bar{A}$. L'applicazione $f : (\mathbb{P}(\Gamma), \cup) \to (\mathbb{P}(\Gamma), \cap)$ \`e un morfismo di monoidi visto che verifica $f(A \cup B) = f(A) \cap f(B)$ per le leggi di De Morgan ($\overline{A \cup B} = \bar{A} \cap \bar{B}$) e $f(\emptyset) = \bar{\emptyset} = \Gamma$.
+Sia $f : \parts(\Gamma) \to \parts(\Gamma)$ un'applicazione tale che $f(A) = \bar{A} = \{ x \in \Gamma : x \notin A\}$, ossia che associa ad $A$ il suo complementare $\bar{A}$. L'applicazione $f : (\parts(\Gamma), \cup) \to (\parts(\Gamma), \cap)$ \`e un morfismo di monoidi visto che verifica $f(A \cup B) = f(A) \cap f(B)$ per le leggi di De Morgan ($\overline{A \cup B} = \bar{A} \cap \bar{B}$) e $f(\emptyset) = \bar{\emptyset} = \Gamma$.
 
-Possiamo considerare la stessa applicazione come un morfismo di monoidi da $f : (\mathbb{P}(\Gamma), \cap) \to (\mathbb{P}(\Gamma), \cup)$. Infatti $f(A \cap B) = \overline{A \cap B} = \bar{A} \cup \bar{B} = f(A) \cup f(B)$ e $f(\Gamma) = \bar{\Gamma} = \emptyset$.
+Possiamo considerare la stessa applicazione come un morfismo di monoidi da $f : (\parts(\Gamma), \cap) \to (\parts(\Gamma), \cup)$. Infatti $f(A \cap B) = \overline{A \cap B} = \bar{A} \cup \bar{B} = f(A) \cup f(B)$ e $f(\Gamma) = \bar{\Gamma} = \emptyset$.
 \end{exmp}
 
 \subsection{Congruenze\label{congruenze}}
@@ -353,7 +353,7 @@ Anche l'iterazione della somma \`e un morfismo di gruppi. $f_n : (\integers, +) 
 
 Ogni morfismo di gruppi $f$ individua due sottogruppi:
 \begin{enumerate}
-    \item $Im_f \subseteq G'$
+    \item $\image{f} \subseteq G'$
     \item $\ker f \subseteq G$. Diversamente dalle definizioni gi\`a viste, in questo caso il nucleo $\ker f = \{ u \in G : f(u) = 1_{G'}\}$ \`e una classe, ossia $\ker f \in G / \varepsilon_f$
 \end{enumerate}
 
@@ -425,9 +425,9 @@ Viceversa, dobbiamo prendere $b \in a \cdot \ker f \implies b = a \cdot u$. Ha p
 % \subsection{Teorema di omomorfismo per i gruppi}
 
 % \begin{prop}
-% Sia $f : (G, \cdot) \to (G', \ast)$ un morfismo di gruppi, allora $\varepsilon_f$ \`e una congruenza e il gruppo $(G / \varepsilon_f, \cdot)$ \`e isomorfo al gruppo $(Im_f, \ast)$, ossia esiste la biezione $F$:
+% Sia $f : (G, \cdot) \to (G', \ast)$ un morfismo di gruppi, allora $\varepsilon_f$ \`e una congruenza e il gruppo $(G / \varepsilon_f, \cdot)$ \`e isomorfo al gruppo $(\image{f}, \ast)$, ossia esiste la biezione $F$:
 % \[
-% F : (G / \varepsilon_f, \cdot) \to (Im_f, \ast)
+% F : (G / \varepsilon_f, \cdot) \to (\image{f}, \ast)
 % \]
 % Ogni elemento $[a] \in G / \varepsilon_f$ \`e del tipo $a \cdot \ker f$.
 % \[
@@ -441,9 +441,9 @@ Viceversa, dobbiamo prendere $b \in a \cdot \ker f \implies b = a \cdot u$. Ha p
 Dato un morfismo $f : (G, \cdot) \to (G', \ast)$, allora 
 \begin{enumerate}
     \item La relazione di equivalenza $\varepsilon_f$ individuata da $f$, tale che $x \ \varepsilon_f \ y \iff f(x) = f(y)$, \`e una congruenza.
-    \item Il gruppo $(G / \varepsilon_f, \cdot)$ \`e isomorfo al sottogruppo $(Im_f, \ast)$ di $(G', \ast)$, ossia esiste la biezione $F$:
+    \item Il gruppo $(G / \varepsilon_f, \cdot)$ \`e isomorfo al sottogruppo $(\image{f}, \ast)$ di $(G', \ast)$, ossia esiste la biezione $F$:
     \[
-    F : (G / \varepsilon_f, \cdot) \to (Im_f, \ast)
+    F : (G / \varepsilon_f, \cdot) \to (\image{f}, \ast)
     \]
     Questa propriet\`a vale per ogni struttura algebrica.
 \end{enumerate}
@@ -473,9 +473,9 @@ p_1 (x, y) = x
 \[
 p_1 : (\reals \times \reals, +) \to (\reals, +)
 \]
-Qual \`e l'immagine $Im_{p_1}$ della proiezione?
+Qual \`e l'immagine $\image{p_1}$ della proiezione?
 \[
-Im_{p_1} = \{ r \in \reals : \exists (x, y) \text{ t.c. } p_1 (x, y) = r \}
+\image{p_1} = \{ r \in \reals : \exists (x, y) \text{ t.c. } p_1 (x, y) = r \}
 \]
 In questo caso l'immagine \`e tutto $\reals$. Infatti $\forall r \in \reals$, $ p_1(r, 0) = r$.
 
@@ -573,7 +573,7 @@ Possiamo definire un morfismo di gruppi su tutta sta merda.
 \end{itemize}
 Qual \`e l'immagine di questa $f$? 
 \[
-Im_f = \{ (r, s) \in \reals^2 : \exists p(x) \text{ t.c. } f \left( p(x) \right) = (r,s)\} = \reals^2
+\image{f} = \{ (r, s) \in \reals^2 : \exists p(x) \text{ t.c. } f \left( p(x) \right) = (r,s)\} = \reals^2
 \]
 Una data coppia $(r,s)$ \`e immagine, ad esempio, di:
 \[
@@ -597,10 +597,10 @@ con $a_0 \in \ker f$.
 
 \subsubsection{Monomorfismi ed epimorfismi}
 
-Consideriamo due gruppi, $(G, \cdot)$ e $(G', \ast)$, e il morfismo $f : (G, \cdot) \to (G', \ast)$. I due gruppi $\ker f \le G$ e $Im_f \le G'$ caratterizzano il morfismo.
+Consideriamo due gruppi, $(G, \cdot)$ e $(G', \ast)$, e il morfismo $f : (G, \cdot) \to (G', \ast)$. I due gruppi $\ker f \le G$ e $\image{f} \le G'$ caratterizzano il morfismo.
 \begin{enumerate}
     \item\label{itm:monomorfismo} $f$ \`e un morfismo iniettivo (monomorfismo) $\iff \ker f = \{ 1_G\}$.
-    \item\label{itm:epimorfismo} $f$ \`e un morfismo suriettivo (epimorfismo) $\iff Im_f = G'$.
+    \item\label{itm:epimorfismo} $f$ \`e un morfismo suriettivo (epimorfismo) $\iff \image{f} = G'$.
 \end{enumerate}
 
 Il caso \ref{itm:monomorfismo} \`e evidente: il $\ker f$ ha solo un elemento quindi la classe degli elementi con la stessa immagine $[a] = a \cdot \ker f$ ha un solo elemento, ossia $a$. Si pu\`o anche dimostrare direttamente.
@@ -619,7 +619,7 @@ Viceversa, per ipotesi il nucleo ha un solo elemento:
 
 \subsection{Classi laterali}
 
-Abbiamo detto che $f$ individua due sottogruppi, $\ker f = \{ u \in G : f(u) = 1_{G'} \} \le G$ e $Im_f = \{ x' \in G' : \exists x \in G , \ f(x) = x'\} \le G'$. Il nucleo \`e una classe, e le altre classi si costruiscono a partire dal nucleo:
+Abbiamo detto che $f$ individua due sottogruppi, $\ker f = \{ u \in G : f(u) = 1_{G'} \} \le G$ e $\image{f} = \{ x' \in G' : \exists x \in G , \ f(x) = x'\} \le G'$. Il nucleo \`e una classe, e le altre classi si costruiscono a partire dal nucleo:
 \[
 \forall a \in G , \ [a] = a \cdot \ker f = \ker f \cdot a
 \]
@@ -2535,8 +2535,8 @@ Abbiamo due anelli, $(A, +, \cdot)$ e $(A', +, \cdot)$.
 $f : (A, +, \cdot) \to (A', +, \cdot)$ \`e un morfismo di anelli.
 
 \begin{enumerate}
-    \item L'immagine di $f$, $Im_f$ \`e un sottoanello di $A'$
-    \item $A / \varepsilon_f = A / \ker f$ (inteso come morfismo di gruppi) \`e un anello isomorfo all'immagine $Im_f$. L'isomorfismo $F : A / \ker f \to Im_f$ \`e quello che manda una classe nell'immagine di tutti gli elementi. $[a]$ \`e la classe di tutti gli elementi che hanno immagine $f(a)$ uguale.
+    \item L'immagine di $f$, $\image{f}$ \`e un sottoanello di $A'$
+    \item $A / \varepsilon_f = A / \ker f$ (inteso come morfismo di gruppi) \`e un anello isomorfo all'immagine $\image{f}$. L'isomorfismo $F : A / \ker f \to \image{f}$ \`e quello che manda una classe nell'immagine di tutti gli elementi. $[a]$ \`e la classe di tutti gli elementi che hanno immagine $f(a)$ uguale.
     \[
     F[a] = f(a) \forall [a] \in A / \ker f
     \]
