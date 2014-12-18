@@ -253,23 +253,23 @@ Per ipotesi, $V$ \`e uno spazio vettoriale su $\field$ di dimensione $\dim V = n
 \[
 L_B : \field^n \to V 
 \]
-Abbiamo tante applicazioni isomorfe $L_B$, a seconda della base $B$ di $V$ che fissiamo. Siccome $\dim V = n$, $\abs{B} = n$. Sia $B$ una base $\{ \seq{e}{1}{n} \}$:
+Abbiamo tante applicazioni isomorfe $L_B$, a seconda della base $B$ di $V$ che fissiamo. Siccome $\dim V = n$, $\abs{B} = n$. Sia $B$ una base $\{ e_1, \ldots, e_n \}$:
 \[
-L_B (\seq{a}{1}{n}) = v = a_1 \cdot e_1 + \dots + a_n \cdot e_n
+L_B (a_1, \ldots, a_n) = v = a_1 \cdot e_1 + \dots + a_n \cdot e_n
 \]
-$L_B$ associa ad ogni $n$-upla ($\seq{a}{1}{n}$) il vettore di coordinate $\seq{a}{1}{n}$ rispetto alla base $B$. Infatti:
+$L_B$ associa ad ogni $n$-upla ($a_{1}, \ldots, a_{n}$) il vettore di coordinate $a_{1}, \ldots, a_{n}$ rispetto alla base $B$. Infatti:
 \begin{align*}
-L_B \left( (\seq{a}{1}{n}) + (\seq{b}{1}{n}) \right) = \\
+L_B \left( (a_{1}, \ldots, a_{n}) + (b_{1}, \ldots, b_{n}) \right) = \\
 = L_B \left( a_1 + b_1, \ldots,  a_n + b_n \right) = \\
 = (a_1 + b_1) \cdot e_1 + \ldots + (a_n + b_n) \cdot e_n = \\
 = (a_1 \cdot e_1 + \ldots + a_n \cdot e_n) + (b_1 \cdot e_1 + \ldots + b_n \cdot e_n) = \\
-= L_B (\seq{a}{1}{n}) + L_B(\seq{b}{1}{n})
+= L_B (a_{1}, \ldots, a_{n}) + L_B(b_{1}, \ldots, b_{n})
 \end{align*}
 Banalmente conserva anche il prodotto per uno scalare
 \[
-L_B(k \cdot (\seq{a}{1}{n})) = k \cdot L_B(\seq{a}{1}{n})
+L_B(k \cdot (a_{1}, \ldots, a_{n})) = k \cdot L_B(a_{1}, \ldots, a_{n})
 \]
-$\ker L_B = \{ \nullelement \}$, poich\'e se $L_B(\seq{a}{1}{n}) = \nullelement$, allora $a_1 \cdot e_1 + \ldots + a_n \cdot e_n = \nullelement$, ma essendo $B$ una base l'unica combinazione lineare che d\`a il vettore nullo \`e quella banale, quindi $a_i = 0$.
+$\ker L_B = \{ \nullelement \}$, poich\'e se $L_B(a_{1}, \ldots, a_{n}) = \nullelement$, allora $a_1 \cdot e_1 + \ldots + a_n \cdot e_n = \nullelement$, ma essendo $B$ una base l'unica combinazione lineare che d\`a il vettore nullo \`e quella banale, quindi $a_i = 0$.
 \end{proof}
 
 Un esempio tipico sono i vettori geometrici del piano. Ad un vettore nel piano corrisponde una coppia di punti, che non sono altro che le coordinate del vettore rispetto alla base $B = \{ i, j \}$ con $\abs{i} = 1$ e $\abs{j} = 1$.
@@ -288,7 +288,7 @@ Vediamo un'ultima propriet\`a delle applicazioni lineari. Sia $L : V \to V'$ un'
 \neq \{ \nullelement \}
 \end{cases}
 \]
-Nel secondo caso, $B_k = \{ \seq{u}{1}{t} \}$ \`e una base del $\ker L$, quindi $\dim \ker L = t \implies$ per il teorema del complemento esiste $H$ sottoinsieme di $V$, $H = \{ \seq{w}{t+1}{n} \}$ tale che $B_k \cup H$ \`e una base di $V \implies L(H)$ \`e una base di $\image{L}$, quindi $\dim \image{L} = n - t$.
+Nel secondo caso, $B_k = \{ u_{1}, \ldots, u_{t} \}$ \`e una base del $\ker L$, quindi $\dim \ker L = t \implies$ per il teorema del complemento esiste $H$ sottoinsieme di $V$, $H = \{ {w}_{t+1}, \ldots, {w}_{n} \}$ tale che $B_k \cup H$ \`e una base di $V \implies L(H)$ \`e una base di $\image{L}$, quindi $\dim \image{L} = n - t$.
 
 Bisogna dimostrare che $\pow{L(H)} = \image{L}$, e che $L(H)$ \`e indipendente.
 
@@ -357,9 +357,9 @@ U + W = \sum (U \cup W) = \{ v = u + w : u \in U, w \in W \}
 \]
 Se $U \cap W = \nullelement \implies (B_U \cup B_W)$ \`e una base di $U + W$.
 
-Altrimenti, se $U \cap W \neq \nullelement$, con $\dim U = h$ e $\dim W = k$, sia $B = \{ \seq{e}{1}{t} \}$ una base di $U \cap W$. Prendiamo una base di $U$, $B_U \supset B$, $B_U = \{ \seq{e}{1}{t} , \seq{u}{t+1}{h} \}$, e allo stesso modo prendiamo una base di $W$, $B_W \supset B$, $B_W = \{ \seq{e}{1}{t}, \seq{w}{t+1}{k} \}$. Come \`e la base della somma? Deve avere dimensione $h + k - t$. Dimostriamo quindi che $B_U \cup \{ \seq{w}{t+1}{k} \}$ \`e una base di $U + W$.
+Altrimenti, se $U \cap W \neq \nullelement$, con $\dim U = h$ e $\dim W = k$, sia $B = \{ e_{1}, \ldots, e_{t} \}$ una base di $U \cap W$. Prendiamo una base di $U$, $B_U \supset B$, $B_U = \{ e_{1}, \ldots, e_{t} , u_{t+1}, \ldots, u_{h} \}$, e allo stesso modo prendiamo una base di $W$, $B_W \supset B$, $B_W = \{ e_{1}, \ldots, e_{t}, w_{t+1}, \ldots, w_{k} \}$. Come \`e la base della somma? Deve avere dimensione $h + k - t$. Dimostriamo quindi che $B_U \cup \{ w_{t+1}, \ldots, w_{k} \}$ \`e una base di $U + W$.
 
-Che sia un sistema di generatori \`e banale: ogni vettore di $U$ si scrive come combinazione lineare di vettori di $B_U$, e ogni vettore di $W$ si scrive come combinazione lineare di vettori di $B_U \cup \{ \seq{w}{t+1}{k} \}$, essendo gli elementi di $B$ contenuti in $B_U$.
+Che sia un sistema di generatori \`e banale: ogni vettore di $U$ si scrive come combinazione lineare di vettori di $B_U$, e ogni vettore di $W$ si scrive come combinazione lineare di vettori di $B_U \cup \{ w_{t+1}, \ldots, w_{k} \}$, essendo gli elementi di $B$ contenuti in $B_U$.
 
 Vediamo che \`e proprio una base, quindi \`e indipendente.
 \[
@@ -489,7 +489,7 @@ In generale $L_A (e_n) = A^n$, ossia l'$n$-esimo vettore della base canonica mi 
 \[
 L_A(X) = A \times X = A^1 \cdot x + A^2 \cdot y + A^3 \cdot z + A^4 \cdot t
 \]
-Se in generale moltiplico per una matrice colonna con $n$ elementi ($\seq{x}{1}{n}$):
+Se in generale moltiplico per una matrice colonna con $n$ elementi ($x_{1}, \ldots, x_{n}$):
 \[
 L_A(X) = A \times X = A^1 \cdot x_1 + \dots + A^n \cdot x_n
 \]
@@ -614,7 +614,7 @@ A_B =
 \end{pmatrix}
 \]
 \begin{prop}
-Data una base $B$ di $V$, con $\dim B = n$, ossia $B = \{ \seq{e}{1}{n} \}$, e un altro spazio vettoriale $V'$, e $n$ vettori $\seq{v'}{1}{n} \in V'$, esiste una sola applicazione lineare $L : V \to V'$ tale che $L(e_i) = v_i'$.
+Data una base $B$ di $V$, con $\dim B = n$, ossia $B = \{ e_{1}, \ldots, e_{n} \}$, e un altro spazio vettoriale $V'$, e $n$ vettori ${v'}_{1}, \ldots, {v'}_{n} \in V'$, esiste una sola applicazione lineare $L : V \to V'$ tale che $L(e_i) = v_i'$.
 \end{prop}
 
 \begin{exmp}
@@ -668,7 +668,7 @@ Cambiamo base. Possiamo prendere un'altra base semplicemente cambiando l'ordine,
 L(a_1, a_3, a_0, a_2) = a_1 \cdot L(x) + a_3 \cdot L(x^3) + a_0 \cdot L(1) + a_2 \cdot L(x^2)
 \]
 \end{exmp}
-Le basi sono insiemi ordinati. Alle $n$ coordinate $(\seq{x}{1}{n})$ devo sapere quale elemento della base associare.
+Le basi sono insiemi ordinati. Alle $n$ coordinate $(x_{1}, \ldots, x_{n})$ devo sapere quale elemento della base associare.
 
 Ad una matrice $A_{m \times n} \in \matrices_{m \times n} ( \field )$, con in genere $\field = \reals$, possiamo associare un'applicazione lineare $L_A : \field^n \to \field^m$ tale che:
 \[
@@ -689,11 +689,11 @@ Viceversa data un'applicazione lineare $L : \field^n \to \field^m$, esiste un'un
 \[
 A^i = L(e_i)
 \]
-Vediamo come funziona su campi $\field$ qualsiasi. Consideriamo un'applicazione lineare $L : V \to V'$, e due basi $B$ e $B'$, rispettivamente di $V$ e di $V'$. $B = \{ \seq{e}{1}{n} \} \implies \dim V = n$, e $B' = \{ \seq{e'}{1}{m} \} \implies \dim V' = m$. L'immagine di un generico $v \in V$ \`e:
+Vediamo come funziona su campi $\field$ qualsiasi. Consideriamo un'applicazione lineare $L : V \to V'$, e due basi $B$ e $B'$, rispettivamente di $V$ e di $V'$. $B = \{ e_{1}, \ldots, e_{n} \} \implies \dim V = n$, e $B' = \{ {e'}_{1}, \ldots, {e'}_{m} \} \implies \dim V' = m$. L'immagine di un generico $v \in V$ \`e:
 \[
 L(v) = L(x_1 \cdot e_1 + \ldots + x_n \cdot e_n)
 \]
-$(\seq{x}{1}{n})$ \`e la $n$-upla delle coordinate rispetto a $B$. Il vettore $v$ si pu\`o anche scrivere come prodotto $B \times X$:
+$(x_{1}, \ldots, x_{n})$ \`e la $n$-upla delle coordinate rispetto a $B$. Il vettore $v$ si pu\`o anche scrivere come prodotto $B \times X$:
 \[
 v = 
 \begin{pmatrix}
@@ -844,54 +844,648 @@ Dato un vettore $v' \in \image{L}$, per controllare se c'\`e abbiamo un $X'$ tal
 
 $\varphi$ \`e un isomorfismo. Il suo $\ker \varphi = \{ \nullelement \}$, e l'$\image{\varphi} = \matrices_{m \times n} (\field)$ \`e tutto lo spazio delle matrici.
 
-\section{Matrici a scala}
+\subsection{Altre propriet\`a delle applicazioni lineari come matrici}
 
-\begin{defn}[Matrice a scala]
-Indichiamo con $p_{i,j}$ il primo elemento non nullo della $i$-esima riga della matrice, detto anche \emph{pivot}. Una matrice si dice ``a scala'' (per righe) se prendo due pivot $p_{i,j}$ e $p_{h,k}$ con $i < h \implies j < k$. Ossia, il numero di zeri in ogni riga aumenta di riga in riga.
-\end{defn}
-Data una matrice $A_{m \times n}$, le sue $m$ righe $\seq{A}{1}{m}$ si possono vedere come elementi di $\field^n$, e le sue $n$ colonne $A^1, \ldots, A^n$ si possono vedere come elementi di $\field^m$.
+Data un'applicazione lineare $L : V \to V'$, la matrice associata all'applicazione $L$ rispetto alle basi $B$ e $B'$ (rispettivamente di $V$ e di $V'$), indicata con $M_{B'}^{B} (L)$, \`e la matrice $A$ le cui colonne $A^1, \ldots A^n$ sono le coordinate rispetto a $B'$ di $L(e_1), \ldots L(e_n)$, con $B = \{ e_1, \ldots, e_n \}$.
+\[
+L(e_i) = B' \times A^i \forall i = 1, \ldots n
+\]
+L'immagine di un vettore \`e:
+\[
+L(v) = B' \times (A \times X)
+\]
+$A \times X$ \`e la colonna delle coordinate di $L(v)$ rispetto a $B'$.
 
-Il rango per righe di $A$, $r_r(A)$ \`e la dimensione dello spazio generato dalle righe. Il rango per colonne $r_c(A)$ \`e la dimensione dello spazio generato dalle colonne.
+Consideriamo ora le applicazioni lineari $L : V \to V'$ e $ L' : V' \to V''$, e le basi $B$, $B'$ e $B''$ degli spazi $V$, $V'$ e $V''$. Creiamo l'applicazione lineare composta:
+\[
+L' \circ L : V \to V''
+\]
+La matrice associata alla composta \`e il prodotto delle matrici associate.
+\[
+M_{B''}^{B'} (L') \times M_{B'}^{B} (L) = M_{B''}^{B} (L' \circ L)
+\]
+Sia $L : V \to V'$ un isomorfismo, ossia $L$ \`e iniettiva e $\dim V = \dim V'$, $L$ ha un'inversa $L^{-1} : V' \to V$. Le loro matrici associate sono:
+\[
+M_{B'}^{B} (L) \times M_{B}^{B'} (L^{-1}) = I =
+M_{B}^{B'} (L^{-1}) \times M_{B'}^{B} (L)
+\]
+
+\section{Cambiamento di base}
+
+Prendiamo uno spazio vettoriale $V$ di dimensione $\dim V = n$, e due basi di $V$, $B$ e $B'$. Un vettore $v \in V$ si pu\`o scrivere rispetto a entrambi le basi. $v = B \times X$, con $X$ a indicare la colonna delle coordinate di $v$ rispetto a $B$, e $v = B' \times X'$, con $X'$ a indicare la colonna delle coordinate di $v$ rispetto a $B'$.
+
+Come si pu\`o esprimere $X'$ in funzione di $X$? Ossia, ho le coordinate $X$ rispetto a $B$, posso trovare le coordinate $X'$ rispetto a $B'$?
+
+Viene molto facile usando le matrici associate alle applicazioni lineari.
+
+Consideriamo l'applicazione identit\`a, $\id : V \to V'$, tale per cui $\id(v) = v$. Prendiamo due basi differenti $B$ e $B'$ di $V$. La matrice associata $M_{B'}^{B} (\id)$ avr\`a per colonne le coordinate di $e_1, \ldots e_n \in B$ rispetto a $B'$.
+\[
+v = \id(v) = B \times M_{B'}^{B} (\id) \times X
+\]
+Quindi, sapendo che $v = B \times X = B' \times X'$, segue che$ X' = M_{B'}^{B} (\id) \times X$.
+
+$X' = P \times X$, con $X = M_{B'}^{B} (\id)$, e quindi $P^{-1} = M_{B}^{B'} (\id)$.
+
+\begin{exmp}
+Siamo in $\reals^2$. Consideriamo le basi:
 \begin{align*}
-r_r (A) &= \dim \pow{A_1, \ldots, A_m} \le \field^n \\
-r_c (A) &= \dim \pow{A^1, \ldots, A^n} \le \field^m \\
+B &= \{ (1,0), (0,1) \} \\
+B' &= \{ (1,1), (1,2) \} \\
+v &= (x,y) \in \reals^2 \\
+v &= x \cdot e_1 + y \cdot e_2 = B \times 
+\begin{pmatrix}
+x \\ y
+\end{pmatrix} =
+B' \times 
+\begin{pmatrix}
+x' \\ y'
+\end{pmatrix}
 \end{align*}
-Il rango per righe di una matrice a scala per righe \`e il numero di righe non nulle, perch\'e le righe non nulle di una matrice a scala per righe sono indipendenti, quindi costituiscono una base dello spazio generato.
 
-\begin{prop}
-Data una matrice $S$ a scala per righe, il rango per riga di $S$ \`e il numero di righe non zero, ossia le righe non zero di $S$ costituiscono un insieme indipendente. 
-\end{prop}
-\begin{proof}
-Supponiamo per assurdo che esista una combinazione lineare non banale delle righe non nulle di $S$ che d\`a il vettore nullo. Consideriamo il primo coefficiente diverso da zero, ossia un certo $x_i$. Tutti i coefficienti prima di $i$ sono a zero, e il coefficiente con $i$ \`e il pivot $p_{i,j}$ per $x_i$, quindi $x_i$ deve essere zero. Assurdo.
+Bisogna trovare la matrice associata alla funzione identit\`a $\id : \reals^2 \to \reals^2$ rispetto alle basi $B$ e $B'$.
+\[
+A = M_{B'}^{B} (\id) = A^1 A^2
+\]
+Le colonne sono le coordinate dei vettori della base $B$ rispetto alla base $B'$. La prima colonna \`e:
+\[
+e_1 = (1,0) = a_{1,1} \cdot e_1' + a_{2,1} \cdot e_2' = 2 \cdot (1,1) - 1 \cdot (1,2) \implies A^1 = 
+\begin{pmatrix}
+2 \\ -1
+\end{pmatrix}
+\]
+Per la seconda colonna, sapendo che $e_2 = B' \times A^2$, vediamo che \`e:
+\[
+e_2 = (0,1) = a_{1,1} \cdot e_1' + a_{2,1} \cdot e_2' = -1 \cdot (1,1) + 1 \cdot (1,2) \implies A^2 = 
+\begin{pmatrix}
+-1 \\ 1
+\end{pmatrix}
+\]
+Quindi:
+\[
+A = 
+\begin{pmatrix}
+2 & -1 \\
+-1 & 1
+\end{pmatrix}
+\]
+Se ora prendo un vettore $w = (3,2)$, per trovare le sue coordinate rispetto alla base $B'$, bisogna moltiplicare la matrice $A$ per la colonna delle coordinate di $w$.
+\[
+\begin{pmatrix}
+2 & -1 \\
+-1 & 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+3 \\ 2
+\end{pmatrix}
+=
+\begin{pmatrix}
+4 \\ -1
+\end{pmatrix}
+\]
+Infatti $(3,2) = 4 (1,1) - 1 (1,2) = (4,4) - (1,2)$.
+\end{exmp}
+
+\begin{exmp}
+Un esempio pi\`u complicato.
+
+$\reals_2[x]$ \`e lo spazio vettoriale dei polinomi di grado minore o uguale a 2. $\dim \reals_2[x] = 3$. La base canonica \`e $B_c = \{ 1, x, x^2 \}$. Cambiamo base, e passiamo a $B' = \{ 2 + x + x^2, -x + 2x^2, 2 + x\}$.
+
+Un vettore qualunque $v = p(x) = a + b x + c x^2$, si scrive rispetto alla base canonica come:
+\[
+p(x) = B_c \times 
+\begin{pmatrix}
+a \\ b \\ c
+\end{pmatrix}
+\]
+Dobbiamo trovare la matrice associata all'identit\`a rispetto alle due basi. $M_{B'}^{B_c} (\id) = A$. Le sue colonne sono $A^1, A^2, A^3$.
+\begin{align*}
+e_1 &= B' \times A^1 \\
+e_2 &= B' \times A^2 \\
+e_3 &= B' \times A^3
+\end{align*}
+Esprimiamo i vettori della base canonica rispetto alla nuova base:
+\begin{align*}
+1 &= a' \cdot (2 + x + x^2) + b' \cdot (-x +2x^2) + c' \cdot (2 + x) \to (-1, \frac{1}{2}, \frac{3}{2}) \\
+x &= a' \cdot (2 + x + x^2) + b' \cdot (-x +2x^2) + c' \cdot (2 + x) \to (2, -1, -2) \\
+x^2 &= a' \cdot (2 + x + x^2) + b' \cdot (-x +2x^2) + c' \cdot (2 + x) \to (1, 0, -1)
+\end{align*}
+La matrice quindi \`e:
+\[
+A = 
+\begin{pmatrix}
+-1 & 2 & 1 \\
+\frac{1}{2} & -1 & 0 \\
+\frac{3}{2} & -2 & -1
+\end{pmatrix}
+\]
+Se ora vogliamo conoscere le coordinate del vettore $v = 2 + x^2$ rispetto alla base nuova:
+\[
+\begin{pmatrix}
+-1 & 2 & 1 \\
+\frac{1}{2} & -1 & 0 \\
+\frac{3}{2} & -2 & -1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+2 \\ 0 \\ 1
+\end{pmatrix} =
+\begin{pmatrix}
+-1 \\ 1 \\ 2
+\end{pmatrix}
+\]
+Quindi:
+\[
+2 + x^2 = -1 (2 + x + x^2) + (-x + 2 x^2) + 2 (2 + x)
+\]
+\end{exmp}
+
+\section{Diagonalizzazione}
+
+Sia $L : V \to V$ un endomorfismo. Di solito con gli endomorfismi si lavora con matrici associati a una sola base.
+\[
+M_{B} (L)
+\]
+Prendendo un'altra base $B'$, si pu\`o associare un'altra matrice alla stessa applicazione lineare, ma rispetto alla nuova base.
+\[
+M_{B'} (L)
+\]
+Le colonne di $A = M_{B} (L)$ sono le coordinate delle immagini dei vettori di $B$ rispetto alla stessa base $B$.
+\begin{align*}
+B \times A^i &= L(e_i) \\
+B' \times {A'}^i &= L(e_i')
+\end{align*}
+Che relazione c'\`e tra $A$ e $A'$? Sono due matrici associate allo stesso endomorfismo, ma rispetto a due basi diverse.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+  \node (VB) {$V$};
+  \node (LVB)   [right of=VB, node distance=4cm] {$V$};
+  \node (VB1)   [below of=VB, node distance=4cm] {$V$};
+  \node (LVB1)  [right of=VB1, node distance=4cm] {$V$};
+  \node (B)     [above of=VB, node distance=1cm] {$B'$};
+  \node (LB)    [above of=LVB, node distance=1cm] {$B'$};
+  \node (B1)    [below of=VB1, node distance=1cm] {$B$};
+  \node (LB1)   [below of=LVB1, node distance=1cm] {$B$};
+  \path[->] (VB) edge [above] node {$L$} (LVB)
+            (VB) edge [left] node {$\id$} (VB1)
+            (VB1) edge [below] node {$L$} (LVB1)
+            (LVB1) edge [right] node {$\id$} (LVB)
+            ;
+\end{tikzpicture}
+\caption{$L$ rispetto a $B'$ come composta di due cambi di base con $L$ rispetto a $B$}
+\end{figure}
+\[
+L = id \circ L \circ id
+\]
+Remember: la matrice associata alla composta \`e la composta delle matrici.
+\[
+M_{B'} (L) =
+M_{B}^{B'} (\id) \times M_{B} (L) \times M_{B'}^{B} (\id)
+\]
+Abbiamo visto che $M_{B}^{B'} (\id)$ e $M_{B'}^{B} (\id)$ sono l'una l'inversa dell'altra. Chiamiamo $P = M_{B'}^{B} (\id)$. Quindi:
+\[
+A' = P^{-1} \times A \times P
+\]
+Questo \`e il legame tra le due matrici associate alla stessa applicazione lineare.
+
+\begin{defn}[Relazione di similitudine]
+Due matrici quadrate $A$ e $A'$ si dicono ``simili'' se soddisfano questa condizione, ossia se esiste una matrice invertibile $P$ (quadrata e dello stesso ordine) tale che:
+\[
+A' = P^{-1} \times A \times P
+\]
+La relazione $\rho$ per cui $A \rho A' \iff A$ \`e simile a $A'$, \`e una relazione di equivalenza: \`e riflessiva ($A$ \`e simile a s\'e stessa), \`e simmetrica ($A = P \times A' \times P^{-1}$), e banalmente \`e transitiva.
+
+Vale anche il viceversa: se due matrici sono simili, rappresentano lo stesso endomorfismo rispetto a basi diverse.
+\end{defn}
+\begin{proof}[del viceversa]
+$L : V \to V$ \`e un endomorfismo, e $A$ \`e la matriche associata a $L$ rispetto a $B$. Prendiamo poi una matrice $A'$ simile ad $A$. La tesi \`e che $A'$ rappresenta lo stesso morfismo rispetto a un'altra base $B'$.
+
+Essendo simile, $A' = P^{-1} \times A \times P$. Ma $P$ \`e:
+\[
+P = M_{B}^{B'} (\id)
+\]
+La nuova base $B'$ \`e proprio $B' = B \times P$.
+\[
+A' = M_{B'}^{B} (\id) \times A \times M_{B}^{B'} (\id)
+\]
+$A'$ \`e proprio la matrice $A$ rispetto a una nuova base $B'$.
 \end{proof}
 
-Consideriamo un sistema $S \times X = B$. Il rango per righe $r_r (S)$ \`e sempre minore del rango per righe $r_r (S | B)$ della matrice completa del sistema. Se il rango per righe di una matrice \`e minore del rango per righe della matrice completa, il sistema non ha soluzione. Inoltre il sistema ha soluzione se la matrice dei termini noti appartiene allo spazio generato dalle colonne della matrice dei coefficienti. Ossia, il rango per colonne della matrice $S$ \`e uguale al rango per colonna della matrice completa $S | B$. Equivalentemente, $B$ appartiene all'immagine $\image{L_A}$.
+% La diagonalizzazione \`e un modo per trovare una matrice diagonale equivalente a una certa matrice data.
 
-Per trovare le soluzioni, si parte dall'ultima riga non nulla.
+Ci sono due problemi equivalenti:
+\begin{enumerate}
+    \item Data una matrice $A$, esiste una matrice diagonale $D$ simile ad $A$?
+    \[
+    D = P^{-1} \times A \times P
+    \]
+    Una matrice diagonale $D$ \`e una matrice $D = (d_{i,j}) $ tale che $ d_{i,j} \neq 0 $ se $ i \neq j$.
+    \item Dato un endomorfismo $L : V \to V$, esiste una base $B$ di $V$ per cui la matrice che rappresenta $L$ rispetto a questa base $B$ \`e una matrice $D$ diagonale?
+    \[
+    M_{B} (L) = D
+    \]
+\end{enumerate}
 
-Il numero delle incognite meno il rango per righe dei coefficienti mi d\`a il numero di parametri da cui dipende la soluzione. 
-
-Un sistema a scala si dice che ha $\infty^{n - t}$ soluzioni, dove $t$ \`e il rango per riga della matrice, e $n$ \`e il numero di parametri. L'insieme delle soluzioni \`e in corrispondenza biunivoca con $\reals^{n - t}$.
-
-Le variabili che hanno per coefficiente i pivot si dicono legate, le altre si dicono libere. Un sistema con il rango per righe pari a $t$, ha $n - t$ variabili libere.
-
-In un sistema omogeneo $S \times X = 0$, le soluzioni sono il $\ker L_S$. Inoltre la dimensione $\ker L_S = n - t = r_r (S)$. Siccome il rango per colonne $r_c (S) = \dim \image{L_S}$, e sapendo che $L_S : \reals^n \to \reals^m$, sappiamo che $n = \dim \image{L_S} - \dim \ker L_S$. $n - r_r(S) = \dim \ker L_S$. Quindi in definitiva il rango per righe e il rango per colonne sono uguali, in una matrice a scala.
+Sia $L : V \to V$ un'applicazione lineare. Se la matrice diagonale $D$ rappresenta $L$ rispetto a $B = \{ e_1, \ldots, e_n \}$, possiamo dire che:
 \[
-S \times X = B 
+B \times D^{1} = B \times 
+\begin{pmatrix}
+d_{1,1} \\ 0 \\ 0 \\ \vdots
+\end{pmatrix} = L(e_1) = d_{1,1} \cdot e_1
+\]
+In generale:
+\[
+L(e_n) = d_{n,n} \cdot e_n
+\]
+\begin{defn}
+Sia $L : V \to V$ un endomorfismo, un vettore $v \in V$ con $v \neq \nullelement$ si dice \emph{autovettore} di $L$ se $\exists \lambda \in \field$ tale che $L(v) = \lambda \cdot v$, ossia l'immagine di $v$ \`e un suo multiplo.
+\end{defn}
+
+Se $D$ \`e una matrice diagonale che rappresenta $L$ rispetto alla base $B$, $B$ \`e una base di autovettori. Viceversa, se esiste una base $B$ di $V$ formata da autovettori di $L$, allora la matrice associata a $L$ rispetto a $B$ \`e diagonale.
+
+Sia $v$ un autovettore di $L$, ossia tale per cui $L(v) = \lambda \cdot v$, $\lambda$ si dice \emph{autovalore} di $L$.
+
+Un autovalore di $L$ \`e uno scalare tale per cui esiste un vettore $v$ la cui immagine \`e l'autovalore moltiplicato per il vettore $v$.
+
+$\lambda$ pu\`o essere 0: quando $\lambda$ \`e 0, il vettore $v$ va nel vettore nullo. Quindi $L$ non \`e un'applicazione iniettiva.
+
+$\lambda = 0$ \`e un autovalore di $L \iff \ker L \neq \{ \nullelement \} \iff L$ non \`e iniettiva.
+
+Se $L$ non \`e iniettiva, allora tutti i vettori $v \neq \nullelement$ di $\ker L$ sono autovettori di autovalore 0.
+
+Come si trovano gli autovalori e gli autovettori di un endomorfismo (e quindi della matrice associata all'endomorfismo)?
+
+Consideriamo $L : V \to V$ e la base $B$. Abbiamo la matrice $A$ associata a $L$ rispetto a questa base, ossia $A = M_{B} (L)$.
+\begin{align*}
+L(v) = \lambda \cdot v \implies \\
+L(v) = \lambda \cdot \id(v) \implies \\
+(L - \lambda \cdot \id) (v) = \nullelement \implies \\
+(A - \lambda \cdot I) = M_B (L - \lambda \cdot id)
+\end{align*}
+Quindi, se $v = B \times X$, ossia $X$ sono le coordinate di $v$ rispetto alla base $B$, si ha che:
+\[
+(A - \lambda \cdot I) \times X = \nullelement
+\]
+Se $v$ esiste, allora $X$ \`e soluzione non nulla di questo sistema. Se il $\det{A - \lambda \cdot I} \neq 0$, abbiamo che $X = \nullelement$, quindi deve essere il determinante $\det{A - \lambda \cdot I} \neq 0$.
+
+Gli autovalori di $L$ sono gli zeri del polinomio $\det{A - \lambda \cdot I}$, detto anche polinomio caratteristico.
+
+Una volta trovati gli autovalori, come si trovano gli autovettori? Risolvendo il sistema $(A - \lambda \cdot I) = \nullelement$.
+
+Prendendo un'altra matrice $A'$ associata a $L$ rispetto a un'altra base, questa ha lo stesso polinomio caratteristico.
+\[
+\det{A - \lambda \cdot I} = \det{A' - \lambda \cdot I}
+\]
+Il polinomio caratteristico di $L$ \`e un invariante di $L$, ossia se $A'$ \`e un'altra matrice associata a $L$, si ha che $\det{A - \lambda \cdot I} = \det{A' - \lambda \cdot I}$.
+
+\begin{proof}
+$A'$ rappresenta lo stesso endomorfismo $L$ rappresentato da $A$. $A' = P^{-1} \times A \times P$.
+\begin{align*}
+\det{A' - \lambda \cdot I} &= \det{ P^{-1} \times A \times P - \lambda \cdot I} = \\
+&= \det{P^{-1} \times A \times P - \lambda \cdot P^{-1} \times P} = \tag{si pu\`o mettere in evidenza} \\
+&= \det{P^{-1} \times (A - \lambda \cdot I) \times P} = \tag{per Binet} \\
+&= \det{P^{-1}} \cdot \det{A - \lambda \cdot I} \cdot \det{P} = \\
+&= \frac{1}{\det{P}} \cdot \det{A - \lambda \cdot I} \cdot \det{P} =
+\det{A - \lambda \cdot I}
+\end{align*}
+\end{proof}
+
+Data una matrice $A$, $\lambda$ \`e autovalore di $A$ se $A \times X = \lambda \cdot X$.
+
+Il polinomio caratteristico di $A$ \`e $\det{A - \lambda \cdot I}$. Matrici simili $A$ e $A'$, ossia $A \rho A'$, hanno gli stessi autovalori. \emph{Non} hanno gli stessi autovettori: le coordinate cambiano.
+
+L'applicazione $L : V \to V$ \`e diagonalizzabile, cio\`e esiste una matrice diagonale $D$ che la rappresenta, se e solo se $V$ ha una base di autovettori di $L$.
+
+Autovettori relativi ad autovalori distinti sono indipendenti. Condizione sufficiente affinch\'e $L : V \to V$ sia diagonalizzabile, \`e che $L$ abbia $\dim V = n$ autovalori distinti, ossia $n$ autovettori indipendenti.
+
+$\det{A - \lambda \cdot I}$ \`e un polinomio di grado $n$, che quindi ammette al pi\`u $n$ radici.
+\[
+(A - \lambda \cdot I) =
+\begin{pmatrix}
+a_{1,1} - \lambda & \dots & \\
+\vdots & \ddots & \\
+& & a_{n,n} - \lambda
+\end{pmatrix}
+\]
+Quella sopra non \`e condizione necessaria: si possono avere meno autovalori distinti, ma avere comunque una base.
+
+Dato un autovalore $\lambda$, con $E(\lambda)$ si indica l'insieme degli autovettori di autovalore $\lambda$, pi\`u il vettore nullo.
+\[
+E(\lambda) = \{ v \in V : L(v) = \lambda \cdot v \}
+\]
+$E(\lambda)$ \`e un sottospazio di $V$, e si dice autospazio relativo all'autovalore $\lambda$.
+
+Ciascun autovalore $\lambda_1, \ldots \lambda_t$ avr\`a un suo autospazio $E(\lambda_i)$, e ciascun autospazio avr\`a una base $B_i$, con dimensione $\dim E(\lambda_i) = n_i$. Se la somma delle dimensioni fa $n$, ossia:
+\[
+\dim E(\lambda_1) + \ldots + \dim E(\lambda_t) = n
+\]
+allora $L$ \`e diagonalizzabile.
+
+Abbiamo visto che, data un'applicazione lineare $L : V \to V$, con $\dim V = n$, e due basi di $V$, $B = \{ e_1, \ldots, e_n \}$ e $B' = \{ e_1', \ldots e_{n}' \}$, abbiamo due matrici associate a $L$ rispetto alle due basi, ossia $M_{B}(L)$ e $M_{B'}(L)$.
+
+Sapendo che $L = \id \circ L \circ \id$, e che, data un'applicazione composta $G = L \circ F$, la matrice associata a $G$ \`e il prodotto delle matrici associate a $L$ e a $F$:
+\[
+M_{B''}^{B} (G) = M_{B''}^{B} (L) \times M_{B'}^{B} (F)
+\]
+Sapendo questo, dicevamo, si vede che:
+\[
+M_{B'} (L) = M_{B'}^{B} ( \id ) \times M_{B} (L) \times M_{B}^{B'} (\id)
+\]
+Due matrici $A$, $A'$ si dicono simili se esiste una matrice invertibili $P$ per cui:
+\[
+A' = P^{-1} \times A \times P
+\]
+\begin{prop}
+$A$ e $A' \in \matrices_{n} (\field)$ sono simili $\iff$ rappresentano lo stesso endomorfismo rispetto a due basi diverse.
+\end{prop}
+Da questa proposizione sorgono due problemi equivalenti:
+\begin{enumerate}
+    \item Determinare, qualora esista, una matrice diagonale $D$ simile a una matrice data $A$.
+    \item Determinare, qualora esista, una matrice $D$ diagonale che rappresenta un endomorfismo $L$.
+\end{enumerate}
+
+Dato un endomorfismo $L$ (o una matrice $A$) si dice \emph{autovettore} di $L$ (o di $A$) un vettore $v \neq \nullelement$ (nel caso della matrice, una $n$-upla diversa dalla $n$-upla nulla) tale che $\exists \lambda \in \reals$ per cui $L(v) = \lambda \cdot v$. Nel caso della matrice, $A \times X = \lambda \cdot X$.
+\[
+A =
+\begin{pmatrix}
+3 & 0 & 0 \\ 
+0 & 1 & 0 \\
+0 & 0 & -1
+\end{pmatrix}
+=
+M_B(L)
+\]
+\[
+B = \{ v_1, v_2, v_3 \}
+\]
+\begin{align*}
+L(v_1) &= 3 \cdot v_1 + 0 \cdot v_2 + 0 \cdot v_3 = 3 \cdot v_1 \\
+L(v_2) &= v_2 \\
+L(v_3) &= - v_3
+\end{align*}
+Una matrice diagonale rappresenta $L$ rispetto ad una base $B$ se la base $B$ \`e una base di autovettori.
+
+\begin{prop}
+Condizione necessaria e sufficiente affinch\'e $L : V \to V$ sia diagonalizzabile \`e che $V$ abbia una base di autovettori.
+
+Con le matrici, condizione necessaria e sufficiente affinch\'e una matrice $A \in \matrices_{n} (\reals)$ sia diagonalizzabile \`e che in $\reals^n$ ci sia una base composta da autovettori di $A$.
+\end{prop}
+La matrice diagonale $D$ ha sulla diagonale gli autovalori di $L$ (rispettivamente di $A$).
+
+\begin{prop}
+Gli autovalori di $L$ (rispettivamente della matrice $A$) sono gli zeri del polinomio caratteristico di $L$ (rispettivamente di $A$), ossia del polinomio $\det{A - \lambda \cdot I}$.
+\end{prop}
+
+Come si trovano gli autovettori, invece?
+\[
+L(V) = \lambda \cdot v \implies L(V) - \lambda \cdot v = \nullelement \implies 
+(A \times X - \lambda \cdot X) = \nullelement \implies (A - \lambda \cdot I) \times X = 0
+\]
+Si risolve il sistema e si trovano gli autovettori.
+
+\subsection{Criterio di diagonalizzazione}
+
+Dobbiamo introdurre altre due proposizioni.
+
+$\lambda$ \`e un autovalore (con $\lambda \in \reals$) $\iff \det{A - \lambda \cdot I} = 0$.
+
+Quindi $\lambda$ ha una molteplicit\`a come radice del polinomio caratteristico, detta molteplicit\`a algebrica di $\lambda$. Si indica con $m_a(\lambda)$.
+
+Prendiamo tutti gli autovettori di autovalore $\lambda$.
+\[
+E(\lambda) = \{ v \in V : L(v) = \lambda \cdot v \}
+\]
+$E(\lambda)$ contiene gli autovettori di $L$ di autovalore $\lambda$, pi\`u il vettore nullo. $E(\lambda)$ \`e un sottospazio di $V$. Infatti, presi due elementi, contiene tutte le loro combinazioni lineari.
+\begin{align*}
+v, w &\in E(\lambda) \\
+a \cdot v + b \cdot w &\in E(\lambda)
+\end{align*}
+Infatti $L(a \cdot v + b \cdot w) = a \cdot L(v) + b \cdot L(w) = 
+a \cdot \lambda \cdot v + b \cdot \lambda \cdot w =
+\lambda \cdot (a \cdot v + b \cdot w)$.
+
+Anche questo sottospazio, $E(\lambda)$, ha una sua dimensione, viene chiamata molteplicit\`a geometrica, e viene solitamente indicata con $m_g(\lambda)$.
+
+La molteplicit\`a algebrica di $\lambda$ \`e sempre minore o uguale di $n = \dim V$. Infatti $\det{A - \lambda \cdot I}$ ha grado $n$.
+
+La molteplicit\`a geometrica, invece, che \`e la dimensione $\dim E(\lambda)$, chiamato \emph{autospazio relativo a $\lambda$}, \`e sempre minore o uguale della molteplicit\`a algebrica. Quindi:
+\[
+m_g(\lambda) \le m_a(\lambda) \le n
+\]
+Infatti $\dim E(\lambda) = m_g(\lambda) = t$. La dimensione \`e la dimensione di una base di $E(\lambda)$, contenente $t$ vettori. La base $B = \{v_1, \ldots v_t \}$ contiene tutti vettori del tipo $L(v_i) = \lambda \cdot v_i$.
+
+Ma $E(\lambda) \subseteq V$, ed essendo che $\dim V = n$, deve essere che $t \le n$. Deve esserci una base $\bar{B}$ di $V$ contenente la base $B$ di $E(\lambda)$.
+\[
+\bar{B} = \{ v_1, \ldots, v_t, w_{t+1}, \ldots, w_n \}
+\]
+La molteplicit\`a algebrica \`e almeno $t$.
+% $\det{A - \lambda \cdot I} = 0$, ha $A$ nella forma:
+% \[
+% M_{\bar{B}} (L) = A =
+% \begin{pmatrix}
+% \lambda & 0 & \dots & 0 & \dots \\
+% 0 & \lambda & 0 & 0 & \dots\\
+% \vdots & \vdots & \ddots & \vdots
+% \dots & \dots & 0 & \lambda
+% ...
+% \end{pmatrix}
+% % fare matrice con \lambda solo all'inizio
+% \]
+\begin{prop}
+Se $v_1, \ldots, v_t$ sono autovettori a due a due distinti relativi rispettivamente agli autovalori $\lambda_1, \ldots, \lambda_t$ (con $\lambda_i \neq \lambda_j$ se $i \neq j$), costituiscono un insieme indipendente.
+\end{prop}
+
+\begin{proof}
+Per induzione sul numero $t$ degli autovettori. Per $t = 1$ \`e vero, abbiamo un solo autovettore diverso dal vettore nullo (per definizione), che quindi costituisce un insieme indipendente.
+
+Supponiamo il teorema vero per $t \ge 1$, e dimostriamo che \`e vero per $t + 1$ vettori. Se fossero dipendenti, il vettore $v_{t+1}$ apparterrebbe allo spazio generato $\pow{v_1, \ldots, v_t}$.
+\[
+\nullelement = a_1 \cdot v_1 + \ldots + a_t \cdot v_t + a_{t+1} \cdot v_{t+1}
+\]
+\begin{align*}
+\nullelement = L( \nullelement ) &= a_1 \cdot L(v_1) + \ldots + a_t \cdot L(v_t) + a_{t+1} \cdot L(v_{t+1}) = \tag{essendo tutti autovettori} \\
+&= a_1 \cdot \lambda_1 \cdot v_1 + \ldots + a_t \cdot \lambda_t \cdot v_t + a_{t+1} \cdot \lambda_{t+1} \cdot v_{t+1}
+\end{align*}
+Ogni $\lambda_i, \lambda_j$ \`e una coppia di elementi a due a due distinti. Quindi al pi\`u un $\lambda_i$ \`e pari a 0.
+
+Sia $v_j$ un vettore tale che $\lambda_j \neq 0$. Supponiamo $v_j$ sia proprio $v_{t+1}$, quindi $\lambda_{t+1} \neq 0$.
+
+Moltplicando per $\lambda_{t+1}$, si ottiene che:
+\[
+\nullelement = \lambda_{t+1} \cdot a_1 \cdot v_1 + \ldots + \lambda_{t+1} \cdot a_{t+1} \cdot v_{t+1}
+\]
+E inoltre ho sempre l'identit\`a per cui:
+\[
+\nullelement = \lambda_{1} \cdot a_{1} \cdot v_{1} + \ldots + \lambda{t+1} \cdot a_{t+1} \cdot v_{t+1}
+\]
+Sottraendo le due equazioni si ottiene che:
+\[
+\nullelement = a_1 \cdot (\lambda_{t+1} - \lambda_{1}) \cdot v_1 + \ldots + a_t \cdot (\lambda_{t+1} - \lambda{t}) \cdot v_t
+\]
+Essendo $v_1, \ldots, v_t$ vettori indipendenti, e sapendo che ogni coppia $\lambda_i, \lambda_j$ \`e formata da elementi distinti, e che:
+\[
+a_1 \cdot (\lambda_{t+1} - \lambda_1) = \ldots = 
+a_t \cdot (\lambda_{t+1} - \lambda_t) = 0
+\]
+Ogni $a_1, \ldots, a_t$ deve essere a 0. $\lambda_{t+1}$ si era detto essere diverso da zero, quindi anche $a_{t+1}$ deve essere zero.
+\end{proof}
+
+\begin{prop}
+Le seguenti proposizioni sono equivalenti:
+\begin{enumerate}
+    \item\label{itm:diag_1} L'applicazione lineare $L$ \`e diagonalizzabile (o la matrice $A$ \`e diagonalizzabile)
+    \item\label{itm:diag_2} Esiste una base di $V$ formata da autovettori dell'applicazione lineare $L$ (rispettivamente della matrice $A$)
+    \item\label{itm:diag_3} $V$ \`e somma diretta di autospazi, ossia $V = E(\lambda_1) \oplus \ldots \oplus E(\lambda_t)$, ossia ogni vettore $v \in V$ si esprime in un solo modo come somma di autovettori
+    \item\label{itm:diag_4} Ogni autovalore di $L$ ha molteplicit\`a geometrica uguale a quella algebrica, e la somma delle molteplicit\`a \`e:
+    \[
+    \sum_{\lambda} m_a(\lambda) = \sum_{\lambda} m_g(\lambda) = n
+    \]
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\ref{itm:diag_1} implica \ref{itm:diag_2} e \ref{itm:diag_2} implica \ref{itm:diag_1} lo abbiamo gi\`a visto.
+
+\ref{itm:diag_3} implica che una base $B$ di $V$ si ottiene dall'intersezione $B_1 \cup \ldots \cup B_t$ dove $B_i$ \`e una base di $E(\lambda_i)$. Autovettori relativi ad autovalori distinti sono indipendenti.
+
+Le molteplicit\`a geometriche sono le dimensioni delle basi, quindi viene subito anche la \ref{itm:diag_4}.
+
+\ref{itm:diag_2} implica la \ref{itm:diag_3}, perch\'e data una base di autovettori posso dividerli in base al loro autovalore.
+
+% riscrivere bene queste dimostrazioni
+\end{proof}
+
+\begin{exmp}
+Consideriamo l'applicazione lineare $T : \reals^3 \to \reals^3$. Si pu\`o definire un'applicazione lineare in tre modi.
+\begin{enumerate}
+    \item Dire chi \`e $T(x,y,z) = ?$
+    \item dire chi \`e la matrice $A$ associata a $T$ rispetto a una base $B$
+    \[
+    T(x,y,z) = A \times 
+    \begin{pmatrix}
+    x' \\ y' \\ z'
+    \end{pmatrix}
+    \]
+    Dove $(x', y', z')$ sono le coordinate di $(x,y,z)$ rispetto a $B$.
+    \item dire quali valori assume $T$ sui valori di una base $B$, ad esempio $T(1,1,1)$, $T(1,1,0)$, $T(1,0,0)$.
+\end{enumerate}
+Diciamo i valori che $T$ assume sulla base:
+\begin{align*}
+T(1,1,1) &= (3,0,6) \\
+T(1,1,0) &= (3,1,2) \\
+T(1,0,0) &= (2,0,0)
+\end{align*}
+Si vede subito che $(1,0,0)$ \`e un autovettore di autovalore 2, infatti $T(1,0,0) = 2 \cdot (1,0,0)$.
+
+Mettendo i valori per colonna si ha una matrice associata a $T$ rispetto alla base $B$ del dominio, e alla base canonica del codominio:
+\[
+M_{B_c}^{B} (L) =
+A = 
+\begin{pmatrix}
+3 & 3 & 2 \\
+0 & 1 & 0 \\
+6 & 2 & 0
+\end{pmatrix}
+\]
+Bisogna trovare la matrice associata alla base $B$, ossia $M_{B} (L)$. La prima colonna di questa nuova matrice sar\`a la prima colonna della matrice $A$ sopra, espressa rispetto ai vettori della base $B$.
+\[
+(3,0,6) = a \cdot (1,1,1) + b \cdot (1,1,0) + c \cdot (1,0,0)
+\]
+Se si vuole invece trovare la matrice $M_{B_c} (L)$, rispetto alla base canonica:
+\begin{align*}
+T(1,0,0) &= (2,0,0) \\
+T(0,1,0) &= T((1,1,0) - (1,0,0)) = T(1,1,0) - T(1,0,0) = (1,1,2) \\
+T(0,0,1) &= (0,-1,4)
+\end{align*}
+Quindi:
+\[
+M_{B_c} (L) = 
+\begin{pmatrix}
+2 & 1 & 0 \\
+0 & 1 & -1 \\
+0 & 2 & 4
+\end{pmatrix}
+\]
+Determiniamo gli autovalori di $L$.
+\begin{align*}
+\det{A - \lambda \cdot I} &= 
+\det{
+\begin{pmatrix}
+(2- \lambda) & 1 & 0 \\
+0 & (1 - \lambda) & -1 \\
+0 & 2 & (4 - \lambda)
+\end{pmatrix}
+} = \\
+&= (2 - \lambda) \cdot
+\left[
+\det{
+\begin{pmatrix}
+(1 - \lambda) & -1 \\
+2 & (4 - \lambda)
+\end{pmatrix}
+}
+\right] = \\
+&= (2 - \lambda) \cdot \left[
+(1 - \lambda) \cdot (4 - \lambda) + 2
+\right] =
+(\lambda - 2)^2 \cdot (\lambda - 3)
+\end{align*}
+Quindi ha due autovalori: $\lambda_1 = 2$ e $\lambda_2 = 3$. Le molteplicit\`a algebriche sono $m_a(2) = 2$, e $m_a(3) = 1$.
+
+Troviamo gli autospazi.
+\[
+E(3) = \{ v \in \reals^3 : T(v) = 3 \cdot v \}
+\]
+Tutti i $v \in E(3)$ ha coordinate $X$ rispetto alla base canonica tali che il sistema $(A - 3 \cdot I) \times X = 0$.
+\[
+\begin{pmatrix}
+-1 & 1 & 0 \\
+0 & -2 & -1 \\
+0 & 2 & 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+x \\ y \\ z 
+\end{pmatrix} = 0 
+\]
+\`E equivalente al sistema:
+\[
 \begin{cases}
-L_S (X) = S \times X , L_S : \reals^n \to \reals^m \\
-B \in \image{L_S} \iff \text{ il sistema ha soluzioni } \iff r_c(S) = r_c(S | B) \\
-S \times X = 0 \iff \dim \ker L_S = n - r_r(S) \\
-X \in \ker L_S
+-x + y = 0 \\
+2y + z = 0
 \end{cases}
 \]
-Il numero delle incognite $n = r_c (L_S) + \dim \ker L$, quindi $n = r_c(L_S) + n - r_r (S)$, quindi i due ranghi sono uguali.
-
-
-
-
-
-
+Le soluzioni sono $z = - 2 y$ e $x = y$, ossia $(x, x, -2x)$.
+\[
+E(3) = \{ (x,x,-2x) \in \reals^3 : x \in \reals \}
+\]
+La sua dimensione \`e $\dim E(3) = 1$, quindi $E(3)$ \`e isomorfo a $\reals$, e l'isomorfismo \`e quello che associa a un certo $y \mapsto (y, y, -2y)$.
+\[
+E(3) = \pow{(1,1,-2)}
+\]
+Troviamo gli autovettori di autovalore 2:
+\[
+E(2) = \{ v : T(v) = 2 \cdot v \}
+\]
+Il sistema da risolvere \`e:
+\[
+\begin{pmatrix}
+0 & 1 & 0 \\
+0 & -1 & -1 \\
+0 & 2 & 2
+\end{pmatrix}
+\times
+\begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix} = 0
+\]
+Anche in questo caso la dimensione $\dim E(2) = 1$, quindi $T$ non \`e diagonalizzabile. Infatti:
+\[
+m_g(2) = 1 < m_a(2) = 2
+\]
+Sapevamo gi\`a da prima che $E(2) = \pow{(1,0,0)}$.
+\end{exmp}
 
 
 
