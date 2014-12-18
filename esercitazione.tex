@@ -1,0 +1,380 @@
+\begin{exmp}
+Consideriamo l'applicazione lineare $F : \reals^3 \to \reals^3$ definita da:
+\[
+F(x,y,z) = (x, 2x-2y-2z, 2x-3y-z)
+\]
+\begin{enumerate}
+    \item Trovare la matrice associata all'applicazione lineare rispetto alla base $B = \{ (1,1,1), (1,1,0), (1,0,0) \}$.
+    \item Determinare, se possibile, una base di autovettori rispetto alla quale la matrice che rappresenta $F$ \`e diagonale, trovare la matrice diagonale, e trovare la matrice $P$ tale per cui la matrice $A$ associata alla base canonica \`e:
+    \[
+    A = P^{-1} \times D \times P
+    \]
+\end{enumerate}
+Le colonne della matrice associata a $B$ sono le coordinate rispetto alla base $B$ delle immagini dei vettori della base $B$.
+\begin{align*}
+F(e_1) &= F((1,1,1)) = (1,-2,-2) = -2 (1,1,1) + 0 (1,1,0) + 3(1,0,0) \\
+F(e_2) &= F((1,1,0)) = (1,0,-1) = -1 (1,1,1) + 1 (1,1,0) + 1 (1,0,0) \\
+F(e_3) &= F((1,0,0)) = (1,2,2) = 2 (1,1,1) + 0 (1,1,0) - 1 (1,0,0)
+\end{align*}
+Quindi la matrice associata alla base $B$ \`e:
+\[
+M_B (F) =
+\begin{pmatrix}
+-2 & -1 & 2 \\
+0 & 1 & 0 \\
+3 & 1 & -1
+\end{pmatrix}
+\]
+Avremmo potuto trovare le coordinate delle immagini rispetto alla base $B$ con il cambio di base. Per effettuare un cambio di base, bisogna trovare la matrice $M_{B}^{B_c} (\id)$. La matrice $M_{B}^{B_c} (\id)$ ha per colonne le coordinate della base canonica $B_c$ rispetto alla base $B$.
+\[
+M_{B}^{B_c} (\id) = 
+\begin{pmatrix}
+0 & 0 & 1 \\
+0 & 1 & -1 \\
+1 & -1 & 0
+\end{pmatrix}
+\]
+Per la seconda domanda, bisogna trovare una base $B_a$ di autovettori di $F$. Prima troviamo la matrice associata ad $F$ rispetto alla base canonica:
+\[
+A = M_{B} (F) =
+\begin{pmatrix}
+1 & 0 & 0 \\
+2 & -2 & -2 \\
+2 & -3 & -1
+\end{pmatrix}
+\]
+Gli autovalori saranno le radici del determinante della matrice $A - \lambda \cdot I$.
+\[
+A - \lambda \cdot I =
+\begin{pmatrix}
+1-\lambda & 0 & 0 \\
+2 & -2-\lambda & -2 \\
+2 & -3 & -1-\lambda
+\end{pmatrix}
+\]
+Il polinomio caratteristico \`e:
+\begin{align*}
+\det{A - \lambda \cdot I} &=
+(1 - \lambda) \cdot \left[ (-2 -\lambda) \cdot (-1 - \lambda) - 6 \right] = \\
+&= (1 - \lambda) \cdot \left[ 2 + \lambda + 2 \lambda + \lambda^2 - 6 \right] = \\
+&= (1 - \lambda) \cdot \left[ \lambda^2 + 3 \lambda - 4 \right] = \\
+&= (1 - \lambda) \cdot \left[ \lambda^2 - \lambda + 4 \lambda - 4 \right] = \\
+&= (1 - \lambda)^2 \cdot (\lambda + 4)
+\end{align*}
+Gli autovalori quindi sono, con le rispettive molteplicit\`a algebriche:
+\begin{align*}
+\lambda_1 = 1 & m_a(\lambda_1) = 2 \\
+\lambda_2 = -4 & m_a(\lambda_2) = 1
+\end{align*}
+Gli autovettori associati a 1 sono le soluzioni del sistema $(A - I) \times X = \nullelement$, con $A - I$ pari a:
+\[
+\begin{pmatrix}
+0 & 0 & 0 \\
+2 & -3 & -2 \\
+2 & -3 & -2
+\end{pmatrix}
+\]
+Il sistema ha rango 1, quindi ha $\infty^2$ soluzioni, quindi $m_g (\lambda_1) = 2$. La molteplicit\`a geometrica \`e il numero di incognite del sistema meno il rango della matrice associata al sistema (ossia, meno il numero di righe non nulle). Bisogna trovare una base di $E(1)$ (l'insieme degli autovettori di autovalore 1). Essendo la molteplicit\`a geometrica di 1 pari a $m_g (1) = 2$, $E(1)$ avr\`a dimensione 2.
+\[
+E(1) = \{ (x,y,z) : 2x - 3y -2z = 0\} = \pow{(1,0,1), (0, 2, -3)}
+\]
+Vediamo con $\lambda_2 = -4$.
+\[
+\begin{pmatrix}
+5 & 0 & 0 \\
+2 & 2 & -2 \\
+2 & -3 & 3
+\end{pmatrix}
+\]
+Applichiamo Gauss si ottiene:
+\[
+\begin{pmatrix}
+5 & 0 & 0 \\
+0 & 10 & -10 \\
+0 & 0 & 0
+\end{pmatrix}
+\]
+Da cui:
+\[
+E(-4) = \{ (x,y,z) : x = 0 \text{ e } y - z = 0 \} = \pow{(0,1,1)}
+\]
+Abbiamo quindi la base di autovettori:
+\[
+B_a = \{ (1,0,1), (0,2,-3), (0,1,1) \}
+\]
+La matrice diagonale rispetto a questa base \`e:
+\[
+D =
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & -4
+\end{pmatrix}
+\]
+La matrice diagonale dipende dall'ordine che si d\`a ai vettori nella base di autovettori! Ora dobbiamo trovare $P$ tale per cui la matrice associata alla base canonica \`e $A = P^{-1} \times D \times P$.
+\[
+P^{-1} =
+\begin{pmatrix}
+1 & 0 & 0 \\ 
+0 & 2 & 1 \\
+1 & -3 & 1
+\end{pmatrix}
+\]
+$P^{-1}$ \`e la matrice che ha per colonne gli autovettori di $B_a$. $P$ \`e l'inversa di $P^{-1}$.
+\[
+\det{P^{-1}} = 2 - (-3) = 5
+\]
+Quindi $P$ \`e:
+\[
+P = \frac{1}{5} \cdot \agg (P^{-1}) = 
+\frac{1}{5} \cdot 
+{\begin{pmatrix}
+5 & 1 & -2 \\
+0 & 1 & 3 \\
+0 & -1 & -1
+\end{pmatrix}}^t =
+\frac{1}{5} \cdot 
+\begin{pmatrix}
+5 & 0 & 0 \\
+1 & 1 & -1 \\
+-2 & 3 & -1
+\end{pmatrix}
+\]
+\end{exmp}
+
+\begin{exmp}
+Consideriamo l'applicazione lineare $L : \reals_2 [x] \to \reals_2 [x]$ definita da:
+\[
+L(a_0 + a_1 \cdot x + a_2 \cdot x^2) =
+(a_0 - 3 a_1 + 3 a_2) +
+(3 a_0 - 5 a_1 + 3 a_2) \cdot x +
+(6 a_0 - 6 a_1 + 4 a_2) \cdot x^2
+\]
+Trovare la matrice associata a $L$ rispetto alla base canonica, trovare autovettori e autovalori ed eventualmente la matrice diagonale $D$ che rappresenta $L$.
+
+La base canonica \`e $B_c = \{ 1, x, x^2 \}$. Le loro immagini sono:
+\begin{align*}
+L(1) &= 1 + 3 \cdot x + 6 \cdot x^2 \\
+L(x) &= -3 -5 \cdot x - 6 \cdot x^2 \\
+L(x^2) &= 3 + 3 \cdot x + 4 \cdot x^2
+\end{align*}
+Per trovare la matrice $M_{B_c} (L)$ bisogna mettere in colonna le coordinate di questi vettori rispetto alla base canonica.
+\[
+A = M_{B_c} (L) =
+\begin{pmatrix}
+1 & -3 & 3 \\
+3 & -5 & 3 \\
+6 & -6 & 4
+\end{pmatrix}
+\]
+Facciamo il determinante del polinomio caratteristico per trovare gli autovalori.
+\[
+\det{A - \lambda \cdot I} = 
+\det{
+\begin{pmatrix}
+1-\lambda & -3 & 3 \\
+3 & -5 - \lambda & 3 \\
+6 & -6 & 4 - \lambda
+\end{pmatrix}
+}
+=
+(\lambda + 2)^2 \cdot (\lambda - 4)
+\]
+Abbiamo due autovalori:
+\begin{align*}
+\lambda_1 = -2 & m_a(-2) = 2 \\
+\lambda_2 = 4 & m_a(4) = 1
+\end{align*}
+Bisogna trovare gli autospazi di questi autovalori.
+\[
+E(-2) = \left\{ p(x) \in \reals_2 [x] : (A + 2 \cdot I) \times X = 0 \text{ e } X \neq \nullelement \right\}
+\]
+$X$ \`e la colonna delle coordiante di $p(x)$ rispetto alla base canonica. La matrice \`e:
+\[
+\begin{pmatrix}
+3 & -3 & 3 \\
+3 & -3 & 3 \\
+6 & -6 & 6
+\end{pmatrix}
+\]
+Il rango di questa matrice \`e 1, quindi i polinomi in $E(-2)$ sono tutti i polinomi per cui:
+\[
+\begin{pmatrix}
+1 & -1 & 1 \\
+0 & 0 & 0 \\
+0 & 0 & 0
+\end{pmatrix}
+\times
+\begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix} = \nullelement
+\]
+Avendo rango 1, la dimensione di $E(-2)$, ossia il numero delle incognite meno il rango della matrice $(A + 2 \cdot I)$ \`e 2.
+\[
+E(-2) = \{ a_0 + a_1 \cdot x + a_2 \cdot x^2 : a_0 - a_1 + a_2 = 0 \} =
+\pow{(1,1,0),(0,1,1)}
+\]
+La base di $E(-2)$ \`e $\{ (1,1,0), (0,1,1) \}$. Troviamo $E(4)$. La sua matrice \`e:
+\[
+\begin{pmatrix}
+-3 & -3 & 3 \\
+3 & -9 & 3 \\
+6 & -6 & 0
+\end{pmatrix}
+\]
+Applicando Gauss viene:
+\[
+\begin{pmatrix}
+-3 & -3 & 3 \\
+0 & 12 & -6 \\
+0 & 0 & 0
+\end{pmatrix}
+\sim_R
+\begin{pmatrix}
+1 & 1 & -1 \\
+0 & -2 & 1 \\
+0 & 0 & 0
+\end{pmatrix}
+\]
+Il sistema diventa quindi:
+\[
+\begin{cases}
+a_0 + a_1 - a_2 = 0 \\
+-2 a_1 + a_2 = 0
+\end{cases}
+\implies
+\begin{cases}
+a_0 = a_1 \\
+a_2 = 2 a_1
+\end{cases}
+\]
+Quindi la soluzione \`e: $(1, 1, 2)$, ossia $1 + x + 2 \cdot x^2$.
+
+La base di autovettori \`e: $\{ 1 + x + 2 \cdot x^2, 1 + x, x + x^2 \}$. Rispetto a questa base, la matrice diagonale che rappresenta $L$ \`e:
+\[
+D = 
+\begin{pmatrix}
+4 & 0 & 0 \\
+0 & -2 & 0 \\
+0 & 0 & -2
+\end{pmatrix}
+\]
+Per trovare la matrice $P$ tale per cui $M_{B_c} (L) = P^{-1} \times D \times P$, sapendo che $P^{-1}$ \`e la matrice che ha per colonne le coordinate degli autovettori dell'autospazio, basta fare l'inversa di $P^{-1}$.
+
+Se si vuole trovare il $\ker L$ e l'immagine $\image{L}$?
+
+L'immagine di $L$ \`e generata dalle colonne della matrice associata a $L$. Quindi la dimensione dell'immagine \`e il rango della matrice associata $A$.
+\[
+\dim \pow{1 + 3 \cdot x + 6 \cdot x^2, -3 -5 \cdot x - 6 \cdot x^2, 3 + 3 \cdot x + 4 \cdot x^2} =
+r \left( M_{B_c} (L) \right) = \dim \image{L}
+\]
+Per trovare il $\ker L$, so che ne fanno parte i vettori $a_0 + a_1 \cdot x + a_2 \cdot x^2$ che risolvono questo sistema:
+\[
+\begin{pmatrix}
+1 & -3 & 3 \\
+3 & -5 & 3 \\
+6 & -6 & 4
+\end{pmatrix}
+\times
+\begin{pmatrix}
+a_0 \\ a_1 \\ a_2
+\end{pmatrix}
+= 0
+\]
+Il rango della matrice associata \`e 3, quindi $L$ \`e un'applicazione iniettiva (o meglio un isomorfismo) e il $\ker L$ contiene solo il vettore nullo (ha dimensione 0).
+\end{exmp}
+
+Problemi che si possono risolvere applicando il metodo di Gauss:
+\begin{enumerate}
+    \item data un'applicazione lineare $L : V \to V'$, determinare $\image{L}$ e $\ker L$. Si trova la matrice $A$ associata a $L$ rispetto a una certa base, tipicamente quella canonica. La dimensione dell'immagine di $L$ \`e il rango di $A$, ossia $\dim \image{L} = r(A)$. L'immagine $\image{L} = \pow{ L(e_1), \ldots, L(e_n)}$ \`e generata dalle immagini dei vettori della base, con la base $B = \{ e_1, \ldots, e_n \}$. Faccio la trasposta di $A$, trovo una matrice a scala $S$ simile ad $A^t$, e ho che le righe di $S$ sono i vettori di una base di $\image{L}$.
+
+    Per il nucleo, $\ker L = \{ v \in V : L(v) = 0 \} = \{ v \in V : A \times X = \nullelement \}$. Basta risolvere il sistema e stai una Pasqua.
+    \item Dati un insieme $G$ di generatori di $V$, con $\abs{G} < \infty$, estrarre da $G$ una base $B \subseteq G$. Si prende un vettore $v_1 \in G$ con $v_1 \neq \nullelement$, $\{v_1\}$ \`e uno spazio indipendente. Si continuano ad aggiungere vettori $v_2, \ldots, v_n$ non appartenente allo spazio generato che si sta creando, fino a $n = \dim V$.
+    \item Dato un insieme di vettori indipendenti $S$ con $\abs{S} = t \le n = \dim V$, determinare una base $B$ di $V$ che contiene $S$, ossia tale che $S \subseteq B$.
+    \item Se ho un certo numero di vettori e devo vedere quanti di questi sono dipendenti o indipendenti, li metto per righe o per colonne e applico Gauss. Il numero di righe non nulle \`e il numero di vettori indipendenti.
+    \item Dati due sottospazi $U$ e $W$ di $V$, determinare la somma e l'intersezione degli spazi, ossia $U + W$ e $U \cap W$. Se prendo una base $B_U$ di $U$ e una base $B_W$ di $W$, ho che $\pow{B_U \cup B_W}$ \`e un sistema di generatori di $U + W$, ma non \`e una base. Per avere una base applico Gauss. 
+\end{enumerate}
+
+\begin{exmp}
+Consideriamo $\reals^4$, e un insieme $S = \{ (1,1,1,1), (2,2,0,2) \}$ di vettori indipendenti.
+
+Mettendo dei vettori per riga e applicando il metodo di Gauss si ha che lo spazio generato dalle righe resta uguale. Non vale lo stesso per le colonne, anche se la dimensione dello spazio generato dalle colonne resta uguale.
+
+Si mettono per righe i vettori di $S$, la si trasforma eventualmente in una matrice a scala, e si completa la matrice fino ad averne una a scala.
+\[
+A = 
+\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+2 & 2 & 0 & 2
+\end{pmatrix}
+\sim_R
+\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+0 & 0 & 2 & 0
+\end{pmatrix}
+\]
+La base di $\reals^4$ \`e:
+\[
+\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+0 & 0 & 2 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\]
+\end{exmp}
+
+\begin{exmp}
+\begin{align*}
+U &= \{ (x,y,z,t) \in \reals^4 : 2x + y - 3t = 0\} \\
+W &= \pow{(1,0,1,0), (-1,1,0,1)}
+\end{align*}
+Dati questi due sottospazi di $\reals^4$, trovare una base della somma e una base dell'intersezione.
+
+Una base di $U$ \`e $B_U = \{(1,-2,0,0), (0,0,1,0), (0,3,0,1)\}$, quindi $\dim U = 3$. I vettori che generano $W$ sono indipendenti, quindi loro sono una base di $W$, e $\dim W = 2$.
+
+Se vogliamo trovare una base di $W + U = \pow{ B_U \cup B_W }$, si cerca la matrice equivalente per righe a quella che ha per righe i vettori delle due basi:
+\[
+\begin{pmatrix}
+1 & -2 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 3 & 0 & 1 \\
+1 & 0 & 1 & 0 \\
+-1 & 1 & 0 & 1
+\end{pmatrix}
+\sim_R
+\begin{pmatrix}
+1 & 0 & 1 & 0 \\
+0 & -1 & 0 & 1 \\
+0 & 0 & 1 & 0 \\ 
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0
+\end{pmatrix}
+\]
+Quindi $\dim (U + W) = 4$. Sapendo che $\dim (U + W) = \dim U + \dim W - \dim (U \cap W)$, possiamo capire subito che $\dim U \cap W = 3 + 2 - 4 = 1$.
+
+Per trovare il vettore che \`e base di $U \cap W$, si scrive il vettore $v$ come combinazione lineare degli elementi di $W$.
+\[
+v = (x, y, z, t) =
+a \cdot (1,0,1,0) + b \cdot (-1,1,0,1) =
+(a - b, b, a, b)
+\]
+Si impone che questo $v$ appartenga a $U$, ossia deve soddisfare l'equazione che abbiamo usato per definire $U$.
+\[
+2 \cdot (a - b) + b - 3 \cdot b = 0
+\]
+Da ci\`o viene che $a = 2b$, e che quindi il vettore dell'intersezione \`e $(b,b,2b,b)$ per un generico $b$, o $(1,1,2,1)$ per un esempio non generico.
+\end{exmp}
+
+
+
+
+
+
+
+
+
+
+
+
+
