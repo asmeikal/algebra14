@@ -2665,7 +2665,9 @@ $p(x), q(x) \in \reals[x]$ (o un qualsiasi altro campo infinito).
 $\forall n \in \naturals$, $ p(n) - q(n) = 0 \implies \forall n$, $n$ \`e radice, quindi $p(x) = q(x)$.
 \end{proof}
 
-\subsection{Anello delle matrici quadrate}
+\section{Matrici}
+
+\subsection{Gruppo delle matrici $m$ per $n$}
 
 \begin{defn}[Matrice con $m$ righe e $n$ colonne]
 Una matrice $M$ di $m$ righe e $n$ colonne, a valori ad esempio in $\reals$, \`e una applicazione:
@@ -2679,7 +2681,7 @@ M(i, j) = a_{i, j}
 Le matrici si possono rappresentare con una tabella.
 \end{defn}
 
-L'insieme delle matrici con $m$ righe e $n$ colonne si indica con il simbolo $\matrices_\reals(m,n)$.
+L'insieme delle matrici con $m$ righe e $n$ colonne si indica con il simbolo $\matrices_{m,n} (\reals)$.
 
 Date due matrici $M$ e $N$, la loro somma \`e:
 \[
@@ -2689,11 +2691,13 @@ Possiamo indicare una matrice anche come $M = a_{i, j}$. Quindi:
 \[
 M + N = (a_{i, j}) + (b_{i, j}) \definition (a_{i, j} + b_{i, j})
 \]
-$(\matrices_\reals(m,n), +)$ \`e un gruppo abeliano. L'elemento neutro \`e la matrice contenente tutti 0, ossia l'applicazione costante con solo 0.
+$(\matrices_{m,n} (\reals), +)$ \`e un gruppo abeliano. L'elemento neutro \`e la matrice contenente tutti 0, ossia l'applicazione costante con solo 0.
 
-Per fare il campo dobbiamo avere matrici con uguale numero di righe e colonne.
+\subsection{Anello delle matrici quadrate}
 
-Consideriamo un'equazione lineare in $n$ incognite.
+Per fare il campo, ossia per poter definire un'operazione di moltiplicazione su tutti gli elementi del campo, dobbiamo avere matrici con uguale numero di righe e colonne. Si vede da come \`e definito il prodotto fra matrici.
+
+Per capire cosa \`e il prodotto fra matrici, partiamo dai sistemi di equazioni lineari. Consideriamo un'equazione lineare in $n$ incognite:
 \[
 a_1 \cdot x_1 + \dots + a_n \cdot x_n = b
 \]
@@ -2701,7 +2705,7 @@ Possiamo costruire un sistema di equazioni lineari in $n$ incognite e $m$ equazi
 \[
 \begin{cases}
 a_{1,1} x_1 + \dots + a_{1,n} x_n = b_1 \\
-\dots \\
+\vdots \\
 a_{m,1} x_1 + \dots + a_{m,n} x_n = b_m
 \end{cases}
 \]
@@ -2716,7 +2720,7 @@ a_{1,1} & \dots & a_{1,n} \\
 a_{m,1} & \dots & a_{m,n}
 \end{pmatrix}
 \]
-Poi scrivo la matrice delle incognite (\`e una matrice colonna):
+Poi scriviamo la matrice delle incognite (\`e una matrice colonna):
 \[
 X =
 \begin{pmatrix}
@@ -2725,7 +2729,7 @@ x_1 \\
 x_n
 \end{pmatrix}
 \]
-Poi scrivo la matrice dei termini noti (anche questa \`e una matrice colonna):
+Poi scriviamo la matrice dei termini noti (anche questa \`e una matrice colonna):
 \[
 B =
 \begin{pmatrix}
@@ -2737,11 +2741,11 @@ b_n
 Abbiamo poi la matrice completa associata al sistema. Scrivo la matrice dei coefficienti e alla fine aggiungo, come ultima colonna, la matrice dei termini noti. \`E la matrice dei coefficienti con aggiunta la colonna dei termini noti.
 \[
 A | B =
-\begin{pmatrix}
+\begin{completepmatrix}{3}
 a_{1,1} & \dots & a_{1,n} & b_1 \\
 \vdots & \ddots & \vdots & \vdots \\
 a_{m,1} & \dots & a_{m,n} & b_n \\
-\end{pmatrix}
+\end{completepmatrix}
 \]
 Consideriamo il seguente sistema lineare con 4 incognite e 3 equazioni.
 \[
@@ -2785,12 +2789,14 @@ Facciamo il caso pi\`u semplice in cui abbiamo una sola riga.
 \[
 a_{1,1} \cdot x_1 + \dots a_{1,n} \cdot x_n = b_1
 \]
+Anche la matrice associata al sistema ha una sola riga:
 \[
 A = 
 \begin{pmatrix}
 a_{1,1} & \dots & a_{1,n}
 \end{pmatrix}
 \]
+La matrice delle incognite \`e una matrice colonna, e la matrice dei termini noti \`e una matrice 1 per 1.
 \[
 X = 
 \begin{pmatrix}
@@ -2798,19 +2804,18 @@ x_1 \\
 \vdots \\
 x_n
 \end{pmatrix}
-\]
-\[
+\qquad
 B = 
 \begin{pmatrix}
 b_1
 \end{pmatrix}
 \]
-Dobbiamo avere che $A \cdot X = B$. Quindi se moltiplichiamo una riga per una colonna otteniamo $b_1$.
+Dobbiamo avere che $A \times X = B$. Quindi se moltiplichiamo una riga per una colonna otteniamo $b_1$.
 \[
 \begin{pmatrix}
 a_{1,1} & \dots & a_{1,n}
 \end{pmatrix}
-\cdot
+\times
 \begin{pmatrix}
 x_1 \\
 \vdots \\
@@ -2821,11 +2826,11 @@ x_n
 b_1
 \end{pmatrix}
 =
-a_{1,1} \cdot x_1 + \dots + a_{1,n} \cdot x_n
+a_{1,1} \cdot x_1 + \ldots + a_{1,n} \cdot x_n
 \]
 In generale deve valere la stessa cosa. Prendiamo una matrice con 1 riga e $m$ colonne, la possiamo moltiplicare per un'altra matrice con $m$ righe e 1 colonna. Il prodotto mi d\`a una matrice con un solo elemento $b$.
 \[
-M_{1, n} \cdot N_{n, 1} = b
+M_{1, n} \times N_{n, 1} = b
 \]
 Quindi:
 \begin{gather*}
@@ -2841,7 +2846,7 @@ c_1 \\
 c_n
 \end{pmatrix}
 \\
-M_{1, n} \cdot N_{n, 1} = 
+M_{1, n} \times N_{n, 1} = 
 \begin{pmatrix}
 b
 \end{pmatrix}
@@ -2852,7 +2857,7 @@ Posso moltiplicare una matrice con un certo numero di colonne per una matrice co
 \begin{pmatrix}
 1 & 2 & 5 & 6 
 \end{pmatrix}
-\cdot
+\times
 \begin{pmatrix}
 - 1 \\
 0 \\
@@ -2868,18 +2873,19 @@ In generale una matrice con $m$ righe e $n$ colonne $M_{m,n}$ si pu\`o moltiplic
 \[
 C_{m, t} =
 \begin{pmatrix}
-M_{1, n} \cdot N_{n, 1} & \dots & M_{1, n} \cdot N_{n, t} \\
+M_1 \times N^1 & \dots & M_1 \times N^t \\
 \vdots & \ddots & \vdots \\
-M_{m, n} \cdot N_{n, 1} & \dots & M_{m, n} \cdot N_{n, t}
+M_m \times N^1 & \dots & M_m \times N^t
 \end{pmatrix}
 \]
 Prendiamo la prima riga di $M$ e la moltiplichiamo per la prima colonna di $N$.
 
-$M_{1,n}$ indica la prima riga di $M$, $N_{n,1}$ indica la prima colonna di $N$.
+$M_1$ o $M_{1,n}$ indica la prima riga di $M$, $N^1$ o $N_{n,1}$ indica la prima colonna di $N$.
 \[
-C_{i,j} = M_{i,n} \cdot N_{n,j}
+C_{i,j} = M_i \times N^j = M_{i,n} \times N_{n,j}
 \]
-Esempio:
+$i$ e $j$ sono i numeri di riga o di colonna, e sono quindi fissati, mentre $n$ rappresenta la larghezza o l'altezza della matrice.
+\begin{exmp}
 \[
 \begin{pmatrix}
 3 & 2 & 1 & 0 \\
@@ -2905,12 +2911,12 @@ c_{3,1} & c_{3,2}
 \end{pmatrix}
 \]
 Famo i calcoli:
-\begin{gather*}
-c_{1,1} = M_{1,n} \cdot N_{n,1} =
+\begin{align*}
+c_{1,1} &= M_{1,n} \times N_{n,1} = M_1 \times N^1 = 
 \begin{smallpmatrix}
 3 & 2 & 1 & 0 
 \end{smallpmatrix}
-\cdot 
+\times 
 \begin{smallpmatrix}
 1 \\
 0 \\
@@ -2919,11 +2925,11 @@ c_{1,1} = M_{1,n} \cdot N_{n,1} =
 \end{smallpmatrix}
 =
 3 + 0 - 1 + 0 = 2 \\
-c_{1,2} = M_{1,n} \cdot N_{n,2} =
+c_{1,2} &= M_{1,n} \times N_{n,2} = M_1 \times N^2 = 
 \begin{smallpmatrix}
 3 & 2 & 1 & 0 
 \end{smallpmatrix}
-\cdot
+\times
 \begin{smallpmatrix}
 2 \\
 1 \\
@@ -2932,11 +2938,11 @@ c_{1,2} = M_{1,n} \cdot N_{n,2} =
 \end{smallpmatrix}
 =
 6 + 2 + 0 + 0 = 8 \\
-c_{2,1} = M_{2,n} \cdot N_{n,1} =
+c_{2,1} &= M_{2,n} \times N_{n,1} = M_2 \times N^1 = 
 \begin{smallpmatrix}
 -1 & -1 & 1 & 2 
 \end{smallpmatrix}
-\cdot 
+\times 
 \begin{smallpmatrix}
 1 \\
 0 \\
@@ -2945,11 +2951,11 @@ c_{2,1} = M_{2,n} \cdot N_{n,1} =
 \end{smallpmatrix}
 =
 -1 + 0 -1 + 2 = 0 \\
-c_{2,2} = M_{2,n} \cdot N_{n,2} =
+c_{2,2} &= M_{2,n} \times N_{n,2} = M_2 \times N^2 = 
 \begin{smallpmatrix}
 -1 & -1 & 1 & 2 
 \end{smallpmatrix}
-\cdot 
+\times 
 \begin{smallpmatrix}
 2 \\
 1 \\
@@ -2958,11 +2964,11 @@ c_{2,2} = M_{2,n} \cdot N_{n,2} =
 \end{smallpmatrix}
 =
 -2 -1 + 0 + 2 = -1 \\
-c_{3,1} = M_{3,n} \cdot N_{n,1} = 
+c_{3,1} &= M_{3,n} \times N_{n,1} = M_3 \times N^1 = 
 \begin{smallpmatrix}
 0 & 1 & 0 & 1 
 \end{smallpmatrix}
-\cdot 
+\times 
 \begin{smallpmatrix}
 1 \\
 0 \\
@@ -2971,11 +2977,11 @@ c_{3,1} = M_{3,n} \cdot N_{n,1} =
 \end{smallpmatrix}
 =
 0 + 0 + 0 + 1 = 1 \\
-c_{3,2} = M_{3,n} \cdot N_{n,2} = 
+c_{3,2} &= M_{3,n} \times N_{n,2} = M_3 \times N^2 = 
 \begin{smallpmatrix}
 0 & 1 & 0 & 1 
 \end{smallpmatrix}
-\cdot 
+\times 
 \begin{smallpmatrix}
 2 \\
 1 \\
@@ -2984,7 +2990,7 @@ c_{3,2} = M_{3,n} \cdot N_{n,2} =
 \end{smallpmatrix}
 =
 0 + 1 + 0 + 1 = 2
-\end{gather*}
+\end{align*}
 Il risultato quindi \`e:
 \[
 \begin{pmatrix}
@@ -2993,13 +2999,10 @@ Il risultato quindi \`e:
 1 & 2
 \end{pmatrix}
 \]
-Il prodotto si pu\`o definire su un insieme di matrici solo se le matrici sono quadrate.
+\end{exmp}
+Ora, il prodotto si pu\`o definire su un insieme di matrici solo se le matrici sono quadrate. $\matrices_n (\reals)$ \`e l'insieme delle matrici quadrate con coefficienti in $\reals$, e $(\matrices_n (\reals), +, \cdot)$ \`e un anello non commutativo (il prodotto non commuta) unitario.
 
-$\matrices_n (\reals)$ \`e l'insieme delle matrici quadrate con coefficienti in $\reals$.
-
-$(\matrices_n (\reals), +, \cdot)$ \`e un anello non commutativo (il prodotto non commuta) unitario.
-
-L'unit\`a rispetto al prodotto \`e la matrice con tutti 1 sulla diagonale, e 0 altrimenti. Si indica con $\delta$. Il termine $\delta_{i, j}$ \`e:
+L'unit\`a rispetto al prodotto \`e la matrice con tutti 1 sulla diagonale, e 0 altrimenti. Si indica con $I$ o con $\delta$. Il termine $\delta_{i, j}$ \`e:
 \[
 \delta_{i, j} = 
 \begin{cases}
@@ -3022,7 +3025,7 @@ L'anello ha divisori dello zero. Prendiamo ad esempio le matrici:
 il loro prodotto \`e 0.
 
 \begin{exmp}
-Prendiamo l'anello delle matrici quadrate di ordine 2, $(\matrices_2 (\reals), +, \cdot)$.
+Prendiamo l'anello delle matrici quadrate di ordine 2, $(\matrices_2 (\reals), +, \times)$.
 \[
 S = \left\{ 
 \begin{smallpmatrix}
@@ -3031,7 +3034,7 @@ x & y \\
 \end{smallpmatrix}
  : x, y \in \reals \right\}
 \]
-$S$ \`e un sottoanello di $(\matrices_2 (\reals), +, \cdot)$?
+$S$ \`e un sottoanello di $(\matrices_2 (\reals), +, \times)$?
 
 Vediamo se \`e un sottogruppo. Prese due matrici in $S$, la differenza deve rimanere in $S$.
 \[
@@ -3122,7 +3125,7 @@ f \left(
 x & y \\
 0 & 0
 \end{smallpmatrix}
-\cdot
+\times
 \begin{smallpmatrix}
 z & t \\
 0 & 0
@@ -3181,7 +3184,7 @@ x & y \\
 x & y \\
 0 & 0
 \end{pmatrix}
-\cdot 
+\times 
 \begin{pmatrix}
 0 & z \\
 0 & 0
@@ -3197,7 +3200,7 @@ x & y \\
 0 & z \\
 0 & 0
 \end{pmatrix} 
-\cdot 
+\times 
 \begin{pmatrix}
 x & y \\
 0 & 0
