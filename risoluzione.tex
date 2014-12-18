@@ -1,0 +1,734 @@
+\section{Sistemi lineari}
+
+Un'equazione lineare \`e una combinazione lineare in $n$ variabili.
+\[
+a_1 \cdot x_1 + \ldots + a_n \cdot x_n = b
+\]
+$a_1, \ldots, a_n, b \in \reals$. $a_1, \ldots, a_n$ sono i coefficienti, $b$ \`e il termine noto. $x_1, \ldots, x_n$ sono chiamate variabili.
+\[
+3 \cdot x_1 - 2 \cdot x_2 + x_4 = 3
+\]
+Questa \`e un'equazione lineare in 4 variabili. I coefficienti sono $(3, -2, 0, 1)$. Il termine noto \`e 3.
+
+Un sistema lineare \`e un insieme di equazioni lineari nello stesso numero di variabili.
+
+La soluzione di un'equazione in $n$ variabili \`e una $n$-upla $(s_1, \ldots, s_n)$ con $s_1, \ldots, s_n \in \reals$ tale che se sostituita al posto delle variabili rende l'equazione un'identit\'a:
+\[
+a_1 \cdot s_1 + \ldots a_n \cdot s_n = b
+\]
+Risolvere un sistema lineare vuol dire trovare tutte le $n$-uple che soddisfano le equazioni del sistema.
+
+\section{Matrici a scala}
+
+\begin{defn}[Matrice a scala]
+Indichiamo con $p_{i,j}$ il primo elemento non nullo della $i$-esima riga della matrice, detto anche \emph{pivot}. Una matrice si dice ``a scala'' (per righe) se prendendo due pivot $p_{i,j}$ e $p_{h,k}$ con $i < h \implies j < k$. Ossia, il numero di zeri in ogni riga aumenta di riga in riga.
+\end{defn}
+Data una matrice $A_{m \times n}$, le sue $m$ righe $A_1, \ldots, A_m$ si possono vedere come elementi di $\field^n$, e le sue $n$ colonne $A^1, \ldots, A^n$ si possono vedere come elementi di $\field^m$.
+
+Il rango per righe di $A$, $r_r(A)$ \`e la dimensione dello spazio generato dalle righe. Il rango per colonne $r_c(A)$ \`e la dimensione dello spazio generato dalle colonne.
+\begin{align*}
+r_r (A) &= \dim \pow{A_1, \ldots, A_m} \le \field^n \\
+r_c (A) &= \dim \pow{A^1, \ldots, A^n} \le \field^m \\
+\end{align*}
+Il rango per righe di una matrice a scala per righe \`e il numero di righe non nulle, perch\'e le righe non nulle di una matrice a scala per righe sono indipendenti, quindi costituiscono una base dello spazio generato.
+
+\begin{prop}
+Data una matrice $S$ a scala per righe, il rango per riga di $S$ \`e il numero di righe non zero, ossia le righe non zero di $S$ costituiscono un insieme indipendente. 
+\end{prop}
+\begin{proof}
+Supponiamo per assurdo che esista una combinazione lineare non banale delle righe non nulle di $S$ che d\`a il vettore nullo. Consideriamo il primo coefficiente diverso da zero, ossia un certo $x_i$. Tutti i coefficienti prima di $i$ sono a zero, e il coefficiente con $i$ \`e il pivot $p_{i,j}$ per $x_i$, quindi $x_i$ deve essere zero. Assurdo.
+\end{proof}
+
+Consideriamo un sistema $S \times X = B$. Il rango per righe $r_r (S)$ \`e sempre minore del rango per righe $r_r (S | B)$ della matrice completa del sistema. Se il rango per righe di una matrice \`e minore del rango per righe della matrice completa, il sistema non ha soluzione. Inoltre il sistema ha soluzione se la matrice dei termini noti appartiene allo spazio generato dalle colonne della matrice dei coefficienti. Ossia, il rango per colonne della matrice $S$ \`e uguale al rango per colonna della matrice completa $S | B$. Equivalentemente, $B$ appartiene all'immagine $\image{L_A}$.
+
+Per trovare le soluzioni, si parte dall'ultima riga non nulla.
+
+Il numero delle incognite meno il rango per righe dei coefficienti mi d\`a il numero di parametri da cui dipende la soluzione. 
+
+Un sistema a scala si dice che ha $\infty^{n - t}$ soluzioni, dove $t$ \`e il rango per riga della matrice, e $n$ \`e il numero di parametri. L'insieme delle soluzioni \`e in corrispondenza biunivoca con $\reals^{n - t}$.
+
+Le variabili che hanno per coefficiente i pivot si dicono legate, le altre si dicono libere. Un sistema con il rango per righe pari a $t$, ha $n - t$ variabili libere.
+
+In un sistema omogeneo $S \times X = 0$, le soluzioni sono il $\ker L_S$. Inoltre la dimensione $\ker L_S = n - t = r_r (S)$. Siccome il rango per colonne $r_c (S) = \dim \image{L_S}$, e sapendo che $L_S : \reals^n \to \reals^m$, sappiamo che $n = \dim \image{L_S} - \dim \ker L_S$. $n - r_r(S) = \dim \ker L_S$. Quindi in definitiva il rango per righe e il rango per colonne sono uguali, in una matrice a scala.
+\[
+S \times X = B 
+\begin{cases}
+L_S (X) = S \times X , L_S : \reals^n \to \reals^m \\
+B \in \image{L_S} \iff \text{ il sistema ha soluzioni } \iff r_c(S) = r_c(S | B) \\
+S \times X = 0 \iff \dim \ker L_S = n - r_r(S) \\
+X \in \ker L_S
+\end{cases}
+\]
+Il numero delle incognite $n = r_c (L_S) + \dim \ker L$, quindi $n = r_c(L_S) + n - r_r (S)$, quindi i due ranghi sono uguali.
+
+\section{Risoluzione dei sistemi lineari}
+
+Un sistema lineare $S \times X = C$ a scala, ossia in cui la matrice completa $S | C$ \`e a scala, \`e compatibile se e solo se $r(S) = r(S|C)$, ossia il rango della matrice $S$ \`e uguale al rango della matrice completa, poich\'e solo in tal caso il sistema non contiene un'equazione impossibile del tipo $0 = b$ con $b \neq 0$.
+
+Sia $\solutions$ l'insieme delle soluzioni di un sistema lineare compatibile. Le soluzioni si ottengono a partire dall'ultima equazione non nulla e risalendo via via. Il sistema ammette $\infty^{n - t}$ soluzioni, dove $t = r(S) = r(S | C)$ \`e il rango della matrice completa. L'insieme delle soluzioni $\solutions$ \`e in corrispondenza biunivoca con $\field^{n - t}$, perch\'e alla $(n-t)$-upla di variabili libere (che non hanno fra i coefficienti un pivot) corrisponde una sola soluzione, e viceversa una soluzione corrisponde a una $(n-t)$-upla di variabili libere.
+
+\begin{prop}
+In un sistema omogeneo $S \times X = 0$, l'insieme $\solutions$ \`e un sottospazio di $\field^n$.
+\end{prop}
+Infatti:
+\[
+S \times (X + Y) = S \times X + S \times Y = 0
+\]
+E:
+\[
+S \times k \cdot X = k \cdot S \times X = 0
+\]
+
+\section{Risoluzione con il metodo di Gauss}
+
+\begin{defn}[Matrici equivalenti per righe]
+Date due matrici $A, A' \in \matrices_{m \times n} (\field)$ sono equivalenti per righe, indicato con $A \sim_{R} A' \iff \pow{A_1, \ldots, A_m} = \pow{A_1', \ldots, A_m'} \subseteq \field^n$, ossia se hanno lo stesso spazio generato.
+\end{defn}
+
+Indichiamo con il rango per riga di una matrice $A$, indicato con $r_r(A)$ la dimensione dello spazio generato dalle righe.
+\[
+r_r(A) = \pow{A_1, \ldots, A_m}
+\]
+Se due matrici sono equivalenti per righe, ossia $A \sim_{R} A'$, allora $r_r(A) = r_r(A')$.
+
+\subsection{Calcolo del rango per righe di $A$ con il metodo di Gauss}
+
+Lo stesso metodo si applica anche alla risoluzione di sistemi lineari.
+
+Si applicano delle operazioni a una matrice $A$ in modo da ricavare una matrice a scala per righe $S$ equivalente per righe ad $A$. Il rango di $A$ \`e uguale al rango di $S$, ossia \`e il numero di righe non nulle di $S$.
+\[
+r_r(A) = r(S) = \text{ numero di righe non nulle di } S
+\]
+\subsubsection{Operazioni elementari}
+\begin{description}
+    \item[O1\label{itm:gauss_op_1}] Moltiplicare una riga per uno scalare diverso $k \neq 0$.
+    \[
+    A_i \to k \cdot A_i
+    \]
+    \item[O2\label{itm:gauss_op_2}] Scambio di righe. Al posto della riga $i$ mettiamo la riga $j$, e viceversa.
+    \[
+    A_i \leftrightarrow A_j
+    \]
+    \item[O3\label{itm:gauss_op_3}] Si sostituisce una riga con una combinazione lineare della riga con un'altra riga. Al posto della riga $A_i$ sostituiamo una combinazione lineare $h \cdot A_i + k \cdot A_j$, con $i \neq j$ e $h \neq k$ e $k, h \neq 0$.
+    \[
+    A_i \to h \cdot A_i + k \cdot A_j
+    \]
+\end{description}
+Si possono combinare le operazioni elementari.
+\begin{exmp}
+\[
+A = 
+\begin{pmatrix}
+1 & 1 & 2 & -1 \\ 
+2 & -1 & 1 & 0 \\ 
+-1 & 2 & 1 & 1
+\end{pmatrix}
+\]
+Dobbiamo trovare una matrice a scala equivalente alla matrice $A$. La prima riga ha il primo elemento diverso da 0, quindi va bene, e la lasciamo in pace. Dobbiamo fare in modo che tutte le altre righe abbiano 0 sulla prima colonna. Moltiplichiamo la prima riga per 2 e la sottraiamo alla seconda riga.
+\begin{gather*}
+A_2 \to -2 \cdot A_1 + A_2 \\
+\begin{tabular}{rrrr}
+-2 & -2 & -4 & 2 \\
+2 & -1 & 1 & 0 \\
+\hline
+0 & -3 & -3 & 2
+\end{tabular}
+\end{gather*}
+Quindi la matrice ora \`e:
+\[
+A =
+\begin{pmatrix}
+1 & 1 & 2 & -1 \\ 
+0 & -3 & -3 & 2 \\ 
+-1 & 2 & 1 & 1
+\end{pmatrix}\]
+Stessa operazione per l'ultima riga. $A_3 \to A_3 + A_1$.
+\[
+A = 
+\begin{pmatrix}
+1 & 1 & 2 & -1 \\ 
+0 & -3 & -3 & 2 \\ 
+0 & 3 & 3 & 0
+\end{pmatrix}
+\]
+Non \`e ancora a scala. Sostituiamo alla terza riga la somma della seconda e della terza riga. $A_3 \to A_3 + A_2$
+\[
+A = 
+\begin{pmatrix}
+1 & 1 & 2 & -1 \\ 
+0 & -3 & -3 & 2 \\ 
+0 & 0 & 0 & 2
+\end{pmatrix}
+\]
+Il rango della matrice finale \`e 3, che \`e anche il rango della matrice iniziale. La combinazione lineare delle righe iniziali \`e uguale alla combinazione lineare delle righe della matrice finale.
+\end{exmp}
+\begin{oss}
+Se $E$ \`e una matrice ottenuta dalla matrice identit\`a $I \in \matrices_n {\field}$ applicando una operazione elementare, allora il prodotto $E \times A = A'$ \`e la matrice $A'$ ottenuta dalla matrice $A$ applicando la stessa operazione elementare.
+\end{oss}
+L'algoritmo di Gauss \`e quindi il prodotto di un certo numero di matrici elementari fino ad ottenere una matrice a scala.
+\[
+E_t \times \ldots \times E_1 \times A = S
+\]
+Dato un sistema lineare $A \times X = B$, con il metodo di Gauss si ricava un sistema a scala $S \times X = B$ equivalente al sistema dato, ossia che ammette lo stesso insieme di soluzioni.
+
+Si parte dalla matrice completa del sistema, $A | B$. Applicando l'algoritmo di Gauss alla matrice completa si ottiene una matrice a scala $S | C$.
+
+\begin{exmp}
+\[
+\begin{cases}
+4 x + y - 3z + 2t = 1 \\
+3x - 2y - 2z + t = -5 \\
+5x + 4y - 4z + 3t = 7
+\end{cases}
+\]
+La matrice completa di questo sistema \`e:
+\[
+A | B = 
+\begin{completepmatrix}{4}
+4 & 1 & -3 & 2 & 1 \\
+3 & -2 & -2 & 1 & -5 \\
+5 & 4 & -4 & 3 & 7
+\end{completepmatrix}
+\]
+Alle operazioni elementari sulle righe della matrice completa $A | B$, corrispondono operazioni elementari sulle equazioni, che sostituiscono alle equazioni delle altre equazioni equivalenti, che portano di fatto ad un sistema equivalente.
+
+L'operazione elementare \ref{itm:gauss_op_1} corrisponde alla sostituzione dell'equazione $E_i$ con un'equazione equivalente $k \cdot E_i$, con $k \neq 0$. L'operazione elementare \ref{itm:gauss_op_2} corrisponde a scambiare due equazioni. L'operazione elementare \ref{itm:gauss_op_3} corrisponde alla sostituzione di un'applicazione lineare con una combinazione lineare di quell'equazione con un'altra.
+\begin{gather*}
+A_2 \to -3 \cdot A_1 + 4 \cdot A_2 \\
+\begin{tabular}{*{5}{r}}
+-3(4) & -3 & +9 & -6 & -3 \\
+4(3) & -8 & -8 & +4 & -20 \\
+\hline
+0 & -11 & 1 & -2 & -23
+\end{tabular}
+\end{gather*}
+\begin{gather*}
+A_3 \to -5 \cdot A_1 + 4 \cdot A_3 \\
+\begin{tabular}{*{5}{r}}
+-5(4) & -5 & +15 & -10 & -5 \\
+4(5) & 16 & -16 & 12 & 28 \\
+\hline
+0 & 11 & -1 & 2 & 23
+\end{tabular}
+\end{gather*}
+\[
+A =
+\begin{completepmatrix}{4}
+4 & 1 & -3 & 2 & 1 \\
+0 & -11 & 1 & -2 & -23 \\
+0 & 11 & -1 & 2 & 23
+\end{completepmatrix}
+\]
+Si vede ora che le ultime due righe sono uguali, quindi possiamo sostituire alla terza riga la terza pi\`u la seconda. $A_3 \to A_2 + A_3 = \nullelement$.
+\[
+A =
+\begin{completepmatrix}{4}
+4 & 1 & -3 & 2 & 1 \\
+0 & -11 & 1 & -2 & -23 \\
+0 & 0 & 0 & 0 & 0
+\end{completepmatrix}
+\]
+Il sistema adesso \`e:
+\[
+\begin{cases}
+4x + y - 3z + 2t = 1 \\
+-11y +z - 2t = -23
+\end{cases}
+\]
+Ora, a partire dall'ultima equazione, trovo la variabile legata in funzione delle altre variabili.
+\[
+y = \frac{23 + z - 2t}{11}
+\]
+Ora troviamo la $x$:
+\[
+x = \frac{2t - 23 - z}{11} + 3z - 2t + 1
+\]
+Il sistema ammette $\infty^2$ soluzioni, dipendenti dalle variabili libere ($z$ e $t$). 2 \`e il numero delle incognite (4) meno il rango (2).
+\end{exmp}
+Vedendo la matrice come applicazione lineare $L_A$, abbiamo che l'immagine di una quaterna che \`e soluzione del sistema, che chiamiamo $X$, ossia $A \times X$, \`e proprio la quaterna dei termini noti $B$.
+\[
+L_A(X) = A \times X = B
+\]
+Ogni soluzione si pu\`o scrivere come una particolare soluzione aggiunta agli elementi del $\ker L_A$. La soluzione particolare \`e quella che si ottiene assegnando 0 alle variabili libere.
+\[
+\ker L_A + X = \solutions
+\]
+$Y$ \`e soluzione di $A \times X = B$ se, presa una soluzione particolare $H$, ossia tale per cui $A \times H = B$, e un elemento $K \in \ker L_A$, si ha che $Y = K + H$. Infatti $A \times Y = A \times (K + H) = A \times K + A \times H = 0 + B = B$.
+
+Viceversa, sapendo che $A \times Y = B$ e che $A \times H = B$, possiamo dire che $A \times Y - A \times H = \nullelement$, e che quindi $A \times (Y - H) = 0$. Quindi $K = Y - H$ \`e nel $\ker L_A$, e quindi $Y = K + H$.
+
+Il rango per righe di $A$ \`e uguale al rango per colonne di $A$. La dimensione dello spazio generato dalle righe \`e uguale alla dimensione delo spazio generato dalle colonne, ma non sono lo stesso spazio. Identicamente, il numero di righe indipendenti \`e uguale al numero di colonne indipendenti.
+
+\begin{proof}
+Nel caso in cui $A \times X = 0$.
+\[
+\dim \pow{A_1 \ldots A_m} = r_r(A) = n - t
+\]
+$\ker L_A = \solutions = \{ X : A \times X = 0 \}$ \`e un sottospazio di $\field^n$ di dimensione $n - r_r(A)$.
+\[
+n = \dim \field^n = \dim \image{L_A} = \dim \ker L_A = r_c (A) + n - r_r(A) \implies r_c(A) = r_r(A)
+\]
+L'immagine \`e combinazione lineare delle colonne.
+\[
+A \times X = A^1 \cdot x_1 + \ldots + A^n \cdot x_n = B
+\]
+\end{proof}
+
+\begin{theorem}[Teorema di Rouch\'e-Capelli]
+Un sistema ammette soluzione se il rango della matrice dei coefficienti \`e uguale al rango della matrice completa.
+\end{theorem}
+
+\section{Matrici invertibili}
+
+$(\matrices_n (\field), +, \times)$ \`e l'anello delle matrici quadrate sul campo $\field$. $(\matrices_n (\field), +)$ \`e un gruppo abeliano. $(\matrices_n (\field), \times)$ (con il prodotto righe per colonne) \`e una struttura algebrica associativa, distributiva, con unit\`a, ma non commutativa. L'anello delle matrici quadrate ha un gruppo degli elementi invertibili.
+\[
+U(\matrices_n (\field)) = \{ A \in \matrices_n (\field) : \exists B \text{ t.c. } A \times B = I \}
+\]
+$B$ solitamente si indica con $A^{-1}$. $I$ \`e la matrice identit\`a.
+
+\subsection{Caratterizzazione delle matrici invertibili}
+
+Si possono caratterizzare le matrici invertibili in diversi modi. Le seguenti sono tutte affermazioni equivalenti.
+\begin{enumerate}
+    \item\label{itm:matrici_inv_1} $A$ \`e invertibile
+    \item\label{itm:matrici_inv_2} il sistema omogeneo $A \times X = 0$ ammette una sola soluzione, $X = 0$
+    \item\label{itm:matrici_inv_3} L'endomorfismo $L_A : \field^n \to \field^n$ definito come $L_A (X) = A \times X$ \`e un isomorfismo di $\field^n$
+    \item\label{itm:matrici_inv_4} Il rango di $A$ \`e $r(A) = n$
+    \item\label{itm:matrici_inv_5} Il sistema $A \times X = B$ ha una sola soluzione $\forall B \in \field^n$
+\end{enumerate}
+
+\begin{proof}[che \ref{itm:matrici_inv_1} implica \ref{itm:matrici_inv_2}]
+$A$ \`e invertibile, ossia $\exists A^{-1}$ tale che $A \times A^{-1} = I = A^{-1} \times A$.
+\[
+A \times X = 0 \implies A^{-1} \times A \times X = A^{-1} \times 0 \implies X = 0
+\]
+\end{proof}
+
+\begin{proof}[che \ref{itm:matrici_inv_2} implica \ref{itm:matrici_inv_3}]
+Grazie alle propriet\`a distributive si vede che $L_A$ \`e un morfismo:
+\begin{gather*}
+A \times X + A \times Y = A \times (X + Y) \\
+(k \cdot A) \times X = A \times (k \cdot X)
+\end{gather*}
+\`E un morfismo iniettivo. Infatti il $\ker L_A$ contiene tutte le soluzioni del sistema omogeneo, e l'unica soluzione \`e il vettore nullo. Quindi $\ker L_A = \{ \nullelement \}$, quindi la funzione iniettiva.
+
+Tutte le applicazioni lineari iniettive da uno spazio di dimensione $n$ a uno spazio della stessa dimensione $n$, sono anche suriettive. Ogni endomorfismo iniettivo \`e anche suriettivo.
+\[
+\underbrace{\dim \field^n}_{n} = \underbrace{\dim \ker L_A}_{0} + \underbrace{\dim \image{L_A}}_{n}
+\]
+\end{proof}
+
+\begin{proof}[che \ref{itm:matrici_inv_3} implica \ref{itm:matrici_inv_4}]
+La tesi \`e che $r(A) = n$.
+
+Il rango di una matrice si pu\`o definire in molti modi. Ad esempio, come la dimensione dello spazio generato dalle righe o dalle colonne.
+\[
+r(A) = \dim \pow{A_1, \ldots, A_n} = \dim \pow{A^1, \ldots A^n}
+\]
+$\image{L_A} = \field^n$, essendo $L_A$ iniettiva. Ma $\image{L_A} = \pow{A^1, \ldots, A^n}$, ossia l'immagine \`e lo spazio generato dalle colonne. Quindi il rango \`e la dimensione dell'immagine, cio\`e $n$.
+\end{proof}
+
+\begin{proof}[che \ref{itm:matrici_inv_4} implica \ref{itm:matrici_inv_5}]
+La tesi \`e che $A \times X = B$ ha una sola soluzione $\forall B \in \field^n$.
+
+Possiamo scrivere $B = A \times X$ come:
+\[
+B = A \times X = A^1 \cdot x_1 + \ldots + A^n \cdot x_n
+\]
+Sappiamo che il rango di $A$ \`e $r(A) = \dim \pow{A^1, \ldots, A^n} = n$. Essendo lo spazio generato dalle colonne un sottospazio di $\field^n$, ed essendo questo sottospazio di dimensione $n$, lo spazio generato dalle colonne \`e proprio $\field^n$, e ne \`e anche una base. $B$ quindi si scrive come combinazione lineare di $\{A^1, \ldots, A^n\}$.
+
+L'insieme delle colonne \`e una base di $\field^n$, quindi $\forall B \in \field^n$, $B$ si esprime in modo unico come combinazione lineare delle colonne di $A$. Quindi la $n$-upla delle coordinate di $B$ \`e l'unica soluzione del sistema $A \times X = B$.
+\end{proof}
+
+\begin{proof}[che \ref{itm:matrici_inv_5} implica \ref{itm:matrici_inv_1}]
+Sappiamo che $A \times X = B$ ha una sola soluzione $\forall B \in \field^n$.
+\[
+A \times X = I^1 \implies X = B^1
+\]
+Con $B = A^{-1}$. Si pu\`o ripetere il procedimento per le colonne, ossia in generale $A \times X = I^n \implies X = B^n$.
+
+$A^{-1}$ \`e la matrice che ha per colonne $B^1 \ldots B^n$, poich\'e $A \times B = I$.
+\end{proof}
+
+\section{Determinante di una matrice}
+
+\begin{defn}[Determinante]
+Il determinante \`e una funzione $\detname : \matrices_{n} (\field) \to \field$. In particolare lavoreremo con matrici sui reali, quindi $\detname : \matrices_{n} (\reals) \to \reals$. La funzione determinante verifica le seguenti propriet\`a:
+\begin{enumerate}
+    \item Se $A'$ \`e la matrice ottenuta da $A$ moltiplicando una riga per uno scalare $k \neq 0$, ossia applicando l'operazione elementare \ref{itm:gauss_op_1} dell'algoritmo di Gauss, allora $\det{A'} = k \cdot \det{A}$
+    \item Se $A'$ \`e la matrice ottenuta da $A$ scambiando due righe, ossia applicando l'operazione elementare \ref{itm:gauss_op_2} dell'algoritmo di Gauss, allora $\det{A'} = - \det{A}$
+    \item Se $A'$ \`e la matrice ottenuta da $A$ sostituendo alla riga $i$-esima $A_i$ la combinazione lineare $A_i + k \cdot A_j$, con $i \neq j$, ossia applicando una versione particolare dell'operazione elementare \ref{itm:gauss_op_3} dell'algoritmo di Gauss, allora il determinante rimane uguale, ossia $\det{A'} = \det{A}$
+    \item $\det{I} = 1$, ossia il determinante della matrice identit\`a \`e 1
+\end{enumerate}
+\end{defn}
+
+\begin{theorem}
+Esiste una sola funzione $\detname : \matrices_{n} (\reals) \to \reals$ che soddisfa queste tre propriet\`a.
+\end{theorem}
+
+\subsection{Regola di Laplace per il calcolo del determinante}
+
+Il determinante si pu\`o calcolare o usando l'algoritmo di Gauss, o usando la regola di Laplace per il calcolo del determinante. La regola di Laplace riduce via via il calcolo del determinante al calcolo del determinante di una matrice $2 \times 2$.
+
+\begin{fact}
+Data una matrice $A = \begin{smallpmatrix}a & b \\ c & d \end{smallpmatrix}$, il suo determinate \`e $\det{A} = a \cdot d - b \cdot c$.
+\end{fact}
+
+Data una matrice $A \in \matrices_{n} (\reals)$, definiamo:
+\begin{description}
+    \item[Minore] Si dice ``minore'' di $a_{i,j}$ il determinante della matrice $M_{i,j}$, che \`e la matrice ottenuta da $A$ cancellando la $i$-esima riga e la $j$-esima colonna;
+    \item[Complemento algebrico] Si dice ``complemento algebrico'' di $a_{i,j}$, e si indica con $\algcompl{i,j}$, il minore di $a_{i,j}$, con segno positivo se la somma di riga e colonna \`e pari, negativo altrimenti. Ossia:
+    \[
+    \algcompl{i,j} = (-1)^{i+j} \det{M_{i,j}}
+    \]
+\end{description}
+La regola di Laplace ci dice che il determinante di una matrice \`e la somma dei valori di una riga (o di una colonna) ciascuno moltiplicato per il suo complemento algebrico.
+\[
+\det{A} = a_{i,1} \cdot \algcompl{i,1} + \ldots + a_{i,n} \cdot \algcompl{i,n} =
+a_{1,j} \cdot \algcompl{1,j} + \ldots + a_{n,j} \cdot \algcompl{n,j}
+\]
+\begin{exmp}
+Troviamo il determinante di questa matrice:
+\[
+\begin{pmatrix}
+1 & 0 & -1 & 0 \\
+1 & 2 & -1 & 1 \\
+0 & 1 & 1 & 1 \\
+2 & 0 & 0 & 1
+\end{pmatrix}
+\]
+Conviene partire dalla riga con pi\`u zeri.
+\begin{align*}
+\det{
+\begin{smallpmatrix}
+1 & 0 & -1 & 0 \\
+1 & 2 & -1 & 1 \\
+0 & 1 & 1 & 1 \\
+2 & 0 & 0 & 1
+\end{smallpmatrix}
+}
+&=
+2 \cdot (-1) \cdot \algcompl{4,1} +
+0 + 0 +
+1 \cdot (1) \cdot \algcompl{4,4}
+= \\
+&= -2 \cdot \det{
+\begin{smallpmatrix}
+0 & -1 & 0 \\
+2 & -1 & 1 \\
+1 & 1 & 1 
+\end{smallpmatrix}
+}
++
+1 \cdot \det{
+\begin{smallpmatrix}
+1 & 0 & -1 \\
+1 & 2 & -1 \\
+0 & 1 & 1 
+\end{smallpmatrix}
+} = \\
+&= - 2 \cdot 1 \cdot
+\det{
+\begin{smallpmatrix}
+2 & 1 \\
+1 & 1
+\end{smallpmatrix}
+} +
+1 \cdot \left( 1 \cdot \det{
+\begin{smallpmatrix}
+2 & -1 \\
+1 & 1
+\end{smallpmatrix}
+}
+- 1 \cdot \det{
+\begin{smallpmatrix}
+0 & -1 \\
+1 & 1
+\end{smallpmatrix}
+}
+\right)
+= \\
+&= -2 \cdot (2 - 1) + 
+2 - 1 = -2 + 2 - 1 = -1
+\end{align*}
+\end{exmp}
+
+\subsection{Propriet\`a del determinante}
+
+\begin{enumerate}
+    \item Se $A$ \`e una matrice con due righe uguali, allora per le propriet\`a del determinante $\det{A} = - \det{A} \implies \det{A} = 0$
+    \item Se $A$ \`e una matrice che ha una riga nulla, $\det{A} = k \cdot \det{A} $ con $ k \neq 0 \implies \det{A} = 0$
+    \item Sia $D = (d_{i,j})$ una matrice diagonale, ossia tutti gli elementi non sulla diagonale sono uguali a 0, ossia $d_{i,j} = 0$ se $i \neq j$. Si pu\`o scrivere come:
+    \[
+    \begin{pmatrix}
+    a & 0 & 0 \\
+    0 & b & 0 \\
+    0 & 0 & c
+    \end{pmatrix}
+    = 
+    \begin{matrix}
+    a \\ b \\ c 
+    \end{matrix}
+    \begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+    \end{pmatrix}
+    \]
+    Quindi $\det D = d_{1,1} \cdot \ldots \cdot d_{n,n}$. Inoltre, una matrice diagonale con uno 0 sulla diagonale, ha come determinante 0.
+    \item\label{itm:prop_det_4} $A'$ \`e una matrice ottenuta da $A$ tramite le operazioni elementari di scambio di righe e sostituzione di una riga $A_i$ con una combinazione lineare $A_i + k \cdot A_j$, allora il $\det{A'} = (-1)^s \det{A}$, dove $s$ \`e il numero degli scambi di riga. Si pu\`o trovare il determinante trasformando la matrice in una matrice diagonale, o anche solo a scala, con l'algoritmo di Gauss.
+\end{enumerate}
+
+\begin{prop}[Corollario della propriet\`a \ref{itm:prop_det_4}]
+\[
+\det{A} \neq 0 \iff r(A) = n
+\]
+\end{prop}
+Il determinante $\det{A} = (-1)^s \cdot \det{D}$, dove $D \sim_{R} A$ con le operazioni dette nella propriet\`a \ref{itm:prop_det_4}. $\det{D} = d_{1,1} \cdot \ldots \cdot d_{n,n}$.
+
+$\det{A} \neq 0 \implies \det{D} \neq 0 \implies d_{i,i} \neq 0 \forall i \implies r(D) = n$ essendo $D$ una matrice a scala. Quindi, essendo $A$ e $D$ equivalenti per riga, $r(A) = r(D) = n$.
+
+Abbiamo detto che $\det{A} \neq 0 \iff r(A) = n \iff A$ \`e invertibile $\iff A \times X = 0$ ha una sola soluzione $\iff A \times X = B \forall B \in \reals^n$ ha una sola soluzione.
+
+\begin{theorem}[Teorema di Binet]
+Il determinante del prodotto di due matrici \`e il prodotto dei determinanti delle singole matrici.
+\[
+\det{A \times B} = \det{A} \cdot \det{B}
+\]
+\end{theorem}
+\begin{cor}
+\[
+\det{A^{-1}} = \frac{1}{\det{A}}
+\]
+\end{cor}
+\begin{proof}
+\[
+A^{-1} \cdot A = I \implies \det{A^{-1} \times A} = \det{I} = 1 
+\implies \det{A^{-1}} \cdot \det{A} = 1 \implies \det{A^{-1}} = 
+\frac{1}{\det{A}} 
+\]
+\end{proof}
+
+\subsection{Calcolo della matrice inversa di una matrice $A$}
+
+\begin{enumerate}
+    \item Risolvendo $n$ sistemi lineari:
+    \begin{align*}
+    A \times X^1 &= I^{1} \\
+    & \vdots \\
+    A \times X^n &= I^n
+    \end{align*}
+    Dove $X^i$ \`e l'$i$-esima colonna della matrice inversa $A^{-1}$.
+    \item\label{itm:inversa_metodo_due} Usando il determinante e la cosiddetta ``matrice aggiunta di $A$'', indicata con $\agg{A}$, ottenuta mettendo al posto di ogni elemento di $A$ il complemento algebrico, e facendo poi la trasposta.
+    \[
+    \agg{A} = 
+    {\begin{pmatrix}
+    \algcompl{1,1} & \algcompl{1,2} & \dots & \algcompl{1,n} \\
+    \algcompl{2,1} & \ddots & \ddots & \algcompl{2,n} \\
+    \vdots & \ddots & \ddots & \vdots \\
+    \algcompl{n,1} & \algcompl{n,2} & \dots & \algcompl{n,n}
+    \end{pmatrix}}^t =
+    \begin{pmatrix}
+    \algcompl{1,1} & \algcompl{2,1} & \dots & \algcompl{n,1} \\
+    \algcompl{1,2} & \ddots & \ddots & \algcompl{n,2} \\
+    \vdots & \ddots & \ddots & \vdots \\
+    \algcompl{1,n} & \algcompl{2,n} & \dots & \algcompl{n,n}
+    \end{pmatrix}
+    \]
+    Con questo secondo metodo, l'inversa di $A$ si ottiene moltiplicando l'aggiunta di $A$ per l'inverso del determinante.
+    \[
+    A^{-1} = \frac{1}{\det{A}} \cdot \agg{A}
+    \]
+\end{enumerate}
+
+\begin{proof}[del metodo \ref{itm:inversa_metodo_due}]
+La matrice $\agg{A}$ si ottiene mettendo nel posto $i,j$ il complemento algebrico dell'elemento $a_{j,i}$, ossia $\algcompl{j,i}$. Per dimostrare questo, si deve dimostrare che:
+\[
+A \times \agg{A} = \det{A} \cdot I = \agg{A} \times A
+\]
+Sia $c_{i,j}$ l'elemento generico di $A \times \agg{A}$. Deve essere che:
+\[
+\begin{cases}
+c_{i,i} = \det{A} \\
+c_{i,j} = 0 \text{ se } i \neq j
+\end{cases}
+\]
+Calcoliamo $c_{i,j}$ con Laplace. L'elemento $c_{i,j}$ deve essere il prodotto dell'$i$-esima riga di $A$ per la $j$-esima colonna di $\agg{A}$, ma la $j$-esima colonna di $\agg{A}$ \`e il complemento algebrico della $j$-esima riga di $A$.
+\[
+c_{i,j} = A_i \times \agg{A}^j = 
+a_{i,1} \cdot \algcompl{j,1} + \ldots + a_{i, n} \cdot \algcompl{j, n} = 0
+\]
+Per Laplace, il determinante di $A$ \`e $\det (A) = a_{i,1} \cdot \algcompl{i,1} + \ldots + a_{i,n} \cdot \algcompl{i,n}$. Quindi sto facendo il determinante di una matrice che ha due righe, $i$ e $j$, con $i \neq j$, che sono uguali. Quindi $c_{i,j}$ deve essere 0, mentre $c_{i,i}$ \`e proprio il determinante di $A$.
+\end{proof}
+
+\begin{exmp}
+Troviamo l'inverso della seguente matrice usando il secondo metodo:
+\[
+A =
+\begin{pmatrix}
+3 & 1 & 0 \\
+2 & 0 & 1 \\
+4 & 1 & 1
+\end{pmatrix}
+\]
+Il suo determinante \`e:
+\[
+\det{A} = -1
+\]
+La matrice inversa, secondo il secondo metodo, \`e:
+\[]
+A^{-1} = \frac{1}{\det{A}} \cdot \agg{A}
+\]
+La matrice aggiunta \`e:
+\[
+\agg{A} = 
+\begin{pmatrix}
+-1 & -1 & 1 \\
+2 & 3 & -3 \\
+2 & 1 & -2
+\end{pmatrix}
+\]
+Quindi la matrice inversa \`e:
+\[
+A^{-1} =
+\begin{pmatrix}
+1 & 1 & -1 \\
+-2 & -3 & 3 \\
+-2 & -1 & 2
+\end{pmatrix}
+\]
+Si potrebbe trovare la matrice inversa anche risolvendo i seguenti tre sistemi.
+
+La prima colonna dell'inversa \`e la soluzione di:
+\[
+\begin{pmatrix}
+3 & 1 & 0 \\
+2 & 0 & 1 \\
+4 & 1 & 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix}
+= 
+\begin{pmatrix}
+1 \\ 0 \\ 0
+\end{pmatrix}
+\]
+La seconda colonna dell'inversa \`e la soluzione di:
+\[
+\begin{pmatrix}
+3 & 1 & 0 \\
+2 & 0 & 1 \\
+4 & 1 & 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix}
+= 
+\begin{pmatrix}
+0 \\ 1 \\ 0
+\end{pmatrix}
+\]
+La terza colonna dell'inversa \`e la soluzione di:
+\[
+\begin{pmatrix}
+3 & 1 & 0 \\
+2 & 0 & 1 \\
+4 & 1 & 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+x \\ y \\ z
+\end{pmatrix}
+= 
+\begin{pmatrix}
+0 \\ 0 \\ 1
+\end{pmatrix}
+\]
+\end{exmp}
+
+Si pu\`o usare il determinante per risolvere sistemi quadrati.
+
+\begin{theorem}[Teorema di Cramer]
+Un sistema lineare $A \times X = B$ di $n$ equazioni in $n$ incognite ha una sola soluzione se e solo se il rango $r(A) = n$, ossia se e solo se $\det{A} \neq 0$. Questo teorema ci dice come calcolare quest'unica soluzione.
+
+L'unica soluzione $(x_1, \ldots, x_n)$ del sistema di cui sopra \`e data da:
+\begin{align*}
+x_1 &= \frac{\det{M_1}}{\det{A}} \\
+& \vdots \\
+x_n &= \frac{\det{M_n}}{\det{A}}
+\end{align*}
+$M_i$ \`e la matrice che si ottiene da $A$ sostituendo la $i$-esima colonna con la colonna $B$ dei termini noti.
+\end{theorem}
+
+\begin{exmp}
+Risolviamo il seguente sistema lineare. Ordiniamo prima le incognite e i termini noti:
+\[
+\begin{cases}
+2y + 2x = z + 1 \\
+3x + 2z = 8 - 5y \\
+3z - 1 = x - 2y
+\end{cases}
+=
+\begin{cases}
+2x + 2y - z = 1 \\
+3x + 5y +2z = 8 \\
+x - 2y - 3z = -1
+\end{cases}
+\]
+Il determinante della matrice associata \`e:
+\[
+\det{A} = 22 \neq 0
+\]
+Quindi il sistema ha una sola soluzione.
+\begin{align*}
+x_1 = x &= \frac{\det{M_1}}{\det{A}} =
+\det{
+\begin{smallpmatrix}
+1 & 2 & -1 \\
+8 & 5 & 2 \\
+-1 & -2 & -3
+\end{smallpmatrix}}
+\cdot
+\frac{1}{22} = \frac{66}{33} = 3 \\
+x_2 = y &= \frac{\det{M_2}}{\det{A}} =
+\det{ 
+\begin{smallpmatrix}
+2 & 1 & -1 \\
+3 & 8 & 2 \\
+1 & -1 & -3
+\end{smallpmatrix}}
+\cdot
+\frac{1}{22}
+= \frac{-22}{22} = -1 \\
+x_3 = z &= \frac{\det{M_3}}{\det{A}} =
+\det{ 
+\begin{smallpmatrix}
+2 & 2 & 1 \\
+3 & 5 & 8 \\
+1 & -2 & 1
+\end{smallpmatrix}}
+\cdot
+\frac{1}{22}
+= \frac{44}{22} = 2
+\end{align*}
+La soluzione quindi \`e $(3, -1, 2)$.
+\end{exmp}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
