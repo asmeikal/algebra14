@@ -82,26 +82,23 @@ S \times k \cdot X = k \cdot S \times X = 0
 \section{Risoluzione con il metodo di Gauss}
 
 \begin{defn}[Matrici equivalenti per righe]
-Date due matrici $A, A' \in \matrices_{m \times n} (\field)$ sono equivalenti per righe, indicato con $A \sim_{R} A' \iff \pow{A_1, \ldots, A_m} = \pow{A_1', \ldots, A_m'} \subseteq \field^n$, ossia se hanno lo stesso spazio generato.
+Date due matrici $A, A' \in \matrices_{m \times n} (\field)$ sono equivalenti per righe, indicato con $A \sim_{R} A' \iff \pow{A_1, \ldots, A_m} = \pow{A_1', \ldots, A_m'} \subseteq \field^n$, ossia se hanno lo stesso spazio generato dalle righe.
 \end{defn}
 
-Indichiamo con il rango per riga di una matrice $A$, indicato con $r_r(A)$ la dimensione dello spazio generato dalle righe.
+Il rango per riga di una matrice $A$, indicato con $r_r(A)$, \`e la dimensione dello spazio generato dalle righe.
 \[
-r_r(A) = \pow{A_1, \ldots, A_m}
+r_r(A) = \dim \pow{A_1, \ldots, A_m}
 \]
 Se due matrici sono equivalenti per righe, ossia $A \sim_{R} A'$, allora $r_r(A) = r_r(A')$.
 
 \subsection{Calcolo del rango per righe di $A$ con il metodo di Gauss}
-
-Lo stesso metodo si applica anche alla risoluzione di sistemi lineari.
-
-Si applicano delle operazioni a una matrice $A$ in modo da ricavare una matrice a scala per righe $S$ equivalente per righe ad $A$. Il rango di $A$ \`e uguale al rango di $S$, ossia \`e il numero di righe non nulle di $S$.
+Si applicano delle operazioni elementari a una matrice $A$ in modo da ricavare una matrice a scala per righe $S$ equivalente per righe alla matrice $A$. Il rango di $A$ \`e uguale al rango di $S$, ossia \`e il numero di righe non nulle di $S$.
 \[
 r_r(A) = r(S) = \text{ numero di righe non nulle di } S
 \]
 \subsubsection{Operazioni elementari}
 \begin{description}
-    \item[O1\label{itm:gauss_op_1}] Moltiplicare una riga per uno scalare diverso $k \neq 0$.
+    \item[O1\label{itm:gauss_op_1}] Si moltiplica una riga per uno scalare $k \neq 0$.
     \[
     A_i \to k \cdot A_i
     \]
@@ -114,7 +111,7 @@ r_r(A) = r(S) = \text{ numero di righe non nulle di } S
     A_i \to h \cdot A_i + k \cdot A_j
     \]
 \end{description}
-Si possono combinare le operazioni elementari.
+Si possono combinare le operazioni elementari. Lo stesso metodo si applica anche alla risoluzione di sistemi lineari.
 \begin{exmp}
 \[
 A = 
@@ -245,7 +242,7 @@ x = \frac{2t - 23 - z}{11} + 3z - 2t + 1
 \]
 Il sistema ammette $\infty^2$ soluzioni, dipendenti dalle variabili libere ($z$ e $t$). 2 \`e il numero delle incognite (4) meno il rango (2).
 \end{exmp}
-Vedendo la matrice come applicazione lineare $L_A$, abbiamo che l'immagine di una quaterna che \`e soluzione del sistema, che chiamiamo $X$, ossia $A \times X$, \`e proprio la quaterna dei termini noti $B$.
+Vedendo la matrice come applicazione lineare $L_A$, abbiamo che l'immagine di una quaterna $X$ che \`e soluzione del sistema, ossia $A \times X$, \`e proprio la quaterna dei termini noti $B$.
 \[
 L_A(X) = A \times X = B
 \]
@@ -291,7 +288,7 @@ $B$ solitamente si indica con $A^{-1}$. $I$ \`e la matrice identit\`a.
 Si possono caratterizzare le matrici invertibili in diversi modi. Le seguenti sono tutte affermazioni equivalenti.
 \begin{enumerate}
     \item\label{itm:matrici_inv_1} $A$ \`e invertibile
-    \item\label{itm:matrici_inv_2} il sistema omogeneo $A \times X = 0$ ammette una sola soluzione, $X = 0$
+    \item\label{itm:matrici_inv_2} Il sistema omogeneo $A \times X = 0$ ammette una sola soluzione, $X = 0$
     \item\label{itm:matrici_inv_3} L'endomorfismo $L_A : \field^n \to \field^n$ definito come $L_A (X) = A \times X$ \`e un isomorfismo di $\field^n$
     \item\label{itm:matrici_inv_4} Il rango di $A$ \`e $r(A) = n$
     \item\label{itm:matrici_inv_5} Il sistema $A \times X = B$ ha una sola soluzione $\forall B \in \field^n$
@@ -434,7 +431,7 @@ Conviene partire dalla riga con pi\`u zeri.
 1 & 1
 \end{smallpmatrix}
 } +
-1 \cdot \left( 1 \cdot \det{
+\left( 1 \cdot \det{
 \begin{smallpmatrix}
 2 & -1 \\
 1 & 1
@@ -449,7 +446,7 @@ Conviene partire dalla riga con pi\`u zeri.
 \right)
 = \\
 &= -2 \cdot (2 - 1) + 
-2 - 1 = -2 + 2 - 1 = -1
+3 - 1 = -2 + 3 - 1 = 0
 \end{align*}
 \end{exmp}
 
