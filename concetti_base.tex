@@ -21,34 +21,30 @@ A \times B = \left\{ (a,b) : a \in A, b \in B \right\}
 \]
 
 C'\`e una differenza fondamentale fra insiemi e coppie ordinate.
-\begin{gather*}
-(a,b) = (c,d) \iff a = c \land b = d \\
-\{a,b\} = \{c,d\} \iff (a = c \land b = d) \lor (a = d \land b = c)
-\end{gather*}
+\begin{align*}
+(a,b) = (c,d) &\iff a = c \land b = d \\
+\{a,b\} = \{c,d\} &\iff (a = c \land b = d) \lor (a = d \land b = c)
+\end{align*}
 Il concetto pu\`o essere generalizzato da coppie a terne, quaterne, e in generale $n$-uple.
 
 Una relazione binaria tra due insiemi \`e un sottonisieme di $A \times B$. Il prodotto cartesiano non \`e associativo, ma i due insiemi $A \times B$ e $B \times A$ hanno la stessa cardinalit\`a.
 
-Una funzione da un'insieme $A$ ad un insieme $B$ \`e una terna $(A, B, f)$ o $f : A \to B$, dove $A$ si dice Dominio, $B$ si dice Codominio, ed $f$ \`e una relazione ($f \subseteq A \times B$) t.c. $\forall a \in A \exists \text{ un solo } b \in B \text{ t.c. } (a,b) \in f$, ossia che $b = f(a)$.
+Una funzione da un'insieme $A$ ad un insieme $B$ \`e una terna $(A, B, f)$, indicata tipicamente con $f : A \to B$, dove $A$ si dice Dominio, $B$ si dice Codominio, ed $f$ \`e una relazione ($f \subseteq A \times B$) tale che $\forall a \in A \exists $ un solo $ b \in B $ t.c. $ (a,b) \in f$, ossia tale per che $b = f(a)$.
 
 Esiste una funzione da $A = \emptyset$ a $B \neq \emptyset$? S\`i, la funzione $(\emptyset, B, \emptyset)$. Viceversa, una funzione da $A \neq \emptyset$ a $B = \emptyset$ non esiste.
 
 \[
 R_1 = \left\{ (m, n) \in \naturals^2 : m = n^2 \right\}
 \]
-Non \`e una funzione. Perch\'e? \vspace{3cm}
-
+Non \`e una funzione. Perch\'e? 
 \[
 R_2 = \left\{ (r, s) \in \reals^+ \times \reals : r = s^2 \right\}
 \]
 Non \`e una funzione. Perch\'e?
-\vspace{3cm}
-
 \[
 R_3 = \left\{ (r, s) \in \reals^+ \times \reals^+ : r = s^2 \right\}
 \]
 \`E una funzione. Perch\'e?
-\vspace{3cm}
 
 \begin{defn}[Uguaglianza tra funzioni]
 Due funzioni sono uguali solo se coincidono come terne.
@@ -56,7 +52,7 @@ Due funzioni sono uguali solo se coincidono come terne.
 
 Per definire una funzione bisogna definire l'insieme del Dominio, definire l'insieme del Codominio, e una relazione che gode della propriet\`a che ogni elemento del dominio ha una sola immagine.
 
-Sia $f : A \to B$ una funzione, $\image{f} =$ immagine di $f$.
+Sia $f : A \to B$ una funzione, si indica con $\image{f}$ l'immagine di $f$.
 \[
 \image{f} = \left\{ b \in B : \exists a \in A \text{ t.c. } f(a) = b \right\}
 \]
@@ -69,7 +65,6 @@ n + 1 & \text{se $n$ \`e dispari}
 \end{cases}
 \]
 Non \`e una funzione perch\'e lo zero non ha immagine.
-
 \[
 f : \reals \to \reals \text{ t.c. } \forall r \in \reals \ f(r) = 
 \begin{cases}
@@ -91,19 +86,16 @@ Non \`e una funzione perch\'e lo zero ha due immagini.
 $f$ \`e iniettiva $\iff a, a' \in A $, se $ f(a) = f(a')$ allora $a = a'$.
 
 Una funzione iniettiva e suriettiva \`e detta ``biunivoca''.
-
 \[
 f: \reals \times \reals \to \reals \text{ t.c. } f(x,y) = \sqrt{2}x + y
 \] 
-Non \`e iniettiva, perch\'e $(1,0)$ e $(0,\sqrt{2})$ hanno la stessa immagine. \`E suriettiva.
-
+Non \`e iniettiva, perch\'e $(1,0)$ e $(0,\sqrt{2})$ hanno la stessa immagine. \`E suriettiva. Per l'immagine:
 \[
 \forall r \in \reals \exists (x,y) \in \reals \times \reals \text{ t.c. } f(x,y) = \sqrt{2} x + y = r
 \]
-Basta scegliere $(0,r)$ e $f(0,r) = r$.
+Infatti basta scegliere $(0,r)$ e $f(0,r) = r$.
 
-Determiniamo le immagini della funzione per i Domini dati.
-
+Determiniamo le immagini della funzione per i domini dati.
 \begin{gather*}
 A = \left\{ \left( a, - \sqrt{2}a\right) : a \in \reals  \right\} \\
 f(A) = \left\{ r \in \reals : \exists (a, - \sqrt{2}a) \text{ t.c. } f(a, - \sqrt{2} a) = r \right\} = \left\{ 0 \right\}
@@ -113,22 +105,20 @@ C = \left\{ (a, \sqrt{2} b) : a, b \in \integers \right\} \\
 f(C) = \left\{ r \in \reals : \exists (a, \sqrt{2} b) \text{ t.c. } f(a, \sqrt{2}b) = r \right\} \\
 r = f(a, \sqrt{2} b) = \sqrt{2} a + \sqrt{2} b = \sqrt{2} (a + b) \\
 (a+b) \in \integers \\
-r \in \sqrt{2} \integers = \left\{z : z = \sqrt{2} t \text{ con } t \in \integers \right\}
+r \in \sqrt{2} \integers = \left\{z \in \reals : z = \sqrt{2} \cdot t \text{ con } t \in \integers \right\}
 \end{gather*}
-
 L'insieme delle funzioni da $A$ in $B$ si indica con $B^A$. Questo insieme verifica tutte le propriet\`a delle potenze. Alla somma corrisponde l'unione, al prodotto corrisponde il prodotto cartesiano. Inoltre $\abs{B} = m$, $\abs{A} = n$, $\abs{B^A} = m^n$.
 
 \subsubsection{Composizione}
-
-Date le funzioni $f : A \to B$ e $g : B \to C$, la composizione di $f$ e $g$ (``$f$ composto $g$'') $g \circ f : A \to C$ \`e definita come:
+Date le funzioni $f : A \to B$ e $g : B \to C$, la composizione di $f$ e $g$ (``$f$ composto $g$'') \`e una funzione $g \circ f : A \to C$ definita come:
 \[
 \forall a \in A , \ {g \circ f}(a) = g(f(a))
 \]
-L'operazione di composizione \`e una funzione $f : B^A \times C^B \to C^A$.
+L'operazione di composizione \`e una funzione $\circ : B^A \times C^B \to C^A$.
 
 \begin{description}
-  \item[Inversa destra] Data $f : X \to Y$, $g : Y \to X$ \`e un'inversa destra se $f \circ g = id_Y$ (funzione identit\`a)
-  \item[Inversa sinistra] Data $f : X \to Y$, $g : Y \to X$ \`e un'inversa destra se $g \circ f = id_X$
+  \item[Inversa destra] Data $f : X \to Y$, $g : Y \to X$ \`e un'inversa destra se $f \circ g = \id_Y$ (funzione identit\`a)
+  \item[Inversa sinistra] Data $f : X \to Y$, $g : Y \to X$ \`e un'inversa destra se $g \circ f = \id_X$
 \end{description}
 
 \section{Relazioni su un insieme}
@@ -162,10 +152,10 @@ Trovare altri esempi.
 \end{esercizio}
 
 Anche le propriet\`a delle relazioni d'equivalenza sono indipendenti. Potrebbe sembrare che la propriet\`a riflessiva sia conseguenza della propriet\`a simmetrica e della propriet\`a transitiva.
-\begin{gather*}
-x \varepsilon y \implies y \varepsilon x \text{ per la propriet\`a simmetrica} \\
-x \varepsilon y , y \varepsilon x \implies x \varepsilon x \text{ per la propriet\`a transitiva}
-\end{gather*}
+\begin{align*}
+x \varepsilon y &\implies y \varepsilon x \text{ per la propriet\`a simmetrica} \\
+x \varepsilon y , y \varepsilon x &\implies x \varepsilon x \text{ per la propriet\`a transitiva}
+\end{align*}
 L'errore \`e che $x \varepsilon y$ non \`e dato \textit{per ogni $x$}: la relazione \`e riflessiva se $\forall x \in A \exists y : x \varepsilon y \iff $ la relazione \`e riflessiva.
 
 Altri esempi di relazioni con solo alcune delle propriet\`a delle relazioni d'ordine:
@@ -182,31 +172,32 @@ Altri esempi di relazioni con solo alcune delle propriet\`a delle relazioni d'or
 \begin{esercizio}
 Verificare le propriet\`a delle seguenti relazioni.
 \begin{itemize}
-  \item Parallelismo tra rette dello spazio \vspace{3cm}
-  \item $\naturals \times \naturals, (m, n) \rho (p, q) \iff (m + q) = (p + n)$, ossia $m - n = p - q$. \vspace{3cm}
-  \item $a, b \in \integers, a \equiv_n b \iff n \divides (a - b) \iff (a-b) = k n$ (congruenza modulo $n \in \naturals, n \ge 2$) \vspace{3cm}
-  \item Data una funzione $f: A \to B $, $ \varepsilon_f = $ \`e relazione di equivalenza individuata da $f$, detta ``nucleo di $f$''. \`E una relazione su $A$ t.c. $a, a' \in A, a \varepsilon_f a' \iff f(a) = f(a')$. \vspace{3cm}
+  \item Parallelismo tra rette dello spazio 
+  \item $\naturals \times \naturals, (m, n) \rho (p, q) \iff (m + q) = (p + n)$, ossia $m - n = p - q$. 
+  \item $a, b \in \integers, a \equiv_n b \iff n \divides (a - b) \iff (a-b) = k n$ (congruenza modulo $n \in \naturals, n \ge 2$) 
+  \item Data una funzione $f: A \to B $, $ \varepsilon_f = $ \`e relazione di equivalenza individuata da $f$, detta ``nucleo di $f$''. \`E una relazione su $A$ t.c. $a, a' \in A, a \varepsilon_f a' \iff f(a) = f(a')$. 
 \end{itemize}
 \end{esercizio}
 
-Data una relazione $R \subseteq A \times B$, possiamo definire $R^{\ast} = $ relazione duale di $R$. Due elementi $(a,b) \in A \times B$ sono $a \ R^{\ast} \ b \iff b \ R \ a$. Ad esempio, se $A = $ insieme di persone e $R = a $ figlio di $b$, la relazione duale \`e $R^{\ast} = b $ \`e genitore di $a$.
+Data una relazione $R \subseteq A \times B$, possiamo definire $R^{\ast}$, la relazione duale di $R$. Due elementi $(a,b) \in A \times B$ sono $a \ R^{\ast} \ b \iff b \ R \ a$. Ad esempio, se $A$ \`e un insieme di persone e $R$ \`e la relazione $ a $ figlio di $b$, la relazione duale \`e $R^{\ast}$ per cui $ b $ \`e genitore di $a$.
 
 La duale di una relazione d'ordine \`e ancora una relazione d'ordine, e viene tipicamente indicata con $\geq$.
 
-La coppia $(P, \leq)$ data dall'insieme $P \neq \emptyset$ con una relazione d'ordine $\le$ si dice insieme parzialmente ordinato.
+La coppia $(P, \le)$ data dall'insieme $P \neq \emptyset$ con una relazione d'ordine $\le$ si dice insieme parzialmente ordinato.
 
+\begin{defn}[Insieme totalmente (linearmente) ordinato]
 Se $\forall x, y \in P$ e si ha che $x \leq y \lor y \leq x$, $(P, \leq)$ si dice linearmente ordinato (o totalmente ordinato).
+\end{defn}
 
-L'insieme dei numeri naturali $\naturals$ con la relazione d'ordine naturale $(\naturals, \leq)$ \`e totalmente ordinato. Ma possiamo prendere anche l'insieme dei numeri naturali con la relazione di divisibilit\`a $(\naturals, \divides)$, ossia $m \divides n \iff m \text{ divide } n \iff \exists k \in \naturals$ t.c. $n = k \ m$. Rispetto a questa relazione d'ordine, $\naturals$ non \`e totalmente ordinato.
+L'insieme dei numeri naturali $\naturals$ con la relazione d'ordine naturale $(\naturals, \leq)$ \`e totalmente ordinato. Ma possiamo prendere anche l'insieme dei numeri naturali con la relazione di divisibilit\`a $(\naturals, \divides)$, ossia $m \divides n \iff m $ divide $ n \iff \exists k \in \naturals$ tale per cui $n = k \cdot m$. Rispetto a questa relazione d'ordine, $\naturals$ non \`e totalmente ordinato.
 
 L'insieme delle parti di un insieme $\Gamma$ qualunque con la relazione ``\`e sottoinsieme di'' $\left(\parts(\Gamma), \subseteq \right)$ \`e un insieme parzialmente ordinato. 
 
-Come si costruisce in modo naturale una relazione su un prodotto cartesiano? Ad esempio, prendo la relazione d'ordine naturale sui reali $(\reals, \leq)$ e $(\reals^2, \leq)$, ho $(a,b) \leq (c,d) \iff a \leq c \land b \leq d$.
-
+Come si costruisce in modo naturale una relazione su un prodotto cartesiano? Ad esempio, prendo la relazione d'ordine naturale sui reali $(\reals, \leq)$, e voglio definire naturalmente la relazione d'ordine $(\reals^2, \leq)$, ho che $(a,b) \leq (c,d) \iff a \leq c \land b \leq d$.
 \[
-B = \{ n \in \naturals : n = 2^r 3^s, r, s \in \naturals\}
+B = \{ n \in \naturals : n = 2^r \cdot 3^s \text{ con } r, s \in \naturals\}
 \]
-Definisco $\rho$ su $B$ come $2^r 3^s \leq 2^t 3^u \iff r \leq t \land s \leq u$. \`E una relazione d'ordine parziale. Perch\'e?
+Definisco $\rho$ su $B$ come $2^r \cdot 3^s \leq 2^t \cdot 3^u \iff r \leq t \land s \leq u$. \`E una relazione d'ordine parziale. Perch\'e?
 \vspace{3cm}
 
 \begin{defn}[Ordine naturale sul prodotto cartesiano]
@@ -306,9 +297,9 @@ Analogamente possiamo definire il SUP di $x,y$, un elemento di P che si indica c
 
 Ossia, $\inf(x,y)$ \`e il pi\`u grande dei minoranti di $x,y$ e $\sup(x,y)$ \`e il pi\`u piccolo di tutti i maggioranti di $x, y$.
 
-Prendiamo l'insieme $\Gamma$, il suo insieme delle parti e la relazione ``\`e sottoinsieme di'' $(P(\Gamma),\subseteq)$, e due sottoinsiemi $A, B \subseteq \Gamma$, l'$\inf(A,B) = A \cap B$. Il $\sup(A,B) = A \cup B$.
+Prendiamo l'insieme $\Gamma$, il suo insieme delle parti e la relazione ``\`e sottoinsieme di'' $(\parts(\Gamma),\subseteq)$, e due sottoinsiemi $A, B \subseteq \Gamma$, l'$\inf(A,B) = A \cap B$. Il $\sup(A,B) = A \cup B$.
 
-Prendiamo $(\naturals,\divides)$ e due elementi $m, n$. L'$\inf(m,n) = \operatorname{MCD}(m,n)$, mentre il $\sup(m,n) = \operatorname{mcm}(m,n)$.
+Prendiamo $(\naturals,\divides)$ e due elementi $m, n$. L'$\inf(m,n) = \mcd(m,n)$, mentre il $\sup(m,n) = \mcm(m,n)$.
 
 \section{Reticoli}
 \begin{defn}[Reticolo]
@@ -491,7 +482,7 @@ Una partizione di $A$ \`e un insieme di sottoinsiemi di $A$, indicato con $\pi$,
   \item[P3\label{itm:P3}] $\forall a \in A \exists B \in \pi : a \in B$
 \end{description}
 \end{defn}
-Una partizione $\pi$ \`e un insieme di sottoinsiemi non vuoti di $A$ t.c. hanno intersezione disgiunta e la loro unione \`e $A$. In altre parole, ogni elemento di $A$ appartiene ad un solo elemento di $\pi$.
+Una partizione $\pi$ \`e un insieme di sottoinsiemi non vuoti di $A$ t.c. hanno intersezione disgiunta e la loro unione \`e $A$. In altre parole, ogni elemento di $A$ appartiene a un solo elemento di $\pi$.
 
 Gli elementi di una partizione sono chiamati ``blocchi''.
 
