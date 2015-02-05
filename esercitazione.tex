@@ -126,7 +126,7 @@ $P^{-1}$ \`e la matrice che ha per colonne gli autovettori di $B_a$. $P$ \`e l'i
 \]
 Quindi $P$ \`e:
 \[
-P = \frac{1}{5} \cdot \agg (P^{-1}) = 
+P = \frac{1}{5} \cdot \agg{P^{-1}} = 
 \frac{1}{5} \cdot 
 {\begin{pmatrix}
 5 & 1 & -2 \\
@@ -144,12 +144,12 @@ P = \frac{1}{5} \cdot \agg (P^{-1}) =
 
 \begin{exmp}
 Consideriamo l'applicazione lineare $L : \reals_2 [x] \to \reals_2 [x]$ definita da:
-\[
-L(a_0 + a_1 \cdot x + a_2 \cdot x^2) =
-(a_0 - 3 a_1 + 3 a_2) +
-(3 a_0 - 5 a_1 + 3 a_2) \cdot x +
-(6 a_0 - 6 a_1 + 4 a_2) \cdot x^2
-\]
+\begin{align*}
+L(a_0 + a_1 \cdot x + a_2 \cdot x^2) &=
+(a_0 - 3 a_1 + 3 a_2) \\ 
+&+ (3 a_0 - 5 a_1 + 3 a_2) \cdot x \\
+&+ (6 a_0 - 6 a_1 + 4 a_2) \cdot x^2
+\end{align*}
 Trovare la matrice associata a $L$ rispetto alla base canonica, trovare autovettori e autovalori ed eventualmente la matrice diagonale $D$ che rappresenta $L$.
 
 La base canonica \`e $B_c = \{ 1, x, x^2 \}$. Le loro immagini sono:

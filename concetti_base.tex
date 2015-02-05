@@ -288,7 +288,7 @@ Dato un insieme $(P, \leq)$ parzialmente ordinato, e due elementi $x,y \in P$, s
 \end{description}
 \end{defn}
 \begin{defn}[SUP]
-Analogamente possiamo definire il SUP di $x,y$, un elemento di P che si indica con $\sup(x,y)$ tale che:
+Analogamente possiamo definire il SUP di $x,y$, un elemento di $P$ che si indica con $\sup(x,y)$ tale che:
 \begin{description}
     \item[SUP1\label{itm:sup1}] $\sup(x,y) \geq x $ e $ \sup(x,y) \geq y$
     \item[SUP2\label{itm:sup2}] $z \in P$, se $ z \geq x, y \implies z \geq \sup(x,y)$
@@ -1186,7 +1186,7 @@ Dati $t$ insiemi $A_1, \dots A_t$ tali che $A_i \cap A_j = \emptyset$ se $i \neq
 \]
 \end{prop}
 
-$+ \mapsto A \dotcup B$ con $ A \cap B = \emptyset$.
+% $+ \mapsto A \dotcup B$ con $ A \cap B = \emptyset$.
 
 \subsection{Principio del prodotto}
 
@@ -1737,7 +1737,7 @@ Il coefficiente $s(n, k)$ indica il numero di Stirling di prima specie.
 
 \subsection{Anagrammi}
 
-\textbf{Esercizio:} 
+\begin{esercizio}
 \begin{enumerate}
   \item determinare il numero degli ``anagrammi'' (anche privi di senso) di MATEMATICA;
   \item determinare il numero degli anagrammi che contengono almeno una di queste sequenze:
@@ -1817,8 +1817,9 @@ Adesso possiamo applicare il principio di inclusione/esclusione.
 \abs{A_1 \cup A_2 \cup A_3} = 
 \frac{7!}{2!} + 2 \cdot \frac{8!}{2! \ 2!} - 2 \cdot 5! - 6! + 3!
 \]
+\end{esercizio}
 
-\textbf{Esercizio:} 
+\begin{esercizio}
 \begin{enumerate}
   \item determinare il numero degli ``anagrammi'' (anche privi di senso) di TRATTARE;
   \item determinare il numero degli anagrammi che contengono almeno una di queste sequenze:
@@ -1865,6 +1866,7 @@ Per $A_2 \cap A_3$, come con $A_1 \cap A_2$, ATTA e ARE devono essere considerat
 \abs{A_2 \cap A_3} = 3!
 \]
 L'unico modo per intersecare tutte e tre le sequenze \`e la sequenza TRATTARE. Quindi $\abs{A_1 \cap A_2 \cap A_3} = 1$.
+\end{esercizio}
 
 % coefficienti multinomiali
 
