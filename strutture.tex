@@ -481,7 +481,7 @@ In questo caso l'immagine \`e tutto $\reals$. Infatti $\forall r \in \reals$, $ 
 
 Troviamo il nucleo della proiezione.
 \[
-\ker f = \{ (x, y) \in \reals \times \reals : p_1(x, y) = 0 \} = \{ (0, y) : y \in \reals \}
+\ker p_1 = \{ (x, y) \in \reals \times \reals : p_1(x, y) = 0 \} = \{ (0, y) : y \in \reals \}
 \]
 L'elemento neutro del gruppo $\reals \times \reals$, ossia $1_{\reals \times \reals} = (0, 0)$, \`e nel $ \ker p_1$. L'elemento neutro di $(\reals, +)$ \`e 0.
 
@@ -515,14 +515,14 @@ p(x) = 1 + 2x
 individua la funzione polinomiale $p : \reals \to \reals$ che $ \forall a \in \reals$ associa $1 + 2 \cdot a = p(a)$. Nel caso dei numeri reali, questa funzione \`e una biezione. Non \`e vero se prendo altri insiemi.
 
 \begin{defn}[Uguaglianza fra polinomi in $\reals$]
-Se due polinomi hanno la stessa funzione polinomiale, allora sono lo stesso polinomio. 
+Se due polinomi hanno la stessa funzione polinomiale, allora sono lo stesso polinomio.
 \end{defn}
 
 Per creare i polinomi bisogna avere un campo.
 
 Prendiamo $\integers_2 = \{ 0, 1 \}$, ossia i resti della divisione per 2, costruiti partendo dalla congruenza modulo 2 ($\integers / \equiv_2$). Possiamo definire due operazioni, di somma e di prodotto.
 
-\begin{table}[ht]
+\begin{table}[h]
 \centering
 \begin{tabular}{c|cc}
 + & 0 & 1 \\
@@ -609,10 +609,10 @@ Per ipotesi, $f$ \`e iniettiva. La tesi \`e che il nucleo \`e costituito da un s
 
 Viceversa, per ipotesi il nucleo ha un solo elemento:
 \begin{align*}
-\ker f = \{ 1_G \} \implies & f(a) = f(b) \implies & \\
- & f(a) \ast f(b)^{-1} = 1_{G'} \implies & \\
- & f(a \cdot b^{-1}) = 1_{G'} \implies & \\ 
- & a \cdot b^{-1} = 1_G \implies & a = b
+\ker f = \{ 1_G \} & \implies f(a) = f(b) \implies \\
+ & \implies f(a) \ast f(b)^{-1} = 1_{G'} \implies \\
+ & \implies f(a \cdot b^{-1}) = 1_{G'} \implies \\ 
+ & \implies a \cdot b^{-1} = 1_G \implies a = b
 \end{align*}
 \end{proof}
 % Se prendiamo $S$ sottogruppo di $G$ possiamo considerare la classe laterale destra $a S$ e la classe laterale sinistra $S a$. Lo vediamo la prossima volta. 
@@ -731,7 +731,7 @@ Consideriamo il gruppo simmetrico $S_4$ e una permutazione $\sigma \in S_4$. Pre
 \end{tabular}
 \end{center}
 
-Quindi il gruppo $H = \pow{\sigma} = \{ 1 , \sigma, \sigma^{2} \}$. L'inversa di $\sigma$ \`e $\sigma^{2}$. $H$ \`e un gruppo finito di ordine 3 (per il significato di ordine, vedere il teorema \ref{teorema_lagrange_ordine}).
+Quindi il gruppo $H$ delle potenze di $\sigma$ \`e $\pow{\sigma} = \{ 1 , \sigma, \sigma^{2} \}$. L'inversa di $\sigma$ \`e $\sigma^{2}$. $H$ \`e un gruppo finito di ordine 3 (per il significato di ordine, vedere il teorema \ref{teorema_lagrange_ordine}).
 
 Vediamo la relazione di equivalenza e la classe laterale definite da $H$.
 
@@ -810,7 +810,7 @@ Abbiamo visto che $\{ a \cdot H\}_{a \in G}$ \`e una partizione di $G$, e che $\
 \]
 
 \begin{defn}[Sottogruppi normali]
-un sottogruppo $N$ di $G$ si dice normale se, $\forall a \in G$, $a \cdot N = N \cdot a$, ossia ogni classe laterale destra \`e uguale alla classe laterale sinistra. Tutti i nuclei di morfismi sono sottogruppi normali.
+Un sottogruppo $N$ di $G$ si dice normale se, $\forall a \in G$, $a \cdot N = N \cdot a$, ossia ogni classe laterale destra \`e uguale alla classe laterale sinistra. Tutti i nuclei di morfismi sono sottogruppi normali.
 \end{defn}
 Condizione necessaria e sufficiente affinch\'e $N$ sia normale \`e che $\forall a \in G$ e $\forall u \in N$, $a \cdot u \cdot a^{-1} \in G$. Deriva banalmente da $a \cdot N = N \cdot a$
 
@@ -820,11 +820,11 @@ Condizione necessaria e sufficiente affinch\'e $N$ sia normale \`e che la relazi
 
 Ogni permutazione \`e una biezione che pu\`o essere indicata sia dal punto di vista dell'occupazione sia dal punto di vista della distribuzione (ossia, come parola).
 
-Consideriamo una permutazione $\sigma \in S_8$. Possiamo vederla dal punto di vista dell'occupazione, come in figura \ref{tab:cicli_sigma_occupazione}, o come parola:
+Consideriamo una permutazione $\sigma \in S_8$. Possiamo vederla dal punto di vista dell'occupazione, come nella tabella \ref{tab:cicli_sigma_occupazione}, o come parola:
 \[
 17465238
 \]
-\begin{table}[ht]
+\begin{table}[h]
 \centering
 \begin{tabular}{*{8}{c}}
 \multicolumn{8}{c}{$\sigma$} \\
@@ -840,9 +840,9 @@ Possiamo anche rappresentare le permutazioni come composte di cicli:
 \]
 $(2 7 3 4 6)$ significa che il 2 va nel 7, il 7 nel 3, il 3 nel 4, il 4 nel 6, e il 6 torna nel 2.
 
-$\mu = (3 1) (5 4 2) (8 7 6)$ \`e un prodotto di cicli. Corrisponde alla permutazione in figura \ref{tab:cicli_mu_occupazione}.
+$\mu = (3 1) (5 4 2) (8 7 6)$ \`e un prodotto di cicli. Corrisponde alla permutazione nella tabella \ref{tab:cicli_mu_occupazione}.
 
-\begin{table}[ht]
+\begin{table}[h]
 \centering
 \begin{tabular}{*{8}{c}}
 \multicolumn{8}{c}{$\mu$} \\
@@ -871,7 +871,7 @@ y \text{ se } y \notin [x] \\
 \]
 Quindi $\mu_x$ \`e una permutazione, e si comporta come $\mu$ nella classe individuata da $x$, lasciando fissi tutti gli altri elementi.
 
-Tornando alla permutazione $\mu$ in figura \ref{tab:cicli_mu_occupazione}, possiamo trovare $\mu_3 = \mu_1$, $\mu_5 = \mu_4 = \mu_2$, e $\mu_6 = \mu_7 = \mu_8$, in figura \ref{tab:cicli_mu_scomposizioni}.
+Tornando alla permutazione $\mu$ nella tabella \ref{tab:cicli_mu_occupazione}, possiamo trovare $\mu_3 = \mu_1$, $\mu_5 = \mu_4 = \mu_2$, e $\mu_6 = \mu_7 = \mu_8$, nella tabella \ref{tab:cicli_mu_scomposizioni}.
 
 \begin{table}[ht]
 \centering
@@ -898,7 +898,7 @@ Tornando alla permutazione $\mu$ in figura \ref{tab:cicli_mu_occupazione}, possi
 \caption{Le tre permutazioni $\mu_3$, $\mu_5$ e $\mu_6$ individuate da $\mu$\label{tab:cicli_mu_scomposizioni}}
 \end{table}
 
-Possiamo trovare $\mu$ come composizione di $\mu_3$, $\mu_5$ e $\mu_6$, come in figura \ref{tab:cicli_mu_composizione}.
+Possiamo trovare $\mu$ come composizione di $\mu_3$, $\mu_5$ e $\mu_6$, come nella tabella \ref{tab:cicli_mu_composizione}.
 \begin{table}[ht]
 \centering
 \begin{tabular}{*{9}{c}}
@@ -927,7 +927,7 @@ Consideriamo la permutazione individuata dai cicli disgiunti $(3 1 2) (5) (7 8) 
     \[
     (3 1 2) (5) (6 4) (8 7)
     \]
-    \item togliere le parentesi, perch\'e sappiamo che i cicli finiscono al primo elemento non decrescente
+    \item togliere le parentesi, perch\'e sappiamo che i cicli finiscono al primo elemento non decrescente:
     \[
     3 1 2 5 6 4 8 7
     \]
@@ -986,7 +986,7 @@ L'indice di $A_n$ quindi \`e:
 \[
 \frac{\abs{S_n}}{\abs{A_n}} = 2
 \]
-Quindi $A_n$ \`e un sottogruppo normale.
+Quindi $A_n$ \`e un sottogruppo normale, poich\'e se l'indice del sottogruppo $H$ del gruppo finito $G$ \`e il pi\`u piccolo fattore dell'ordine di $G$, allora $H$ \`e un sottogruppo normale di $G$.
 \end{oss}
 \begin{oss}
 $A_n$ \`e il nucleo del morfismo $f : (S_n, \circ) \to (\integers_2, +)$ definito come segue:
@@ -1005,10 +1005,10 @@ Ogni permutazione si esprime come prodotto di trasposizioni.
 \end{prop}
 Prendiamo una permutazione $\sigma$. Abbiamo dimostrato che le permutazioni si possono esprimere come prodotto di cicli.
 \[
-\sigma = \mu_1 \circ \mu_2 \ldots \mu_t
+\sigma = \mu_1 \circ \mu_2 \circ \ldots \circ \mu_t
 \]
 $\sigma$ \`e il prodotto di $t$ permutazioni. Ciascuna $\mu_i$ \`e una permutazione $k_i$-ciclica, ossia $\mu_i$ ha un solo ciclo di lunghezza $k_i$ e tutti gli altri cicli sono di lunghezza 1.
-\begin{table}[ht]
+\begin{table}[h]
 \centering
 \begin{tabular}{*{7}{c}}
 \multicolumn{7}{c}{$\sigma = \mu_1 \circ \mu_2$} \\
@@ -1026,7 +1026,7 @@ Per scrivere una permutazione $k$-ciclica come prodotto di trasposizioni, accopp
 \[
 (1 2 4 3) = (1 2) (2 4) (4 3)
 \]
-\begin{table}[ht]
+\begin{table}[h]
 \centering
 \begin{tabular}{*{8}{c}}
 \multicolumn{8}{c}{$(1 2) (2 4) (4 3)$} \\
@@ -1052,7 +1052,7 @@ Quindi, dato un ciclo $\mu_i = (a_1 a_2 \dots a_{t-1} a_t)$, lo scrivo come prod
 \]
 Ogni permutazione $k_i$-ciclica ha parit\`a uguale alla parit\`a di $k_i - 1$.
 
-La parit\`a di $\sigma = \mu_1 \circ \mu_2 \ldots \mu_t$ \`e:
+La parit\`a di $\sigma = \mu_1 \circ \mu_2 \circ \ldots \circ \mu_t$ \`e:
 \[
 \sum_{i = 1}^{t} (k_i - 1) = t + \sum_{i = 1}^{t} k_i
 \]
@@ -1155,14 +1155,14 @@ a^{-1} \circ a \circ x \circ a \circ a^{-1} = a^{-1} \circ a \circ c \circ b \ci
 \section{Strutture algebriche con due operazioni}
 
 \begin{description}
-    \item[Anelli] un anello \`e una struttura algebrica $(A, +, \cdot)$ t.c. 
+    \item[Anelli] Un anello \`e una struttura algebrica $(A, +, \cdot)$ t.c. 
     \begin{enumerate}
         \item La prima operazione $\left( A, + \right)$ \`e un gruppo abeliano.
         \item La seconda operazione considerata sull'insieme escluso l'elemento neutro, $(A \setminus \left \{ 0 \right \}, \cdot )$ \`e un semigruppo.
         \item $ \forall a, b, c \in A , \ a \cdot (b + c) = a \cdot b + a \cdot c $
         \item $ \forall a, b, c \in A , \ (a + b) \cdot c = a \cdot c + b \cdot c $
     \end{enumerate}
-    \item[Campi] \`e un anello in cui $( A \setminus \left \{ 0 \right \}, \cdot )$ \`e un gruppo abeliano.
+    \item[Campi] Un campo \`e un anello in cui $( A \setminus \left \{ 0 \right \}, \cdot )$ \`e un gruppo abeliano.
 \end{description}
 
 Gli interi sono un anello: $\left( \integers, +, \cdot \right)$.
@@ -1171,14 +1171,14 @@ I razionali sono un campo: $\left( \rationals, +, \cdot \right)$. Anche $\reals$
 
 \subsection{Anelli}
 
-un anello \`e una struttura algebrica con 2 operazioni $(A, +, \cdot)$ tale che:
+Un anello \`e una struttura algebrica con 2 operazioni $(A, +, \cdot)$ tale che:
 
 \begin{description}
     \item[1A] $(A, +)$ \`e un gruppo abeliano (ossia un gruppo commutativo)
     \item[2A] $(A, \cdot)$ \`e un semigruppo, ossia una struttura algebrica associativa
     \item[3A] valgono le propriet\`a distributive (devo scriverle entrambe perch\'e non \`e detto che le operazioni siano commutative)
 
-    $\forall a b c \in A$, $ a (b + c) = ab + ac$, $(b + c) a = b a + c a$
+    $\forall a, b, c \in A$, $ a \cdot (b + c) = a \cdot b + a \cdot c$, $(b + c) \cdot a = b \cdot a + c \cdot a$
 \end{description}
 
 \begin{defn}[Anello unitario]
@@ -1587,9 +1587,7 @@ Grazie all'identit\`a di B\'ezout possiamo trovare l'inverso di una classe.
 \[
 [s] = [a]^{-1}
 \]
-Se prendiamo $\integers_p$ con $p$ primo, $U(\integers_p) = \integers_p - \{ 0 \}$, ed \`e un gruppo, quindi $(\integers_p, +, \cdot)$ \`e un campo, ossia \`e una struttura algebrica con due operazioni.
-
-Ricordiamo che un campo \`e una struttura algebrica $(K, +, \cdot)$ tale che:
+Se prendiamo $\integers_p$ con $p$ primo, $U(\integers_p) = \integers_p - \{ 0 \}$, ed \`e un gruppo, quindi $(\integers_p, +, \cdot)$ \`e un campo, ossia \`e una struttura algebrica con due operazioni su un insieme $K$ tale che:
 \begin{enumerate}
     \item $(K, +, \cdot)$ \`e un anello commutativo unitario,
     \item $(K \setminus \{0\}, \cdot)$ \`e un gruppo commutativo,
@@ -1634,7 +1632,7 @@ Dobbiamo dimostrare che $P(n)$ \`e vera. O $n$ \`e primo, e ho verificato $P(n)$
 \begin{theorem}[Teorema fondamentale dell'aritmetica]
 Ogni numero naturale $n \ge 2$ si esprime in un unico modo come prodotto di potenze di numeri primi, ossia $n$ ha una sola fattorizzazione.
 \[
-n = p_{1}^{h_1} \cdot \ldots \cdot p_{k}^{h^k} = q_{1}^{t_1} \cdot \ldots \cdot q_{s}^{t_s} \implies k = s \text{ e } \forall i \in [1, k] \exists j \text{ t.c. } p_i^{h_i} = q_j^{t_j}
+n = p_{1}^{h_1} \cdot \ldots \cdot p_{k}^{h_k} = q_{1}^{t_1} \cdot \ldots \cdot q_{s}^{t_s} \implies k = s \text{ e } \forall i \in [1, k] \exists j \text{ t.c. } p_i^{h_i} = q_j^{t_j}
 \]
 \end{theorem}
 \begin{proof}
@@ -1648,7 +1646,7 @@ $p_1$ divide $n$, quindi divide anche $q_{1}^{t_1} \cdot \ldots \cdot q_{s}^{t_s
 \[
 p_1 \divides n = q_{1}^{t_1} \cdot \ldots \cdot q_{s}^{t_s}
 \]
-Per il corollario \ref{corollario_interi_secondo} $\exists j = 1 \ldots s$ tale che $p_1 \divides q_j$. Ma posso ripetere lo stesso discorso per $q_j$: per il corollario \ref{corollario_interi_primo} $q_j$ divide $n$, quindi $q_j \divides n = p_{1}^{h_1} \cdot \ldots \cdot p_{k}^{h^k}$. Di nuovo, per il corollaro \ref{corollario_interi_secondo}, deve esistere un indice $i_j$ tale che $q_j \divides p_{i_j}$.
+Per il corollario \ref{corollario_interi_secondo} $\exists j = 1 \ldots s$ tale che $p_1 \divides q_j$. Ma posso ripetere lo stesso discorso per $q_j$: per il corollario \ref{corollario_interi_primo} $q_j$ divide $n$, quindi $q_j \divides n = p_{1}^{h_1} \cdot \ldots \cdot p_{k}^{h_k}$. Di nuovo, per il corollaro \ref{corollario_interi_secondo}, deve esistere un indice $i_j$ tale che $q_j \divides p_{i_j}$.
 
 $p_1 \divides q_j \divides p_{i_j} \implies p_1 = q_j = p_{i_j} $, essendo tutti primi devono essere uguali.
 
@@ -1724,9 +1722,9 @@ L'insieme degli elementi invertibili di $\integers_n$ \`e l'insieme di tutti gli
 U(\integers_n) &= \{ h \in \integers_n : \mcd(h, n) = 1 \} \\
 \abs{U(\integers_n)} &= \Phi(n). 
 \end{align*}
-Il prodotto $\prod_{h \in U(\integers_n)} [h \cdot a]$  per definizione del prodotto fra classi \`e $= \prod_{h \in U(\integers_n)} [h] \cdot [a]$ e mettendo in evidenza $a = [a]^{\Phi(n)} \cdot \prod_{h \in U(\integers_n)} [h]$.
+Il prodotto $\prod_{h \in U(\integers_n)} [h \cdot a]$  per definizione del prodotto fra classi \`e:
 \begin{align*}
-\prod_{h \in U(\integers_n)} [h \cdot a] &= & \text{per definizione del prodotto fra classi} \\
+\prod_{h \in U(\integers_n)} [h \cdot a] &= & \\
 \prod_{h \in U(\integers_n)} [h] \cdot [a] &= & \text{e mettendo in evidenza $a$} \\
 [a]^{\Phi(n)} \cdot \prod_{h \in U(\integers_n)} [h] &&
 \end{align*}
@@ -2336,11 +2334,10 @@ Sia $(G, \cdot)$ un gruppo ciclico generato da $a \in G$, allora ci sono due cas
     \item\label{itm:gruppo_ciclico_infinito} $\abs{G} = \infty$
     \item\label{itm:gruppo_ciclico_finito} $\abs{G} = n$, ossia la sua cardinalit\`a \`e finita
 \end{enumerate}
-Nel caso \ref{itm:gruppo_ciclico_infinito} $(G,+)$ \`e isomorfo a $(\integers,+)$. Nel caso \ref{itm:gruppo_ciclico_finito}, $(G, +)$ \`e isomorfo a $(\integers_n, +)$.
+Nel caso \ref{itm:gruppo_ciclico_infinito} $(G, \cdot)$ \`e isomorfo a $(\integers,+)$. Nel caso \ref{itm:gruppo_ciclico_finito}, $(G, \cdot)$ \`e isomorfo a $(\integers_n, +)$.
 \end{theorem}
 
-\begin{proof}
-Dimostrazione dei due casi.
+\begin{proof}[dei due casi]
 
 Caso \ref{itm:gruppo_ciclico_infinito}. Troviamo $f : (\integers, +) \to (G, \cdot)$. $G = \pow{a}$. L'isomorfismo \`e l'unico che esiste tale per cui $f(1) = a$. Ossia $f(t) = a^{t}$.
 \[
@@ -2535,8 +2532,8 @@ Abbiamo due anelli, $(A, +, \cdot)$ e $(A', +, \cdot)$.
 $f : (A, +, \cdot) \to (A', +, \cdot)$ \`e un morfismo di anelli.
 
 \begin{enumerate}
-    \item L'immagine di $f$, $\image{f}$ \`e un sottoanello di $A'$
-    \item $A / \varepsilon_f = A / \ker f$ (inteso come morfismo di gruppi) \`e un anello isomorfo all'immagine $\image{f}$. L'isomorfismo $F : A / \ker f \to \image{f}$ \`e quello che manda una classe nell'immagine di tutti gli elementi. $[a]$ \`e la classe di tutti gli elementi che hanno immagine $f(a)$ uguale.
+    \item L'immagine di $f$, $\image{f}$ \`e un sottoanello di $A'$.
+    \item $A / \varepsilon_f = A / \ker f$ (inteso come morfismo di gruppi) \`e un anello isomorfo all'immagine $\image{f}$. L'isomorfismo $F : A / \ker f \to \image{f}$ \`e quello che manda una classe nell'immagine di tutti gli elementi della classe ($[a]$ \`e la classe di tutti gli elementi che hanno immagine $f(a)$ uguale).
     \[
     F[a] = f(a) \forall [a] \in A / \ker f
     \]
@@ -2701,7 +2698,7 @@ Per capire cosa \`e il prodotto fra matrici, partiamo dai sistemi di equazioni l
 \[
 a_1 \cdot x_1 + \dots + a_n \cdot x_n = b
 \]
-Possiamo costruire un sistema di equazioni lineari in $n$ incognite e $m$ equazioni:
+Possiamo costruire un sistema di $m$ equazioni lineari in $n$ incognite:
 \[
 \begin{cases}
 a_{1,1} x_1 + \dots + a_{1,n} x_n = b_1 \\
@@ -2850,9 +2847,9 @@ M_{1, n} \times N_{n, 1} =
 \begin{pmatrix}
 b
 \end{pmatrix}
-= a_1 \cdot c_1 + \ldots + a_n \cdot a_n
+= a_1 \cdot c_1 + \ldots + a_n \cdot c_n
 \end{gather*}
-Posso moltiplicare una matrice con un certo numero di colonne per una matrice con lo stesso numero di righe. L'ordine \`e importante.
+Posso moltiplicare una matrice con un certo numero di colonne per una matrice con lo stesso numero di righe. L'ordine \`e importante: $n$ righe la prima e $n$ colonne la seconda!
 \[
 \begin{pmatrix}
 1 & 2 & 5 & 6 
@@ -3000,7 +2997,7 @@ Il risultato quindi \`e:
 \end{pmatrix}
 \]
 \end{exmp}
-Ora, il prodotto si pu\`o definire su un insieme di matrici solo se le matrici sono quadrate. $\matrices_n (\reals)$ \`e l'insieme delle matrici quadrate con coefficienti in $\reals$, e $(\matrices_n (\reals), +, \cdot)$ \`e un anello non commutativo (il prodotto non commuta) unitario.
+Ora, il prodotto si pu\`o definire su un insieme di matrici solo se le matrici sono quadrate. $\matrices_n (\reals)$ \`e l'insieme delle matrici quadrate con $n$ righe e con coefficienti in $\reals$, e $(\matrices_n (\reals), +, \cdot)$ \`e un anello non commutativo (il prodotto non commuta) unitario.
 
 L'unit\`a rispetto al prodotto \`e la matrice con tutti 1 sulla diagonale, e 0 altrimenti. Si indica con $I$ o con $\delta$. Il termine $\delta_{i, j}$ \`e:
 \[

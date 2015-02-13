@@ -13,7 +13,7 @@ Le applicazioni lineari sono morfismi tra spazi vettoriali sullo stesso campo $\
 \end{enumerate}
 Equivalentemente possiamo dire che:
 \[
-\forall a, b \in \field , \, \forall v, w \in V \, L(a \cdot v + b \cdot w) = a \cdot L(v) + b \cdot L(w)
+\forall a, b \in \field , \, \forall v, w \in V , \, L(a \cdot v + b \cdot w) = a \cdot L(v) + b \cdot L(w)
 \]
 Conserva la linearit\`a: manda una combinazione lineare nella combinazione lineare delle immagini con gli stessi coefficienti.
 \end{defn}
@@ -92,7 +92,7 @@ Come \`e fatta l'immagine?
 \]
 Infatti posso prendere la terna $(0, x, y)$, ho che la sua immagine \`e $(x,y)$. Quindi l'immagine ha dimensione 2.
 
-Possiamo notare che $\dim R^3 = \dim \ker L + \dim \image{L}$. La dimensione del dominio \`e data dalla dimensione del nucleo pi\`u la dimensione dell'immagine.
+Possiamo notare che $\dim \reals^3 = \dim \ker L + \dim \image{L}$. La dimensione del dominio \`e data dalla dimensione del nucleo pi\`u la dimensione dell'immagine.
 
 L'applicazione $L(a,b,c) = (a^2, b+c)$ non \`e lineare. Si vede subito, perch\'e c'\`e un quadrato che causa rogne.
 
@@ -613,9 +613,10 @@ A_B =
 0 & 1 & 1
 \end{pmatrix}
 \]
-\begin{prop}
-Data una base $B$ di $V$, con $\dim B = n$, ossia $B = \{ e_{1}, \ldots, e_{n} \}$, e un altro spazio vettoriale $V'$, e $n$ vettori ${v'}_{1}, \ldots, {v'}_{n} \in V'$, esiste una sola applicazione lineare $L : V \to V'$ tale che $L(e_i) = v_i'$.
-\end{prop}
+% % questo teorema e' una ripetizione
+% \begin{prop}
+% Data una base $B$ di $V$, con $\dim B = n$, ossia $B = \{ e_{1}, \ldots, e_{n} \}$, e un altro spazio vettoriale $V'$, e $n$ vettori ${v'}_{1}, \ldots, {v'}_{n} \in V'$, esiste una sola applicazione lineare $L : V \to V'$ tale che $L(e_i) = v_i'$.
+% \end{prop}
 
 \begin{exmp}
 Consideriamo gli spazi vettoriali $V = \reals_3[x]$ e $V' = \matrices_2 (\reals)$, e la base canonica $B_c = \{ 1, x, x^2, x^3 \}$ di $V$. L'applicazione \`e definita come:
@@ -632,7 +633,7 @@ L(x^2) =
 \begin{smallpmatrix}
 0 & 0 \\ 0 & 0
 \end{smallpmatrix} \\
-L(X^3) = 
+L(x^3) = 
 \begin{smallpmatrix}
 1 & 1 \\ 1 & 1
 \end{smallpmatrix}
@@ -874,17 +875,15 @@ M_{B}^{B'} (L^{-1}) \times M_{B'}^{B} (L)
 
 Prendiamo uno spazio vettoriale $V$ di dimensione $\dim V = n$, e due basi di $V$, $B$ e $B'$. Un vettore $v \in V$ si pu\`o scrivere rispetto a entrambi le basi. $v = B \times X$, con $X$ a indicare la colonna delle coordinate di $v$ rispetto a $B$, e $v = B' \times X'$, con $X'$ a indicare la colonna delle coordinate di $v$ rispetto a $B'$.
 
-Come si pu\`o esprimere $X'$ in funzione di $X$? Ossia, ho le coordinate $X$ rispetto a $B$, posso trovare le coordinate $X'$ rispetto a $B'$?
+Come si pu\`o esprimere $X'$ in funzione di $X$? Ossia, ho le coordinate $X$ rispetto a $B$, posso trovare le coordinate $X'$ rispetto a $B'$? Viene molto facile usando le matrici associate alle applicazioni lineari.
 
-Viene molto facile usando le matrici associate alle applicazioni lineari.
-
-Consideriamo l'applicazione identit\`a, $\id : V \to V'$, tale per cui $\id(v) = v$. Prendiamo due basi differenti $B$ e $B'$ di $V$. La matrice associata $M_{B'}^{B} (\id)$ avr\`a per colonne le coordinate di $e_1, \ldots e_n \in B$ rispetto a $B'$.
+Consideriamo l'applicazione identit\`a, $\id : V \to V$, tale per cui $\id(v) = v$. Prendiamo due basi differenti $B$ e $B'$ di $V$. La matrice associata $M_{B'}^{B} (\id)$ avr\`a per colonne le coordinate di $e_1, \ldots e_n \in B$ rispetto a $B'$.
 \[
-v = \id(v) = B \times M_{B'}^{B} (\id) \times X
+v = \id(v) = B' \times M_{B'}^{B} (\id) \times X
 \]
-Quindi, sapendo che $v = B \times X = B' \times X'$, segue che$ X' = M_{B'}^{B} (\id) \times X$.
+Quindi, sapendo che $v = B \times X = B' \times X'$, segue che $ X' = M_{B'}^{B} (\id) \times X$.
 
-$X' = P \times X$, con $X = M_{B'}^{B} (\id)$, e quindi $P^{-1} = M_{B}^{B'} (\id)$.
+$X' = P \times X$, con $P = M_{B'}^{B} (\id)$, e quindi $P^{-1} = M_{B}^{B'} (\id)$.
 
 \begin{exmp}
 Siamo in $\reals^2$. Consideriamo le basi:
@@ -1042,9 +1041,9 @@ L = id \circ L \circ id
 Remember: la matrice associata alla composta \`e la composta delle matrici.
 \[
 M_{B'} (L) =
-M_{B}^{B'} (\id) \times M_{B} (L) \times M_{B'}^{B} (\id)
+M_{B'}^{B} (\id) \times M_{B} (L) \times M_{B}^{B'} (\id)
 \]
-Abbiamo visto che $M_{B}^{B'} (\id)$ e $M_{B'}^{B} (\id)$ sono l'una l'inversa dell'altra. Chiamiamo $P = M_{B'}^{B} (\id)$. Quindi:
+Abbiamo visto che $M_{B}^{B'} (\id)$ e $M_{B'}^{B} (\id)$ sono l'una l'inversa dell'altra. Chiamiamo $P = M_{B}^{B'} (\id)$. Segue che:
 \[
 A' = P^{-1} \times A \times P
 \]
@@ -1187,7 +1186,7 @@ Abbiamo visto che, data un'applicazione lineare $L : V \to V$, con $\dim V = n$,
 
 Sapendo che $L = \id \circ L \circ \id$, e che, data un'applicazione composta $G = L \circ F$, la matrice associata a $G$ \`e il prodotto delle matrici associate a $L$ e a $F$:
 \[
-M_{B''}^{B} (G) = M_{B''}^{B} (L) \times M_{B'}^{B} (F)
+M_{B''}^{B} (G) = M_{B''}^{B'} (L) \times M_{B'}^{B} (F)
 \]
 Sapendo questo, dicevamo, si vede che:
 \[
