@@ -14,7 +14,7 @@ Struttura degli appunti:
 - `applicazioni.tex`: rappresentazione di applicazioni lineari con matrici, diagonalizzazione
 - `esercitazione.tex`: esercizi svolti in aula alla fine del corso
 
-Questi appunti sono un pozzo di miseria senza fondo. Avanti con i capitoli la formalit\`a li abbandona lentamente. Maneggiali con cura. Accetto volentieri correzioni a <asmeikal@me.com>.
+Questi appunti sono un pozzo di miseria senza fondo. Avanti con i capitoli la formalit&agrave; li abbandona lentamente. Maneggiali con cura. Accetto volentieri correzioni a <asmeikal@me.com>.
 
 ### Package
 
