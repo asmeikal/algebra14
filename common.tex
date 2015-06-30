@@ -1,0 +1,124 @@
+\documentclass[11pt,a4paper,twoside]{report}
+% draft mode prevents link generation
+
+\usepackage[italian]{babel}
+% per date e ToC in italiano
+\usepackage{hyperref}
+\usepackage{nameref}
+\usepackage[table]{xcolor}
+\usepackage{amsmath}        % matematica
+\usepackage{amsthm}         % teoremi
+\usepackage{thmbox}
+\usepackage{amssymb}        % simboli
+\usepackage{amsfonts}       % font matematici
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{centernot}      % per semplificare
+
+\usepackage{fullpage}       % troppo margine normalmente
+\usepackage{parskip}        % preferisco spazio fra i paragrafi
+                            % all'indentazione sulla prima riga
+
+\usepackage{pgfplots}       % grafici
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{shapes,arrows,calc,fit,backgrounds}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancyplain}
+\fancyhead{} % clear all header fields
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\today}
+\fancyfoot[LE,RO]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\theoremstyle{plain}
+\newtheorem{axiom}{Assioma}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lem}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposizione}
+\newtheorem{cor}[theorem]{Corollario}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definizione}[section]
+\newtheorem{esercizio}{Esercizio}
+
+\theoremstyle{remark}
+\newtheorem{oss}{Osservazione}
+\newtheorem{caso}{Caso}
+\newtheorem{fact}{Fatto}
+
+\newenvironment{exmp}[1][]
+{ \par\medskip\textbf{Esempio\ #1\unskip\,:}\\*[1pt]\rule{\textwidth}{0.4pt}\\*[1pt] }
+{ \\*[1pt]\rule{\textwidth}{0.4pt}\medskip }
+
+\newenvironment{smallpmatrix}
+{\left( \begin{smallmatrix}}
+{\end{smallmatrix} \right)}
+
+\newenvironment{completepmatrix}[1]
+{\left(\begin{array}{*{#1}{c}|c}}
+{\end{array}\right)}
+
+\newcommand{\covers}{<\!\cdot}                      % simbolo di 'copre'
+\newcommand{\compl}{\mathsf{c}}                     % C complementare
+\newcommand{\dotcup}{\mathaccent\cdot\cup}          % unione disgiunta
+\newcommand{\lateralsx}[1]{{}_{#1}\!\sim}           % equivalenza sinistra
+\newcommand{\lateraldx}[1]{\sim_{#1}}               % equivalenza destra
+\newcommand{\mcm}{\operatorname{mcm}}               % mcm
+\newcommand{\mcd}{\operatorname{MCD}}               % MCD
+\newcommand{\pow}[1]{<\!{#1}\!>}                    % gruppo delle potenze (<a>)
+\newcommand{\abs}[1]{\left\lvert{#1}\right\rvert}   % valore assoluto
+\newcommand{\norm}[1]{\left\lVert{#1}\right\rVert}  % norma di un vettore
+\newcommand{\divides}{\bigm|}                       % simbolo di 'divide'
+\newcommand{\definition}{%
+    \overset{\underset{\mathrm{def}}{}}{=}}         % uguale con 'definizione' sopra
+\newcommand{\supop}{\vee}                           % simbolo dell'operatore sup
+\newcommand{\infop}{\wedge}                         % simbolo dell'operatore inf
+\newcommand{\subgroupset}{\mathscr{S}}              % insieme dei sottogruppi (S corsiva)
+\newcommand{\solutions}{\mathscr{S}}                % insieme delle soluzioni
+\newcommand{\parts}{\mathbb{P}}                     % insieme dei naturali
+\newcommand{\naturals}{\mathbb{N}}                  % insieme dei naturali
+\newcommand{\integers}{\mathbb{Z}}                  % insieme degli interi
+\newcommand{\rationals}{\mathbb{Q}}                 % insieme dei razionali
+\newcommand{\reals}{\mathbb{R}}                     % insieme dei reali
+\newcommand{\complexes}{\mathbb{C}}                 % insieme dei complessi
+\newcommand{\field}{\mathbb{K}}                     % simbolo di campo generico
+\newcommand{\subfield}{\mathbb{F}}                  % simbolo di sottocampo generico
+\newcommand{\matrices}{\mathfrak{M}}                % insieme delle matrici
+\newcommand{\nullelement}{\underline{0}}            % elemento neutro
+\newcommand{\image}[1]{Im_{#1}}                     % immagine
+\newcommand{\detname}{\operatorname{det}}           % determinante
+\renewcommand{\det}[1]{\detname \left({#1}\right)}  % determinante(A)
+\newcommand{\algcompl}[2][A]{{\mathcal{#1}}_{#2}}   % complemento algebrico
+\newcommand{\agg}[1]{\operatorname{Agg}%
+    \left( {#1} \right)}                            % matrice aggiunta
+\newcommand{\id}{id}                                % identita'
+\newcommand{\sfrac}[2]{{#1}/{#2}}                   % frazione su una riga sola
+\newcommand{\requiv}[1][]{\ \varepsilon_{#1} \ }    % relazione di equivalenza
+
+% maggiore semantica
+\let\oldforall\forall
+\let\oldexists\exists
+\renewcommand{\forall}{\ \oldforall \ }
+\renewcommand{\exists}{\ \oldexists \ }
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\iff}{\Leftrightarrow}
+
+\renewcommand{\labelitemi}{$-$}
+
+\makeatletter
+\let\orgdescriptionlabel\descriptionlabel\renewcommand*{\descriptionlabel}[1]{%
+\let\orglabel\label
+\let\label\@gobble
+\phantomsection
+\edef\@currentlabel{#1}%
+%\edef\@currentlabelname{#1}%
+\let\label\orglabel
+\orgdescriptionlabel{#1}%
+}
+\makeatother
+
+\author{Michele Laurenti \\ \href{mailto:asmeikal@me.com}{asmeikal@me.com}}
+\date{\today}
