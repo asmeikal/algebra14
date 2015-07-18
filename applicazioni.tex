@@ -154,7 +154,7 @@ In questo caso il nucleo ha dimensione 2, e si pu\`o ottenere a partire dai vett
 L'immagine \`e generata dai vettori $(1,0,1)$ e $(0,1,0)$.
 \end{exmp}
 \begin{prop}
-Dati $v_1', \ldots v_n'$ vettori di $V'$ e una base $B = \{ b_1, \dots b_n \}$ di $V$, esiste una sola applicazione lineare $L : V \to V'$ tale che $L(b_i) = v_i'$. Non sapppiamo niente sulle dimensioni di $V$ e di $V'$, ossia non sono necessariamente uguali.
+Dati $v_1', \ldots v_n'$ vettori di $V'$ e una base $B = \{ b_1, \dots b_n \}$ di $V$, esiste una sola applicazione lineare $L : V \to V'$ tale che $L(b_i) = v_i'$. Non sappiamo niente sulle dimensioni di $V$ e di $V'$, ossia non sono necessariamente uguali.
 \end{prop}
 \begin{proof}
 Consideriamo il vettore $v = a_1 \cdot b_1 + \ldots + a_n \cdot b_n$. La sua immagine \`e:
@@ -1059,7 +1059,7 @@ La relazione $\rho$ per cui $A \rho A' \iff A$ \`e simile a $A'$, \`e una relazi
 Vale anche il viceversa: se due matrici sono simili, rappresentano lo stesso endomorfismo rispetto a basi diverse.
 \end{defn}
 \begin{proof}[del viceversa]
-$L : V \to V$ \`e un endomorfismo, e $A$ \`e la matriche associata a $L$ rispetto a $B$. Prendiamo poi una matrice $A'$ simile ad $A$. La tesi \`e che $A'$ rappresenta lo stesso morfismo rispetto a un'altra base $B'$.
+$L : V \to V$ \`e un endomorfismo, e $A$ \`e la matrice associata a $L$ rispetto a $B$. Prendiamo poi una matrice $A'$ simile ad $A$. La tesi \`e che $A'$ rappresenta lo stesso morfismo rispetto a un'altra base $B'$.
 
 Essendo simile, $A' = P^{-1} \times A \times P$. Ma $P$ \`e:
 \[
@@ -1080,7 +1080,7 @@ Ci sono due problemi equivalenti:
     \[
     D = P^{-1} \times A \times P
     \]
-    Una matrice diagonale $D$ \`e una matrice $D = (d_{i,j}) $ tale che $ d_{i,j} \neq 0 $ se $ i \neq j$.
+    Una matrice diagonale $D$ \`e una matrice $D = (d_{i,j}) $ tale che $ d_{i,j} = 0 $ se $ i \neq j$.
     \item Dato un endomorfismo $L : V \to V$, esiste una base $B$ di $V$ per cui la matrice che rappresenta $L$ rispetto a questa base $B$ \`e una matrice $D$ diagonale?
     \[
     M_{B} (L) = D
@@ -1485,17 +1485,3 @@ m_g(2) = 1 < m_a(2) = 2
 \]
 Sapevamo gi\`a da prima che $E(2) = \pow{(1,0,0)}$.
 \end{exmp}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
