@@ -1131,7 +1131,7 @@ Se $v$ esiste, allora $X$ \`e soluzione non nulla di questo sistema. Se il $\det
 
 Gli autovalori di $L$ sono gli zeri del polinomio $\det{A - \lambda \cdot I}$, detto anche polinomio caratteristico.
 
-Una volta trovati gli autovalori, come si trovano gli autovettori? Risolvendo il sistema $(A - \lambda \cdot I) = \nullelement$.
+Una volta trovati gli autovalori, come si trovano gli autovettori? Risolvendo il sistema $(A - \lambda \cdot I) \times X = \nullelement$.
 
 Prendendo un'altra matrice $A'$ associata a $L$ rispetto a un'altra base, questa ha lo stesso polinomio caratteristico.
 \[
@@ -1163,9 +1163,9 @@ $\det{A - \lambda \cdot I}$ \`e un polinomio di grado $n$, che quindi ammette al
 \[
 (A - \lambda \cdot I) =
 \begin{pmatrix}
-a_{1,1} - \lambda & \dots & \\
-\vdots & \ddots & \\
-& & a_{n,n} - \lambda
+a_{1,1} - \lambda & \dots & a_{n,1} \\
+\vdots & \ddots & \vdots \\
+a_{1,n} & \dots & a_{n,n} - \lambda
 \end{pmatrix}
 \]
 Quella sopra non \`e condizione necessaria: si possono avere meno autovalori distinti, ma avere comunque una base.
@@ -1356,17 +1356,17 @@ Le molteplicit\`a geometriche sono le dimensioni delle basi, quindi viene subito
 \end{proof}
 
 \begin{exmp}
-Consideriamo l'applicazione lineare $T : \reals^3 \to \reals^3$. Si pu\`o definire un'applicazione lineare in tre modi.
+Consideriamo l'applicazione lineare $T : \reals^3 \to \reals^3$. Si pu\`o definire un'applicazione lineare in tre modi:
 \begin{enumerate}
-    \item Dire chi \`e $T(x,y,z) = ?$
-    \item dire chi \`e la matrice $A$ associata a $T$ rispetto a una base $B$
+    \item dire quanto vale $T(x,y,z)$;
+    \item dire qual \`e la matrice $A$ associata a $T$ rispetto a una base $B$:
     \[
     T(x,y,z) = A \times 
     \begin{pmatrix}
     x' \\ y' \\ z'
     \end{pmatrix}
     \]
-    Dove $(x', y', z')$ sono le coordinate di $(x,y,z)$ rispetto a $B$.
+    dove $(x', y', z')$ sono le coordinate di $(x,y,z)$ rispetto a $B$;
     \item dire quali valori assume $T$ sui valori di una base $B$, ad esempio $T(1,1,1)$, $T(1,1,0)$, $T(1,0,0)$.
 \end{enumerate}
 Diciamo i valori che $T$ assume sulla base:
@@ -1436,7 +1436,7 @@ Troviamo gli autospazi.
 \[
 E(3) = \{ v \in \reals^3 : T(v) = 3 \cdot v \}
 \]
-Tutti i $v \in E(3)$ ha coordinate $X$ rispetto alla base canonica tali che il sistema $(A - 3 \cdot I) \times X = 0$.
+Tutti i $v \in E(3)$ hanno coordinate $X$ rispetto alla base canonica che risolvono il sistema $(A - 3 \cdot I) \times X = 0$.
 \[
 \begin{pmatrix}
 -1 & 1 & 0 \\
@@ -1455,11 +1455,11 @@ x \\ y \\ z
 2y + z = 0
 \end{cases}
 \]
-Le soluzioni sono $z = - 2 y$ e $x = y$, ossia $(x, x, -2x)$.
+Le soluzioni sono $z = - 2 \, y$ e $x = y$, ossia $(x, x, -2 \, x)$.
 \[
-E(3) = \{ (x,x,-2x) \in \reals^3 : x \in \reals \}
+E(3) = \{ (x,x,-2 \, x) \in \reals^3 : x \in \reals \}
 \]
-La sua dimensione \`e $\dim E(3) = 1$, quindi $E(3)$ \`e isomorfo a $\reals$, e l'isomorfismo \`e quello che associa a un certo $y \mapsto (y, y, -2y)$.
+La sua dimensione \`e $\dim E(3) = 1$, quindi $E(3)$ \`e isomorfo a $\reals$, e l'isomorfismo \`e quello che associa a un certo $y \mapsto (y, y, -2 \, y)$.
 \[
 E(3) = \pow{(1,1,-2)}
 \]
