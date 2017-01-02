@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,twoside]{report}
+\documentclass[article,a4paper,oneside]{memoir}
 % draft mode prevents link generation
 
 \usepackage[italian]{babel}
@@ -8,29 +8,15 @@
 \usepackage[table]{xcolor}
 \usepackage{amsmath}        % matematica
 \usepackage{amsthm}         % teoremi
-\usepackage{thmbox}
 \usepackage{amssymb}        % simboli
 \usepackage{amsfonts}       % font matematici
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{centernot}      % per semplificare
 
-\usepackage{fullpage}       % troppo margine normalmente
-\usepackage{parskip}        % preferisco spazio fra i paragrafi
-                            % all'indentazione sulla prima riga
-
 \usepackage{pgfplots}       % grafici
 \pgfplotsset{compat=1.5}
 \usetikzlibrary{shapes,arrows,calc,fit,backgrounds}
-
-\usepackage{fancyhdr}
-
-\pagestyle{fancyplain}
-\fancyhead{} % clear all header fields
-\fancyfoot{} % clear all footer fields
-\fancyfoot[LE,RO]{\thepage}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
 
 \theoremstyle{plain}
 \newtheorem{axiom}{Assioma}
@@ -104,8 +90,6 @@
 \renewcommand{\exists}{\ \oldexists \ }
 \renewcommand{\implies}{\Rightarrow}
 \renewcommand{\iff}{\Leftrightarrow}
-
-\renewcommand{\labelitemi}{$-$}
 
 \makeatletter
 \let\orgdescriptionlabel\descriptionlabel\renewcommand*{\descriptionlabel}[1]{%
